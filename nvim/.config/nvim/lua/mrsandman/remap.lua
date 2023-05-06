@@ -39,7 +39,7 @@ vim.keymap.set("n", "<leader>r", ':RnvimrToggle<CR>', ( { silent = true, noremap
 vim.keymap.set("n", "<leader>s",[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -- Set files to be executable:
-vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+vim.keymap.set("n", "<leader>cx", "<cmd>!chmod +x %<CR>", { silent = true })
 
 -- Packer Sync shortcut
 vim.keymap.set("n", "<leader>ps", ":PackerSync<CR>", { noremap = true, silent = true })

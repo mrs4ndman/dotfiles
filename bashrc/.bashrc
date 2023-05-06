@@ -126,7 +126,7 @@ export EDITOR="vim"
 export FZF_DEFAULT_COMMAND='rg --files --hidden -g "!.git" '
 export FZF_DEFAULT_OPTS='-m --height 40% --border'
 export MAINED="nvim"
-export PATH="/home/mrsandman/.cargo/bin:/home/mrsandman/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+export PATH="$HOME/.cargo/bin:$HOME/.fzf:$HOME/.local/bin:$HOME/.local/scripts:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 export VIMRC="$HOME/.vimrc"
 export VISUAL="vim"
 set -o vi
@@ -273,6 +273,14 @@ alias gsp='git stash pop'
 #-------------------------------------------------------------#
 
 
+#----------------------- TMUX ALIAS ZONE ---------------------#
+
+alias tls='tmux ls'
+alias tks='tmux kill-session -t'
+alias trs='tmux rename'
+
+#-------------------------------------------------------------#
+
 #--- ARCHIVE EXTRACTOR - EXTRACTOR DE ARCHIVOS COMPRIMIDOS ---#
 #--- Requires the following packages - Requiere los siguiente paquetes:
 # bzip2 tar rar unrar gzip zip unzip ncompress p7zip-full ar zstd xz-utils #
@@ -355,5 +363,3 @@ LESS="$LESS -R";
 BATPIPE="color";
 export LESS;
 export BATPIPE;
-
-echo test OK
