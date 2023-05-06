@@ -171,6 +171,7 @@ alias dtop='cd ~/Escritorio'
 alias gch='cd ~/Gitchub'
 alias nvrc='nvim .config/nvim/'
 alias nvbash='nvim ~/.bashrc'
+alias stdotfiles="cd ~/dotfiles && stow --adopt *"
 alias vrc='vim ~/.vimrc'
 
 # 4.- In-shell program option shortcuts | Atajos a funciones concretas de programas de shell
@@ -352,3 +353,4 @@ BATPIPE="color";
 export LESS;
 export BATPIPE;
 
+echo test OK
