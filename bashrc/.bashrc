@@ -11,7 +11,7 @@
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
-      *) return;;
+    *) return;;
 esac
 
 # don't put duplicate lines or lines starting with space in the history.
@@ -53,12 +53,12 @@ esac
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
+        # We have color support; assume it's compliant with Ecma-48
+        # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+        # a case would tend to support setf rather than setaf.)
+        color_prompt=yes
     else
-	color_prompt=
+        color_prompt=
     fi
 fi
 
@@ -70,11 +70,11 @@ fi
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
+    xterm*|rxvt*)
+        PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+        ;;
+    *)
+        ;;
 esac
 
 # enable color support of ls and also add handy aliases
@@ -129,6 +129,7 @@ export MAINED="nvim"
 export PATH="/home/mrsandman/.cargo/bin:/home/mrsandman/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 export VIMRC="$HOME/.vimrc"
 export VISUAL="vim"
+set -o vi
 
 #------------ MIS PROPIOS ALIAS - MY OWN ALIASES ------------#
 
@@ -166,8 +167,8 @@ alias trr='trash-restore'
 # 3.- Config shorcuts | Atajos a archivos de configuración
 
 alias bup="source ~/.bashrc && echo 'Sourced .bashrc OK - .bashrc recargado OK'"
-alias dwn='cd ~/Descargas'
-alias dtop='cd ~/Escritorio'
+alias dwn='cd ~/Downloads'
+alias dtop='cd ~/Desktop'
 alias gch='cd ~/Gitchub'
 alias nvrc='nvim .config/nvim/'
 alias nvbash='nvim ~/.bashrc'
@@ -245,6 +246,9 @@ alias sysinfo='sudo fdisk -l; blkid; lshw; lscpu; lscpi; diskusage; df -hl -x sq
 
 #------------------------ GIT ALIAS ZONE ---------------------#
 
+alias yeet='git push'
+alias yoink='git pull'
+
 alias gaa='git add .'
 alias gca='git commit --amend -m'
 alias gcm='git commit -am'
@@ -252,6 +256,7 @@ alias gcn='git commit --amend --no-edit'
 alias gcl='git clean' 
 alias gco='git checkout'
 alias gd='git diff'
+alias gsu='git remote set-url'
 alias gib='git init -b'
 alias gin='git init'
 alias gl='git log'
@@ -264,10 +269,8 @@ alias gsa='git stash apply'
 alias gsl='git stash list'
 alias gsp='git stash pop'
 
-alias yeet='git push'
-alias yoink='git pull'
-
 #-------------------------------------------------------------#
+
 
 #--- ARCHIVE EXTRACTOR - EXTRACTOR DE ARCHIVOS COMPRIMIDOS ---#
 #--- Requires the following packages - Requiere los siguiente paquetes:
@@ -306,11 +309,11 @@ ex ()
 # sources /etc/bash.bashrc).
 
 if ! shopt -oq posix; then
-  if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
-  elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-  fi
+    if [ -f /usr/share/bash-completion/bash_completion ]; then
+        . /usr/share/bash-completion/bash_completion
+    elif [ -f /etc/bash_completion ]; then
+        . /etc/bash_completion
+    fi
 fi
 
 # FZF integration (https://github.com/junegunn/fzf)
@@ -324,9 +327,9 @@ if command -v thefuck >/dev/null 2>&1; then
     eval $(thefuck --alias)
 fi
 
- if command -v starship >/dev/null 2>&1; then
-     eval "$(starship init bash)"
- fi
+if command -v starship >/dev/null 2>&1; then
+    eval "$(starship init bash)"
+fi
 
 #------------- MINIFETCH ON TERMINAL WINDOW START ---------------#
 # Minifetch is an alias for my alternate neofetch config

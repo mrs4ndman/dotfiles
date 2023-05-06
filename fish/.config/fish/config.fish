@@ -1,5 +1,6 @@
-if status is-interactive
-    # Commands to run in interactive sessions can go here
-end
+set fish_greeting # Supress intro message
+
+alias rr='curl -s -L https://raw.githubusercontent/keroserene/rickrollrc/master/roll.sh | bash'
 
 starship init fish | source
+
