@@ -1,0 +1,1 @@
+- { key: V,              mods: Super|Shift,                    action: SpawnNewInstance }
