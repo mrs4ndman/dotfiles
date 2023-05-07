@@ -1,11 +1,12 @@
 #MRS4NDMAN's Starship TOML file
 
 format = """
-$os\
-$shell\
 $golang\
 $nodejs\
 $rust\
+$java\
+$haskell\
+$docker\
 $package\
 
 $directory\
@@ -17,8 +18,10 @@ $git_metrics\
 $fill\
 
 $cmd_duration\
-$hostname\
 $jobs\
+$username\
+$hostname\
+$shell\
 
 $line_break\
 
@@ -34,36 +37,41 @@ symbol = " "
 disabled = false
 
 [directory]
-style = "cyan bold"
-read_only = " \uf023"
+style = "#00ffff bold"
+read_only = " "
 truncation_length = 4
 truncate_to_repo = false
+use_os_path_sep = true
+format = '[$read_only]($read_only_style)[ $path ]($style)'
+read_only_style = '#fff000 bold'
 
 [username]
 style_user = 'purple bold'
-style_root = 'orange bold'
-format = '[$user @]($style) '
+style_root = '#fff000 bold'
+format = '[  $user ]($style) '
 show_always = true
-disabled = false
+disabled = true
+# Disabled because Tmux already provides these
 
 [hostname]
-ssh_only = true
+ssh_only = false
 format = '[$hostname](bold purple) '
-disabled = false
+disabled = true
+# Disabled because Tmux already provides these
 
 [character]
-success_symbol= '[❯](bold green) '
-error_symbol = '[✗](bold red) '
-vicmd_symbol = '[❯](purple) '
+success_symbol= '[ ](#00ffff bold)'
+error_symbol = '[ ](bold red)'
+vicmd_symbol = '[ ](purple)'
 
 [shell]
-format = '[ $indicator ➜ ]($style)'
-bash_indicator = ''
+format = '[ $indicator ]($style)'
+bash_indicator = ''
 zsh_indicator = '𝖹'
 fish_indicator = ''
 powershell_indicator = '_'
 unknown_indicator = 'mystery shell'
-style = 'bold red'
+style = 'bold #00ffff'
 disabled = false
 
 [os]
@@ -76,7 +84,18 @@ Pop = ""
 
 [git_branch]
 format = "[$branch $symbol]($style)"
-style = 'grey'
+style = '#ff8800'
+
+[git_metrics]
+added_style = '#00cc00'
+deleted_style = '#ff0000'
+disabled = false
+
+[git_commit]
+commit_hash_length = 8
+
+[git_state]
+style = '#ff0000 bold'
 
 [jobs]
 symbol = ''
@@ -84,17 +103,9 @@ style = 'yellow'
 
 [cmd_duration]
 format = "[$duration]($style)"
-min_time = 5
+min_time = 300
 show_milliseconds = false
-style = 'bold italic purple'
-
-[git_metrics]
-disabled = false
-
-
-[git_commit]
-commit_hash_length = 8
-
+style = 'bold italic purple bg:none'
 
 # Programming Languages config
 
