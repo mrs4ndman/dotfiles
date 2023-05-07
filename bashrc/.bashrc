@@ -280,6 +280,7 @@ alias gsp='git stash pop'
 alias tls='tmux ls'
 alias tks='tmux kill-session -t'
 alias trs='tmux rename'
+alias twin='$HOME/.local/scripts/tmux-windowizer'
 
 #-------------------------------------------------------------#
 

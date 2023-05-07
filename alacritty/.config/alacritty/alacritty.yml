@@ -47,7 +47,7 @@ window:
   #
   decorations: none 
 
-  opacity: 0.86
+  opacity: 0.9
   #
   # Background opacity - Opacidad del fondo
   # Window opacity as a floating point number from `0.0` to `1.0`.
