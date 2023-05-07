@@ -72,16 +72,25 @@ use 'junegunn/fzf' -- Fuzzy searching integration
 
 use 'lewis6991/gitsigns.nvim' -- Git signs on the gutter
 
+
+-- tpope plugins
+--
 use 'tpope/vim-fugitive' -- Git integration
 
 use 'tpope/vim-surround' -- The power of surroundings
 
 use 'tpope/vim-commentary' -- Powerful commenting, thanks to tpope
 
+
 use 'farmergreg/vim-lastplace' -- Remembers where i left off the buffer
 
 use 'kevinhwang91/rnvimr' -- Terminal file manager integration
 
+use {
+    "ellisonleao/glow.nvim",
+    config = function ()
+       require("glow").setup()
+end}
 
 -- 6.- ThePrimeagen plugins (Blazingly Fast)
 

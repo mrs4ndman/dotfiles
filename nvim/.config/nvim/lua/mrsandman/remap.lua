@@ -23,26 +23,29 @@ vim.keymap.set("n", "<leader>bc", "<cmd>bd<CR>", { noremap = true, silent = true
 -- Treesitter context bindings:
 vim.keymap.set("n", "<leader>ct", "<cmd>TSContextToggle<CR>", { silent = true })
 
--- Try it out if you're that desperate: 
-vim.keymap.set("n", "<leader>fml", "<cmd>CellularAutomaton make_it_rain<CR>", { silent = true })
+-- Set files to be executable:
+vim.keymap.set("n", "<leader>cx", "<cmd>!chmod +x %<CR>", { silent = true })
 
 -- Netrw start 
 vim.keymap.set("n", "<leader>e", vim.cmd.NvimTreeToggle, { silent = true })
 
+-- Try it out if you're that desperate: 
+vim.keymap.set("n", "<leader>fml", "<cmd>CellularAutomaton make_it_rain<CR>", { silent = true })
+
+-- Glow markdown toggle
+vim.keymap.set("n", "<leader>md", "<cmd>Glow<CR>", { silent = true })
+
 -- Overlength toggle
 vim.keymap.set("n", "<leader>ol", ":OverlengthToggle<CR>", { silent = true })
+
+-- Packer Sync shortcut
+vim.keymap.set("n", "<leader>ps", ":PackerSync<CR>", { noremap = true, silent = true })
 
 -- RNVIMR / ranger toggle
 vim.keymap.set("n", "<leader>r", ':RnvimrToggle<CR>', ( { silent = true, noremap = true} ))
 
 -- Substitutor for current word:
 vim.keymap.set("n", "<leader>s",[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-
--- Set files to be executable:
-vim.keymap.set("n", "<leader>cx", "<cmd>!chmod +x %<CR>", { silent = true })
-
--- Packer Sync shortcut
-vim.keymap.set("n", "<leader>ps", ":PackerSync<CR>", { noremap = true, silent = true })
 
 -- greatest remap ever,  replace current selection with paste buffer
 vim.keymap.set("x", "<leader>p", "\"_dP")
