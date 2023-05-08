@@ -368,5 +368,5 @@ export LESS;
 export BATPIPE;
 
 if whoami="mrsandman"; then
-    lolcat < "$HOME/bash-start"
+    lolcat < "$HOME/.bash-start"
 fi
