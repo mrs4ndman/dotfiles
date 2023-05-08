@@ -345,10 +345,10 @@ fi
 
 #------------- MINIFETCH ON TERMINAL WINDOW START ---------------#
 # Minifetch is an alias for my alternate neofetch config
-# Comment out this line if you haven't the alias and separate 
+# Uncomment out this line if you want to use the alias and separate 
 # config for it
 #
-minifetch
+# minifetch
 
 
 #---------------- bat (cat improved) integration ----------------#
@@ -366,3 +366,7 @@ LESS="$LESS -R";
 BATPIPE="color";
 export LESS;
 export BATPIPE;
+
+if whoami="mrsandman"; then
+    lolcat < "$HOME/bash-start"
+fi
