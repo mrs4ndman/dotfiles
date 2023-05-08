@@ -84,6 +84,8 @@ use 'tpope/vim-commentary' -- Powerful commenting, thanks to tpope
 
 use 'farmergreg/vim-lastplace' -- Remembers where i left off the buffer
 
+use 'nvim-tree/nvim-tree.lua' -- Ex-like file search
+
 use 'kevinhwang91/rnvimr' -- Terminal file manager integration
 
 use {
@@ -123,22 +125,6 @@ use ({
 use 'lcheylus/overlength.nvim' -- Overlength, just that
 
 use 'ap/vim-css-color' -- Frontend stuff
-
-
--- 7.1.- UX: Dashboard on startup config
-
-use {
-    'glepnir/dashboard-nvim', -- Startup screen for nvim
-    event = 'VimEnter',
-    config = function()
-        require('dashboard').setup {
-            -- config
-        }
-    end,
-    requires = {'nvim-tree/nvim-web-devicons'}
-}
-
-use 'nvim-tree/nvim-tree.lua'
 
 
 -- 8.- LSP Configuration
