@@ -1,16 +1,15 @@
 local telescope = require 'telescope'
 local builtin = require('telescope.builtin')
-local telescope_builtin = require 'telescope.builtin'
-local telescope_actions = require 'telescope.actions'
 
 -- Keymaps
 
-vim.keymap.set('n', '<leader>tt', builtin.find_files, {})
-vim.keymap.set('n', '<leader>tg', function()
+vim.keymap.set('n', '<leader>tf', builtin.find_files, {})
+vim.keymap.set('n', '<leader>tg', builtin.git_files, {})
+vim.keymap.set('n', '<leader>ts', function()
 	builtin.grep_string({ search = vim.fn.input("Grep > ") });
 end)
-vim.keymap.set('n', '<leader>tr', ':Telescope repo list<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>th', builtin.oldfiles )
+vim.keymap.set('n', '<leader>vh', builtin.help_tags, {})
 
 
 -- Main setup
@@ -22,17 +21,6 @@ telescope.setup {
             override_generic_sorter = true,
             override_file_sorter = true,
             case_mode = "smart_case",
-        },
-        repo = {
-            list = {
-                fd_opts = {
-                    "--no-ignore-vcs",
-                },
-                search_dirs = {
-                    "~/Gitchub",
-                    "~/git-clone-zone",
-                },
-            },
         },
     },
     defaults = {
@@ -97,6 +85,4 @@ telescope.setup {
 -- Extension invoking:
 
 require('telescope').load_extension "fzf"
-require('telescope').load_extension "repo"
-require('telescope').load_extension "notify"
 

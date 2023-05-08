@@ -27,7 +27,7 @@ vim.keymap.set("n", "<leader>ct", "<cmd>TSContextToggle<CR>", { silent = true })
 vim.keymap.set("n", "<leader>cx", "<cmd>!chmod +x %<CR>", { silent = true })
 
 -- Netrw start 
-vim.keymap.set("n", "<leader>e", vim.cmd.NvimTreeToggle, { silent = true })
+vim.keymap.set("n", "<leader>e", vim.cmd.Ex, { silent = true })
 
 -- Try it out if you're that desperate: 
 vim.keymap.set("n", "<leader>fml", "<cmd>CellularAutomaton make_it_rain<CR>", { silent = true })
@@ -49,11 +49,6 @@ vim.keymap.set("n", "<leader>s",[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><L
 
 -- greatest remap ever,  replace current selection with paste buffer
 vim.keymap.set("x", "<leader>p", "\"_dP")
-
--- Terminal testing
--- vim.keymap.set("n", "<leader>t1", ":ToggleTerm size=20 direction=horizontal<CR>")
--- vim.keymap.set("n", "<leader>t2", ":ToggleTerm size=60 direction=vertical<CR>")
--- vim.keymap.set("n", "<leader>t3", ":ToggleTerm size=40 direction=horizontal<CR>")
 
 
 -- CTRL Keybinds

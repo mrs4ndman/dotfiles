@@ -33,12 +33,6 @@ use 'nvim-telescope/telescope-file-browser.nvim'
 use 'nvim-telescope/telescope-ui-select.nvim'
 
 
--- Telescope external extensions
-
-use 'cljoly/telescope-repo.nvim' --telescope extension #1, the others are inside telescope.lua
-use 'rcarriga/nvim-notify' -- telescope extension #2, cool neovim notis
-
-
 -- 3.- Theme plugin config
 
 use({ 'rose-pine/neovim', -- cool light dark colors
@@ -84,8 +78,6 @@ use 'tpope/vim-commentary' -- Powerful commenting, thanks to tpope
 
 use 'farmergreg/vim-lastplace' -- Remembers where i left off the buffer
 
-use 'nvim-tree/nvim-tree.lua' -- Ex-like file search
-
 use 'kevinhwang91/rnvimr' -- Terminal file manager integration
 
 use {
@@ -125,6 +117,9 @@ use ({
 use 'lcheylus/overlength.nvim' -- Overlength, just that
 
 use 'ap/vim-css-color' -- Frontend stuff
+
+
+-- 7.1.- UX: Dashboard on startup config
 
 
 -- 8.- LSP Configuration
