@@ -17,6 +17,8 @@
 	
 	- Ctrl + b = Goes a full page up / backward | Baja una página entera
 
+    - Ctrl + g = Gets info about the file (name, size, route to it)
+
 
 	- x = The better way to delete characters
 	
@@ -55,6 +57,7 @@
 
 
 - #### MOTION COMBINATIONS
+
 	- f\<char\> = Goes forward to the specified character in the line
 		- Can be combined with x to eliminate certain characters
 			 
@@ -145,6 +148,7 @@
 	- Leader + e = Ex (Nvim Integrated Explorer)
 	- Leader + s = Substitutor for current word
 	- Leader + x = Make the current file executable (chmod +x)
+    - Leader + m + d = Start up Glow markdown window
 
  
 ## Modal custom keybinds (not global)
@@ -154,10 +158,6 @@
 	- J = append line below to current one
 	- Q = Manually unbound in config (do not need it)
 	
-	- Ctrl + q = :q! \<CR>
-	- Ctrl + w = :w \<CR>
-
- 
 - ### INSERT:
 	
 	- Ctrl + c = Escape (i know, right?)
@@ -204,7 +204,7 @@
 	- Leader + 7 = harpoon file 7
 	- Leader + 8 = harpoon file 8
 	- Leader + 9 = harpoon file 9
-	- Leader + 10 = harpoon file 10
+	- Leader + 0 = harpoon file 10
 	
 	- Leader + t + 1 = harpoon terminal 1
 	- Leader + t + 2 = harpoon terminal 2

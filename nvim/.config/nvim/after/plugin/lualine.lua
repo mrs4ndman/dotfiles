@@ -232,13 +232,6 @@ ins_right {
     padding = { left = 0, right = 0},
 }
 
-ins_right {
-    'fileformat',
-    fmt = string.upper,
-    icons_enabled = true,
-    color = { fg = colors.white, gui = 'bold' },
-    padding = { left = 1, right = 2}
-}
 
 ins_right {
     'diff',
@@ -252,6 +245,13 @@ ins_right {
     cond = conditions.hide_in_width,
 }
 --
+ins_right {
+    'fileformat',
+    fmt = string.upper,
+    icons_enabled = true,
+    color = { fg = colors.white, gui = 'bold' },
+    padding = { left = 1, right = 2}
+}
 --
 -- Now don't forget to initialize lualine
 lualine.setup(config)

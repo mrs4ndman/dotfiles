@@ -75,6 +75,10 @@ use 'tpope/vim-surround' -- The power of surroundings
 
 use 'tpope/vim-commentary' -- Powerful commenting, thanks to tpope
 
+use 'tpope/vim-eunuch' -- Shell commands inside Vim
+
+use 'tpope/vim-vinegar' -- Native Ex gets extensions
+
 
 use 'farmergreg/vim-lastplace' -- Remembers where i left off the buffer
 
@@ -119,34 +123,32 @@ use 'lcheylus/overlength.nvim' -- Overlength, just that
 use 'ap/vim-css-color' -- Frontend stuff
 
 
--- 7.1.- UX: Dashboard on startup config
-
 
 -- 8.- LSP Configuration
 use {
     'VonHeikemen/lsp-zero.nvim', -- Big boi LSP
     branch = 'v2.x',
     requires = {
-        -- LSP Support
+    -- LSP Support
         {'neovim/nvim-lspconfig'},         -- Required
         {
         'williamboman/mason.nvim',         -- Optional
         run = function()
             pcall(vim.cmd, 'MasonUpdate')
         end,
-    },
-    {'williamboman/mason-lspconfig.nvim'}, -- Optional
+        },
+        {'williamboman/mason-lspconfig.nvim'}, -- Optional
 
     -- Autocompletion
-    {'hrsh7th/nvim-cmp'},     -- Required
-    {'hrsh7th/cmp-buffer'},   -- Optional
-    {'hrsh7th/cmp-path'},     -- Optional
-    {'hrsh7th/cmp-nvim-lsp'}, -- Required
-    -- Lua Snippets
-    {'saadparwaiz1/cmp_luasnip'},       -- Optional
-    {'rafamadriz/friendly-snippets'},   -- Optional
-    {'L3MON4D3/LuaSnip'},               -- Required
-}
+        {'hrsh7th/nvim-cmp'},     -- Required
+        {'hrsh7th/cmp-buffer'},   -- Optional
+        {'hrsh7th/cmp-path'},     -- Optional
+        {'hrsh7th/cmp-nvim-lsp'}, -- Required
+     -- Lua Snippets
+        {'saadparwaiz1/cmp_luasnip'},       -- Optional
+        {'rafamadriz/friendly-snippets'},   -- Optional
+        {'L3MON4D3/LuaSnip'},               -- Required
+    }
 }
 
 
@@ -178,7 +180,7 @@ use {
                 {open = '[', close = ']'},
                 {open = '{', close = '}'},
                 {open = '<', close = '>'},
-                {open = '::', close = '::'} -- Rust maybe?
+               -- {open = ':', close = ':'} -- Rust maybe?
             },
             ignore_beginning = true, --[[ if the cursor is at the beginning of a filled element it will rather tab out than shift the content ]]
             exclude = {} -- tabout will ignore these filetypes

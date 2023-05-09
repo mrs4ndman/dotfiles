@@ -14,7 +14,7 @@ vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end, { silent = true })
 
--- Buffer previous and next
+-- Buffer previous, next and close
 
 vim.keymap.set("n", "<leader>bn", "<cmd>bnext<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>bp", "<cmd>bprevious<CR>", { noremap = true, silent = true })
@@ -52,11 +52,6 @@ vim.keymap.set("x", "<leader>p", "\"_dP")
 
 
 -- CTRL Keybinds
-
--- Quitting and saving exit
-
-vim.keymap.set("n", "<C-q>", ":q!<CR>", { silent = true})
-vim.keymap.set("n", "<C-w>", ":w<CR>", { silent = true})
 
 -- Half-page jumping
 

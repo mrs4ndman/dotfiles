@@ -177,6 +177,7 @@ alias vrc='vim ~/.vimrc'
 
 # 4.- In-shell program option shortcuts | Atajos a funciones concretas de programas de shell
 
+alias :q='exit'
 alias bonk='exit'
 alias boop='sudo systemctl restart'
 alias cat!='sudo cat'
