@@ -1,3 +1,4 @@
+" MrSandman's simple VIM config for config file editing
 " Enable syntax highlighting | Habilita marcado de texto en colorines
 syntax on
 
@@ -6,18 +7,22 @@ filetype plugin indent on
 
 " Zona donde colocas los plugins (Este gestor de plug-ins es vim-plug / Plug
 call plug#begin('~/.vim/plugged')
+"
 " Code processing / debugging & alteration
 Plug 'dense-analysis/ale'
 Plug 'tpope/vim-commentary'
+
 " UI
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
+
 " UX
 Plug 'farmergreg/vim-lastplace'
 Plug 'preservim/nerdtree'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tmux-plugins/vim-tmux'
+
 call plug#end()
 
 " SET ZONE "
@@ -85,9 +90,6 @@ let g:ale_linters = {
       \ 'javascript': ['eslint'],
       \ }
 
-" Configuración NERDTree (atajo de teclado)
-
-silent nnoremap <C-n> :NERDTreeToggle<CR>
 
 " Habilitamos las fuentes de Powerline (de mis otros scripts) y la caché.
 
