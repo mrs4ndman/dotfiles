@@ -265,7 +265,7 @@
     - Leader + t + f = Telescope plugin main screen
 	- Leader + t + s = Live grep the file, telescope plugin
     - Leader + t + g = Telescope Git module
-	- Leader + t + h = History of recently opened files, works with hidden folder files
+	- Leader + t + o = History of recently opened files, works with hidden folder files
     - Leader + v + h = View help tags
     - Inside of fuzzy finding window (works both in normal and insert modes) :
         - Ctrl + n = Next selection
@@ -374,3 +374,18 @@
 		- Leader + # = List all paste buffers
 		- Leader + "=" = Choose which buffer to paste interactively from a list 
 		- Leader + - = Delete the most recent copied buffer of text
+
+
+- ### TMUX: Custom keybinds
+
+    - Ctrl + a = Prefix for tmux commands
+    - Prefix + r = Re-sources the .tmux.conf config file
+    - Prefix + h = Splits the window into 2 "horizontal" halves (vertical division)
+    - Prefix + v = Splits the window into 2 "vertical" halves (horizontal division)
+    - Prefix + i = Run tmux.cht.sh script (copied from ThePrimeagen's tmux setup)
+    - Prefix + f = Run tmux-sessionizer script (copied from ThePrimeagen's tmux setup)
+    - Prefix + D = Run tmux-sessionizer for quick access to dotfiles
+    - Prefix + G = Run tmux-sessionizer for quick access to Github folder
+    - Prefix + S = Run tmux-sessionizer for quick access to setup git repo
+    - Prefix + ^ = Go to last window
+    - Prefix + Prefix = Sends the prefix key combination (Ctrl + A) to the program below tmux
