@@ -45,33 +45,33 @@ vim.keymap.set("n", "<leader>ps", ":PackerSync<CR>", { noremap = true, silent = 
 vim.keymap.set("n", "<leader>r", ':RnvimrToggle<CR>', ( { silent = true, noremap = true} ))
 
 -- Substitutor for current word:
-vim.keymap.set("n", "<leader>s",[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+vim.keymap.set("n", "<C-s>",[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
--- greatest remap ever,  replace current selection with paste buffer
+-- greatest remaps ever,  replace current selection with paste buffer & visual deletion made easy
 vim.keymap.set("x", "<leader>p", "\"_dP")
+vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
 
-
--- CTRL Keybinds
-
--- Half-page jumping
-
-vim.keymap.set("n", "<C-d>", "<C-d>zz", { silent = true })
-vim.keymap.set("n", "<C-u>", "<C-u>zz", { silent = true })
 
 
 -- NORMAL mode Keybinds
 
--- Appending line below to current line ("lil J")
+-- CTRL Keybinds
 
+-- Half-page jumping
+vim.keymap.set("n", "<C-d>", "<C-d>zz", { silent = true })
+vim.keymap.set("n", "<C-u>", "<C-u>zz", { silent = true })
+
+-- Invoke sessionizer
+vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
+
+-- Appending line below to current line ("lil J")
 vim.keymap.set("n", "J", "mzJ'z", { silent = true})
 
 -- Keeping my cursor in the middle when searching
-
 vim.keymap.set("n", "n", "nzzzv", { silent = true})
 vim.keymap.set("n", "N", "Nzzzv", { silent = true})
 
 -- No-do
-
 vim.keymap.set("n", "Q", "<nop>")
 
 
@@ -88,7 +88,3 @@ vim.keymap.set("i", "<C-c>", "<Esc>", { silent = true })
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { silent = true })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { silent = true })
-
--- Sessionizer (to be configured)
--- vim.keymap.set("n", "C-f", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
-

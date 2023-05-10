@@ -13,7 +13,7 @@ map('n', '<leader>cc', '<Plug>(cokeline-pick-close)', { silent = true })
 -- Number buffer selection with Leader + c + <number>
 for i = 1,9 do
     map('n', ('<leader>c%s'):format(i), ('<Plug>(cokeline-focus-%s)'):format(i), { silent = true })
-    map('n', ('<leader>cs%s'):format(i), ('<Plug>(cokeline-switch-%s)'):format(i), { silent = true })
+    map('n', ('<leader>s%s'):format(i), ('<Plug>(cokeline-switch-%s)'):format(i), { silent = true })
 end
 
 

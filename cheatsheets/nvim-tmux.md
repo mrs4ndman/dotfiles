@@ -145,9 +145,10 @@
 	    - Leader + b + p = Previous buffer
 	    - Leader + b + c = Buffer close / delete from list
 	
+    - Leader + c + t = Treesitter context toggle
+    - Leader + c + x = Make the current file executable (chmod +x)
 	- Leader + e = Ex (Nvim Integrated Explorer)
-	- Leader + s = Substitutor for current word
-	- Leader + x = Make the current file executable (chmod +x)
+    - Leader + f + m + l = Cellular automaton effect keybind
     - Leader + m + d = Start up Glow markdown window
 
  
@@ -157,6 +158,8 @@
 	
 	- J = append line below to current one
 	- Q = Manually unbound in config (do not need it)
+    - Leader + p / d: In visual / normal mode, paste and delete without picking the text into paste buffer
+    - Ctrl + s = Substitutor
 	
 - ### INSERT:
 	
@@ -181,7 +184,7 @@
 	 
 	- Leader + c + \<Number> = Focus / change to the buffer with the buffer numbered \<Number>
 	 
-	- Leader + c + s + \<Number> = Switch the current buffer with the buffer numbered \<Number>
+	- Leader +  s + \<Number> = Switch the current buffer with the buffer numbered \<Number>
 
 
 - ### Fugitive plugin [ .config/nvim/after/plugin/fugitive.lua ]
@@ -251,7 +254,6 @@
     - Only the opening brackets used with surround pad the surrounded text with a space
     - To surround without padding, use the closing brackets
 
-[Hello] world!
 
 
 - ### Overlength plugin
@@ -260,10 +262,11 @@
 
 - ### Telescope plugin & extensions
 	
-    - Leader + t + t = Telescope plugin main screen
-	- Leader + t + g = Live grep the file, telescope plugin
+    - Leader + t + f = Telescope plugin main screen
+	- Leader + t + s = Live grep the file, telescope plugin
+    - Leader + t + g = Telescope Git module
 	- Leader + t + h = History of recently opened files, works with hidden folder files
-	- Leader + t + r = Repo list, repo telescope plugin
+    - Leader + v + h = View help tags
     - Inside of fuzzy finding window (works both in normal and insert modes) :
         - Ctrl + n = Next selection
         - Ctrl + p = Previous selection
@@ -297,19 +300,14 @@
 - ### Unbound
 	
 	- Leader + I = Nothing
-	- Leader + O = Nothing
 	- Leader + D = Nothing
 	- Leader + F = Nothing
-    - Leader + P = Nothing
 	- Leader + J = Nothing
 	- Leader + K = Nothing
 	- Leader + L = Nothing
 	- Leader + Ñ (or whatever is here in english) = Nothing
-	- Leader + Z = Nothing
 	- Leader + X = Nothing
-	- Leader + V = Nothing
 	- Leader + N = Nothing 
-	- Leader + M = Nothing
 
 
 
