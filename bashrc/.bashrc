@@ -110,15 +110,15 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-#-------------------------------------------------------------#
-#                                                             #     
-#      CUSTOM CONFIG : ALIASES, KEYBINDS, PROMPTS, ETC.       #
-#                                                             #
-#               https://github.com/mrs4ndman                  #
-#                                                             #
-#-------------------------------------------------------------#
+#--------------------------------------------------------------#
+#                                                              #     
+#      CUSTOM CONFIG : ALIASES, KEYBINDS, PROMPTS, ETC.        #
+#                                                              #
+#               https://github.com/mrs4ndman                   #
+#                                                              #
+#--------------------------------------------------------------#
 
-#------------------------- EXPORTS ---------------------------#
+#------------------------- EXPORTS ----------------------------#
 
 export BROWSER="firefox"
 export BASHRC="$HOME/.bashrc"
@@ -131,13 +131,17 @@ export VIMRC="$HOME/.vimrc"
 export VISUAL="vim"
 set -o vi
 
-#------------ MIS PROPIOS ALIAS - MY OWN ALIASES ------------#
+#-------------------------------------------------------------#
+
+#------------- MIS PROPIOS ALIAS - MY OWN ALIASES -------------#
 
 # 1.- File management | Gestión archivos
 
 alias infuse='chmod u+x'
 alias tree-size='tree -s -h --du'
 alias trunk='tree -a -C'
+
+#-------------------------------------------------------------#
 
 # 2.- Program shorthands | Atajos cortos a programas
 
@@ -164,6 +168,8 @@ alias srg='sudo ranger'
 alias trp='trash-put'
 alias trr='trash-restore'
 
+#-------------------------------------------------------------#
+
 # 3.- Config shorcuts | Atajos a archivos de configuración
 
 alias bup="source ~/.bashrc && echo 'Sourced .bashrc OK - .bashrc recargado OK'"
@@ -174,6 +180,8 @@ alias nvrc='nvim .config/nvim/'
 alias nvbash='nvim ~/.bashrc'
 alias stdot="cd ~/dotfiles && stow --adopt *"
 alias vrc='vim ~/.vimrc'
+
+#-------------------------------------------------------------#
 
 # 4.- In-shell program option shortcuts | Atajos a funciones concretas de programas de shell
 
@@ -199,9 +207,10 @@ alias vls='watch -n 0.1 ls -la'
 alias whack='sudo systemctl restart'
 alias where='echo "The good one:"; which; echo "Where you can find it:"; whereis'
 alias wut='whatis'
+#-------------------------------------------------------------#
 
 
-# 4.1.- ---------------- SHELL CHANGER -----------------------#
+# 4.1.- ---------------- SHELL CHANGER ------------------------#
 # 
 # Uncomment the aliases this if you swap shells / are trying shells frequently
 # Descomentar los alias si cambias entre / pruebas varias shells regularmente
@@ -243,10 +252,10 @@ alias ports='sudo lsof -l -P -n | grep LISTEN'
 alias speedy='sudo mount -t tmpfs -o size=1024M tmpfs /media/rammy' # Temporal RAMDISK that goes away on shutdown | RAMDISK temporal que se va con apagado del sistema #
 alias sysinfo='sudo fdisk -l; blkid; lshw; lscpu; lscpi; diskusage; df -hl -x squashfs; temp; nft'
 
-#-------------------------------------------------------------#
+#--------------------------------------------------------------#
 
 
-#------------------------ GIT ALIAS ZONE ---------------------#
+#------------------------ GIT ALIAS ZONE ----------------------#
 
 alias yeet='git push'
 alias yoink='git pull'
@@ -273,17 +282,17 @@ alias gsa='git stash apply'
 alias gsl='git stash list'
 alias gsp='git stash pop'
 
-#-------------------------------------------------------------#
+#--------------------------------------------------------------#
 
 
-#----------------------- TMUX ALIAS ZONE ---------------------#
+#----------------------- TMUX ALIAS ZONE ----------------------#
 
 alias tls='tmux ls'
 alias tks='tmux kill-session -t'
 alias trs='tmux rename'
 alias twin='$HOME/.local/scripts/tmux-windowizer'
 
-#-------------------------------------------------------------#
+#--------------------------------------------------------------#
 
 #--- ARCHIVE EXTRACTOR - EXTRACTOR DE ARCHIVOS COMPRIMIDOS ---#
 #--- Requires the following packages - Requiere los siguiente paquetes:
@@ -313,9 +322,10 @@ ex ()
         echo "'$1' is not a valid file - '$1' no es un tipo de archivo válido"
     fi
 }
+#--------------------------------------------------------------#
 
 
-#------------- AUTOCOMPLETION - AUTOCOMPLETACIÓN -------------#
+#------------- AUTOCOMPLETION - AUTOCOMPLETACIÓN --------------#
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -332,9 +342,10 @@ fi
 # FZF integration (https://github.com/junegunn/fzf)
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+#--------------------------------------------------------------#
 
 
-#------------- PLUGIN AND ALIAS LOADING SCRIPTS --------------#
+#------------- PLUGIN AND ALIAS LOADING SCRIPTS ---------------#
 
 if command -v thefuck >/dev/null 2>&1; then
     eval $(thefuck --alias)
@@ -344,15 +355,16 @@ if command -v starship >/dev/null 2>&1; then
     eval "$(starship init bash)"
 fi
 
-#------------- MINIFETCH ON TERMINAL WINDOW START ---------------#
+#------------ MINIFETCH ON TERMINAL WINDOW START --------------#
 # Minifetch is an alias for my alternate neofetch config
 # Uncomment out this line if you want to use the alias and separate 
 # config for it
 #
 # minifetch
+#--------------------------------------------------------------#
 
 
-#---------------- bat (cat improved) integration ----------------#
+#--------------- bat (cat improved) integration ---------------#
 #
 # Can remove / comment out if not using bat as a cat frontend
 #
@@ -367,6 +379,9 @@ LESS="$LESS -R";
 BATPIPE="color";
 export LESS;
 export BATPIPE;
+#-------------------------------------------------------------#
+
+#-------------------- Custom bash start ----------------------#
 
 if whoami="mrsandman"; then
     lolcat < "$HOME/.bash-start"
