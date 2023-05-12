@@ -290,7 +290,16 @@
 	
 	- Leader + u = Toggle Undo tree (pops window on the side)
 
+- ### Vinegar plugin
 
+    - Inside of Ex: What is inside quotes is the keybind
+        - "-" = Go up a directory
+        - I = Makes the Ex default top banner show
+        - "." = Pre-populate a file at the end of a ":" command line
+        - y. = Yank an absolute path for the file under the cursor
+        - ~ = Go to $HOME
+         - Ctrl + ^ = Go to previous buffer
+    
 - ### Zenmode plugin
 	
 	- Leader + zz = Zen mode
