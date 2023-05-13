@@ -1,13 +1,15 @@
 #MRS4NDMAN's Starship TOML file
 
 format = """
+$package\
 $golang\
 $nodejs\
 $rust\
+$python\
+$golang\
 $java\
 $haskell\
 $docker\
-$package\
 
 $directory\
 $git_branch\
