@@ -32,9 +32,6 @@ vim.keymap.set("n", "<leader>e", vim.cmd.Ex, { silent = true })
 -- Try it out if you're that desperate: 
 vim.keymap.set("n", "<leader>fml", "<cmd>CellularAutomaton make_it_rain<CR>", { silent = true })
 
--- Glow markdown toggle
-vim.keymap.set("n", "<leader>md", "<cmd>Glow<CR>", { silent = true })
-
 -- Overlength toggle
 vim.keymap.set("n", "<leader>ol", ":OverlengthToggle<CR>", { silent = true })
 

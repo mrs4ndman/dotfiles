@@ -84,11 +84,7 @@ use 'farmergreg/vim-lastplace' -- Remembers where i left off the buffer
 
 use 'kevinhwang91/rnvimr' -- Terminal file manager integration
 
-use {
-    "ellisonleao/glow.nvim",
-    config = function ()
-       require("glow").setup()
-end}
+
 
 -- 6.- ThePrimeagen plugins (Blazingly Fast)
 
