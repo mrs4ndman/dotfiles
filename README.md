@@ -1,7 +1,6 @@
 # Dotfiles
 ## The dotfiles for my setup | Los dotfiles para mi setup
 ### Van acompañados de los [scripts](https://github.com/mrs4ndman/base/tree/main/scripts) del otro [repositorio](https://github.com/mrs4ndman/base)
-#### Main ones are the following:
 
    - **[Neovim](https://github.com/mrs4ndman/dotfiles/tree/main/nvim/.config/nvim)** : Directorio con las configuraciones (y backups / defaults correspondientes) de Neovim | Folder with the configs (and backups / defaults) for Neovim
         ![image](https://github.com/mrs4ndman/dotfiles/assets/121260905/65a28326-6f6c-4d02-a44d-a768a002cdd9)
