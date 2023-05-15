@@ -1,21 +1,21 @@
 #MRS4NDMAN's Starship TOML file
 
 format = """
-$package\
-$golang\
-$nodejs\
-$rust\
-$python\
-$golang\
-$java\
-$haskell\
-$docker\
-
 $directory\
 $git_branch\
 $git_state\
 $git_status\
 $git_metrics\
+
+$rust\
+$golang\
+$docker\
+$package\
+$golang\
+$nodejs\
+$python\
+$java\
+$haskell\
 
 $fill\
 
@@ -153,6 +153,7 @@ symbol = " "
 [package]
 symbol = " "
 disabled = false
+format = "[$symbol($version )]($style)"
 
 [perl]
 symbol = " "
@@ -167,7 +168,7 @@ detect_folders = ["node_modules"]
 
 [rust]
 symbol = " "
-format = '[](orange bold dimmed)'
+format = '[$symbol($version)]($style)'
 
 [python]
 format = "[$symbol $version]($style)"
