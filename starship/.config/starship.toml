@@ -168,7 +168,7 @@ detect_folders = ["node_modules"]
 
 [rust]
 symbol = " "
-format = '[$symbol($version)]($style)'
+format = '[$symbol($version)]($style) '
 
 [python]
 format = "[$symbol $version]($style)"
