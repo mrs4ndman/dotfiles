@@ -166,6 +166,7 @@ alias powsh='pwsh'
 alias rge='alacritty -e ranger'
 alias svim='sudoedit'
 alias srg='sudo ranger'
+alias tattach='tmux attach-session -t'
 alias trp='trash-put'
 alias trr='trash-restore'
 
@@ -208,6 +209,7 @@ alias vls='watch -n 0.1 ls -la'
 alias whack='sudo systemctl restart'
 alias where='echo "The good one:"; which; echo "Where you can find it:"; whereis'
 alias wut='whatis'
+
 #-------------------------------------------------------------#
 
 
