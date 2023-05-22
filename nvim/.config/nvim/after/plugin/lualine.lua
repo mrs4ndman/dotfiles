@@ -174,6 +174,7 @@ ins_left {
     end,
 }
 
+
 ins_left {
     -- cursor location in file component
     'location',
@@ -202,7 +203,19 @@ ins_right {
 
 
 ins_right {
-    -- Lsp server name .
+    'diff',
+    -- Is it me or the symbol for modified us really weird
+    symbols = { added = ' ', modified = '柳', removed = ' ' },
+    diff_color = {
+        added = { fg = colors.lime },
+        modified = { fg = colors.orange },
+        removed = { fg = colors.red },
+    },
+    cond = conditions.hide_in_width,
+}
+
+ins_right {
+    -- Lsp server name
     function()
         local msg = 'None'
 
@@ -225,26 +238,15 @@ ins_right {
 }
 
 ins_right {
-    'o:encoding', -- option component same as &encoding in viml
-    fmt = string.lower, -- I'm not sure why it's upper case either ;)
+    'o:encoding',
+    fmt = string.lower,
     cond = conditions.hide_in_width,
     color = { fg = colors.red },
     padding = { left = 0, right = 0},
 }
 
 
-ins_right {
-    'diff',
-    -- Is it me or the symbol for modified us really weird
-    symbols = { added = ' ', modified = '柳 ', removed = ' ' },
-    diff_color = {
-        added = { fg = colors.lime },
-        modified = { fg = colors.orange },
-        removed = { fg = colors.red },
-    },
-    cond = conditions.hide_in_width,
-}
---
+
 ins_right {
     'fileformat',
     fmt = string.upper,

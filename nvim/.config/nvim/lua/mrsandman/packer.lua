@@ -84,6 +84,10 @@ use 'farmergreg/vim-lastplace' -- Remembers where i left off the buffer
 
 use 'kevinhwang91/rnvimr' -- Terminal file manager integration
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 44082c1e02ecb06a6a5ad0f3c4aa9131d0ea3571
 
 -- 6.- ThePrimeagen plugins (Blazingly Fast)
 
@@ -111,7 +115,7 @@ use ({
 })
 
 
--- Notifications and CSS color show
+-- Overlength, and CSS color show
 
 use 'lcheylus/overlength.nvim' -- Overlength, just that
 
