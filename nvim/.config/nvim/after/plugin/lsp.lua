@@ -8,6 +8,14 @@ lsp.ensure_installed({
 	'tsserver',
 	'eslint',
 	'rust_analyzer',
+    'clangd',
+    'vim-language-server',
+    'lua-language-server',
+    'marksman',
+    'shellcheck',
+    'bash-language-server',
+    'codespell',
+    'ruby-lsp'
 })
 
 -- Fix Undefined global 'vim':
