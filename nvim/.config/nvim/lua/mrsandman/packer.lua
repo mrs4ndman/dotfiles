@@ -112,7 +112,7 @@ use ({
 })
 
 
--- Notifications and CSS color show
+-- Overlength, and CSS color show
 
 use 'lcheylus/overlength.nvim' -- Overlength, just that
 
