@@ -1,1 +1,2 @@
 require("mrsandman")
+require("plugins")
