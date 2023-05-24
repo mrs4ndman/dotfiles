@@ -46,7 +46,7 @@ vim.keymap.set("n", "<C-s>",[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
 
 -- greatest remaps ever,  replace current selection with paste buffer & visual deletion made easy
 vim.keymap.set("x", "<leader>p", "\"_dP")
-vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
+vim.keymap.set({"n", "v"}, "<leader>dd", [["_d]])
 
 
 

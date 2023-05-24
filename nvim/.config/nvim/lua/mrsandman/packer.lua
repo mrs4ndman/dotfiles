@@ -96,10 +96,11 @@ use 'mbbill/undotree' -- What was that thing I did 10 days ago? Leader + U
 use 'eandrju/cellular-automaton.nvim'
 
 -- Rust babyyyy
-use 'mfussenegger/nvim-dap'
+use 'simrat39/rust-tools.nvim'
 
 -- Debugging
-use 'simrat39/rust-tools.nvim'
+use 'mfussenegger/nvim-dap'
+use 'rcarriga/nvim-dap-ui'
 
 
 

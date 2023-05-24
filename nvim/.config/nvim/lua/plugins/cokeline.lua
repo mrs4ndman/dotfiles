@@ -162,7 +162,6 @@ require('cokeline').setup({
       components = {
           {
               text = ' ey b0ss',
-              fg = red,
               style = 'bold',
           },
       }
