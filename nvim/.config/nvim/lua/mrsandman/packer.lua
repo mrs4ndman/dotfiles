@@ -95,6 +95,13 @@ use 'mbbill/undotree' -- What was that thing I did 10 days ago? Leader + U
 -- Goofy stuff:
 use 'eandrju/cellular-automaton.nvim'
 
+-- Rust babyyyy
+use 'mfussenegger/nvim-dap'
+
+-- Debugging
+use 'simrat39/rust-tools.nvim'
+
+
 
 -- 7.- UI customization
 --
