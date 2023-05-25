@@ -154,17 +154,7 @@ require('cokeline').setup({
         and get_hex('Normal', 'fg')
          or get_hex('Comment', 'fg')
     end,
-    bg = get_hex('ColorColumn', 'bg'),
-  },
-
-  sidebar = {
-      filetype = 'NvimTree',
-      components = {
-          {
-              text = ' ey b0ss',
-              style = 'bold',
-          },
-      }
+    bg = get_hex('Background', 'bg'),
   },
 
   components = {
@@ -173,8 +163,8 @@ require('cokeline').setup({
     components.space,
     components.devicon,
     components.space,
-    components.index,
     components.unique_prefix,
+    components.index,
     components.filename,
     components.diagnostics,
     components.two_spaces,

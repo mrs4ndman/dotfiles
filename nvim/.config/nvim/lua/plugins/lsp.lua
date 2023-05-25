@@ -8,7 +8,7 @@ lsp.ensure_installed({
 	'tsserver',
 	'eslint',
 	'rust_analyzer',
-    'cmake',
+    'neocmake',
     'clangd',
     'vimls',
     'lua_ls',
