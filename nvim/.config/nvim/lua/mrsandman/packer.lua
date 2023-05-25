@@ -132,12 +132,7 @@ use {
     branch = 'v2.x',
     requires = {
     -- LSP Support
-        {
-            'neovim/nvim-lspconfig',
-            config = function()
-                require "plugins.lsp"
-            end,
-        },         -- Required
+        {'neovim/nvim-lspconfig'},         -- Required
         {
         'williamboman/mason.nvim',         -- Optional
         run = function()
