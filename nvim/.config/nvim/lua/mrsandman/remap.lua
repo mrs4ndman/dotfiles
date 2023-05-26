@@ -29,8 +29,11 @@ vim.keymap.set("n", "<leader>cx", "<cmd>!chmod +x %<CR>", { silent = true })
 -- Netrw start 
 vim.keymap.set("n", "<leader>e", vim.cmd.Ex, { silent = true })
 
--- Try it out if you're that desperate: 
+-- Try it out if you're that desperate
 vim.keymap.set("n", "<leader>fml", "<cmd>CellularAutomaton make_it_rain<CR>", { silent = true })
+
+-- Neoclip extension for Telescope
+vim.keymap.set("n", "<leader>nc", "<cmd>Telescope neoclip<CR>", { silent = true })
 
 -- Overlength toggle
 vim.keymap.set("n", "<leader>ol", ":OverlengthToggle<CR>", { silent = true })

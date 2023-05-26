@@ -66,6 +66,8 @@ use 'junegunn/fzf' -- Fuzzy searching integration
 
 use 'lewis6991/gitsigns.nvim' -- Git signs on the gutter
 
+use "AckslD/nvim-neoclip.lua" -- Bob likes to yank :)
+
 
 -- tpope plugins
 --
