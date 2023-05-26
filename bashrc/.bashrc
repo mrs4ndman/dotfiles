@@ -347,6 +347,9 @@ fi
 # FZF integration (https://github.com/junegunn/fzf)
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+source ~/.local/scripts/fzf-git.sh
+
 #--------------------------------------------------------------#
 
 

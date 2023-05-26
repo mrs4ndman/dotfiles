@@ -99,7 +99,7 @@ vim.g.rnvimr_enable_treesitter = 1
 vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0
 vim.g.netrw_silent = 1
-vim.g.netrw_liststyle = 3
+vim.g.netrw_liststyle = 1
 vim.cmd([[
   autocmd BufEnter * if &ft == 'netrw' | setlocal syntax=netrw | endif
 ]])

@@ -98,6 +98,9 @@ use 'eandrju/cellular-automaton.nvim'
 -- Rust babyyyy
 use 'simrat39/rust-tools.nvim'
 
+-- Golang poweeeer
+use 'fatih/vim-go'
+
 -- Debugging
 use 'mfussenegger/nvim-dap'
 use 'rcarriga/nvim-dap-ui'
