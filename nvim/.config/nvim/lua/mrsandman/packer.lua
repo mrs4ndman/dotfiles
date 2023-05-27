@@ -84,6 +84,22 @@ local plugins = {
 
 'tpope/vim-vinegar', -- Native Ex gets extensions
 
+-- folke plugins
+--
+-- -- Zen mode with Space + zz / zZ
+
+"folke/zen-mode.nvim", -- Pure concentration
+
+-- Trouble: Diagnostics and status tool:
+{
+ "folke/trouble.nvim",
+ dependencies = { "nvim-tree/nvim-web-devicons" },
+ opts = {
+  -- your configuration comes here
+  -- or leave it empty to use the default settings
+  -- refer to the configuration section below
+ },
+},
 
 'farmergreg/vim-lastplace', -- Remembers where i left off the buffer
 
@@ -197,26 +213,6 @@ local plugins = {
 },
 
 
--- 10.- Zen mode with Space + zz / zZ
-
-"folke/zen-mode.nvim", -- Pure concentration
-
-
--- 11.- Trouble: Diagnostics and status tool:
-{
- "folke/trouble.nvim",
- dependencies = { "nvim-tree/nvim-web-devicons" },
- opts = {
-  -- your configuration comes here
-  -- or leave it empty to use the default settings
-  -- refer to the configuration section below
- },
-},
-
-
--- 1X.- Devicons for rnvimr & telescope 
-'ryanoasis/vim-devicons',
-'nvim-tree/nvim-web-devicons',
 
 
 }
