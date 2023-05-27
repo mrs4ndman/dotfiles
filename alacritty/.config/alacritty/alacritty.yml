@@ -8,8 +8,8 @@
 # Imports are loaded in order, skipping all missing files, with the importing
 # file being loaded last. If a field is already present in a previous import, it
 # will be replaced.
-#import:
-#  - /path/to/alacritty.yml
+# import:
+#   - ~/.config/alacritty/themes/themes/rose-pine.yaml
 
 env:
   TERM: xterm-256color
@@ -47,7 +47,7 @@ window:
   #
   decorations: none 
 
-  opacity: 0.89
+  opacity: 0.87
   #
   # Background opacity - Opacidad del fondo
   # Window opacity as a floating point number from `0.0` to `1.0`.
@@ -93,7 +93,7 @@ font:
   normal: 
     family: Jetbrains Mono Nerd Font
 
-    style: Regular
+    style: Medium
 
   # Bold font face - Fuente para texto en negrita
   bold:
