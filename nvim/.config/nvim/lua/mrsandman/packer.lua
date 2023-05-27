@@ -1,175 +1,174 @@
 -- Mr Sandman's .lua config for NVIM (NOT FINISHED) PACKER.lua
 
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
 
-vim.cmd [[packadd packer.nvim]] -- the doom begins
-
-return require('packer').startup(function(use)
+local plugins = {
 
 -- Packer can manage itself
-use 'wbthomason/packer.nvim' -- c'mon, do your thing
+-- 'wbthomason/packer.nvim' -- c'mon, do your thing
 
 -- MAIN PLUGIN CONFIG
 -- INCLUDES LSP BASE CONFIG, TMUX CONFIG, AUTOPAIRS, 
 
 -- Plugin loader optimization:
-use 'lewis6991/impatient.nvim' -- speed go brr
+'lewis6991/impatient.nvim', -- speed go brr
 
 
 -- 1.- Telescope config
 
-use {
+{
     'nvim-telescope/telescope.nvim', tag = '0.1.1', -- good ole telescope
-    requires = {
+    dependencies = {
         'nvim-lua/popup.nvim',
         'nvim-lua/plenary.nvim',
     }
-}
+},
 
 
--- 2.- Load Telescope native extensions
+-- 2.- Load Telescope native extensions,
 
-use {'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
-use 'nvim-telescope/telescope-file-browser.nvim'
-use 'nvim-telescope/telescope-ui-select.nvim'
+{'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' },
+'nvim-telescope/telescope-file-browser.nvim',
+'nvim-telescope/telescope-ui-select.nvim',
 
 
 -- 3.- Theme plugin config
 
-use({ 'rose-pine/neovim', -- cool light dark colors
-as = 'rose-pine',
-config = function()
-    vim.cmd('colorscheme rose-pine')
-end
-})
+{ 'rose-pine/neovim', name = 'rose-pine' },
+-- cool light dark colors
 
 
 -- 4.- Treesitter modules
 
-use {'nvim-treesitter/nvim-treesitter',
-    run = function()
-        local ts_update = require('nvim-treesitter.install').update({ with_sync = true})
-    ts_update()
-end,} -- colors go brr
+'nvim-treesitter/nvim-treesitter',
 
-use 'nvim-treesitter/playground' -- hehe
+'nvim-treesitter/playground', -- hehe
 
-use 'nvim-treesitter/nvim-treesitter-context'
+'nvim-treesitter/nvim-treesitter-context',
 
 
 -- 5.- External integration: Git, tmux, ranger & fzf, also remembers where I was in the buffer
 
-use 'christoomey/vim-tmux-navigator' -- tmux integration
+'christoomey/vim-tmux-navigator', -- tmux integration
 
-use 'tmux-plugins/vim-tmux' -- tmux integration x2
+'tmux-plugins/vim-tmux', -- tmux integration x2
 
-use 'junegunn/fzf' -- Fuzzy searching integration
+'junegunn/fzf', -- Fuzzy searching integration
 
-use 'lewis6991/gitsigns.nvim' -- Git signs on the gutter
+'lewis6991/gitsigns.nvim', -- Git signs on the gutter
 
-use "AckslD/nvim-neoclip.lua" -- Bob likes to yank :)
+"AckslD/nvim-neoclip.lua", -- Bob likes to yank :)
 
 
 -- tpope plugins
 --
-use 'tpope/vim-fugitive' -- Git integration
+'tpope/vim-fugitive', -- Git integration
 
-use 'tpope/vim-surround' -- The power of surroundings
+'tpope/vim-surround', -- The power of surroundings
 
-use 'tpope/vim-commentary' -- Powerful commenting, thanks to tpope
+'tpope/vim-commentary', -- Powerful commenting, thanks to tpope
 
-use 'tpope/vim-eunuch' -- Shell commands inside Vim
+'tpope/vim-eunuch', -- Shell commands inside Vim
 
-use 'tpope/vim-vinegar' -- Native Ex gets extensions
+'tpope/vim-vinegar', -- Native Ex gets extensions
 
 
-use 'farmergreg/vim-lastplace' -- Remembers where i left off the buffer
+'farmergreg/vim-lastplace', -- Remembers where i left off the buffer
 
-use 'kevinhwang91/rnvimr' -- Terminal file manager integration
+'kevinhwang91/rnvimr', -- Terminal file manager integration
 
 -- 6.- ThePrimeagen plugins (Blazingly Fast)
 
-use 'ThePrimeagen/vim-be-good' -- Vim & Neovim keybind training
+'ThePrimeagen/vim-be-good', -- Vim & Neovim keybind training
 
-use 'ThePrimeagen/harpoon' -- Reeling those files in
+'ThePrimeagen/harpoon', -- Reeling those files in
 
-use 'mbbill/undotree' -- What was that thing I did 10 days ago? Leader + U
+'mbbill/undotree', -- What was that thing I did 10 days ago? Leader + U
 
 -- Goofy stuff:
-use 'eandrju/cellular-automaton.nvim'
+'eandrju/cellular-automaton.nvim',
 
 -- Rust babyyyy
-use 'simrat39/rust-tools.nvim'
+'simrat39/rust-tools.nvim',
 
 -- Golang poweeeer
-use 'fatih/vim-go'
+'fatih/vim-go',
 
 -- Debugging
-use 'mfussenegger/nvim-dap'
-use 'rcarriga/nvim-dap-ui'
+'mfussenegger/nvim-dap',
+'rcarriga/nvim-dap-ui',
 
 
 
 -- 7.- UI customization
 --
 -- Status / buffer lines
-use 'nvim-lualine/lualine.nvim' -- Best statusline for nvim in Lua
+'nvim-lualine/lualine.nvim', -- Best statusline for nvim in Lua
 
-use ({
+({
     'willothy/nvim-cokeline', -- Addicted to this stuff
-    requires = 'kyazdani42/nvim-web-devicons',
+    dependencies = 'nvim-tree/nvim-web-devicons',
     config = function()
         require('cokeline').setup()
     end
-})
+}),
 
 
 -- Overlength, and CSS color show
 
-use 'lcheylus/overlength.nvim' -- Overlength, just that
+'lcheylus/overlength.nvim', -- Overlength, just that
 
-use 'ap/vim-css-color' -- Frontend stuff
+'ap/vim-css-color', -- Frontend stuff
 
 
 
 -- 8.- LSP Configuration
-use {
-    'VonHeikemen/lsp-zero.nvim', -- Big boi LSP
-    branch = 'v2.x',
-    requires = {
+{
+  'VonHeikemen/lsp-zero.nvim',
+  branch = 'v2.x',
+  dependencies = {
     -- LSP Support
-        {'neovim/nvim-lspconfig'},         -- Required
-        {
-        'williamboman/mason.nvim',         -- Optional
-        run = function()
-            pcall(vim.cmd, 'MasonUpdate')
-        end,
-        },
-        {'williamboman/mason-lspconfig.nvim'}, -- Optional
+    {'neovim/nvim-lspconfig'},             -- Required
+    {                                      -- Optional
+      'williamboman/mason.nvim',
+      build = function()
+        pcall(vim.cmd, 'MasonUpdate')
+      end,
+    },
+    {'williamboman/mason-lspconfig.nvim'}, -- Optional
 
     -- Autocompletion
-        {'hrsh7th/nvim-cmp'},     -- Required
-        {'hrsh7th/cmp-buffer'},   -- Optional
-        {'hrsh7th/cmp-path'},     -- Optional
-        {'hrsh7th/cmp-nvim-lsp'}, -- Required
-     -- Lua Snippets
-        {'saadparwaiz1/cmp_luasnip'},       -- Optional
-        {'rafamadriz/friendly-snippets'},   -- Optional
-        {'L3MON4D3/LuaSnip'},               -- Required
-    }
-}
-
+    {'hrsh7th/nvim-cmp'},     -- Required
+    {'hrsh7th/cmp-nvim-lsp'}, -- Required
+    {'hrsh7th/cmp-buffer'},   -- Optional
+    {'hrsh7th/cmp-path'},     -- Optional
+    -- Lua Snippets
+    {'saadparwaiz1/cmp_luasnip'},       -- Optional
+    {'rafamadriz/friendly-snippets'},   -- Optional
+    {'L3MON4D3/LuaSnip'},               -- Required
+  }
+},
 
 -- 9.- Autopairs & tabout for tabbing out of said pairs
 
-use {
-    "windwp/nvim-autopairs",
-    config = function() require("nvim-autopairs").setup {} end
-}
+
+"windwp/nvim-autopairs",
 
 
 -- Lua tabout finally working
 
-use {
+{
     'abecodes/tabout.nvim',
     config = function()
         require('tabout').setup {
@@ -193,33 +192,33 @@ use {
             exclude = {} -- tabout will ignore these filetypes
         }
     end,
-    wants = {'nvim-treesitter'}, -- or require if not used so far
-}
+    dependencies = {'nvim-treesitter'}, -- or require if not used so far
+},
 
 
 -- 10.- Zen mode with Space + zz / zZ
 
-use "folke/zen-mode.nvim" -- Pure concentration
+"folke/zen-mode.nvim", -- Pure concentration
 
 
 -- 11.- Trouble: Diagnostics and status tool:
-
-use ({
-    "folke/trouble.nvim", -- woops
-    config = function()
-        require("trouble").setup {
-            icons = false,
-            -- your configuration comes here
-            -- or leave it empty to use the default settings
-        }
-    end
-})
+{
+ "folke/trouble.nvim",
+ dependencies = { "nvim-tree/nvim-web-devicons" },
+ opts = {
+  -- your configuration comes here
+  -- or leave it empty to use the default settings
+  -- refer to the configuration section below
+ },
+},
 
 
 -- 1X.- Devicons for rnvimr & telescope 
-use 'ryanoasis/vim-devicons'
-use 'nvim-tree/nvim-web-devicons'
+'ryanoasis/vim-devicons',
+'nvim-tree/nvim-web-devicons',
 
 
-end)
+}
+
+require("lazy").setup(plugins, opts)
 -- eof --
