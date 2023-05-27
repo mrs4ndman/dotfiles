@@ -23,6 +23,7 @@ local plugins = {
 
 -- Plugin loader optimization:
 'lewis6991/impatient.nvim', -- speed go brr
+{ "folke/neodev.nvim", opts = {} }, -- initial setup / loadtime
 
 
 -- 1.- Telescope config
