@@ -1,4 +1,10 @@
--- Requires for all the config files
-require("mrsandman.packer")
+-- Require for all the config files
+
+require("mrsandman.main")
+-- Lazy package manager and plugin list
+
 require("mrsandman.set")
-require("mrsandman.remap")
+-- Settings for numbers inside buffers and more
+
+require("mrsandman.keymaps")
+-- Keymaps and autocmds for the setup

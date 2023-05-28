@@ -1,5 +1,6 @@
 -- NVIM terminal config
 --
+-- AUTOCMDS for various things
 -- Set default terminal mode to insert & remove line numbers in terminal buffers
 vim.cmd("autocmd! TermOpen * startinsert")
 
@@ -9,7 +10,6 @@ augroup Terminal
     autocmd TermOpen * setlocal nonumber norelativenumber
 augroup END
 ]])
-
 
 -- Ensure we land on normal mode after terminal
 
@@ -22,6 +22,11 @@ vim.cmd([[
 
 -- Remove padding in terminal
 vim.api.nvim_command('autocmd TermOpen * setlocal signcolumn=no')
+
+-- Correct syntax highlighting inside netrw
+vim.cmd([[
+autocmd BufEnter * if &ft == 'netrw' | setlocal syntax=netrw | endif
+]])
 
 -- Highlight yanking action for a second
 vim.api.nvim_command("au TextYankPost * silent! lua vim.highlight.on_yank {timeout = 50}")
@@ -42,25 +47,28 @@ vim.api.nvim_command('set noshowmode')
 -- Cursor config
 vim.opt.guicursor = ""
 
--- Type-writer mode = ON xD
-vim.opt.scrolloff = 8
-
--- Sidebar & tab config
 -- Numbers config
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
+-- Type-writer mode = ON xD
+vim.opt.scrolloff = 8
+
+-- Color columns
+vim.opt.colorcolumn = "80"
+
+-- Sidebar & tab config
 -- Tab config
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
--- No text wrapping
-vim.opt.wrap = false
-
 -- Vim indenting
 vim.opt.smartindent = true
+
+-- No text wrapping
+vim.opt.wrap = false
 
 -- Keep the sign column open
 vim.opt.signcolumn = "yes"
@@ -77,9 +85,6 @@ vim.opt.updatetime = 50
 
 -- Set nvim timeout
 vim.opt.timeoutlen = 2000
-
--- Color columns
-vim.opt.colorcolumn = "80"
 
 
 -- NVIM Plugin set zone
@@ -99,18 +104,10 @@ vim.g.rnvimr_enable_treesitter = 1
 vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0
 vim.g.netrw_silent = 1
-vim.g.netrw_liststyle = 1
-vim.cmd([[
-  autocmd BufEnter * if &ft == 'netrw' | setlocal syntax=netrw | endif
-]])
 
 -- Undotree & NVIM integration config:
 vim.o.swapfile = false
 vim.o.backup = false
 vim.o.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.o.undofile = true
-
-
--- Provider disabling config
-vim.g.loaded_perl_provider = 0
 
