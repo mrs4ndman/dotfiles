@@ -22,7 +22,7 @@ local plugins = {
 -- INCLUDES LSP BASE CONFIG, TMUX CONFIG, AUTOPAIRS, 
 
 -- Plugin loader optimization:
-'lewis6991/impatient.nvim', -- speed go brr
+"lewis6991/impatient.nvim", -- speed go brr
 { "folke/neodev.nvim", opts = {} }, -- initial setup / loadtime
 
 
@@ -40,53 +40,60 @@ local plugins = {
 -- 2.- Load Telescope native extensions,
 
 {'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' },
-'nvim-telescope/telescope-file-browser.nvim',
-'nvim-telescope/telescope-ui-select.nvim',
+"nvim-telescope/telescope-file-browser.nvim",
+"nvim-telescope/telescope-ui-select.nvim",
 
 
 -- 3.- Theme plugin config
 
 { 'rose-pine/neovim', name = 'rose-pine' },
--- cool light dark colors
+-- the cooles color scheme B)
 
 
 -- 4.- Treesitter modules
 
-'nvim-treesitter/nvim-treesitter',
+"nvim-treesitter/nvim-treesitter", -- parsing to the end of time
 
-'nvim-treesitter/playground', -- hehe
+"nvim-treesitter/playground", -- hehe
 
-'nvim-treesitter/nvim-treesitter-context',
+"nvim-treesitter/nvim-treesitter-context",
 
 
 -- 5.- External integration: Git, tmux, ranger & fzf, also remembers where I was in the buffer
 
-'christoomey/vim-tmux-navigator', -- tmux integration
+"christoomey/vim-tmux-navigator", -- tmux integration
 
-'tmux-plugins/vim-tmux', -- tmux integration x2
+"tmux-plugins/vim-tmux", -- tmux integration x2
 
-'junegunn/fzf', -- Fuzzy searching integration
+"junegunn/fzf", -- Fuzzy searching integration
 
-'lewis6991/gitsigns.nvim', -- Git signs on the gutter
+"lewis6991/gitsigns.nvim", -- Git signs on the gutter
 
 "AckslD/nvim-neoclip.lua", -- Bob likes to yank :)
+
+"kevinhwang91/rnvimr", -- Terminal file manager integration
+
+"farmergreg/vim-lastplace", -- Remembers where i left off the buffer
+
+"max397574/better-escape.nvim", -- Better Esc keybindings
 
 
 -- tpope plugins
 --
-'tpope/vim-fugitive', -- Git integration
+"tpope/vim-fugitive", -- Git integration
 
-'tpope/vim-surround', -- The power of surroundings
+"tpope/vim-surround", -- The power of surroundings
 
-'tpope/vim-commentary', -- Powerful commenting, thanks to tpope
+"tpope/vim-commentary", -- Powerful commenting, thanks to tpope
 
-'tpope/vim-eunuch', -- Shell commands inside Vim
+"tpope/vim-eunuch", -- Shell commands inside Vim
 
-'tpope/vim-vinegar', -- Native Ex gets extensions
+"tpope/vim-vinegar", -- Native Ex gets extensions
+
 
 -- folke plugins
 --
--- -- Zen mode with Space + zz / zZ
+-- Zen mode with Space + zz / zZ
 
 "folke/zen-mode.nvim", -- Pure concentration
 
@@ -101,37 +108,37 @@ local plugins = {
  },
 },
 
-'farmergreg/vim-lastplace', -- Remembers where i left off the buffer
 
-'kevinhwang91/rnvimr', -- Terminal file manager integration
 
 -- 6.- ThePrimeagen plugins (Blazingly Fast)
 
-'ThePrimeagen/vim-be-good', -- Vim & Neovim keybind training
+"ThePrimeagen/vim-be-good", -- Vim & Neovim keybind training
 
-'ThePrimeagen/harpoon', -- Reeling those files in
+"ThePrimeagen/harpoon", -- Reeling those files in
 
-'mbbill/undotree', -- What was that thing I did 10 days ago? Leader + U
+"mbbill/undotree", -- What was that thing I did 10 days ago? Leader + U
 
--- Goofy stuff:
-'eandrju/cellular-automaton.nvim',
+"eandrju/cellular-automaton.nvim", -- Goofy stuff:
+
+
+-- Language / debugging plugins
 
 -- Rust babyyyy
-'simrat39/rust-tools.nvim',
+"simrat39/rust-tools.nvim",
 
 -- Golang poweeeer
-'fatih/vim-go',
+"fatih/vim-go",
 
 -- Debugging
-'mfussenegger/nvim-dap',
-'rcarriga/nvim-dap-ui',
+"mfussenegger/nvim-dap",
+"rcarriga/nvim-dap-ui",
 
 
 
 -- 7.- UI customization
 --
 -- Status / buffer lines
-'nvim-lualine/lualine.nvim', -- Best statusline for nvim in Lua
+"nvim-lualine/lualine.nvim", -- Best statusline for nvim in Lua
 
 ({
     'willothy/nvim-cokeline', -- Addicted to this stuff
@@ -144,9 +151,9 @@ local plugins = {
 
 -- Overlength, and CSS color show
 
-'lcheylus/overlength.nvim', -- Overlength, just that
+"lcheylus/overlength.nvim", -- Overlength, just that
 
-'ap/vim-css-color', -- Frontend stuff
+"ap/vim-css-color", -- Frontend stuff
 
 
 
