@@ -184,8 +184,8 @@ local plugins = {
   }
 },
 
--- 9.- Autopairs & tabout for tabbing out of said pairs
 
+-- 9.- Autopairs & tabout for tabbing out of said pairs
 
 "windwp/nvim-autopairs",
 
@@ -219,6 +219,13 @@ local plugins = {
     dependencies = {'nvim-treesitter'}, -- or require if not used so far
 },
 
+
+-- 10.- Startup screen
+
+{
+    "goolord/alpha-nvim",
+    dependencies = "nvim-tree/nvim-web-devicons",
+},
 
 
 

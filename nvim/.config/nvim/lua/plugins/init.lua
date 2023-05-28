@@ -1,4 +1,6 @@
+require("plugins.alpha")
 require("plugins.autopairs")
+require("plugins.better-escape")
 require("plugins.cokeline")
 require("plugins.colors")
 require("plugins.dap-config")

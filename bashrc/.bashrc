@@ -128,6 +128,7 @@ export FZF_DEFAULT_OPTS='-m --height 40% --border'
 export MAINED="nvim"
 export PATH="$HOME/.cargo/bin:$HOME/.fzf:$HOME/.local/bin:$HOME/.local/scripts:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 export VIMRC="$HOME/.vimrc"
+export NVIMRC="$HOME/dotfiles/nvim/.config/nvim/lua/mrsandman/main.lua"
 export VISUAL="vim"
 set -o vi
 
