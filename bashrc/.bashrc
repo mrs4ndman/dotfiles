@@ -235,7 +235,7 @@ alias af='alias | fzf'
 alias did="history | grep"
 alias flip='sudo apt update -y && sudo apt upgrade && sudo apt autoremove && sudo apt clean'
 alias font-search='fc-list | grep'
-alias fv='nvim -o `fzf`'
+alias fv='nvim $(fzf)'
 alias fenv='printenv | fzf'
 
 alias gensecpass="head -c 32 /dev/random | base64 | sed "s:[+=/]::g" | head -c 32"
@@ -295,7 +295,7 @@ alias gsp='git stash pop'
 
 alias tls='tmux ls'
 alias tks='tmux kill-session -t'
-alias trs='tmux rename'
+alias trs='tmux rename-session'
 alias twin='$HOME/.local/scripts/tmux-windowizer'
 
 #--------------------------------------------------------------#

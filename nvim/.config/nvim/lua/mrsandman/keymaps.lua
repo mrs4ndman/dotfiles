@@ -44,6 +44,10 @@ vim.keymap.set("n", "<leader>ps", ":PackerSync<CR>", { noremap = true, silent = 
 -- RNVIMR / ranger toggle
 vim.keymap.set("n", "<leader>r", ':RnvimrToggle<CR>', ( { silent = true, noremap = true} ))
 
+-- Hbac: The buffer vacuum
+vim.keymap.set("n", "<leader>vo", require("hbac").close_unpinned, ( { silent = true } ) )
+vim.keymap.set("n", "<leader>pb", require("hbac").toggle_pin, ( { silent = true } ) )
+
 -- Substitutor for current word:
 vim.keymap.set("n", "<C-s>",[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 

@@ -129,6 +129,16 @@ ins_left {
 }
 
 ins_left {
+    'hbac',
+    function()
+        local cur_buf = vim.api.nvim_get_current_buf()
+        return require("hbac.state").is_pinned(cur_buf) and "📍" or ""
+        -- tip: nerd fonts have pinned/unpinned icons!
+    end,
+    color = { fg = "#ef5f6b", gui = "bold" },
+}
+
+ins_left {
     'filename',
     cond = conditions.buffer_not_empty,
     color = { fg = colors.red, gui = 'bold' },

@@ -77,6 +77,8 @@ local plugins = {
 
 "max397574/better-escape.nvim", -- Better Esc keybindings
 
+"axkirillov/hbac.nvim", -- Vacuuming up them buffers
+
 
 -- tpope plugins
 --
@@ -187,6 +189,7 @@ local plugins = {
 
 -- 9.- Autopairs & tabout for tabbing out of said pairs
 
+"airblade/vim-matchquote",
 "windwp/nvim-autopairs",
 
 
