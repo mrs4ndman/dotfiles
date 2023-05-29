@@ -79,6 +79,8 @@ local plugins = {
 
 "axkirillov/hbac.nvim", -- Vacuuming up them buffers
 
+"rmagatti/auto-session", -- Intelligent Neovim session manager
+
 
 -- tpope plugins
 --
@@ -109,7 +111,6 @@ local plugins = {
   -- refer to the configuration section below
  },
 },
-
 
 
 -- 6.- ThePrimeagen plugins (Blazingly Fast)

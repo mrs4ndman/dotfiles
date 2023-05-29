@@ -1,5 +1,6 @@
 require("plugins.alpha")
 require("plugins.autopairs")
+require("plugins.auto-session")
 require("plugins.better-escape")
 require("plugins.cokeline")
 require("plugins.colors")
