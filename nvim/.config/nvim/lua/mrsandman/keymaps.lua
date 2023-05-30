@@ -42,11 +42,16 @@ vim.keymap.set("n", "<leader>ol", ":OverlengthToggle<CR>", { silent = true })
 vim.keymap.set("n", "<leader>ps", ":PackerSync<CR>", { noremap = true, silent = true })
 
 -- RNVIMR / ranger toggle
-vim.keymap.set("n", "<leader>r", ':RnvimrToggle<CR>', ( { silent = true, noremap = true} ))
+vim.keymap.set("n", "<leader>r", ":RnvimrToggle<CR>", ( { silent = true, noremap = true} ))
 
 -- Hbac: The buffer vacuum
-vim.keymap.set("n", "<leader>vo", require("hbac").close_unpinned, ( { silent = true } ) )
-vim.keymap.set("n", "<leader>pb", require("hbac").toggle_pin, ( { silent = true } ) )
+vim.keymap.set("n", "<leader>vo", require("hbac").close_unpinned, { silent = true } )
+vim.keymap.set("n", "<leader>pb", require("hbac").toggle_pin, { silent = true } )
+
+-- Session management
+vim.keymap.set("n", "<leader>ss", ":SessionSave<CR>")
+vim.keymap.set("n", "<leader>sr", ":SessionRestore<CR>")
+vim.keymap.set("n", "<leader>sd", ":SessionDelete<CR>")
 
 -- Substitutor for current word:
 vim.keymap.set("n", "<C-s>",[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
