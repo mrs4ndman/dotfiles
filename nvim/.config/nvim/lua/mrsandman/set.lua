@@ -2,12 +2,11 @@
 --
 -- AUTOCMDS for various things
 -- Set default terminal mode to insert & remove line numbers in terminal buffers
-vim.cmd("autocmd! TermOpen * startinsert")
-
 vim.cmd([[
 augroup Terminal
     autocmd!
     autocmd TermOpen * setlocal nonumber norelativenumber
+    autocmd! TermOpen * startinsert
 augroup END
 ]])
 
@@ -112,4 +111,6 @@ vim.o.swapfile = false
 vim.o.backup = false
 vim.o.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.o.undofile = true
+
+-- Vim Sessions config
 vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"

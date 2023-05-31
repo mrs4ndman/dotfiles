@@ -42,6 +42,7 @@ lsp.setup_nvim_cmp({
 })
 
 -- Change here the left sidebar LSP icon config for:
+-- TODO: Need to choose some icons for the sidebar
 lsp.set_preferences({
 	sign_icons = {
         error = 'E',
@@ -53,6 +54,7 @@ lsp.set_preferences({
 
 -- Buffer LSP tools
 
+-- NOTE: I don't remember why I used client here, but it works (I don't even question it) 
  lsp.on_attach(function(client, bufnr)
 	local opts = {buffer = bufnr, remap = false}
 
@@ -66,6 +68,7 @@ lsp.set_preferences({
     vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
     vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
     vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+
  end)
 
 lsp.setup()

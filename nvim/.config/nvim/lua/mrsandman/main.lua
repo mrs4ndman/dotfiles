@@ -84,7 +84,7 @@ local plugins = {
 
 -- tpope plugins
 --
-"tpope/vim-fugitive", -- Git integration
+"tpope/vim-fugitive", -- Git wrapper
 
 "tpope/vim-surround", -- The power of surroundings
 
@@ -110,6 +110,27 @@ local plugins = {
   -- or leave it empty to use the default settings
   -- refer to the configuration section below
  },
+},
+
+{
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {},
+},
+
+{
+    "folke/drop.nvim",
+    event = "VimEnter",
+    config = function()
+        require("drop").setup = {
+            theme = "stars",
+            max = 20,
+            interval = 200,
+            screensaver = 1000 * 15 * 1,
+            filetypes = { "alpha" },
+            -- HACK: Idk how to make this work inside alpha dashboard
+        }
+    end,
 },
 
 
