@@ -5,9 +5,13 @@ local builtin = require('telescope.builtin')
 
 vim.keymap.set('n', '<leader>tf', builtin.find_files, {})
 vim.keymap.set('n', '<leader>tg', builtin.git_files, {})
+vim.keymap.set('n', '<leader>tb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>ts', function()
-	builtin.grep_string({ search = vim.fn.input("Grep > ") });
+	builtin.grep_string({
+        search = vim.fn.input("Grep > "),
+    });
 end)
+vim.keymap.set('n', '<leader>tl', builtin.loclist, {} )
 vim.keymap.set('n', '<leader>to', builtin.oldfiles )
 vim.keymap.set('n', '<leader>vh', builtin.help_tags, {})
 
@@ -36,7 +40,6 @@ telescope.setup {
             "--smart-case",
             "--hidden",
         },
-
         sort_mru = true,
         sorting_strategy = 'ascending',
         color_devicons = true,
@@ -57,8 +60,10 @@ telescope.setup {
         prompt_prefix = '   ',
         hl_result_eol = false,
         results_title = "",
-        winblend = 10,
-        wrap_results = true
+        winblend = 20,
+        wrap_results = true,
+        file_ignore_patterns = {},
+        hidden = true,
     },
     mappings = {
         i = {

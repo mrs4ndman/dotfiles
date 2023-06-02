@@ -23,7 +23,10 @@ local plugins = {
 
 -- Plugin loader optimization:
 "lewis6991/impatient.nvim", -- speed go brr
-{ "folke/neodev.nvim", opts = {} }, -- initial setup / loadtime
+{
+    "folke/neodev.nvim", -- initial setup / loadtime
+    opts = {},
+},
 
 
 -- 1.- Telescope config
@@ -46,8 +49,11 @@ local plugins = {
 
 -- 3.- Theme plugin config
 
-{ 'rose-pine/neovim', name = 'rose-pine' },
--- the cooles color scheme B)
+{
+    'rose-pine/neovim',
+    name = 'rose-pine',
+},
+-- the coolest color scheme B)
 
 
 -- 4.- Treesitter modules
@@ -57,6 +63,11 @@ local plugins = {
 "nvim-treesitter/playground", -- hehe
 
 "nvim-treesitter/nvim-treesitter-context",
+
+{
+    "Wansmer/treesj",
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+},
 
 
 -- 5.- External integration: Git, tmux, ranger & fzf, also remembers where I was in the buffer
@@ -72,6 +83,8 @@ local plugins = {
 "AckslD/nvim-neoclip.lua", -- Bob likes to yank :)
 
 "kevinhwang91/rnvimr", -- Terminal file manager integration
+
+"kevinhwang91/nvim-bqf", -- Better Quickfix list
 
 "farmergreg/vim-lastplace", -- Remembers where i left off the buffer
 
@@ -133,6 +146,8 @@ local plugins = {
     end,
 },
 
+"folke/twilight.nvim",
+
 
 -- 6.- ThePrimeagen plugins (Blazingly Fast)
 
@@ -190,9 +205,7 @@ local plugins = {
     {'neovim/nvim-lspconfig'},             -- Required
     {                                      -- Optional
       'williamboman/mason.nvim',
-      build = function()
-        pcall(vim.cmd, 'MasonUpdate')
-      end,
+      build = function() pcall(vim.cmd, 'MasonUpdate') end,
     },
     {'williamboman/mason-lspconfig.nvim'}, -- Optional
 

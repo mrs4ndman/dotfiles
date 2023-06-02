@@ -53,6 +53,9 @@ vim.keymap.set("n", "<leader>ss", ":SessionSave<CR>")
 vim.keymap.set("n", "<leader>sr", ":SessionRestore<CR>")
 vim.keymap.set("n", "<leader>sd", ":SessionDelete<CR>")
 
+-- Treesitter split toggle with TreeSJ
+vim.keymap.set("n", "<leader>bt", require('treesj').toggle)
+
 -- Substitutor for current word:
 vim.keymap.set("n", "<C-s>",[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
