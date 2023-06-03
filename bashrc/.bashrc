@@ -232,11 +232,12 @@ alias wut='whatis'
 # 5.- Aliases that call on multiple programs / functions
 
 alias af='alias | fzf'
-alias did="history | grep"
-alias flip='sudo apt update -y && sudo apt upgrade && sudo apt autoremove && sudo apt clean'
-alias font-search='fc-list | grep'
 alias fv='nvim $(fzf)'
 alias fenv='printenv | fzf'
+
+alias did="history | grep"
+alias flip='sudo apt update -y && sudo apt upgrade && sudo apt autoremove && sudo apt clean'
+alias font-search='fc-list | fzf'
 
 alias gensecpass="head -c 32 /dev/random | base64 | sed "s:[+=/]::g" | head -c 32"
 # This is a bashism, gensecpass ONLY WORKS ON BASH - gensecpass SOLO FUNCIONA EN BASH;
@@ -265,7 +266,8 @@ alias yeet='git push'
 alias yoink='git pull'
 
 alias gaa='git add .'
-alias gca='git commit --amend -m'
+alias gc='git commit'
+alias gca='git commit --amend'
 alias gcm='git commit -am'
 alias gcn='git commit --amend --no-edit'
 alias gcl='git clean' 
