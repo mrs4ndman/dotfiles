@@ -39,7 +39,7 @@ vim.keymap.set("n", "<leader>nc", "<cmd>Telescope neoclip<CR>", { silent = true 
 vim.keymap.set("n", "<leader>ol", ":OverlengthToggle<CR>", { silent = true })
 
 -- Packer Sync shortcut
-vim.keymap.set("n", "<leader>ll", ":Lazy<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>ps", ":PackerSync<CR>", { noremap = true, silent = true })
 
 -- RNVIMR / ranger toggle
 vim.keymap.set("n", "<leader>r", ":RnvimrToggle<CR>", ( { silent = true, noremap = true} ))
