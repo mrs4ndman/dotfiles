@@ -264,6 +264,7 @@ alias sysinfo='sudo fdisk -l; blkid; lshw; lscpu; lscpi; diskusage; df -hl -x sq
 
 alias yeet='git push'
 alias yoink='git pull'
+alias lg='lazygit'
 
 alias gaa='git add .'
 alias gc='git commit'
