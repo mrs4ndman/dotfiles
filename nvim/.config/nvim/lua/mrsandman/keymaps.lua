@@ -47,6 +47,9 @@ vim.keymap.set("n", "<leader>ps", ":Lazy<CR>", { noremap = true, silent = true }
 -- RNVIMR / ranger toggle
 vim.keymap.set("n", "<leader>r", ":RnvimrToggle<CR>", ( { silent = true, noremap = true} ))
 
+-- Starting dashboard: Alpha
+vim.keymap.set("n", "<leader>sp", ":Alpha<CR>", ( { silent = true, noremap = true} ))
+
 -- Hbac: The buffer vacuum
 vim.keymap.set("n", "<leader>vo", require("hbac").close_unpinned, { silent = true } )
 vim.keymap.set("n", "<leader>pb", require("hbac").toggle_pin, { silent = true } )
@@ -55,6 +58,10 @@ vim.keymap.set("n", "<leader>pb", require("hbac").toggle_pin, { silent = true } 
 vim.keymap.set("n", "<leader>ss", ":SessionSave<CR>")
 vim.keymap.set("n", "<leader>sr", ":SessionRestore<CR>")
 vim.keymap.set("n", "<leader>sd", ":SessionDelete<CR>")
+
+-- Todo list management
+vim.keymap.set("n", "<leader>nt", require("todo-comments").jump_next)
+vim.keymap.set("n", "<leader>pt", require("todo-comments").jump_prev)
 
 -- Treesitter split toggle with TreeSJ
 vim.keymap.set("n", "<leader>bt", require('treesj').toggle)
@@ -66,7 +73,22 @@ vim.keymap.set("n", "<C-s>",[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
 vim.keymap.set("x", "<leader>p", "\"_dP")
 vim.keymap.set({"n", "v"}, "<leader>dd", [["_d]])
 
+-- Telescope bindings
+local builtin = require('telescope.builtin')
 
+-- Keymaps
+
+vim.keymap.set('n', '<leader>tf', builtin.find_files, {})
+vim.keymap.set('n', '<leader>tg', builtin.git_files, {})
+vim.keymap.set('n', '<leader>tb', builtin.buffers, {})
+vim.keymap.set('n', '<leader>ts', function()
+	builtin.grep_string({
+        search = vim.fn.input("Grep > "),
+    });
+end)
+vim.keymap.set('n', '<leader>tl', builtin.loclist, {} )
+vim.keymap.set('n', '<leader>to', builtin.oldfiles )
+vim.keymap.set('n', '<leader>vh', builtin.help_tags, {})
 
 -- NORMAL mode Keybinds
 

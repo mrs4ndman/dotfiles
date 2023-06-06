@@ -88,6 +88,9 @@ vim.opt.updatetime = 50
 vim.opt.timeoutlen = 2000
 
 
+      
+vim.opt.signcolumn = "auto:1-4"
+
 -- NVIM Plugin set zone
 
 -- RNVIMR CONFIG
