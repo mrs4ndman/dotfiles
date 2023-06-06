@@ -22,9 +22,9 @@ local plugins = {
 -- INCLUDES LSP BASE CONFIG, TMUX CONFIG, AUTOPAIRS, 
 
 -- Plugin loader optimization:
-"lewis6991/impatient.nvim", -- speed go brr
 {
     "folke/neodev.nvim", -- initial setup / loadtime
+    event = "VeryLazy",
     opts = {},
 },
 
@@ -43,7 +43,12 @@ local plugins = {
 -- 2.- Load Telescope native extensions,
 
 {'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' },
-"nvim-telescope/telescope-file-browser.nvim",
+
+{
+    "nvim-telescope/telescope-file-browser.nvim",
+    event = "VeryLazy",
+},
+
 "nvim-telescope/telescope-ui-select.nvim",
 
 
@@ -60,7 +65,10 @@ local plugins = {
 
 "nvim-treesitter/nvim-treesitter", -- parsing to the end of time
 
-"nvim-treesitter/playground", -- hehe
+{
+    "nvim-treesitter/playground", -- hehe
+    event = "VeryLazy",
+},
 
 "nvim-treesitter/nvim-treesitter-context",
 
@@ -112,17 +120,21 @@ local plugins = {
 --
 -- Zen mode with Space + zz / zZ
 
-"folke/zen-mode.nvim", -- Pure concentration
+{
+    "folke/zen-mode.nvim", -- Pure concentration
+    event = "VeryLazy",
+},
 
 -- Trouble: Diagnostics and status tool:
 {
- "folke/trouble.nvim",
- dependencies = { "nvim-tree/nvim-web-devicons" },
- opts = {
-  -- your configuration comes here
-  -- or leave it empty to use the default settings
-  -- refer to the configuration section below
- },
+    "folke/trouble.nvim",
+    event = "VeryLazy",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    opts = {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+    },
 },
 
 {
@@ -137,40 +149,63 @@ local plugins = {
     config = function()
         require("drop").setup = {
             theme = "stars",
-            max = 20,
+            max = 35,
             interval = 200,
-            screensaver = 1000 * 15 * 1,
+            screensaver = 1000 * 60 * 1,
             filetypes = { "alpha" },
             -- HACK: Idk how to make this work inside alpha dashboard
         }
     end,
 },
 
-"folke/twilight.nvim",
+{
+    "folke/twilight.nvim",
+    event = "VeryLazy",
+},
 
 
 -- 6.- ThePrimeagen plugins (Blazingly Fast)
 
-"ThePrimeagen/vim-be-good", -- Vim & Neovim keybind training
+{
+    "ThePrimeagen/vim-be-good", -- Vim & Neovim keybind training
+    event = "VeryLazy",
+},
 
 "ThePrimeagen/harpoon", -- Reeling those files in
 
 "mbbill/undotree", -- What was that thing I did 10 days ago? Leader + U
 
-"eandrju/cellular-automaton.nvim", -- Goofy stuff:
 
+-- Goofy stuff:
+{
+    "eandrju/cellular-automaton.nvim",
+    event = "VeryLazy",
+},
 
 -- Language / debugging plugins
 
 -- Rust babyyyy
-"simrat39/rust-tools.nvim",
+{
+    "simrat39/rust-tools.nvim",
+    event = "VeryLazy",
+},
 
 -- Golang poweeeer
-"fatih/vim-go",
+{
+    "fatih/vim-go",
+    event = "VeryLazy",
+},
 
 -- Debugging
-"mfussenegger/nvim-dap",
+{
+    "mfussenegger/nvim-dap",
+    event = "VeryLazy",
+},
+
+{
 "rcarriga/nvim-dap-ui",
+    event = "VeryLazy",
+},
 
 
 
@@ -181,6 +216,7 @@ local plugins = {
 
 ({
     'willothy/nvim-cokeline', -- Addicted to this stuff
+    event = "VeryLazy",
     dependencies = 'nvim-tree/nvim-web-devicons',
     config = function()
         require('cokeline').setup()
@@ -190,11 +226,19 @@ local plugins = {
 
 -- Overlength, and CSS color show
 
+{
 "lcheylus/overlength.nvim", -- Overlength, just that
+    event = "VeryLazy",
+},
 
-"ap/vim-css-color", -- Frontend stuff
+-- "ap/vim-css-color", -- Frontend stuff
+-- TODO: Find a substitute for this plugin
 
-
+-- Indenting visual marks
+{
+    "lukas-reineke/indent-blankline.nvim",
+    event = "VeryLazy",
+},
 
 -- 8.- LSP Configuration
 {

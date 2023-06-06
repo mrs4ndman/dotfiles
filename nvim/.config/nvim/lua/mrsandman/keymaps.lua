@@ -32,14 +32,17 @@ vim.keymap.set("n", "<leader>e", vim.cmd.Ex, { silent = true })
 -- Try it out if you're that desperate
 vim.keymap.set("n", "<leader>fml", "<cmd>CellularAutomaton make_it_rain<CR>", { silent = true })
 
+--
+vim.keymap.set("n", "<leader>il", "<cmd>IndentBlanklineToggle<CR>", { silent = true })
+
 -- Neoclip extension for Telescope
 vim.keymap.set("n", "<leader>nc", "<cmd>Telescope neoclip<CR>", { silent = true })
 
 -- Overlength toggle
 vim.keymap.set("n", "<leader>ol", ":OverlengthToggle<CR>", { silent = true })
 
--- Packer Sync shortcut
-vim.keymap.set("n", "<leader>ps", ":PackerSync<CR>", { noremap = true, silent = true })
+-- Lazy shortcut
+vim.keymap.set("n", "<leader>ps", ":Lazy<CR>", { noremap = true, silent = true })
 
 -- RNVIMR / ranger toggle
 vim.keymap.set("n", "<leader>r", ":RnvimrToggle<CR>", ( { silent = true, noremap = true} ))
