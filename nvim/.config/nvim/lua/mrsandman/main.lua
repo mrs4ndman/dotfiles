@@ -254,14 +254,18 @@ local plugins = {
     {'williamboman/mason-lspconfig.nvim'}, -- Optional
 
     -- Autocompletion
-    {'hrsh7th/nvim-cmp'},     -- Required
-    {'hrsh7th/cmp-nvim-lsp'}, -- Required
-    {'hrsh7th/cmp-buffer'},   -- Optional
-    {'hrsh7th/cmp-path'},     -- Optional
+    {'hrsh7th/nvim-cmp'},             -- Required
+    {'hrsh7th/cmp-nvim-lsp'},         -- Required
+    {'hrsh7th/cmp-buffer'},           -- Optional
+    {'hrsh7th/cmp-path'},             -- Optional
+    --
     -- Lua Snippets
-    {'saadparwaiz1/cmp_luasnip'},       -- Optional
-    {'rafamadriz/friendly-snippets'},   -- Optional
-    {'L3MON4D3/LuaSnip'},               -- Required
+    {'saadparwaiz1/cmp_luasnip'},     -- Optional
+    {'rafamadriz/friendly-snippets'}, -- Optional
+    {
+        'L3MON4D3/LuaSnip',    -- Required
+        event = "VeryLazy",
+    },
   }
 },
 
