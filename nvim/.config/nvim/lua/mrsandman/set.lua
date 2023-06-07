@@ -87,9 +87,11 @@ vim.opt.updatetime = 50
 -- Set nvim timeout
 vim.opt.timeoutlen = 2000
 
-
-      
+-- Added auto signs to the sidebar
 vim.opt.signcolumn = "auto:1-4"
+
+-- Disable fold marks
+vim.o.foldenable = false
 
 -- NVIM Plugin set zone
 

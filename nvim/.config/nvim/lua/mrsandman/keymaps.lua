@@ -14,12 +14,6 @@ vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end, { silent = true })
 
--- Buffer previous, next and close
-
-vim.keymap.set("n", "<leader>bn", "<cmd>bnext<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>bp", "<cmd>bprevious<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>bc", "<cmd>bd<CR>", { noremap = true, silent = true })
-
 -- Treesitter context bindings:
 vim.keymap.set("n", "<leader>ct", "<cmd>TSContextToggle<CR>", { silent = true })
 
@@ -39,7 +33,7 @@ vim.keymap.set("n", "<leader>il", "<cmd>IndentBlanklineToggle<CR>", { silent = t
 vim.keymap.set("n", "<leader>nc", "<cmd>Telescope neoclip<CR>", { silent = true })
 
 -- Overlength toggle
-vim.keymap.set("n", "<leader>ol", ":OverlengthToggle<CR>", { silent = true })
+vim.keymap.set("n", "<leader>lt", ":OverlengthToggle<CR>", { silent = true })
 
 -- Lazy shortcut
 vim.keymap.set("n", "<leader>ps", ":Lazy<CR>", { noremap = true, silent = true })
@@ -55,23 +49,18 @@ vim.keymap.set("n", "<leader>vo", require("hbac").close_unpinned, { silent = tru
 vim.keymap.set("n", "<leader>pb", require("hbac").toggle_pin, { silent = true } )
 
 -- Session management
-vim.keymap.set("n", "<leader>ss", ":SessionSave<CR>")
-vim.keymap.set("n", "<leader>sr", ":SessionRestore<CR>")
-vim.keymap.set("n", "<leader>sd", ":SessionDelete<CR>")
+vim.keymap.set("n", "<leader>ss", ":SessionSave<CR>", { desc = "Saved current session" })
+vim.keymap.set("n", "<leader>sr", ":SessionRestore<CR>", { desc = "Restore session for CWD" })
+vim.keymap.set("n", "<leader>sd", ":SessionDelete<CR>", { desc = "Saved current session" })
 
 -- Todo list management
 vim.keymap.set("n", "<leader>nt", require("todo-comments").jump_next)
 vim.keymap.set("n", "<leader>pt", require("todo-comments").jump_prev)
+vim.keymap.set("n", "<leader>td", "<cmd>TodoQuickFix<CR>", { silent = true })
 
 -- Treesitter split toggle with TreeSJ
 vim.keymap.set("n", "<leader>bt", require('treesj').toggle)
 
--- Substitutor for current word:
-vim.keymap.set("n", "<C-s>",[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-
--- greatest remaps ever,  replace current selection with paste buffer & visual deletion made easy
-vim.keymap.set("x", "<leader>p", "\"_dP")
-vim.keymap.set({"n", "v"}, "<leader>dd", [["_d]])
 
 -- Telescope bindings
 local builtin = require('telescope.builtin')
@@ -90,7 +79,38 @@ vim.keymap.set('n', '<leader>tl', builtin.loclist, {} )
 vim.keymap.set('n', '<leader>to', builtin.oldfiles )
 vim.keymap.set('n', '<leader>vh', builtin.help_tags, {})
 
+--
 -- NORMAL mode Keybinds
+--
+-- Substitutor for current word:
+vim.keymap.set("n", "<C-s>",[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
+-- greatest remaps ever,  replace current selection with paste buffer & visual deletion made easy
+vim.keymap.set("x", "<leader>p", "\"_dP")
+vim.keymap.set({"n", "v"}, "<leader>dd", [["_d]])
+
+-- Delete character without yanking
+vim.keymap.set({"n", "v"}, "x", "\"_x", { silent = true })
+vim.keymap.set({"n", "v"}, "X", "\"_X", { silent = true })
+
+-- Select all
+vim.keymap.set("n", "<leader>sa", "ggVG", { desc = "Select all" })
+
+-- Yank whole buffer
+vim.keymap.set("n", "<leader>ya", "ggVG\"+y", { desc = "Yank whole buffer" })
+
+-- Insert new line above and below and exit
+vim.keymap.set("n", "<leader>o", "o<Esc>", { silent = true, desc = "Insert new line below and exit" })
+vim.keymap.set("n", "<leader>O", "O<Esc>", { silent = true, desc = "Insert new line above and exit" })
+
+-- Buffer previous, next and close
+vim.keymap.set("n", "<leader>bn", "<cmd>bnext<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>bp", "<cmd>bprevious<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>bc", "<cmd>bd<CR>", { noremap = true, silent = true })
+
+-- Delete buffer & Delete buffer without saving
+vim.keymap.set("n", "<leader>bc", "<cmd>bd<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>bd", "<cmd>bd!<CR>", { noremap = true, silent = true })
 
 -- CTRL Keybinds
 
