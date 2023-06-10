@@ -76,7 +76,7 @@ case "$TERM" in
     *)
         ;;
 esac
-
+- "
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
@@ -97,7 +97,7 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
-# Add an "alert" alias for long running commands.  Use like so:
+# Add an alert alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
@@ -232,7 +232,7 @@ alias wut='whatis'
 # 5.- Aliases that call on multiple programs / functions
 
 alias af='alias | fzf'
-alias fv='(file=$(fzf); [ -n "$file" ] && nvim "$file")'
+alias fv='(file=$(fzf); [ -n "$file" ])'
 alias fenv='printenv | fzf'
 
 alias did="history | grep"
@@ -274,7 +274,6 @@ alias gcn='git commit --amend --no-edit'
 alias gcl='git clean' 
 alias gco='git checkout'
 alias gd='git diff'
-alias gsu='echo -e "Usar origin seguido de git@github.com/<usuario>/repo\n" && sleep 1 && git remote set-url'
 alias grg='git remote get-url origin'
 alias gib='git init -b'
 alias gin='git init'
