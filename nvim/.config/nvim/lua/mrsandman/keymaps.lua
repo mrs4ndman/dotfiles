@@ -150,3 +150,8 @@ vim.keymap.set("i", "<C-c>", "<Esc>", { silent = true })
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { silent = true })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { silent = true })
 
+-- TERMINAL mode keybinds
+--
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
+vim.keymap.set("n", "<leader>te>", ":bd!")
+

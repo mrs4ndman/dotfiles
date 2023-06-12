@@ -5,10 +5,11 @@
 vim.cmd([[
 augroup Terminal
     autocmd!
-    autocmd TermOpen * setlocal nonumber norelativenumber
+    autocmd! TermOpen * setlocal nonu nornu signcolumn=no
     autocmd! TermOpen * startinsert
 augroup END
 ]])
+-- TODO: Don't really know why this isn't working
 
 -- Ensure we land on normal mode after terminal
 
@@ -18,9 +19,6 @@ vim.cmd([[
     autocmd TermLeave <silent> <Esc>
     augroup end
 ]])
-
--- Remove padding in terminal
-vim.api.nvim_command('autocmd TermOpen * setlocal signcolumn=no')
 
 -- Correct syntax highlighting inside netrw
 vim.cmd([[
