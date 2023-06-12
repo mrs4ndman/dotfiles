@@ -66,7 +66,10 @@ vim.keymap.set('n', '<leader>tl', builtin.loclist, {} )
 vim.keymap.set('n', '<leader>to', builtin.oldfiles )
 vim.keymap.set('n', '<leader>vh', builtin.help_tags, {})
 
-
+-- Fugitive keybinds
+vim.keymap.set("n", "<leader>gs", vim.cmd.Git);
+vim.keymap.set("n", "<leader>gd", vim.cmd.Git_diff);
+-- TODO: Create new Fugitive keybinds
 
 -- INTERNAL KEYBINDS
 
