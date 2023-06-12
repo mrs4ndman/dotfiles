@@ -58,6 +58,9 @@ endif
 " Update time
 set updatetime=50
 
+" Use system clipboard by default
+set clipboard=unnamedplus
+
 " No burrito wrapping
 set nowrap
 
@@ -228,5 +231,3 @@ let g:ale_linters = {
 " Set the color scheme | Lugar definido para esquemas de colores custom
 set background=dark
 colorscheme rosepine
-let g:disable_bg = 1
-let g:disable_float_bg = 1
