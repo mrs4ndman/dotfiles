@@ -1,5 +1,6 @@
 " MrSandman's simple VIM config for config file editing
 "
+" Packstrap plugin manager
 " Install vim-plug if not found
 if empty(glob('~/.vim/autoload/plug.vim'))
       silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -12,7 +13,6 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 \| endif
 
 " Enable syntax highlighting | Habilita marcado de texto en colorines
-
 syntax on
 
 " Enable filetype detection | Habilita la detección de formato de archivos
@@ -113,47 +113,23 @@ let g:netrw_browse_split = 0
 let g:netrw_banner = 0
 let g:netrw_silent = 1
 
+set noswapfile
+set nobackup
+set undofile
+set undodir=$HOME/.vim/undodir
+
 " KEYBINDINGS "
+
 let mapleader=" " 
 
+" Source current file
+nnoremap <silent> <leader><leader> :source %<CR>
+
 " Open up Ex
-silent map <leader>e :Ex<CR>
+silent nmap <leader>e :Ex<CR>
 
-"
-silent map <leader><Esc> :qa<CR>
-
-"
-silent map <leader>cx :!chmod +x %<CR>
-
-"
-silent xmap <leader>p "\"_dP"
-
-"
-silent nmap <leader>dd [["_d]]
-
-"
-silent vmap <leader>dd [["_d]]
-
-
-" TODO: Check the syntax for some of these to work
-"
-silent nmap J mzJ'z
-
-"
-silent nmap n nzzzv
-
-"
-silent nmap N Nzzzv
-
-"
-silent nmap <leader>sa ggVG
-
-"
-silent nmap <leader>ya ggVG\"+y
-
-"
-silent nmap <leader>o O<Esc>
-silent nmap <leader>O O<Esc>
+" Quick exit
+silent nmap <leader><Esc> :qa<CR>
 
 " Buffer management
 silent nmap <leader>bn :bnext<CR>
@@ -161,21 +137,49 @@ silent nmap <leader>bp :bprev<CR>
 silent nmap <leader>bc :bd<CR>
 silent nmap <leader>bd :bd!<CR>
 
-"
+" Set files to executable inside Neovim
+silent map <leader>cx :!chmod +x %<CR>
+
+" Delete without yanking
+silent nmap <leader>dd [["_d]]
+
+" TODO: Check the syntax for some of these to work
+
+" When appending line, keep the cursor centered
+silent nmap J mzJ'z
+
+" Center search movement 1
+silent nmap n nzzzv
+
+" Center search movement 2
+silent nmap N Nzzzv
+
+" Create new lines above or below the cursor position
+silent nmap <leader>o O<Esc>
+silent nmap <leader>O O<Esc>
+
+" Allows you to replace current selection with paste buffer
+silent xmap <leader>p "\"_dP"
+
+" Unmapping Q
+silent nmap Q <nop>
+
+" Select whole buffer
+silent nmap <leader>sa ggVG
+
+" Yank whole buffer
+silent nmap <leader>ya ggVG\"+y
+
+" Keep cursor centered when navigating with Ctrl-D / Ctrl-U
 silent nmap <C-d> <C-d>zz
 silent nmap <C-u> <C-u>zz
 
-"
+" Invoke tmux-sessionizer from within neovim
 silent nmap <C-f> :silent !tmux neww tmux-sessionizer<CR>
 
-nmap Q <nop>
-
-
- 
-" Configuración NERDTree (atajo de teclado)
-
-silent nnoremap <C-n> :NERDTreeToggle<CR>
-silent nnoremap <C-w> :w<CR>
+" Moving around text on visual
+vnoremap <silent> <expr> J ":m '>+1<CR>gv-gv"
+vnoremap <silent> <expr> K ":m '<-2<CR>gv-gv"
 
 " PLUGIN CONFIG MANAGEMENT "
 
