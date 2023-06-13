@@ -46,6 +46,10 @@ vim.api.nvim_command('set noshowmode')
 -- Cursor config
 vim.opt.guicursor = ""
 
+-- Testing
+vim.wo.cursorline = true
+vim.wo.cursorlineopt = "number"
+
 -- Numbers config
 vim.opt.nu = true
 vim.opt.relativenumber = true
