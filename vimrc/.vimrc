@@ -69,8 +69,10 @@ set showmatch
 " Cursor config
 set guicursor=a:block
 
-" Custom column
+" Custom column and numbers
 set colorcolumn=81
+set cursorline
+set cursorlineopt=number
 
 " Porting the scrolloff from Neovim
 set scrolloff=8
@@ -87,7 +89,7 @@ set encoding=UTF-8
 set number relativenumber
 
 " Enable mouse support | Habilita interacción del ratón con el cursor en modo Insert
-set mouse=a
+set mouse=nvi
 
 " Use the system clipboard | Usa el portapapeles del sistema, en vez del
 " propio
@@ -155,6 +157,9 @@ silent nmap N Nzzzv
 " Create new lines above or below the cursor position
 silent nmap <leader>o O<Esc>
 silent nmap <leader>O O<Esc>
+
+" Plugin management
+silent nmap <leader>ps :PlugUpdate<CR>
 
 " Allows you to replace current selection with paste buffer
 silent xmap <leader>p "\"_dP"
