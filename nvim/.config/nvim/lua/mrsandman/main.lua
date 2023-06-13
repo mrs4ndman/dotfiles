@@ -19,15 +19,7 @@ local plugins = {
     -- 'wbthomason/packer.nvim' -- c'mon, do your thing
 
     -- MAIN PLUGIN CONFIG
-    -- INCLUDES LSP BASE CONFIG, TMUX CONFIG, AUTOPAIRS, 
-
-    -- Plugin loader optimization:
-    {
-        "folke/neodev.nvim", -- initial setup / loadtime
-        event = "VeryLazy",
-        opts = {},
-    },
-
+    -- INCLUDES LSP BASE CONFIG, TMUX CONFIG, AUTOPAIRS, GIT AND MANY OTHERS
 
     -- 1.- Telescope config
 
@@ -68,7 +60,7 @@ local plugins = {
 
     {
         "nvim-treesitter/playground", -- hehe
-        event = "VeryLazy",
+        cmd = "TSPlaygroundToggle",
     },
 
     "nvim-treesitter/nvim-treesitter-context",
@@ -213,7 +205,7 @@ local plugins = {
     -- Golang poweeeer
     {
         "fatih/vim-go",
-        event = "VeryLazy",
+        ft = { "go", "gomod", "gosum" }
     },
 
     -- Debugging

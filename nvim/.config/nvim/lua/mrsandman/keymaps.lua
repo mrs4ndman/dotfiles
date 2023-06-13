@@ -11,8 +11,9 @@ vim.g.mapleader = " "
 -- Treesitter split toggle with TreeSJ
 vim.keymap.set("n", "<leader>bt", require('treesj').toggle)
 
--- Treesitter context bindings
+-- Treesitter context and playground bindings
 vim.keymap.set("n", "<leader>ct", "<cmd>TSContextToggle<CR>", { silent = true })
+vim.keymap.set("n", "<leader>pg", "<cmd>TSPlaygroundToggle<CR>", { silent = true })
 
 -- Try it out if you're that desperate
 vim.keymap.set("n", "<leader>fml", "<cmd>CellularAutomaton make_it_rain<CR>", { silent = true })

@@ -16,7 +16,8 @@ lsp.ensure_installed({
     'marksman',
     'bashls',
     'yamlls',
-    'ruby_ls'
+    'ruby_ls',
+    'gopls',
 })
 
 -- Fix Undefined global 'vim':
@@ -31,6 +32,15 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 	['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
 	['<C-y>'] = cmp.mapping.confirm({ select = true }),
 	["<C-Space>"] = cmp.mapping.complete(),
+})
+
+cmp.setup({
+  sources = {
+    {name = 'path'},
+    {name = 'nvim_lsp'},
+    {name = 'buffer', keyword_length = 3},
+    {name = 'luasnip', keyword_length = 2},
+  },
 })
 
 -- Unbind tab inside of completions
