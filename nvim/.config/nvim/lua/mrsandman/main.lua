@@ -86,11 +86,17 @@ local plugins = {
 
     "tmux-plugins/vim-tmux", -- tmux integration x2
 
-    "junegunn/fzf", -- Fuzzy searching integration
+    {
+        "junegunn/fzf", -- Fuzzy searching integration
+        event = "VeryLazy",
+    },
 
     "lewis6991/gitsigns.nvim", -- Git signs on the gutter
 
-    "AckslD/nvim-neoclip.lua", -- Bob likes to yank :)
+    {
+        "AckslD/nvim-neoclip.lua", -- Bob likes to yank :)
+        cmd = "Telescope neoclip",
+    },
 
     "kevinhwang91/rnvimr", -- Terminal file manager integration
 
@@ -103,14 +109,20 @@ local plugins = {
 
     "max397574/better-escape.nvim", -- Better Esc keybindings
 
-    "axkirillov/hbac.nvim", -- Vacuuming up them buffers
+    {
+        "axkirillov/hbac.nvim", -- Vacuuming up them buffers
+        lazy = true,
+    },
 
     "rmagatti/auto-session", -- Intelligent Neovim session manager
 
 
     -- tpope plugins
     --
-    "tpope/vim-fugitive", -- Git wrapper
+    {
+        "tpope/vim-fugitive", -- Git wrapper
+        event = "VeryLazy",
+    },
 
     "tpope/vim-surround", -- The power of surroundings
 
@@ -252,7 +264,7 @@ local plugins = {
     {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v2.x',
-        event = "BufEnter",
+        lazy = true,
         dependencies = {
             -- LSP Support
             {'neovim/nvim-lspconfig'},             -- Required
@@ -279,7 +291,7 @@ local plugins = {
         },
         {
             'L3MON4D3/LuaSnip',            -- Required
-            event = "VeryLazy",
+            lazy = true,
         },
     }
 },
