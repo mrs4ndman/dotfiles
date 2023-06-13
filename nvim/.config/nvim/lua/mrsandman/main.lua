@@ -57,6 +57,7 @@ local plugins = {
     {
         'rose-pine/neovim',
         name = 'rose-pine',
+        priority = 1000,
     },
     -- the coolest color scheme B)
 
