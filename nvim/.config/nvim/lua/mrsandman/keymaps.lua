@@ -33,6 +33,9 @@ vim.keymap.set("n", "<leader>ps", "<cmd>Lazy<CR>", { noremap = true, silent = tr
 -- RNVIMR / ranger toggle
 vim.keymap.set("n", "<leader>r", "<cmd>RnvimrToggle<CR>", ( { silent = true, noremap = true} ))
 
+-- Rename identifiers with LSP
+vim.keymap.set("n", "<leader>rn", ":IncRename ")
+
 -- Starting dashboard: Alpha
 vim.keymap.set("n", "<leader>sp", "<cmd>Alpha<CR>", ( { silent = true, noremap = true} ))
 

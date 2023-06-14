@@ -219,6 +219,13 @@ local plugins = {
         event = "VeryLazy",
     },
 
+    {
+        "smjonas/inc-rename.nvim",
+        cmd = "IncRename",
+        config = function()
+            require("inc_rename").setup()
+        end,
+    },
 
 
     -- 7.- UI customization
