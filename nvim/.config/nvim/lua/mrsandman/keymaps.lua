@@ -21,6 +21,9 @@ vim.keymap.set("n", "<leader>fml", "<cmd>CellularAutomaton make_it_rain<CR>", { 
 -- Indentline toggle
 vim.keymap.set("n", "<leader>il", "<cmd>IndentBlanklineToggle<CR>", { silent = true })
 
+-- Illuminate the word instances
+vim.keymap.set("n", "<leader>iw", "<cmd>IlluminateToggle<CR>", { silent = true })
+
 -- Overlength toggle
 vim.keymap.set("n", "<leader>lt", "<cmd>OverlengthToggle<CR>", { silent = true })
 
