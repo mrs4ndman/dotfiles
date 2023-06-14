@@ -162,8 +162,9 @@ local plugins = {
 
     {
         "folke/drop.nvim",
-        event = "VimEnter",
+        event = "VeryLazy",
         config = function()
+            math.randomseed(os.time())
             require("drop").setup = {
                 theme = "stars",
                 max = 35,
