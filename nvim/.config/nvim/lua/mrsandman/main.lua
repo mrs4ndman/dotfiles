@@ -63,7 +63,12 @@ local plugins = {
         cmd = "TSPlaygroundToggle",
     },
 
-    "nvim-treesitter/nvim-treesitter-context",
+    {
+        "nvim-treesitter/nvim-treesitter-context",
+        event = "BufReadPre",
+        enabled = true,
+        opts = { mode = 'cursor'},
+    },
 
     {
         "Wansmer/treesj",
