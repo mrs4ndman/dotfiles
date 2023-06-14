@@ -90,7 +90,7 @@ vim.opt.updatetime = 50
 vim.opt.timeoutlen = 2000
 
 -- Added auto signs to the sidebar
-vim.opt.signcolumn = "auto:1-4"
+vim.opt.signcolumn = "auto"
 
 -- Disable fold marks
 vim.o.foldenable = false
