@@ -1,5 +1,6 @@
 local rt = require("rust-tools")
 local mason_registry = require("mason-registry")
+local ih = require("inlay-hints")
 
 local codelldb = mason_registry.get_package("codelldb")
 local extension_path = codelldb:get_install_path() .. "/extension/"
@@ -16,11 +17,18 @@ rt.setup({
         on_attach = function(_, bufnr)
             vim.keymap.set("n", "<Leader>dh", rt.hover_actions.hover_actions, { buffer = bufnr })
             vim.keymap.set("n", "<Leader>da", rt.code_action_group.code_action_group, { buffer = bufnr })
+            ih.on_attach(_, bufnr)
         end,
     },
     tools = {
         hover_actions = {
             auto_focus = true,
+        },
+        on_initialized = function ()
+            ih.set_all()
+        end,
+        inlay_hints = {
+            auto = false,
         },
     },
 })

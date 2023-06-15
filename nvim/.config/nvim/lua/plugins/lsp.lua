@@ -24,22 +24,16 @@ lsp.ensure_installed({
 lsp.nvim_workspace()
 
 
--- LSP Main Keybinds for selecting completions:
+-- LSP completions config:
 local cmp = require('cmp')
-local cmp_select = {behavior = cmp.SelectBehavior.Select}
-local cmp_mappings = lsp.defaults.cmp_mappings({
-    ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-    ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-    ['<C-y>'] = cmp.mapping.confirm({ select = true }),
-    ["<C-Space>"] = cmp.mapping.complete(),
-})
+local cmp_select_opts = {behavior = cmp.SelectBehavior.Select}
 
 require('luasnip.loaders.from_vscode').lazy_load()
 
 cmp.setup({
     preselect = 'item',
     completion = {
-        completeopt = 'menu,noinsert',
+        completeopt = 'menu,menuone,noinsert',
     },
     window = {
         completion = cmp.config.window.bordered(),
@@ -59,10 +53,19 @@ cmp.setup({
                 nvim_lua = 'Π',
             }
 
-      item.menu = menu_icon[entry.source.name]
-      return item
-    end,
-  },
+            item.menu = menu_icon[entry.source.name]
+            return item
+        end,
+    },
+    mapping = {
+        ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select_opts),
+        ['<C-n>'] = cmp.mapping.select_next_item(cmp_select_opts),
+        ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+        ['<C-c>'] = cmp.mapping.abort(),
+        ['<C-Space>'] = cmp.mapping.complete(),
+        ['<Tab>'] = vim.NIL,
+        ['<S-Tab>'] = vim.NIL,
+    },
     sources = {
         {name = 'path'},
         {name = 'nvim_lsp'},
@@ -70,14 +73,6 @@ cmp.setup({
         {name = 'buffer'},
         {name = 'luasnip'},
     },
-})
-
--- Unbind tab inside of completions
-cmp_mappings['<Tab>'] = nil
-cmp_mappings['<S-Tab>'] = nil
-
-lsp.setup_nvim_cmp({
-    mapping = cmp_mappings
 })
 
 -- Change here the left sidebar LSP icon config for:
