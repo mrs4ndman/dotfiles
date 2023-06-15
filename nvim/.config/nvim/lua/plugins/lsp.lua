@@ -34,12 +34,41 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
     ["<C-Space>"] = cmp.mapping.complete(),
 })
 
+require('luasnip.loaders.from_vscode').lazy_load()
+
 cmp.setup({
+    preselect = 'item',
+    completion = {
+        completeopt = 'menu,noinsert',
+    },
+    window = {
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
+    },
+    formatting = {
+        -- changing the order of fields so the icon is the first
+        fields = {'menu', 'abbr', 'kind'},
+
+        -- here is where the change happens
+        format = function(entry, item)
+            local menu_icon = {
+                nvim_lsp = 'λ',
+                luasnip = '⋗',
+                buffer = '󰦨',
+                path = '/',
+                nvim_lua = 'Π',
+            }
+
+      item.menu = menu_icon[entry.source.name]
+      return item
+    end,
+  },
     sources = {
         {name = 'path'},
         {name = 'nvim_lsp'},
-        {name = 'buffer', keyword_length = 3},
-        {name = 'luasnip', keyword_length = 2},
+        {name = 'nvim_lua'},
+        {name = 'buffer'},
+        {name = 'luasnip'},
     },
 })
 

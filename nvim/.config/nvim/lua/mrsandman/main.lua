@@ -279,37 +279,36 @@ local plugins = {
         lazy = true,
         dependencies = {
             -- LSP Support
-            {'neovim/nvim-lspconfig'},         -- Required
+            {'neovim/nvim-lspconfig'},
             {
-                'williamboman/mason.nvim',     -- Optional
+                'williamboman/mason.nvim',
                 build = function()
                     pcall(vim.cmd, 'MasonUpdate')
                 end,
             },
-            {'williamboman/mason-lspconfig.nvim'}, -- Optional
+            {'williamboman/mason-lspconfig.nvim'},
 
             -- Autocompletion
-            {'hrsh7th/nvim-cmp'},              -- Required
-            {'hrsh7th/cmp-nvim-lsp'},          -- Required
-            {'hrsh7th/cmp-buffer'},            -- Optional
-            {'hrsh7th/cmp-path'},              -- Optional
-            --
-            -- Lua Snippets
-            {
-                'saadparwaiz1/cmp_luasnip',    -- Optional
-                event = "VeryLazy",
-            },
-            {
-                'rafamadriz/friendly-snippets',-- Optional
-                event = "VeryLazy",
-            },
-            {
-                'L3MON4D3/LuaSnip',            -- Required
-                lazy = true,
-            },
+            {'hrsh7th/nvim-cmp'},
+            {'hrsh7th/cmp-nvim-lsp'},
+            {'hrsh7th/cmp-buffer'},
+            {'hrsh7th/cmp-path'},
         }
     },
 
+    -- External completion
+    {
+        'saadparwaiz1/cmp_luasnip',
+        event = "VeryLazy",
+    },
+    {
+        'L3MON4D3/LuaSnip',
+        lazy = true,
+    },
+    {
+        'rafamadriz/friendly-snippets',
+        event = "VeryLazy",
+    },
 
 -- 9.- Autopairs & tabout for tabbing out of said pairs
 
