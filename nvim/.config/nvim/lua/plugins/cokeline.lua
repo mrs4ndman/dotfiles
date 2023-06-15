@@ -141,7 +141,7 @@ require('cokeline').setup({
                 and get_hex('Normal', 'fg')
                 or get_hex('Comment', 'fg')
         end,
-        bg = get_hex('ColorColumn', 'bg'),
+        bg = get_hex('Background', 'bg'),
     },
 
     components = {
