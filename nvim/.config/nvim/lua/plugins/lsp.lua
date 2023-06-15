@@ -2,8 +2,6 @@
 -- Startup:
 local lsp = require("lsp-zero")
 
-lsp.preset("recommended")
-
 lsp.ensure_installed({
     'tsserver',
     'eslint',
@@ -26,7 +24,6 @@ lsp.nvim_workspace()
 
 -- LSP completions config:
 local cmp = require('cmp')
-local cmp_select_opts = {behavior = cmp.SelectBehavior.Select}
 
 require('luasnip.loaders.from_vscode').lazy_load()
 
@@ -57,23 +54,27 @@ cmp.setup({
             return item
         end,
     },
-    mapping = {
-        ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select_opts),
-        ['<C-n>'] = cmp.mapping.select_next_item(cmp_select_opts),
+    mapping = cmp.mapping.preset.insert({
+        ['<C-p>'] = cmp.mapping.select_prev_item,
+        ['<C-n>'] = cmp.mapping.select_next_item,
         ['<C-y>'] = cmp.mapping.confirm({ select = true }),
         ['<C-c>'] = cmp.mapping.abort(),
         ['<C-Space>'] = cmp.mapping.complete(),
         ['<Tab>'] = vim.NIL,
         ['<S-Tab>'] = vim.NIL,
-    },
+    }),
     sources = {
         {name = 'path'},
-        {name = 'nvim_lsp'},
         {name = 'nvim_lua'},
         {name = 'buffer'},
         {name = 'luasnip'},
     },
 })
+
+
+-- cmp.utils.keymap.set_map({
+    
+-- })
 
 -- Change here the left sidebar LSP icon config for:
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }

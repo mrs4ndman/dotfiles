@@ -248,9 +248,7 @@ local plugins = {
         end
     }),
 
-
     -- Overlength, and CSS color show
-
     {
         "lcheylus/overlength.nvim", -- Overlength, just that
         keys = { "n", "<leader>lt", "<cmd>OverlengthToggle<CR>" }

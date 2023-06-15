@@ -1,24 +1,7 @@
 -- Cokeline config file:
---
--- 1.- Cokeline Keybinds:
---
-local map = vim.api.nvim_set_keymap
 
-map('n', '<leader>cn', '<Plug>(cokeline-focus-next)', { silent = true })
-map('n', '<leader>cp', '<Plug>(cokeline-focus-prev)', { silent = true })
-map('n', '<leader>csn', '<Plug>(cokeline-switch-next)', { silent = true })
-map('n', '<leader>csp', '<Plug>(cokeline-switch-prev)', { silent = true })
-map('n', '<leader>cc', '<Plug>(cokeline-pick-close)', { silent = true })
+-- Cokeline custom config:
 
--- Number buffer selection with Leader + c + <number>
-for i = 1,9 do
-    map('n', ('<leader>c%s'):format(i), ('<Plug>(cokeline-focus-%s)'):format(i), { silent = true })
-    map('n', ('<leader>s%s'):format(i), ('<Plug>(cokeline-switch-%s)'):format(i), { silent = true })
-end
-
-
--- 2.- Cokeline theme config (@noib3's config on the cokeline gh examples + lil mods) :
---
 local get_hex = require('cokeline/utils').get_hex
 local mappings = require('cokeline/mappings')
 
@@ -50,21 +33,21 @@ local components = {
     devicon = {
         text = function(buffer)
             return
-            (mappings.is_picking_focus() or mappings.is_picking_close())
-            and buffer.pick_letter .. ' '
-            or buffer.devicon.icon
+                (mappings.is_picking_focus() or mappings.is_picking_close())
+                and buffer.pick_letter .. ' '
+                or buffer.devicon.icon
         end,
         fg = function(buffer)
             return
-            (mappings.is_picking_focus() and yellow)
-            or (mappings.is_picking_close() and red)
-            or buffer.devicon.color
+                (mappings.is_picking_focus() and yellow)
+                or (mappings.is_picking_close() and red)
+                or buffer.devicon.color
         end,
         style = function(_)
             return
-            (mappings.is_picking_focus() or mappings.is_picking_close())
-            and 'italic,bold'
-            or nil
+                (mappings.is_picking_focus() or mappings.is_picking_close())
+                and 'italic,bold'
+                or nil
         end,
         truncation = { priority = 1 }
     },
@@ -94,11 +77,11 @@ local components = {
         end,
         style = function(buffer)
             return
-            ((buffer.is_focused and buffer.diagnostics.errors ~= 0)
-            and 'bold,underline')
-            or (buffer.is_focused and 'bold')
-            or (buffer.diagnostics.errors ~= 0 and 'underline')
-            or nil
+                ((buffer.is_focused and buffer.diagnostics.errors ~= 0)
+                    and 'bold,underline')
+                or (buffer.is_focused and 'bold')
+                or (buffer.diagnostics.errors ~= 0 and 'underline')
+                or nil
         end,
         truncation = {
             priority = 2,
@@ -109,15 +92,15 @@ local components = {
     diagnostics = {
         text = function(buffer)
             return
-            (buffer.diagnostics.errors ~= 0 and '  ' .. buffer.diagnostics.errors)
-            or (buffer.diagnostics.warnings ~= 0 and '  ' .. buffer.diagnostics.warnings)
-            or ''
+                (buffer.diagnostics.errors ~= 0 and '  ' .. buffer.diagnostics.errors)
+                or (buffer.diagnostics.warnings ~= 0 and '  ' .. buffer.diagnostics.warnings)
+                or ''
         end,
         fg = function(buffer)
             return
-            (buffer.diagnostics.errors ~= 0 and errors_fg)
-            or (buffer.diagnostics.warnings ~= 0 and warnings_fg)
-            or nil
+                (buffer.diagnostics.errors ~= 0 and errors_fg)
+                or (buffer.diagnostics.warnings ~= 0 and warnings_fg)
+                or nil
         end,
         truncation = { priority = 1 },
     },
@@ -147,30 +130,31 @@ require('cokeline').setup({
         max_buffer_width = 30,
     },
 
+    pick = {
+        use_filename = false,
+    },
+
     default_hl = {
         fg = function(buffer)
             return
-            buffer.is_focused
-            and get_hex('Normal', 'fg')
-            or get_hex('Comment', 'fg')
+                buffer.is_focused
+                and get_hex('Normal', 'fg')
+                or get_hex('Comment', 'fg')
         end,
-        bg = get_hex('Background', 'bg'),
+        bg = get_hex('ColorColumn', 'bg'),
     },
 
     components = {
         components.space,
         components.separator,
         components.space,
-        components.devicon,
-        components.space,
         components.unique_prefix,
         components.index,
+        components.devicon,
         components.filename,
         components.diagnostics,
         components.two_spaces,
         components.close_or_unsaved,
         components.space,
-        components.sidebar,
     },
 })
-

@@ -78,6 +78,19 @@ vim.keymap.set("n", "<leader>gs", vim.cmd.Git);
 vim.keymap.set("n", "<leader>gd", vim.cmd.Git_diff);
 -- TODO: Create new Fugitive keybinds
 
+-- Cokeline keybinds
+vim.keymap.set('n', '<leader>cn', '<Plug>(cokeline-focus-next)', { silent = true })
+vim.keymap.set('n', '<leader>cp', '<Plug>(cokeline-focus-prev)', { silent = true })
+vim.keymap.set('n', '<leader>csn', '<Plug>(cokeline-switch-next)', { silent = true })
+vim.keymap.set('n', '<leader>csp', '<Plug>(cokeline-switch-prev)', { silent = true })
+vim.keymap.set('n', '<leader>cc', '<Plug>(cokeline-pick-close)', { silent = true })
+
+-- Number buffer selection with Leader + c + <number>
+for i = 1,9 do
+    vim.keymap.set('n', ('<leader>c%s'):format(i), ('<Plug>(cokeline-focus-%s)'):format(i), { silent = true })
+    vim.keymap.set('n', ('<leader>s%s'):format(i), ('<Plug>(cokeline-switch-%s)'):format(i), { silent = true })
+end
+
 -- INTERNAL KEYBINDS
 
 -- NORMAL mode Keybinds
