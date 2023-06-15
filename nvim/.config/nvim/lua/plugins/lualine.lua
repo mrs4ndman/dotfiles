@@ -145,8 +145,14 @@ ins_left {
     path = 0,
 }
 
--- Insert mid section. You can make any number of sections in neovim :)
--- for lualine it's any number greater then 2
+-- ins_left {
+--     function()
+--         return vim.fn['nvim_treesitter#statusline'](90)
+--     end,
+--     cond = conditions.hide_in_width,
+--     padding = { left = 1, right = 0}
+-- }
+
 ins_left {
     function()
         return '%='
@@ -161,11 +167,9 @@ ins_left {
 }
 
 ins_left {
-    -- filesize component
-    'filesize',
-    cond = conditions.buffer_not_empty,
-    color = { fg = colors.cyan },
-    padding = { left = 0, right = 0}
+    function()
+        return '%='
+    end,
 }
 
 ins_left {
@@ -179,9 +183,11 @@ ins_left {
 }
 
 ins_left {
-    function()
-        return '%='
-    end,
+    -- filesize component
+    'filesize',
+    cond = conditions.buffer_not_empty,
+    color = { fg = colors.cyan },
+    padding = { left = 1, right = 0}
 }
 
 

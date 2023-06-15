@@ -56,10 +56,13 @@ local plugins = {
 
     -- 4.- Treesitter modules
 
-    "nvim-treesitter/nvim-treesitter", -- parsing to the end of time
+    {
+        "nvim-treesitter/nvim-treesitter", -- parsing to the end of time
+        build = ":TSUpdate",
+    },
 
     {
-        "nvim-treesitter/playground", -- hehe
+        "nvim-treesitter/playground",
         cmd = "TSPlaygroundToggle",
     },
 
@@ -267,6 +270,13 @@ local plugins = {
     {
         "RRethy/vim-illuminate",
         cmd = "IlluminateToggle",
+    },
+
+    -- Ideas for the brain
+    {
+        'kosayoda/nvim-lightbulb',
+        event = 'VeryLazy',
+        dependencies = 'antoinemadec/FixCursorHold.nvim',
     },
 
 

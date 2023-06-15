@@ -25,7 +25,11 @@ vim.cmd([[
 autocmd BufEnter * if &ft == 'netrw' | setlocal syntax=netrw | endif
 ]])
 
+-- Hide line numbers on Lazy buffers
 vim.cmd("autocmd! filetype lazy setlocal nonumber norelativenumber")
+
+-- Autoshow lightbulb for codeactions
+vim.cmd [[autocmd CursorHold,CursorHoldI * lua require('nvim-lightbulb').update_lightbulb()]]
 
 -- Highlight yanking action for a second
 vim.api.nvim_command("au TextYankPost * silent! lua vim.highlight.on_yank {timeout = 50}")
