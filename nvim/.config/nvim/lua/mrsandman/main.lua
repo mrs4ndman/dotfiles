@@ -299,32 +299,29 @@ local plugins = {
             -- Autocompletion
             {'hrsh7th/nvim-cmp'},
             {'hrsh7th/cmp-nvim-lsp'},
-            {
-                'hrsh7th/cmp-buffer',
-                event = 'InsertEnter',
-            },
+            {'hrsh7th/cmp-buffer'},
             {'hrsh7th/cmp-path'},
             {'hrsh7th/cmp-cmdline'},
             {
                 'saadparwaiz1/cmp_luasnip',
                 lazy = true,
             },
+            -- External completion and hints
+            {
+                'L3MON4D3/LuaSnip',
+                lazy = true,
+            },
+            {
+                'rafamadriz/friendly-snippets',
+                lazy = true,
+            },
+            {
+                'simrat39/inlay-hints.nvim',
+                lazy = true,
+            },
         }
     },
 
-    -- External completion and hints
-    {
-        'L3MON4D3/LuaSnip',
-        lazy = true,
-    },
-    {
-        'rafamadriz/friendly-snippets',
-        lazy = true,
-    },
-    {
-        'simrat39/inlay-hints.nvim',
-        lazy = true,
-    },
 
 -- 9.- Autopairs & tabout for tabbing out of said pairs
 
