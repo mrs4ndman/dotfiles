@@ -55,8 +55,8 @@ cmp.setup({
         end,
     },
     mapping = cmp.mapping.preset.insert({
-        ['<C-p>'] = cmp.mapping.select_prev_item,
-        ['<C-n>'] = cmp.mapping.select_next_item,
+        ['<C-p>'] = cmp.mapping.select_prev_item(),
+        ['<C-n>'] = cmp.mapping.select_next_item(),
         ['<C-y>'] = cmp.mapping.confirm({ select = true }),
         ['<C-c>'] = cmp.mapping.abort(),
         ['<C-Space>'] = cmp.mapping.complete(),
@@ -72,9 +72,6 @@ cmp.setup({
 })
 
 
--- cmp.utils.keymap.set_map({
-    
--- })
 
 -- Change here the left sidebar LSP icon config for:
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }

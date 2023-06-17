@@ -4,8 +4,4 @@ require('nvim-lightbulb').setup({
         enabled = true,
         priority = 10,
     },
-    float = {
-        enabled = true,
-        text = "Code action available",
-    },
 })

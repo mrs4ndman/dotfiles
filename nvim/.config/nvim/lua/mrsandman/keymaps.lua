@@ -13,7 +13,7 @@ vim.keymap.set("n", "<leader>bt", require('treesj').toggle)
 
 -- Treesitter context and playground bindings
 vim.keymap.set("n", "<leader>ct", "<cmd>TSContextToggle<CR>", { silent = true })
-vim.keymap.set("n", "<leader>pg", "<cmd>TSPlaygroundToggle<CR>", { silent = true })
+vim.keymap.set("n", "<leader>cpg", "<cmd>TSPlaygroundToggle<CR>", { silent = true })
 
 -- Try it out if you're that desperate
 vim.keymap.set("n", "<leader>fml", "<cmd>CellularAutomaton make_it_rain<CR>", { silent = true })
@@ -27,11 +27,11 @@ vim.keymap.set("n", "<leader>iw", "<cmd>IlluminateToggle<CR>", { silent = true }
 -- Overlength toggle
 vim.keymap.set("n", "<leader>lt", "<cmd>OverlengthToggle<CR>", { silent = true })
 
+-- Lazy shortcut
+vim.keymap.set("n", "<leader>lz", "<cmd>Lazy<CR>", { noremap = true, silent = true })
+
 -- Neoclip extension for Telescope
 vim.keymap.set("n", "<leader>nc", "<cmd>Telescope neoclip<CR>", { silent = true })
-
--- Lazy shortcut
-vim.keymap.set("n", "<leader>ps", "<cmd>Lazy<CR>", { noremap = true, silent = true })
 
 -- RNVIMR / ranger toggle
 vim.keymap.set("n", "<leader>r", "<cmd>RnvimrToggle<CR>", ( { silent = true, noremap = true} ))
@@ -48,12 +48,12 @@ vim.keymap.set("n", "<leader>sr", "<cmd>SessionRestore<CR>", { desc = "Restore s
 vim.keymap.set("n", "<leader>ss", "<cmd>SessionSave<CR>", { desc = "Saved current session" })
 
 -- Hbac: The buffer vacuum
-vim.keymap.set("n", "<leader>pb", require("hbac").toggle_pin, { silent = true } )
+vim.keymap.set("n", "<leader>hp", require("hbac").toggle_pin, { silent = true } )
 vim.keymap.set("n", "<leader>vo", require("hbac").close_unpinned, { silent = true } )
 
 -- Todo list management
-vim.keymap.set("n", "<leader>nt", require("todo-comments").jump_next)
-vim.keymap.set("n", "<leader>pt", require("todo-comments").jump_prev)
+vim.keymap.set("n", "<leader>tdn", require("todo-comments").jump_next)
+vim.keymap.set("n", "<leader>tdp", require("todo-comments").jump_prev)
 vim.keymap.set("n", "<leader>td", "<cmd>TodoQuickFix<CR>", { silent = true })
 
 -- Twilight keybinds
@@ -90,6 +90,11 @@ for i = 1,9 do
     vim.keymap.set('n', ('<leader>c%s'):format(i), ('<Plug>(cokeline-focus-%s)'):format(i), { silent = true })
     vim.keymap.set('n', ('<leader>s%s'):format(i), ('<Plug>(cokeline-switch-%s)'):format(i), { silent = true })
 end
+
+-- Aerial keybinds
+vim.keymap.set('n', '<leader>ta', '<cmd>AerialToggle!', { silent = true, })
+vim.keymap.set('n', '<leader>tc', '<cmd>AerialClose')
+vim.keymap.set('n', '<leader>tca', '<cmd>AerialCloseAll')
 
 -- INTERNAL KEYBINDS
 

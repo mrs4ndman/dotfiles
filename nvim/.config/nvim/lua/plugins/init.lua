@@ -1,3 +1,4 @@
+require("plugins.aerial")
 require("plugins.alpha")
 require("plugins.auto-session")
 require("plugins.autopairs")

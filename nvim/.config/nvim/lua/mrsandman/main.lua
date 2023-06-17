@@ -203,6 +203,7 @@ local plugins = {
         event = "VeryLazy",
     },
 
+
     -- Language / debugging plugins
 
     -- Rust babyyyy
@@ -234,6 +235,16 @@ local plugins = {
         config = function()
             require("inc_rename").setup()
         end,
+    },
+
+    {
+        'stevearc/aerial.nvim',
+        cmd = "AerialToggle",
+        opts = {},
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter",
+            "nvim-tree/nvim-web-devicons",
+        },
     },
 
 
