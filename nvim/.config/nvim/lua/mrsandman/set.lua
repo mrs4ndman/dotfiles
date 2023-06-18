@@ -66,19 +66,20 @@ vim.opt.colorcolumn = "81"
 
 -- Sidebar & tab config
 -- Tab config
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
+-- vim.opt.tabstop = 4
+-- vim.opt.softtabstop = 4
+-- vim.opt.shiftwidth = 4
+-- vim.opt.expandtab = true
 
 -- Vim indenting
 vim.opt.smartindent = true
+vim.o.breakindent = true
 
 -- No text wrapping
 vim.opt.wrap = false
 
 -- Keep the sign column open
-vim.opt.signcolumn = "yes"
+vim.wo.signcolumn = 'yes'
 
 -- Search tweaks, highlighting and included search
 vim.opt.hlsearch = false

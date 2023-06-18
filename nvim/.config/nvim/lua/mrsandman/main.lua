@@ -24,7 +24,7 @@ local plugins = {
     -- 1.- Telescope config
 
     {
-        'nvim-telescope/telescope.nvim', tag = '0.1.1', -- good ole telescope
+        'nvim-telescope/telescope.nvim', branch = '0.1.x', -- good ole telescope
         dependencies = {
             'nvim-lua/popup.nvim',
             'nvim-lua/plenary.nvim',
@@ -34,7 +34,11 @@ local plugins = {
 
     -- 2.- Load Telescope native extensions,
 
-    {'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' },
+    {
+        'nvim-telescope/telescope-fzf-native.nvim',
+        build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build',
+        event = "VeryLazy",
+    },
 
     {
         "nvim-telescope/telescope-file-browser.nvim",
@@ -58,6 +62,12 @@ local plugins = {
 
     {
         "nvim-treesitter/nvim-treesitter", -- parsing to the end of time
+        dependencies = {
+            {
+                'nvim-treesitter/nvim-treesitter-textobjects',
+                event = "BufReadPre",
+            },
+        },
         build = ":TSUpdate",
     },
 
@@ -90,8 +100,6 @@ local plugins = {
         "junegunn/fzf", -- Fuzzy searching integration
         event = "VeryLazy",
     },
-
-    "lewis6991/gitsigns.nvim", -- Git signs on the gutter
 
     {
         "AckslD/nvim-neoclip.lua", -- Bob likes to yank :)
@@ -128,6 +136,8 @@ local plugins = {
 
     "tpope/vim-commentary", -- Powerful commenting, thanks to tpope
 
+    "tpope/vim-sleuth", -- Automatic tabstop and shiftwidth detection
+
     {
         "tpope/vim-eunuch", -- Shell commands inside Vim
         event = "VeryLazy",
@@ -156,27 +166,13 @@ local plugins = {
         },
     },
 
+    { 'folke/which-key.nvim', opts = {} },
+
     {
         "folke/todo-comments.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
         event = "VeryLazy",
         opts = {},
-    },
-
-    {
-        "folke/drop.nvim",
-        event = "VeryLazy",
-        config = function()
-            math.randomseed(os.time())
-            require("drop").setup = {
-                theme = "stars",
-                max = 35,
-                interval = 200,
-                screensaver = 1000 * 60 * 1,
-                filetypes = { "alpha" },
-                -- HACK: Idk how to make this work inside alpha dashboard
-            }
-        end,
     },
 
     {
@@ -200,7 +196,7 @@ local plugins = {
     -- Goofy stuff:
     {
         "eandrju/cellular-automaton.nvim",
-        event = "VeryLazy",
+        cmd = "CellularAutomaton",
     },
 
 
@@ -296,100 +292,91 @@ local plugins = {
 
 
     -- 8.- LSP Configuration
-    {
-        'VonHeikemen/lsp-zero.nvim',
-        branch = 'v2.x',
-        lazy = true,
-        dependencies = {
-            -- LSP Support
-            {'neovim/nvim-lspconfig'},
-            {
-                'williamboman/mason.nvim',
-                build = function()
-                    pcall(vim.cmd, 'MasonUpdate')
-                end,
-            },
-            {'williamboman/mason-lspconfig.nvim'},
 
-            -- Autocompletion
-            {'hrsh7th/nvim-cmp'},
-            {'hrsh7th/cmp-nvim-lsp'},
-            {'hrsh7th/cmp-buffer'},
-            {'hrsh7th/cmp-path'},
-            {'hrsh7th/cmp-cmdline'},
+    {
+        'neovim/nvim-lspconfig',
+        dependencies = {
+            { 'williamboman/mason.nvim', config = true },
+            'williamboman/mason-lspconfig.nvim',
+
             {
-                'saadparwaiz1/cmp_luasnip',
-                lazy = true,
+                'j-hui/fidget.nvim',
+                tag = 'legacy',
+                opts = {},
             },
-            -- External completion and hints
-            {
-                'L3MON4D3/LuaSnip',
-                lazy = true,
-            },
-            {
-                'rafamadriz/friendly-snippets',
-                lazy = true,
-            },
-            {
-                'simrat39/inlay-hints.nvim',
-                lazy = true,
-            },
-        }
+
+            'folke/neodev.nvim',
+        },
+    },
+    {
+        'hrsh7th/nvim-cmp',
+        dependencies = {
+            'L3MON4D3/LuaSnip',
+            'saadparwaiz1/cmp_luasnip',
+
+            'hrsh7th/nvim-cmp',
+            'hrsh7th/cmp-nvim-lsp',
+            'hrsh7th/cmp-path',
+            'hrsh7th/cmp-buffer',
+            'hrsh7th/cmp-cmdline',
+
+            'rafamadriz/friendly-snippets',
+            'simrat39/inlay-hints.nvim',
+        },
+        event = "VimEnter",
+    },
+
+    'lewis6991/gitsigns.nvim',
+
+
+    -- 9.- Autopairs & tabout for tabbing out of said pairs
+
+    'airblade/vim-matchquote',
+
+    {
+        'windwp/nvim-autopairs',
+        event = "VimEnter",
     },
 
 
--- 9.- Autopairs & tabout for tabbing out of said pairs
+    -- Lua tabout finally working
 
-"airblade/vim-matchquote",
-
-{
-    "windwp/nvim-autopairs",
-    event = "InsertEnter",
-    dependencies = {
-        "hrsh7th/nvim-cmp",
-    }
-},
-
-
--- Lua tabout finally working
-
-{
-    'abecodes/tabout.nvim',
-    dependencies = {'nvim-treesitter'}, -- or require if not used so far
-    event = "InsertEnter",
-    config = function()
-        require('tabout').setup {
-            tabkey = '<Tab>', -- Key to tab me out of parenthesis and stuff
-            backwards_tabkey = '<S-Tab>', -- key to do backwards tabout, empty string to disable
-            act_as_tab = true, -- shift content if tab out is not possible
-            act_as_shift_tab = false, -- reverse shift content if tab out is not possible (if your keyboard/terminal supports <S-Tab>)
-            enable_backwards = true, -- well ...
-            completion = true, -- if the tabkey is used in a completion pum
-            tabouts = {
-                {open = "'", close = "'"},
-                {open = '"', close = '"'},
-                {open = '`', close = '`'},
-                {open = '(', close = ')'},
-                {open = '[', close = ']'},
-                {open = '{', close = '}'},
-                {open = '<', close = '>'},
-                -- {open = ':', close = ':'} -- Rust maybe?
-            },
-            ignore_beginning = true, --[[ if the cursor is at the beginning of a filled element it will rather tab out than shift the content ]]
-            exclude = {} -- tabout will ignore these filetypes
-        }
-    end,
-},
+    {
+        'abecodes/tabout.nvim',
+        dependencies = {'nvim-treesitter'}, -- or require if not used so far
+        event = "InsertEnter",
+        config = function()
+            require('tabout').setup {
+                tabkey = '<Tab>', -- Key to tab me out of parenthesis and stuff
+                backwards_tabkey = '<S-Tab>', -- key to do backwards tabout, empty string to disable
+                act_as_tab = true, -- shift content if tab out is not possible
+                act_as_shift_tab = false, -- reverse shift content if tab out is not possible (if your keyboard/terminal supports <S-Tab>)
+                enable_backwards = true, -- well ...
+                completion = true, -- if the tabkey is used in a completion pum
+                tabouts = {
+                    {open = "'", close = "'"},
+                    {open = '"', close = '"'},
+                    {open = '`', close = '`'},
+                    {open = '(', close = ')'},
+                    {open = '[', close = ']'},
+                    {open = '{', close = '}'},
+                    {open = '<', close = '>'},
+                    -- {open = ':', close = ':'} -- Rust maybe?
+                },
+                ignore_beginning = true, --[[ if the cursor is at the beginning of a filled element it will rather tab out than shift the content ]]
+                exclude = {} -- tabout will ignore these filetypes
+            }
+        end,
+    },
 
 
--- 10.- Startup screen
+    -- 10.- Startup screen
 
-{
-    "goolord/alpha-nvim",
-    dependencies = "nvim-tree/nvim-web-devicons",
-    event = "VimEnter"
-},
-
+    {
+        'goolord/alpha-nvim',
+        dependencies = 'nvim-tree/nvim-web-devicons',
+        event = "VimEnter"
+    },
 
 
 }

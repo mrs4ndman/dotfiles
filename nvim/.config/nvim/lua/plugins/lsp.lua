@@ -1,31 +1,27 @@
 -- ThePrimeagen's lsp config, to be expanded. All credits go to him and his setup :)
 -- Startup:
-local lsp = require("lsp-zero")
 
-lsp.ensure_installed({
-    'tsserver',
-    'eslint',
-    'rust_analyzer',
-    'neocmake',
-    'clangd',
-    'vimls',
-    'lua_ls',
-    'html',
-    'marksman',
-    'bashls',
-    'yamlls',
-    'ruby_ls',
-    'gopls',
-})
+local servers = {
+    lua_ls = {
+        Lua = {
+            workspace = { checkThirdParty = false },
+            telemetry = { enable = false },
+        },
+    },
+}
 
--- Fix Undefined global 'vim':
-lsp.nvim_workspace()
+require('neodev').setup()
 
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
--- LSP completions config:
+local mason_lspconfig = require 'mason-lspconfig'
+
+-- CMP completions config:
 local cmp = require('cmp')
-
+local luasnip = require('luasnip')
 require('luasnip.loaders.from_vscode').lazy_load()
+luasnip.config.setup {}
 
 cmp.setup({
     preselect = 'item',
@@ -35,6 +31,11 @@ cmp.setup({
     window = {
         completion = cmp.config.window.bordered(),
         documentation = cmp.config.window.bordered(),
+    },
+    snippet = {
+        expand = function(args)
+            luasnip.lsp_expand(args.body)
+        end,
     },
     formatting = {
         -- changing the order of fields so the icon is the first
@@ -57,6 +58,8 @@ cmp.setup({
     mapping = cmp.mapping.preset.insert({
         ['<C-p>'] = cmp.mapping.select_prev_item(),
         ['<C-n>'] = cmp.mapping.select_next_item(),
+        ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+        ['<C-f>'] = cmp.mapping.scroll_docs(4),
         ['<C-y>'] = cmp.mapping.confirm({ select = true }),
         ['<C-c>'] = cmp.mapping.abort(),
         ['<C-Space>'] = cmp.mapping.complete(),
@@ -83,7 +86,7 @@ end
 -- Buffer LSP tools
 
 -- NOTE: I don't remember why I used client here, but it works (I don't even question it) 
-lsp.on_attach(function(client, bufnr)
+local on_attach = (function(_, bufnr)
     local opts = {buffer = bufnr, remap = false}
 
     vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
@@ -96,6 +99,8 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
     vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
     vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+
+    vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_) vim.lsp.buf.format() end, {desc = 'Format current buffer with LSP'})
 
     vim.api.nvim_create_autocmd("CursorHold", {
         buffer = bufnr,
@@ -113,6 +118,37 @@ lsp.on_attach(function(client, bufnr)
     })
 end)
 
+mason_lspconfig.setup {
+    ensure_installed = {
+        'tsserver',
+        'eslint',
+        'rust_analyzer',
+        'neocmake',
+        'clangd',
+        'vimls',
+        'lua_ls',
+        'html',
+        'marksman',
+        'bashls',
+        'yamlls',
+        'ruby_ls',
+        'gopls',
+    },
+    vim.tbl_keys(servers),
+}
+
+mason_lspconfig.setup_handlers {
+    function(server_name)
+    require('lspconfig')[server_name].setup {
+            capabilities = capabilities,
+            on_attach = on_attach,
+            settings = servers[server_name],
+        }
+    end,
+}
+
+
+
 vim.diagnostic.config({
     virtual_text = false,
     signs = true,
@@ -121,5 +157,4 @@ vim.diagnostic.config({
     severity_sort = false,
 })
 
-lsp.setup()
 

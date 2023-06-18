@@ -48,23 +48,25 @@ telescope.setup {
         wrap_results = true,
         file_ignore_patterns = {},
         hidden = true,
-    },
-    mappings = {
-        i = {
-            ["<C-n>"] = require('telescope.actions').cycle_history_next,
-            ["<C-p>"] = require('telescope.actions').cycle_history_prev,
-            ["<C-c>"] = require('telescope.actions').close,
-            ["<C-q>"] = require('telescope.actions').send_to_qflist,
-            ["<C-i>"] = require('telescope.actions').select_horizontal,
-            ["<C-x>"] = require('telescope.actions').select_vertical,
-        },
-        n = {
-            ["<C-n>"] = require('telescope.actions').cycle_history_next,
-            ["<C-p>"] = require('telescope.actions').cycle_history_prev,
-            ["<C-c>"] = require('telescope.actions').close,
-            ["<C-q>"] = require('telescope.actions').send_to_qflist,
-            ["<C-i>"] = require('telescope.actions').select_horizontal,
-            ["<C-x>"] = require('telescope.actions').select_vertical,
+        mappings = {
+            i = {
+                ["<C-n>"] = require('telescope.actions').cycle_history_next,
+                ["<C-p>"] = require('telescope.actions').cycle_history_prev,
+                ["<C-c>"] = require('telescope.actions').close,
+                ["<C-q>"] = require('telescope.actions').send_to_qflist,
+                ["<C-i>"] = require('telescope.actions').select_horizontal,
+                ["<C-x>"] = require('telescope.actions').select_vertical,
+                ["<C-u>"] = false,
+                ["<C-d>"] = false,
+            },
+            n = {
+                ["<C-n>"] = require('telescope.actions').cycle_history_next,
+                ["<C-p>"] = require('telescope.actions').cycle_history_prev,
+                ["<C-c>"] = require('telescope.actions').close,
+                ["<C-q>"] = require('telescope.actions').send_to_qflist,
+                ["<C-i>"] = require('telescope.actions').select_horizontal,
+                ["<C-x>"] = require('telescope.actions').select_vertical,
+            },
         },
     }
 }
@@ -73,6 +75,5 @@ telescope.setup {
 
 -- Extension invoking:
 
-require('telescope').load_extension "fzf"
-require('telescope').load_extension ('neoclip')
-
+pcall(require('telescope').load_extension 'fzf')
+pcall(require('telescope').load_extension 'neoclip')
