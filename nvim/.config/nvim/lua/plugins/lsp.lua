@@ -1,91 +1,17 @@
 -- ThePrimeagen's lsp config, to be expanded. All credits go to him and his setup :)
 -- Startup:
 
-local servers = {
-    lua_ls = {
-        Lua = {
-            workspace = { checkThirdParty = false },
-            telemetry = { enable = false },
-        },
-    },
-}
-
 require('neodev').setup()
-
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 local mason_lspconfig = require 'mason-lspconfig'
 
--- CMP completions config:
-local cmp = require('cmp')
-local luasnip = require('luasnip')
-require('luasnip.loaders.from_vscode').lazy_load()
-luasnip.config.setup {}
+local servers = {
+    lua_ls = {},
+    pylsp = {
+        filetypes = {"python"},
+    }
+}
 
-cmp.setup({
-    preselect = 'item',
-    completion = {
-        completeopt = 'menu,menuone,noinsert',
-    },
-    window = {
-        completion = cmp.config.window.bordered(),
-        documentation = cmp.config.window.bordered(),
-    },
-    snippet = {
-        expand = function(args)
-            luasnip.lsp_expand(args.body)
-        end,
-    },
-    formatting = {
-        -- changing the order of fields so the icon is the first
-        fields = {'menu', 'abbr', 'kind'},
-
-        -- here is where the change happens
-        format = function(entry, item)
-            local menu_icon = {
-                nvim_lsp = 'λ',
-                luasnip = '⋗',
-                buffer = '󰦨',
-                path = '/',
-                nvim_lua = 'Π',
-            }
-
-            item.menu = menu_icon[entry.source.name]
-            return item
-        end,
-    },
-    mapping = cmp.mapping.preset.insert({
-        ['<C-p>'] = cmp.mapping.select_prev_item(),
-        ['<C-n>'] = cmp.mapping.select_next_item(),
-        ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-        ['<C-f>'] = cmp.mapping.scroll_docs(4),
-        ['<C-y>'] = cmp.mapping.confirm({ select = true }),
-        ['<C-c>'] = cmp.mapping.abort(),
-        ['<C-Space>'] = cmp.mapping.complete(),
-        ['<Tab>'] = vim.NIL,
-        ['<S-Tab>'] = vim.NIL,
-    }),
-    sources = {
-        {name = 'path'},
-        {name = 'nvim_lua'},
-        {name = 'buffer'},
-        {name = 'luasnip'},
-    },
-})
-
-
-
--- Change here the left sidebar LSP icon config for:
-local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
-for type, icon in pairs(signs) do
-  local hl = "DiagnosticSign" .. type
-  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-end
-
--- Buffer LSP tools
-
--- NOTE: I don't remember why I used client here, but it works (I don't even question it) 
 local on_attach = (function(_, bufnr)
     local opts = {buffer = bufnr, remap = false}
 
@@ -118,6 +44,7 @@ local on_attach = (function(_, bufnr)
     })
 end)
 
+-- Buffer LSP tools
 mason_lspconfig.setup {
     ensure_installed = {
         'tsserver',
@@ -131,6 +58,7 @@ mason_lspconfig.setup {
         'marksman',
         'bashls',
         'yamlls',
+        'pylsp',
         'ruby_ls',
         'gopls',
     },
@@ -148,6 +76,12 @@ mason_lspconfig.setup_handlers {
 }
 
 
+-- Change here the left sidebar LSP icon config for:
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
 
 vim.diagnostic.config({
     virtual_text = false,
@@ -156,5 +90,4 @@ vim.diagnostic.config({
     update_in_insert = false,
     severity_sort = false,
 })
-
 
