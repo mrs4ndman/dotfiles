@@ -48,27 +48,24 @@ local plugins = {
     "nvim-telescope/telescope-ui-select.nvim",
 
 
-    -- 3.- Theme plugin config
-
-    {
-        'rose-pine/neovim',
-        name = 'rose-pine',
-        priority = 1000,
-    },
+    -- 3.- Theme plugins config
+    { 'rose-pine/neovim', lazy = true, name = 'rose-pine', priority = 1000 },
     -- the coolest color scheme B)
+
+    { 'folke/tokyonight.nvim', lazy = true, priority = 1000, opts = { } },
+    { 'catppuccin/nvim', lazy = true, name = "catppuccin", priority = 1000 },
 
 
     -- 4.- Treesitter modules
 
     {
         "nvim-treesitter/nvim-treesitter", -- parsing to the end of time
-        dependencies = {
-            {
-                'nvim-treesitter/nvim-treesitter-textobjects',
-                event = "BufReadPre",
-            },
-        },
         build = ":TSUpdate",
+    },
+
+    {
+        'nvim-treesitter/nvim-treesitter-textobjects',
+        lazy = true,
     },
 
     {
@@ -295,6 +292,7 @@ local plugins = {
     {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v2.x',
+        lazy = true,
         dependencies = {
             'neovim/nvim-lspconfig',
             {
