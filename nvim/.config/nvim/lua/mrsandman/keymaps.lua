@@ -48,7 +48,7 @@ vim.keymap.set("n", "<leader>sr", "<cmd>SessionRestore<CR>", { desc = "Restore s
 vim.keymap.set("n", "<leader>ss", "<cmd>SessionSave<CR>", { desc = "Saved current session" })
 
 -- Hbac: The buffer vacuum
-vim.keymap.set("n", "<leader>hp", require("hbac").toggle_pin, { silent = true } )
+vim.keymap.set("n", "<leader>vp", require("hbac").toggle_pin, { silent = true } )
 vim.keymap.set("n", "<leader>vo", require("hbac").close_unpinned, { silent = true } )
 
 -- Todo list management

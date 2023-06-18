@@ -219,13 +219,17 @@ local plugins = {
     },
 
     -- Debugging
-    {
-        "mfussenegger/nvim-dap",
-        event = "VeryLazy",
-    },
 
     {
-        "rcarriga/nvim-dap-ui",
+        "mfussenegger/nvim-dap",
+        dependencies = {
+            "rcarriga/nvim-dap-ui",
+            {
+                "theHamsta/nvim-dap-virtual-text",
+                config = true,
+            },
+            "williamboman/mason.nvim",
+        },
         event = "VeryLazy",
     },
 
