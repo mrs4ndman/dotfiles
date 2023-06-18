@@ -72,7 +72,6 @@ end)
 vim.keymap.set('n', '<leader>tl', builtin.loclist, {} )
 vim.keymap.set('n', '<leader>to', builtin.oldfiles )
 vim.keymap.set('n', '<leader>vh', builtin.help_tags, {})
-vim.keymap.set('n', '<leader>th', builtin.colorscheme)
 
 -- Fugitive keybinds
 vim.keymap.set("n", "<leader>gs", vim.cmd.Git);

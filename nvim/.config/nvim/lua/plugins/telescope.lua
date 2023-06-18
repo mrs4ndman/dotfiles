@@ -3,6 +3,11 @@ local telescope = require 'telescope'
 -- Main setup
 
 telescope.setup {
+    pickers = {
+        colorscheme = {
+            enable_preview = true,
+        }
+    },
     extensions = {
         fzf = {
             fuzzy = true,

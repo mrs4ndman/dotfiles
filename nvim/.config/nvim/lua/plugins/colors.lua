@@ -64,18 +64,68 @@ require('catppuccin').setup({
 	}
 })
 
-function ColorMyPencils(color)
-	color = color or "rose-pine" or "tokyonight" or "catppuccin"
-	vim.cmd.colorscheme(color)
-	require('rose-pine').setup({
-		disable_background = true
-	})
+require('nightfox').setup({
+	options = {
+		transparent = false,
+		dim_inactive = true,
+		module_default = true,
+	}
+})
 
-	-- Config for transparency
-	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-end
+require('onedarkpro').setup({
+	plugins = {
+		all = true,
+	},
+	options = {
+		highlight_inactive_windows = true,
+		transparency = false,
+	},
+})
+
+require('dracula').setup({
+  show_end_of_buffer = false,
+  transparent_bg = false,
+  italic_comment = true,
+})
+
+require('onenord').setup({
+	theme = "dark",
+	borders = true,
+	fade_nc = false,
+	disable = {
+		cursorline = true,
+		eob_lines = true,
+	},
+})
+
+vim.g.nord_contrast = true
+vim.g.nord_borders = true
+vim.g.nord_disable_background = false
+vim.g.nord_uniform_diff_background = true
+vim.g.nord_bold = true
+
+vim.g.neon_style = "doom"
+vim.g.neon_italic_comment = true
+vim.g.neon_bold = true
+vim.g.neon_transparent = false
+
+vim.keymap.set("n", '<leader>th', ":lua colorizer()<CR>", { silent = true } )
+
+local theme = require('last-color').recall() or 'rose-pine'
+vim.cmd(('colorscheme %s'):format(theme))
+
+-- function ColorMyPencils(color)
+-- 	color = color or "rose-pine" or "tokyonight" or "catppuccin"
+-- 	vim.cmd.colorscheme(color)
+-- 	require('rose-pine').setup({
+-- 		disable_background = true
+-- 	})
+
+-- 	-- Config for transparency
+-- 	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+-- 	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+-- end
+
 
 -- vim.cmd('colorscheme rose-pine')
-
-ColorMyPencils()
+-- ColorMyPencils()
