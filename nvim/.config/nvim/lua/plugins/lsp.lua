@@ -2,17 +2,35 @@
 -- Startup:
 
 require('neodev').setup()
+local lsp = require('lsp-zero')
+lsp.preset({
+    name = 'minimal',
+    set_lsp_keymaps = false,
+    manage_nvim_cmp = false,
+    suggest_lsp_servers = true,
+})
 
-local mason_lspconfig = require 'mason-lspconfig'
+-- Buffer LSP tools
+lsp.ensure_installed({
+    'tsserver',
+    'eslint',
+    'rust_analyzer',
+    'neocmake',
+    'clangd',
+    'vimls',
+    'lua_ls',
+    'html',
+    'marksman',
+    'bashls',
+    'yamlls',
+    'pylsp',
+    'ruby_ls',
+    'gopls',
+})
 
-local servers = {
-    lua_ls = {},
-    pylsp = {
-        filetypes = {"python"},
-    }
-}
+lsp.nvim_workspace()
 
-local on_attach = (function(_, bufnr)
+lsp.on_attach(function(client, bufnr)
     local opts = {buffer = bufnr, remap = false}
 
     vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
@@ -44,37 +62,14 @@ local on_attach = (function(_, bufnr)
     })
 end)
 
--- Buffer LSP tools
-mason_lspconfig.setup {
-    ensure_installed = {
-        'tsserver',
-        'eslint',
-        'rust_analyzer',
-        'neocmake',
-        'clangd',
-        'vimls',
-        'lua_ls',
-        'html',
-        'marksman',
-        'bashls',
-        'yamlls',
-        'pylsp',
-        'ruby_ls',
-        'gopls',
-    },
-    vim.tbl_keys(servers),
-}
 
-mason_lspconfig.setup_handlers {
-    function(server_name)
-    require('lspconfig')[server_name].setup {
-            capabilities = capabilities,
-            on_attach = on_attach,
-            settings = servers[server_name],
-        }
-    end,
-}
+-- local mason_lspconfig = require 'mason-lspconfig'
 
+-- local servers = {
+--     pylsp = {
+--         filetypes = {"python"},
+--     }
+-- }
 
 -- Change here the left sidebar LSP icon config for:
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
@@ -83,6 +78,8 @@ for type, icon in pairs(signs) do
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
+lsp.setup()
+
 vim.diagnostic.config({
     virtual_text = false,
     signs = true,
@@ -90,4 +87,3 @@ vim.diagnostic.config({
     update_in_insert = false,
     severity_sort = false,
 })
-

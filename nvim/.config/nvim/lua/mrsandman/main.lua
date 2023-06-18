@@ -292,25 +292,18 @@ local plugins = {
 
 
     -- 8.- LSP Configuration
-
     {
-        'neovim/nvim-lspconfig',
+        'VonHeikemen/lsp-zero.nvim',
+        branch = 'v2.x',
         dependencies = {
-            { 'williamboman/mason.nvim', config = true },
-            'williamboman/mason-lspconfig.nvim',
-
+            'neovim/nvim-lspconfig',
             {
-                'j-hui/fidget.nvim',
-                tag = 'legacy',
-                opts = {},
+                'williamboman/mason.nvim',
+                build = function() pcall(vim.cmd, 'MasonUpdate') end,
+                config = true,
             },
 
-            'folke/neodev.nvim',
-        },
-    },
-    {
-        'hrsh7th/nvim-cmp',
-        dependencies = {
+            'hrsh7th/nvim-cmp',
             'L3MON4D3/LuaSnip',
             'saadparwaiz1/cmp_luasnip',
 
@@ -324,8 +317,15 @@ local plugins = {
             'rafamadriz/friendly-snippets',
             'simrat39/inlay-hints.nvim',
         },
-        event = "VimEnter",
     },
+
+    {
+        'j-hui/fidget.nvim',
+        tag = 'legacy',
+        opts = {},
+    },
+
+    'folke/neodev.nvim',
 
     'lewis6991/gitsigns.nvim',
 
