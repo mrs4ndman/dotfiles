@@ -40,13 +40,21 @@ cmp.setup({
     completion = {
         completeopt = 'menu,menuone,noinsert',
     },
+    config = {
+        context = {
+            in_treesitter_capture = true,
+        }
+    },
     window = {
         completion = cmp.config.window.bordered({
             border = "single",
             side_padding = 1,
             col_offset = -3,
+            max_width = 80,
         }),
-        documentation = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered({
+            max_width = 50,
+        }),
     },
     snippet = {
         expand = function(args)
@@ -117,6 +125,9 @@ cmp.setup({
     sources = {
         { name = 'path' },
         { name = 'nvim_lua' },
+        { name = 'luasnip' },
+        { name = 'treesitter' },
+        -- { name = 'cmdline' },
         {
             name = 'buffer',
             options = {
@@ -125,11 +136,6 @@ cmp.setup({
                 end,
             },
         },
-        {
-            name = 'luasnip',
-            keyword_length = 2,
-        },
-        -- { name = 'cmdline' },
         {
             name = 'nvim_lsp',
             entry_filter = function(entry, context)
