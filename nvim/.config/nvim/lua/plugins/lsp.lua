@@ -50,6 +50,27 @@ lsp.ensure_installed({
     'bash-debug-adapter',
 })
 
+lsp.setup_servers({
+    -- Language servers
+    'lua_ls',
+    'vimls',
+    'marksman',
+    'clangd',
+    'neocmake',
+    'html',
+    'cssls',
+    'eslint',
+    'tsserver',
+    'bashls',
+    'ansiblels',
+    'yamlls',
+    'pylsp',
+    'rust_analyzer',
+    'ruby_ls',
+    'gopls',
+    'jdtls',
+})
+
 lsp.nvim_workspace()
 
 lsp.on_attach(function(client, bufnr)
