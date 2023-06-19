@@ -19,6 +19,7 @@ local sources = {
     }),
     formatting.rustfmt,
     formatting.shfmt,
+    -- formatting.luaformatter,
     formatting.stylua,
 
     -- Diagnostics

@@ -78,7 +78,7 @@ local components = {
         style = function(buffer)
             return
                 ((buffer.is_focused and buffer.diagnostics.errors ~= 0)
-                    and 'bold,underline')
+                and 'bold,underline')
                 or (buffer.is_focused and 'bold')
                 or (buffer.diagnostics.errors ~= 0 and 'underline')
                 or nil
@@ -118,7 +118,7 @@ local components = {
 }
 
 require('cokeline').setup({
-    --   show_if_buffers_are_at_least = 2, -- It allows to hide it when in a single buffer
+    show_if_buffers_are_at_least = 2, -- It allows to hide it when in a single buffer
     buffers = {
         focus_on_delete = 'next',
         -- filter_valid = function(buffer) return buffer.type ~= 'terminal' end,

@@ -34,13 +34,13 @@ vim.keymap.set("n", "<leader>lz", "<cmd>Lazy<CR>", { noremap = true, silent = tr
 vim.keymap.set("n", "<leader>nc", "<cmd>Telescope neoclip<CR>", { silent = true })
 
 -- RNVIMR / ranger toggle
-vim.keymap.set("n", "<leader>r", "<cmd>RnvimrToggle<CR>", ( { silent = true, noremap = true} ))
+vim.keymap.set("n", "<leader>r", "<cmd>RnvimrToggle<CR>", ({ silent = true, noremap = true }))
 
 -- Rename identifiers with LSP
 vim.keymap.set("n", "<leader>fr", ":IncRename ")
 
 -- Starting dashboard: Alpha
-vim.keymap.set("n", "<leader>sp", "<cmd>Alpha<CR>", ( { silent = true, noremap = true} ))
+vim.keymap.set("n", "<leader>sp", "<cmd>Alpha<CR>", ({ silent = true, noremap = true }))
 
 -- Session management
 vim.keymap.set("n", "<leader>sd", "<cmd>SessionDelete<CR>", { desc = "Saved current session" })
@@ -48,8 +48,8 @@ vim.keymap.set("n", "<leader>sr", "<cmd>SessionRestore<CR>", { desc = "Restore s
 vim.keymap.set("n", "<leader>ss", "<cmd>SessionSave<CR>", { desc = "Saved current session" })
 
 -- Hbac: The buffer vacuum
-vim.keymap.set("n", "<leader>vp", require("hbac").toggle_pin, { silent = true } )
-vim.keymap.set("n", "<leader>vo", require("hbac").close_unpinned, { silent = true } )
+vim.keymap.set("n", "<leader>vp", require("hbac").toggle_pin, { silent = true })
+vim.keymap.set("n", "<leader>vo", require("hbac").close_unpinned, { silent = true })
 
 -- Todo list management
 vim.keymap.set("n", "<leader>tcn", require("todo-comments").jump_next)
@@ -65,12 +65,12 @@ vim.keymap.set('n', '<leader>tf', builtin.find_files, {})
 vim.keymap.set('n', '<leader>tg', builtin.git_files, {})
 vim.keymap.set('n', '<leader>tb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>ts', function()
-	builtin.grep_string({
+    builtin.grep_string({
         search = vim.fn.input("Grep > "),
     });
 end)
-vim.keymap.set('n', '<leader>tl', builtin.loclist, {} )
-vim.keymap.set('n', '<leader>to', builtin.oldfiles )
+vim.keymap.set('n', '<leader>tl', builtin.loclist, {})
+vim.keymap.set('n', '<leader>to', builtin.oldfiles)
 vim.keymap.set('n', '<leader>vh', builtin.help_tags, {})
 
 -- Fugitive keybinds
@@ -86,7 +86,7 @@ vim.keymap.set('n', '<leader>csp', '<Plug>(cokeline-switch-prev)', { silent = tr
 vim.keymap.set('n', '<leader>cc', '<Plug>(cokeline-pick-close)', { silent = true })
 
 -- Number buffer selection with Leader + c + <number>
-for i = 1,9 do
+for i = 1, 9 do
     vim.keymap.set('n', ('<leader>c%s'):format(i), ('<Plug>(cokeline-focus-%s)'):format(i), { silent = true })
     vim.keymap.set('n', ('<leader>s%s'):format(i), ('<Plug>(cokeline-switch-%s)'):format(i), { silent = true })
 end
@@ -105,35 +105,35 @@ vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end, { silent = true })
 
--- Netrw start 
+-- Netrw start
 vim.keymap.set("n", "<leader>e", vim.cmd.Ex, { silent = true })
 
 -- Get me out of here (:D)
-vim.keymap.set("n", "<leader><Esc>","<cmd>quitall<CR>" , { silent = true })
+vim.keymap.set("n", "<leader><Esc>", "<cmd>quitall<CR>", { silent = true })
 
 -- Substitutor for current word
-vim.keymap.set("n", "<C-s>",[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+vim.keymap.set("n", "<C-s>", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -- Set files to be executable
 vim.keymap.set("n", "<leader>cx", "<cmd>!chmod +x %<CR>", { silent = true })
 
 -- greatest remaps ever,  replace current selection with paste buffer & visual deletion made easy
 vim.keymap.set("x", "<leader>p", "\"_dP")
-vim.keymap.set({"n", "v"}, "<leader>dd", [["_d]])
+vim.keymap.set({ "n", "v" }, "<leader>dd", [["_d]])
 
 -- Appending line below to current line ("lil J")
-vim.keymap.set("n", "J", "mzJ'z", { silent = true})
+vim.keymap.set("n", "J", "mzJ'z", { silent = true })
 
 -- Keeping my cursor in the middle when searching
-vim.keymap.set("n", "n", "nzzzv", { silent = true})
-vim.keymap.set("n", "N", "Nzzzv", { silent = true})
+vim.keymap.set("n", "n", "nzzzv", { silent = true })
+vim.keymap.set("n", "N", "Nzzzv", { silent = true })
 
 -- No-do
 vim.keymap.set("n", "Q", "<nop>")
 
 -- Delete character without yanking
-vim.keymap.set({"n", "v"}, "x", "\"_x", { silent = true })
-vim.keymap.set({"n", "v"}, "X", "\"_X", { silent = true })
+vim.keymap.set({ "n", "v" }, "x", "\"_x", { silent = true })
+vim.keymap.set({ "n", "v" }, "X", "\"_X", { silent = true })
 
 -- Select all
 vim.keymap.set("n", "<leader>sa", "ggVG", { desc = "Select all" })
@@ -183,4 +183,3 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { silent = true })
 --
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 vim.keymap.set("n", "<leader>te>", ":bd!")
-

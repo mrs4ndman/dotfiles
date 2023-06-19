@@ -171,7 +171,11 @@ local plugins = {
         },
     },
 
-    { 'folke/which-key.nvim', opts = {} },
+    {
+        'folke/which-key.nvim',
+        opts = {},
+        lazy = true,
+    },
 
     {
         "folke/todo-comments.nvim",
@@ -259,11 +263,8 @@ local plugins = {
 
     ({
         'willothy/nvim-cokeline', -- Addicted to this stuff
-        event = "VimEnter",
+        event = "VeryLazy",
         dependencies = 'nvim-tree/nvim-web-devicons',
-        config = function()
-            require('cokeline').setup()
-        end
     }),
 
     -- Git signs on the gutter
