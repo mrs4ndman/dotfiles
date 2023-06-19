@@ -110,6 +110,7 @@ vim.keymap.set("n", "<leader>e", vim.cmd.Ex, { silent = true })
 
 -- Get me out of here (:D)
 vim.keymap.set("n", "<leader><Esc>", "<cmd>quitall<CR>", { silent = true })
+vim.keymap.set("n", "<leader>w", "<cmd>write<CR>")
 
 -- Substitutor for current word
 vim.keymap.set("n", "<C-s>", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
@@ -150,6 +151,7 @@ vim.keymap.set("n", "<leader>bn", "<cmd>bnext<CR>", { noremap = true, silent = t
 vim.keymap.set("n", "<leader>bp", "<cmd>bprevious<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>bc", "<cmd>bd<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>cw", "<cmd>close<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>q", "<cmd>close<CR>", { noremap = true, silent = true })
 
 -- Delete buffer without saving
 vim.keymap.set("n", "<leader>bd", "<cmd>bd!<CR>", { noremap = true, silent = true })
