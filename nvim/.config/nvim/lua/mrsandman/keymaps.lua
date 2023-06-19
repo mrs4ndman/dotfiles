@@ -13,7 +13,7 @@ vim.keymap.set("n", "<leader>bt", require('treesj').toggle)
 
 -- Treesitter context and playground bindings
 vim.keymap.set("n", "<leader>ct", "<cmd>TSContextToggle<CR>", { silent = true })
-vim.keymap.set("n", "<leader>cpg", "<cmd>TSPlaygroundToggle<CR>", { silent = true })
+vim.keymap.set("n", "<leader>ttp", "<cmd>TSPlaygroundToggle<CR>", { silent = true })
 
 -- Try it out if you're that desperate
 vim.keymap.set("n", "<leader>fml", "<cmd>CellularAutomaton make_it_rain<CR>", { silent = true })
@@ -37,7 +37,7 @@ vim.keymap.set("n", "<leader>nc", "<cmd>Telescope neoclip<CR>", { silent = true 
 vim.keymap.set("n", "<leader>r", "<cmd>RnvimrToggle<CR>", ( { silent = true, noremap = true} ))
 
 -- Rename identifiers with LSP
-vim.keymap.set("n", "<leader>rn", ":IncRename ")
+vim.keymap.set("n", "<leader>fr", ":IncRename ")
 
 -- Starting dashboard: Alpha
 vim.keymap.set("n", "<leader>sp", "<cmd>Alpha<CR>", ( { silent = true, noremap = true} ))
@@ -52,8 +52,8 @@ vim.keymap.set("n", "<leader>vp", require("hbac").toggle_pin, { silent = true } 
 vim.keymap.set("n", "<leader>vo", require("hbac").close_unpinned, { silent = true } )
 
 -- Todo list management
-vim.keymap.set("n", "<leader>tdn", require("todo-comments").jump_next)
-vim.keymap.set("n", "<leader>tdp", require("todo-comments").jump_prev)
+vim.keymap.set("n", "<leader>tcn", require("todo-comments").jump_next)
+vim.keymap.set("n", "<leader>tcp", require("todo-comments").jump_prev)
 vim.keymap.set("n", "<leader>td", "<cmd>TodoQuickFix<CR>", { silent = true })
 
 -- Twilight keybinds
@@ -92,7 +92,7 @@ for i = 1,9 do
 end
 
 -- Aerial keybinds
-vim.keymap.set('n', '<leader>ta', '<cmd>AerialToggle!', { silent = true, })
+vim.keymap.set('n', '<leader>tat', '<cmd>AerialToggle!', { silent = true, })
 vim.keymap.set('n', '<leader>tac', '<cmd>AerialClose')
 vim.keymap.set('n', '<leader>tca', '<cmd>AerialCloseAll')
 
@@ -145,10 +145,11 @@ vim.keymap.set("n", "<leader>ya", "ggVG\"+y", { desc = "Yank whole buffer" })
 vim.keymap.set("n", "<leader>o", "o<Esc>", { silent = true, desc = "Insert new line below and exit" })
 vim.keymap.set("n", "<leader>O", "O<Esc>", { silent = true, desc = "Insert new line above and exit" })
 
--- Buffer previous, next and close
+-- Buffer previous, next and close, window closing too
 vim.keymap.set("n", "<leader>bn", "<cmd>bnext<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>bp", "<cmd>bprevious<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>bc", "<cmd>bd<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>cw", "<cmd>close<CR>", { noremap = true, silent = true })
 
 -- Delete buffer without saving
 vim.keymap.set("n", "<leader>bd", "<cmd>bd!<CR>", { noremap = true, silent = true })

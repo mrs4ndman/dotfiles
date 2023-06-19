@@ -229,7 +229,6 @@ local plugins = {
                 "theHamsta/nvim-dap-virtual-text",
                 config = true,
             },
-            "williamboman/mason.nvim",
         },
         event = "VeryLazy",
     },
@@ -266,6 +265,9 @@ local plugins = {
             require('cokeline').setup()
         end
     }),
+
+    -- Git signs on the gutter
+    'lewis6991/gitsigns.nvim',
 
     -- Overlength, and CSS color show
     {
@@ -307,6 +309,7 @@ local plugins = {
                 'williamboman/mason.nvim',
                 build = function() pcall(vim.cmd, 'MasonUpdate') end,
                 config = true,
+                event = "VimEnter",
             },
 
             'hrsh7th/nvim-cmp',
@@ -324,6 +327,11 @@ local plugins = {
             'simrat39/inlay-hints.nvim',
         },
     },
+    {
+        'jose-elias-alvarez/null-ls.nvim',
+        dependencies = "nvim-lua/plenary.nvim",
+        lazy = true,
+    },
 
     {
         'j-hui/fidget.nvim',
@@ -332,8 +340,6 @@ local plugins = {
     },
 
     'folke/neodev.nvim',
-
-    'lewis6991/gitsigns.nvim',
 
 
     -- 9.- Autopairs & tabout for tabbing out of said pairs

@@ -13,20 +13,40 @@ lsp.preset({
 
 -- Buffer LSP tools
 lsp.ensure_installed({
-    'tsserver',
-    'eslint',
-    'rust_analyzer',
-    'neocmake',
-    'clangd',
-    'vimls',
+    -- Language servers
     'lua_ls',
-    'html',
+    'vimls',
     'marksman',
+    'clangd',
+    'neocmake',
+    'html',
+    'css-lsp',
+    'eslint-lsp',
+    'tsserver',
     'bashls',
+    'ansible-language-server',
     'yamlls',
     'pylsp',
+    'rust_analyzer',
     'ruby_ls',
     'gopls',
+    'jdtls',
+    -- Formatters
+    'black',
+    'cbfmt',
+    'eslint',
+    'prettierd',
+    'rustfmt',
+    'shfmt',
+    'stylua',
+    -- Linters
+    'ansible-lint',
+    'flake8',
+    'shellcheck',
+    -- DAP
+    'codelldb',
+    'go-debug-adapter',
+    'bash-debug-adapter',
 })
 
 lsp.nvim_workspace()
