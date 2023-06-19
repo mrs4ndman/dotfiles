@@ -8,6 +8,7 @@ lsp.preset({
     set_lsp_keymaps = false,
     manage_nvim_cmp = false,
     suggest_lsp_servers = true,
+    setup_servers_on_start = true,
 })
 
 -- Buffer LSP tools

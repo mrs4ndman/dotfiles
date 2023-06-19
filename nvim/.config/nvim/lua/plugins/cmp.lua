@@ -3,6 +3,34 @@ local cmp = require('cmp')
 local luasnip = require('luasnip')
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+local ts_utils = require("nvim-treesitter.ts_utils")
+local kind_icons = {
+    Text = "",
+    Method = "󰆧",
+    Function = "󰊕",
+    Constructor = "",
+    Field = "󰇽",
+    Variable = "󰂡",
+    Class = "󰠱",
+    Interface = "",
+    Module = "",
+    Property = "󰜢",
+    Unit = "",
+    Value = "󰎠",
+    Enum = "",
+    Keyword = "󰌋",
+    Snippet = "",
+    Color = "󰏘",
+    File = "󰈙",
+    Folder = "󰉋",
+    Reference = "",
+    EnumMember = "",
+    Constant = "󰏿",
+    Struct = "",
+    Event = "",
+    Operator = "󰆕",
+    TypeParameter = "󰅲",
+}
 
 require('luasnip.loaders.from_vscode').lazy_load()
 luasnip.config.setup {}
@@ -13,7 +41,11 @@ cmp.setup({
         completeopt = 'menu,menuone,noinsert',
     },
     window = {
-        completion = cmp.config.window.bordered(),
+        completion = cmp.config.window.bordered({
+            border = "single",
+            side_padding = 1,
+            col_offset = -3,
+        }),
         documentation = cmp.config.window.bordered(),
     },
     snippet = {
@@ -26,18 +58,50 @@ cmp.setup({
         fields = {'menu', 'abbr', 'kind'},
 
         -- here is where the change happens
-        format = function(entry, item)
-            local menu_icon = {
-                nvim_lsp = 'λ',
-                luasnip = '⋗',
+        format = function(entry, vim_item)
+
+            vim_item.menu = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind)
+
+            vim_item.menu = ({
                 buffer = '󰦨',
                 path = '/',
+                nvim_lsp = 'λ',
+                luasnip = '⋗',
                 nvim_lua = 'Π',
-            }
+            })[entry.source.name]
 
-            item.menu = menu_icon[entry.source.name]
-            return item
+            if entry.source.name == "text" then
+                vim_item.dup = 0
+            end
+            if entry.source.name == "nvim_lsp" then
+                vim_item.dup = 0
+            end
+
+            function Trim(text)
+                local max = 40
+                if text and text:len() > max then
+                    text = text:sub(1, max) .. "···"
+                end
+                return text
+            end
+
+            return vim_item
         end,
+    },
+    sorting = {
+        comparators = {
+            cmp.config.compare.locality,
+            cmp.config.compare.exact,
+            cmp.config.compare.kind,
+            cmp.config.compare.recently_used,
+            cmp.config.compare.length,
+            function(entry1, entry2)
+            local result = vim.stricmp(entry1.completion_item.label, entry2.completion_item.label)
+            if result < 0 then
+                    return true
+                end
+            end
+        },
     },
     mapping = cmp.mapping.preset.insert({
         ['<C-p>'] = cmp.mapping.select_prev_item(),
@@ -53,10 +117,35 @@ cmp.setup({
     sources = {
         { name = 'path' },
         { name = 'nvim_lua' },
-        { name = 'buffer' },
-        { name = 'luasnip' },
-        { name = 'cmdline' },
-        { name = 'nvim_lsp' }
+        {
+            name = 'buffer',
+            options = {
+                get_bufnrs = function()
+                    return vim.api.nvim_list_bufs()
+                end,
+            },
+        },
+        {
+            name = 'luasnip',
+            keyword_length = 2,
+        },
+        -- { name = 'cmdline' },
+        {
+            name = 'nvim_lsp',
+            entry_filter = function(entry, context)
+                local kind = entry:get_kind()
+                local node = ts_utils.get_node_at_cursor():type()
+                -- log(node)
+                if node == "arguments" then
+                    if kind == 6 then
+                        return true
+                    else
+                        return false
+                    end
+                end
+                return true
+            end,
+        },
     },
 })
 
