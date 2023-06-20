@@ -29,7 +29,7 @@ local sources = {
 
     -- Code actions
     code_actions.eslint_d,
-    code_actions.shellcheck,
+    -- code_actions.shellcheck,
 }
 
 null_ls.setup({ sources = sources })
