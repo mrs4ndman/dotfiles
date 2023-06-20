@@ -13,9 +13,14 @@ dap.listeners.after.event_exited["dapui_config"] = function()
     dapui.close()
 end
 
-vim.keymap.set("n", "<Leader>dt", require("dapui").toggle)
-vim.keymap.set("n", "<Leader>db", ":DapToggleBreakpoint<CR>")
-vim.keymap.set("n", "<Leader>dq", ":DapTerminate<CR>")
-vim.keymap.set("n", "<Leader>do", ":DapStepOver<CR>")
-
 require("dapui").setup(opts)
+
+-- Per-plugin which-key customization
+local wk = require("which-key")
+
+wk.register({
+    ["<leader>dt"] = { require("dapui").toggle, "Toggle DAP", { silent = true } },
+    ["<leader>db"] = { "<cmd>DapToggleBreakpoint<CR>", "Toggle Breakpoint", { silent = true } },
+    ["<leader>dq"] = { "<cmd>DapTerminate<CR>", "Terminate DAP" },
+    ["<leader>do"] = { "<cmd>DapStepOver<CR>", "DAP Step-Over" },
+})

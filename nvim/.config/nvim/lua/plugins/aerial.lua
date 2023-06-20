@@ -1,8 +1,18 @@
+-- Per-plugin which-key customization
+local wk = require("which-key")
+
+wk.register({
+    ["<leader>tat"] = { "<cmd>AerialToggle!<CR>", "Toggle Aerial", { silent = true } },
+    ["<leader>tac"] = { "<cmd>AerialClose<CR>", "Close Aerial" },
+    ["<leader>tax"] = { "<cmd>AerialCloseAll<CR>", "Close all Aerial instances" },
+})
+
+
 require("aerial").setup({
     backends = { "treesitter", "lsp", "markdown", "man" },
 
     layout = {
-        max_width = { 40, 0.2},
+        max_width = { 40, 0.2 },
         width = nil,
         min_width = 10,
 
@@ -11,7 +21,7 @@ require("aerial").setup({
         placement = "window",
     },
     attach_mode = "window",
-    close_automatic_events = {"unsupported", "unfocus"},
+    close_automatic_events = { "unsupported", "unfocus" },
     lazy_load = true,
     disable_max_lines = 20000,
     filter_kind = {

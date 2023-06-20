@@ -109,8 +109,6 @@ vim.g.neon_italic_comment = true
 vim.g.neon_bold = true
 vim.g.neon_transparent = false
 
-vim.keymap.set("n", '<leader>th', ":lua colorizer()<CR>", { silent = true } )
-
 local theme = require('last-color').recall() or 'rose-pine'
 vim.cmd(('colorscheme %s'):format(theme))
 
@@ -125,7 +123,6 @@ vim.cmd(('colorscheme %s'):format(theme))
 -- 	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 -- 	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 -- end
-
 
 -- vim.cmd('colorscheme rose-pine')
 -- ColorMyPencils()

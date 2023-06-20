@@ -1,3 +1,10 @@
+-- Per-plugin which-key customization
+local wk = require("which-key")
+
+wk.register({
+    ["<leader>sp"] = { "<cmd>Alpha<CR>", "Toggle Start Screen", { silent = true } },
+})
+
 local alpha = require("alpha")
 local dashboard = require("alpha.themes.dashboard")
 -- It uses almost the same format as the "date" command in Linux (man date for info)

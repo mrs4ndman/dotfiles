@@ -1,5 +1,5 @@
--- Main Keybind config file: Other keybinds are in their own .lua config files
--- MrSandman config / Forked from ThePrimeagen's NVIM 0 to LSP video & GitHub
+-- MrSandman config - A mix of ThePrimeagen's + LazyVim + a bit of my own
+-- Which-key plugin manages per-plugin keybinds on each plugin's config files
 
 -- Key thing: Mapleader as Space
 
@@ -7,9 +7,6 @@ vim.g.mapleader = " "
 
 
 -- LEADER plugin keybinds (Space for this config)
-
--- Treesitter split toggle with TreeSJ
-vim.keymap.set("n", "<leader>bt", require('treesj').toggle)
 
 -- Treesitter context and playground bindings
 vim.keymap.set("n", "<leader>ct", "<cmd>TSContextToggle<CR>", { silent = true })
@@ -39,14 +36,6 @@ vim.keymap.set("n", "<leader>r", "<cmd>RnvimrToggle<CR>", ({ silent = true, nore
 -- Rename identifiers with LSP
 vim.keymap.set("n", "<leader>fr", ":IncRename ")
 
--- Starting dashboard: Alpha
-vim.keymap.set("n", "<leader>sp", "<cmd>Alpha<CR>", ({ silent = true, noremap = true }))
-
--- Session management
-vim.keymap.set("n", "<leader>sd", "<cmd>SessionDelete<CR>", { desc = "Saved current session" })
-vim.keymap.set("n", "<leader>sr", "<cmd>SessionRestore<CR>", { desc = "Restore session for CWD" })
-vim.keymap.set("n", "<leader>ss", "<cmd>SessionSave<CR>", { desc = "Saved current session" })
-
 -- Hbac: The buffer vacuum
 vim.keymap.set("n", "<leader>vp", require("hbac").toggle_pin, { silent = true })
 vim.keymap.set("n", "<leader>vo", require("hbac").close_unpinned, { silent = true })
@@ -59,42 +48,29 @@ vim.keymap.set("n", "<leader>td", "<cmd>TodoQuickFix<CR>", { silent = true })
 -- Twilight keybinds
 vim.keymap.set("n", "<leader>zt", "<cmd>Twilight<CR>")
 
--- Telescope keybinds
-local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>tf', builtin.find_files, {})
-vim.keymap.set('n', '<leader>tg', builtin.git_files, {})
-vim.keymap.set('n', '<leader>tb', builtin.buffers, {})
-vim.keymap.set('n', '<leader>ts', function()
-    builtin.grep_string({
-        search = vim.fn.input("Grep > "),
-    });
-end)
-vim.keymap.set('n', '<leader>tl', builtin.loclist, {})
-vim.keymap.set('n', '<leader>to', builtin.oldfiles)
-vim.keymap.set('n', '<leader>vh', builtin.help_tags, {})
-
 -- Fugitive keybinds
 vim.keymap.set("n", "<leader>gs", vim.cmd.Git);
 vim.keymap.set("n", "<leader>gd", vim.cmd.Git_diff);
 -- TODO: Create new Fugitive keybinds
 
--- Cokeline keybinds
-vim.keymap.set('n', '<leader>cn', '<Plug>(cokeline-focus-next)', { silent = true })
-vim.keymap.set('n', '<leader>cp', '<Plug>(cokeline-focus-prev)', { silent = true })
-vim.keymap.set('n', '<leader>csn', '<Plug>(cokeline-switch-next)', { silent = true })
-vim.keymap.set('n', '<leader>csp', '<Plug>(cokeline-switch-prev)', { silent = true })
-vim.keymap.set('n', '<leader>cc', '<Plug>(cokeline-pick-close)', { silent = true })
 
--- Number buffer selection with Leader + c + <number>
-for i = 1, 9 do
-    vim.keymap.set('n', ('<leader>c%s'):format(i), ('<Plug>(cokeline-focus-%s)'):format(i), { silent = true })
-    vim.keymap.set('n', ('<leader>s%s'):format(i), ('<Plug>(cokeline-switch-%s)'):format(i), { silent = true })
-end
+local wk = require("which-key")
 
--- Aerial keybinds
-vim.keymap.set('n', '<leader>tat', '<cmd>AerialToggle!', { silent = true, })
-vim.keymap.set('n', '<leader>tac', '<cmd>AerialClose')
-vim.keymap.set('n', '<leader>tca', '<cmd>AerialCloseAll')
+wk.register({
+    -- which-key category entries
+    ["<leader>b"] = { name = "Buffers + TreeSJ" },
+    ["<leader>d"] = { name = "DAP +" },
+    ["<leader>k"] = { name = "Harpoon switching" },
+    ["<leader>s"] = { name = "Harpoon + Sessions + " },
+    ["<leader>t"] = { name = "Telescope, Aerial + ToDo" },
+    ["<leader>ta"] = { name = "Aerial" },
+
+    -- Custom lua functions: their which-key entries
+    ["<leader>th"] = { ":lua colorizer()<CR>", "Colorizer", { silent = true } },
+})
+
+
+
 
 -- INTERNAL KEYBINDS
 

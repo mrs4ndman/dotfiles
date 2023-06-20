@@ -1,5 +1,12 @@
 local tsj = require('treesj')
 
+-- Per-plugin which-key customization
+local wk = require("which-key")
+
+wk.register({
+    ["<leader>bt"] = { require('treesj').toggle, "Toggle TS node", { silent = true } },
+})
+
 local lang_utils = require('treesj.langs.utils')
 local langs = {
     go = {
