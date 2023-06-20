@@ -121,7 +121,7 @@ require('cokeline').setup({
     show_if_buffers_are_at_least = 2, -- It allows to hide it when in a single buffer
     buffers = {
         focus_on_delete = 'next',
-        -- filter_valid = function(buffer) return buffer.type ~= 'terminal' end,
+        filter_valid = function(buffer) return buffer.filetype ~= 'netrw' end,
         -- filter_visible = function(buffer) return buffer.type ~= 'terminal' end,
         new_buffers_position = 'next',
     },

@@ -13,22 +13,23 @@ local sources = {
     -- Formatters
     formatting.black.with({ extra_args = { "--fast" } }),
     formatting.cbfmt.with({ extra_args = { "--best-effort" } }),
-    formatting.eslint_d,
     formatting.prettierd.with({
         extra_filetypes = { "toml" },
     }),
     formatting.rustfmt,
     formatting.shfmt,
+    -- formatting.eslint_d,
+    -- formatting.ruff,
     -- formatting.lua_format,
     -- formatting.stylua,
 
     -- Diagnostics
-    diagnostics.eslint_d,
-    -- diagnostics.flake8,
+    -- diagnostics.eslint_d,
     diagnostics.shellcheck,
+    -- diagnostics.flake8,
 
     -- Code actions
-    code_actions.eslint_d,
+    -- code_actions.eslint_d,
     -- code_actions.shellcheck,
 }
 

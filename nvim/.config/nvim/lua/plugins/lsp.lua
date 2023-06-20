@@ -26,7 +26,7 @@ lsp.ensure_installed({
     'bashls',
     'ansible-language-server',
     'yamlls',
-    'pylsp',
+    'ruff_lsp',
     'rust_analyzer',
     'ruby_ls',
     'gopls',
@@ -37,6 +37,7 @@ lsp.ensure_installed({
     'eslint',
     'luaformatter',
     'prettierd',
+    'ruff',
     'rustfmt',
     'shfmt',
     'stylua',
@@ -64,7 +65,7 @@ lsp.setup_servers({
     'bashls',
     'ansiblels',
     'yamlls',
-    'pylsp',
+    'ruff_lsp',
     'rust_analyzer',
     'ruby_ls',
     'gopls',
@@ -107,14 +108,6 @@ lsp.on_attach(function(client, bufnr)
     })
 end)
 
-
--- local mason_lspconfig = require 'mason-lspconfig'
-
--- local servers = {
---     pylsp = {
---         filetypes = {"python"},
---     }
--- }
 
 -- Change here the left sidebar LSP icon config for:
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
