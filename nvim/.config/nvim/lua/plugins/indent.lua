@@ -7,3 +7,10 @@ require("indent_blankline").setup {
     show_trailing_blankline_indent = false,
     char = '┊',
 }
+
+-- Per-plugin which-key customization
+local wk = require("which-key")
+
+wk.register({
+    ["<leader>il"] = { "<cmd>IndentBlanklineToggle<CR>", "Indent-line toggle" },
+})

@@ -1,3 +1,4 @@
+-- TODO: Attempt to migrate to plugin definition + setup
 local telescope = require 'telescope'
 
 -- Main setup

@@ -11,6 +11,11 @@ require('overlength').setup({
     grace_length = 3,
 
     disable_ft = { 'qf', 'help', 'man', 'packer', 'Telescope' },
+})
 
+-- Per-plugin which-key customization
+local wk = require("which-key")
 
+wk.register({
+    ["<leader>lt"] = { "<cmd>OverlengthToggle<CR>", "Overlength Toggle", { silent = true }},
 })

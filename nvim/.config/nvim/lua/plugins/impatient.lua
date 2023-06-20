@@ -1,1 +1,2 @@
-require('impatient')
+-- DEPRECATED
+-- require('impatient')

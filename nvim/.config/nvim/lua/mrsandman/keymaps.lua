@@ -7,50 +7,24 @@ vim.g.mapleader = " "
 
 
 -- LEADER plugin keybinds (Space for this config)
-
--- Treesitter context and playground bindings
-vim.keymap.set("n", "<leader>ct", "<cmd>TSContextToggle<CR>", { silent = true })
-vim.keymap.set("n", "<leader>ttp", "<cmd>TSPlaygroundToggle<CR>", { silent = true })
+-- TODO: Join these keybinds with their corresponding plugin definitions
 
 -- Try it out if you're that desperate
-vim.keymap.set("n", "<leader>fml", "<cmd>CellularAutomaton make_it_rain<CR>", { silent = true })
-
--- Indentline toggle
-vim.keymap.set("n", "<leader>il", "<cmd>IndentBlanklineToggle<CR>", { silent = true })
-
--- Illuminate the word instances
-vim.keymap.set("n", "<leader>iw", "<cmd>IlluminateToggle<CR>", { silent = true })
-
--- Overlength toggle
-vim.keymap.set("n", "<leader>lt", "<cmd>OverlengthToggle<CR>", { silent = true })
+vim.keymap.set("n", "<leader>fml", "<cmd>CellularAutomaton make_it_rain<CR>", { desc = "cool stuff", silent = true })
 
 -- Lazy shortcut
-vim.keymap.set("n", "<leader>lz", "<cmd>Lazy<CR>", { noremap = true, silent = true })
-
--- Neoclip extension for Telescope
-vim.keymap.set("n", "<leader>nc", "<cmd>Telescope neoclip<CR>", { silent = true })
+vim.keymap.set("n", "<leader>lz", "<cmd>Lazy<CR>", { desc = "Lazy", noremap = true, silent = true })
 
 -- RNVIMR / ranger toggle
-vim.keymap.set("n", "<leader>r", "<cmd>RnvimrToggle<CR>", ({ silent = true, noremap = true }))
+vim.keymap.set("n", "<leader>r", "<cmd>RnvimrToggle<CR>", ({ desc = "Ranger", silent = true, noremap = true }))
 
 -- Rename identifiers with LSP
-vim.keymap.set("n", "<leader>fr", ":IncRename ")
-
--- Hbac: The buffer vacuum
-vim.keymap.set("n", "<leader>vp", require("hbac").toggle_pin, { silent = true })
-vim.keymap.set("n", "<leader>vo", require("hbac").close_unpinned, { silent = true })
-
--- Todo list management
-vim.keymap.set("n", "<leader>tcn", require("todo-comments").jump_next)
-vim.keymap.set("n", "<leader>tcp", require("todo-comments").jump_prev)
-vim.keymap.set("n", "<leader>td", "<cmd>TodoQuickFix<CR>", { silent = true })
-
--- Twilight keybinds
-vim.keymap.set("n", "<leader>zt", "<cmd>Twilight<CR>")
+-- TODO: Join with plugin definition
+vim.keymap.set("n", "<leader>fr", ":IncRename ", { desc = "Rename function under cursor" })
 
 -- Fugitive keybinds
-vim.keymap.set("n", "<leader>gs", vim.cmd.Git);
-vim.keymap.set("n", "<leader>gd", vim.cmd.Git_diff);
+vim.keymap.set("n", "<leader>gs", vim.cmd.Git, { desc = "Fugitive" });
+vim.keymap.set("n", "<leader>gd", vim.cmd.Git_diff, { desc = "Fugitive Diff" });
 -- TODO: Create new Fugitive keybinds
 
 
@@ -58,17 +32,31 @@ local wk = require("which-key")
 
 wk.register({
     -- which-key category entries
-    ["<leader>b"] = { name = "Buffers + TreeSJ" },
-    ["<leader>d"] = { name = "DAP +" },
-    ["<leader>k"] = { name = "Harpoon switching" },
-    ["<leader>s"] = { name = "Harpoon + Sessions + " },
-    ["<leader>t"] = { name = "Telescope, Aerial + ToDo" },
+    ["<leader>b"] = { name = "[B]uffers, TreeSJ" },
+    ["<leader>c"] = { name = "[C]lose [W]indow, Treesitter [C]on[T]ext" },
+    ["<leader>d"] = { name = "DAP (+ CodeLLDB when active)" },
+    ["<leader>f"] = { name = "LSP [F]ormat & TS [R]ename [F]unction, FML" },
+    ["<leader>g"] = { name = "Fu[G]itive" },
+    ["<leader>i"] = { name = "[I]ndent[L]ine, Word-repetition" },
+    ["<leader>k"] = { name = "Harpoon switching+" },
+    ["<leader>l"] = { name = "over[L]eng[T]h, Lazy" },
+    ["<leader>n"] = { name = "[N]eo[C]lip" },
+    ["<leader>q"] = { name = "Close" },
+    ["<leader>s"] = { name = "Cokeline+, Sessions+, Alpha" },
+    ["<leader>t"] = { name = "[T]elescope+, [T]reesi[T]ter, Aerial, Harpoon term, [T]o-[D]o" },
     ["<leader>ta"] = { name = "Aerial" },
+    ["<leader>tc"] = { name = "[T]o-do [C]omments+"},
+    ["<leader>tt"] = { name = "[T]reesi[T]ter [P]layground"},
+    ["<leader>u"] = { name = "[U]ndo-Tree" },
+    ["<leader>v"] = { name = "HBAC, LSP, " },
+    ["<leader>x"] = { name = "Trouble+" },
+    ["<leader>z"] = { name = "[Z]en-Mode / Twilight" },
 
     -- Custom lua functions: their which-key entries
     ["<leader>th"] = { ":lua colorizer()<CR>", "Colorizer", { silent = true } },
 })
 
+-- LSP keybinds are defined inside the lsp.lua file
 
 
 
@@ -79,24 +67,24 @@ wk.register({
 -- Source current config file
 vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
-end, { silent = true })
+end, { silent = true, desc = "Source current file" })
 
 -- Netrw start
-vim.keymap.set("n", "<leader>e", vim.cmd.Ex, { silent = true })
+vim.keymap.set("n", "<leader>e", vim.cmd.Ex, { desc = "Ex", silent = true })
 
 -- Get me out of here (:D)
-vim.keymap.set("n", "<leader><Esc>", "<cmd>quitall<CR>", { silent = true })
-vim.keymap.set("n", "<leader>w", "<cmd>write<CR>")
+vim.keymap.set("n", "<leader><Esc>", "<cmd>quitall<CR>", { desc = "Quit all", silent = true })
+vim.keymap.set("n", "<leader>w", "<cmd>write<CR>", { desc = "Write all" })
 
 -- Substitutor for current word
 vim.keymap.set("n", "<C-s>", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -- Set files to be executable
-vim.keymap.set("n", "<leader>cx", "<cmd>!chmod +x %<CR>", { silent = true })
+vim.keymap.set("n", "<leader>cx", "<cmd>!chmod +x %<CR>", { desc = "Make file executable", silent = true })
 
 -- greatest remaps ever,  replace current selection with paste buffer & visual deletion made easy
-vim.keymap.set("x", "<leader>p", "\"_dP")
-vim.keymap.set({ "n", "v" }, "<leader>dd", [["_d]])
+vim.keymap.set("x", "<leader>p", "\"_dP", { desc = "Better paste :)" })
+vim.keymap.set({ "n", "v" }, "<leader>dd", [["_d]], { desc = "Better delete" })
 
 -- Appending line below to current line ("lil J")
 vim.keymap.set("n", "J", "mzJ'z", { silent = true })
@@ -123,14 +111,14 @@ vim.keymap.set("n", "<leader>o", "o<Esc>", { silent = true, desc = "Insert new l
 vim.keymap.set("n", "<leader>O", "O<Esc>", { silent = true, desc = "Insert new line above and exit" })
 
 -- Buffer previous, next and close, window closing too
-vim.keymap.set("n", "<leader>bn", "<cmd>bnext<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>bp", "<cmd>bprevious<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>bc", "<cmd>bd<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>cw", "<cmd>close<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>q", "<cmd>close<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>bn", "<cmd>bnext<CR>", { noremap = true, silent = true, desc = "Next buffer" })
+vim.keymap.set("n", "<leader>bp", "<cmd>bprevious<CR>", { noremap = true, silent = true, desc = "Previous buffer"})
+vim.keymap.set("n", "<leader>bc", "<cmd>bd<CR>", { noremap = true, silent = true, desc = "Close buffer softly"})
+vim.keymap.set("n", "<leader>cw", "<cmd>close<CR>", { noremap = true, silent = true, desc = "Close window one way"})
+vim.keymap.set("n", "<leader>q", "<cmd>close<CR>", { noremap = true, silent = true, desc = "Close window the other way"})
 
 -- Delete buffer without saving
-vim.keymap.set("n", "<leader>bd", "<cmd>bd!<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>bd", "<cmd>bd!<CR>", { noremap = true, silent = true, desc = "Force buffer close"})
 
 
 -- Normal mode CTRL Keybinds
@@ -160,4 +148,4 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { silent = true })
 -- TERMINAL mode keybinds
 --
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
-vim.keymap.set("n", "<leader>te>", ":bd!")
+vim.keymap.set("n", "<leader>te>", ":bd!", { desc = "Exit terminal" })

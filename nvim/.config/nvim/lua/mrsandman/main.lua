@@ -224,10 +224,10 @@ local plugins = {
     },
 
     -- Java?
-    { "mfussenegger/nvim-jdtls",         lazy = true,              ft = "java" },
+    { "mfussenegger/nvim-jdtls", lazy = true, ft = "java" },
 
     -- Golang poweeeer
-    { "fatih/vim-go",                    lazy = true,              ft = { "go", "gomod", "gosum" } },
+    { "fatih/vim-go", lazy = true, ft = { "go", "gomod", "gosum" } },
 
     -- Python?
     {

@@ -15,3 +15,10 @@ require("twilight").setup = {
     },
     exclude = { "alpha", "git" }
 }
+
+-- Per-plugin which-key customization
+local wk = require("which-key")
+
+wk.register({
+    ["<leader>zt"] = { "<cmd>Twilight<CR>", "Twilight toggle" },
+})

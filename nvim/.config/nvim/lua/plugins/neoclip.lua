@@ -1,3 +1,4 @@
+-- TODO: Integrate with plugin definition
 require('neoclip').setup({
     history = 2000,
     preview = true,
@@ -30,3 +31,9 @@ require('neoclip').setup({
     },
 })
 
+-- Per-plugin which-key customization
+local wk = require("which-key")
+
+wk.register({
+    ["<leader>nc"] = { "<cmd>Telescope neoclip<CR>", { desc = "Neoclip toggle", silent = true } },
+})
