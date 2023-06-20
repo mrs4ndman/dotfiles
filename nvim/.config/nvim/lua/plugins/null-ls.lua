@@ -24,12 +24,12 @@ local sources = {
 
     -- Diagnostics
     diagnostics.eslint_d,
+    -- diagnostics.flake8,
     diagnostics.shellcheck,
 
     -- Code actions
     code_actions.eslint_d,
     code_actions.shellcheck,
-    code_actions.flake8,
 }
 
 null_ls.setup({ sources = sources })

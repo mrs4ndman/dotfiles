@@ -28,7 +28,8 @@ local plugins = {
         dependencies = {
             'nvim-lua/popup.nvim',
             'nvim-lua/plenary.nvim',
-        }
+        },
+        cmd = "Telescope"
     },
 
 
@@ -54,7 +55,7 @@ local plugins = {
     { 'rose-pine/neovim', lazy = true, name = 'rose-pine', priority = 1000 },
     -- the coolest color scheme B)
 
-    { 'folke/tokyonight.nvim', lazy = true, priority = 1000, opts = {} },
+    { 'folke/tokyonight.nvim', event = "VimEnter", priority = 1000, opts = {} },
     { 'catppuccin/nvim', lazy = true, name = "catppuccin", priority = 1000 },
     { 'EdenEast/nightfox.nvim', lazy = true },
     { 'olimorris/onedarkpro.nvim', lazy = true, priority = 1000 },
@@ -69,6 +70,7 @@ local plugins = {
     {
         "nvim-treesitter/nvim-treesitter", -- parsing to the end of time
         build = ":TSUpdate",
+        event = "UIEnter",
     },
 
     {
@@ -90,7 +92,6 @@ local plugins = {
 
     {
         "Wansmer/treesj",
-        dependencies = { 'nvim-treesitter/nvim-treesitter' },
         keys = { "n", "<leader>bt", "<cmd>TSJToggle<CR>" }
     },
 
@@ -103,7 +104,7 @@ local plugins = {
 
     {
         "junegunn/fzf", -- Fuzzy searching integration
-        event = "VeryLazy",
+        event = { "BufReadPost", "BufNewFile" },
     },
 
     {
@@ -134,19 +135,23 @@ local plugins = {
     --
     {
         "tpope/vim-fugitive", -- Git wrapper
-        event = "VeryLazy",
+        event = { "BufReadPost", "BufNewFile" },
     },
 
     "tpope/vim-surround", -- The power of surroundings
 
     "tpope/vim-commentary", -- Powerful commenting, thanks to tpope
 
-    "tpope/vim-sleuth", -- Automatic tabstop and shiftwidth detection
+    {
+        "tpope/vim-sleuth", -- Automatic tabstop and shiftwidth detection
+        event = { "BufReadPost", "BufNewFile" },
+    },
 
     {
         "tpope/vim-eunuch", -- Shell commands inside Vim
-        event = "VeryLazy",
+        event = { "BufReadPost", "BufNewFile" },
     },
+
     "tpope/vim-vinegar", -- Native Ex gets extensions
 
 
@@ -173,7 +178,6 @@ local plugins = {
 
     {
         'folke/which-key.nvim',
-        opts = {},
         event = "VeryLazy",
     },
 
@@ -259,7 +263,10 @@ local plugins = {
     -- 7.- UI customization
     --
     -- Status / buffer lines
-    "nvim-lualine/lualine.nvim", -- Best statusline for nvim in Lua
+    {
+        "nvim-lualine/lualine.nvim", -- Best statusline for nvim in Lua
+        event = "VeryLazy",
+    },
 
     ({
         'willothy/nvim-cokeline', -- Addicted to this stuff
@@ -268,11 +275,14 @@ local plugins = {
     }),
 
     -- Git signs on the gutter
-    'lewis6991/gitsigns.nvim',
+    {
+        'lewis6991/gitsigns.nvim',
+        event = { "BufReadPost", "BufNewFile" },
+    },
 
     -- Overlength, and CSS color show
     {
-        "lcheylus/overlength.nvim", -- Overlength, just that
+        "lcheylus/overlength.nvim",
         keys = { "n", "<leader>lt", "<cmd>OverlengthToggle<CR>" }
     },
 
@@ -282,7 +292,7 @@ local plugins = {
     -- Indenting visual marks
     {
         "lukas-reineke/indent-blankline.nvim",
-        event = "VeryLazy",
+        event = { "BufReadPost", "BufNewFile" },
     },
 
     -- Highlighting instances of words with LSP, Treesitter and Regex matching
@@ -294,7 +304,7 @@ local plugins = {
     -- Ideas for the brain
     {
         'kosayoda/nvim-lightbulb',
-        event = 'VeryLazy',
+        event = "BufReadPre",
         dependencies = 'antoinemadec/FixCursorHold.nvim',
     },
 
@@ -338,6 +348,7 @@ local plugins = {
         'j-hui/fidget.nvim',
         tag = 'legacy',
         opts = {},
+        event = { "BufReadPost", "BufNewFile" },
     },
 
     'folke/neodev.nvim',
@@ -349,7 +360,7 @@ local plugins = {
 
     {
         'windwp/nvim-autopairs',
-        event = "VimEnter",
+        event = { "BufReadPost", "BufNewFile"},
     },
 
 
@@ -357,16 +368,16 @@ local plugins = {
 
     {
         'abecodes/tabout.nvim',
-        dependencies = {'nvim-treesitter'}, -- or require if not used so far
+        dependencies = {'nvim-treesitter'},
         event = "InsertEnter",
         config = function()
             require('tabout').setup {
-                tabkey = '<Tab>', -- Key to tab me out of parenthesis and stuff
-                backwards_tabkey = '<S-Tab>', -- key to do backwards tabout, empty string to disable
-                act_as_tab = true, -- shift content if tab out is not possible
-                act_as_shift_tab = false, -- reverse shift content if tab out is not possible (if your keyboard/terminal supports <S-Tab>)
-                enable_backwards = true, -- well ...
-                completion = true, -- if the tabkey is used in a completion pum
+                tabkey = '<Tab>',
+                backwards_tabkey = '<S-Tab>',
+                act_as_tab = true,
+                act_as_shift_tab = false,
+                enable_backwards = true,
+                completion = true,
                 tabouts = {
                     {open = "'", close = "'"},
                     {open = '"', close = '"'},
@@ -377,8 +388,8 @@ local plugins = {
                     {open = '<', close = '>'},
                     -- {open = ':', close = ':'} -- Rust maybe?
                 },
-                ignore_beginning = true, --[[ if the cursor is at the beginning of a filled element it will rather tab out than shift the content ]]
-                exclude = {} -- tabout will ignore these filetypes
+                ignore_beginning = true,
+                exclude = {}
             }
         end,
     },
