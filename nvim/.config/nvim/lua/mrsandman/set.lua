@@ -50,9 +50,13 @@ vim.api.nvim_command('set noshowmode')
 -- Cursor config
 vim.opt.guicursor = ""
 
--- Testing
+-- Cursorline
 vim.wo.cursorline = true
 vim.wo.cursorlineopt = "number"
+
+-- Splits
+vim.opt.splitright = true
+vim.opt.splitbelow = true
 
 -- Numbers config
 vim.opt.nu = true
@@ -64,7 +68,6 @@ vim.opt.scrolloff = 8
 -- Color columns
 vim.opt.colorcolumn = "81"
 
--- Sidebar & tab config
 -- Tab config
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
@@ -77,9 +80,6 @@ vim.o.breakindent = true
 
 -- No text wrapping
 vim.opt.wrap = false
-
--- Keep the sign column open
-vim.wo.signcolumn = 'yes'
 
 -- Search tweaks, highlighting and included search
 vim.opt.hlsearch = false
@@ -94,7 +94,7 @@ vim.opt.updatetime = 50
 -- Set nvim timeout
 vim.opt.timeoutlen = 2000
 
--- Added auto signs to the sidebar
+-- Added auto signs to the signcolumn
 vim.opt.signcolumn = "auto"
 
 -- Disable fold marks

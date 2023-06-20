@@ -1,8 +1,8 @@
 -- CMP completions config:
-local cmp = require('cmp')
-local luasnip = require('luasnip')
+local cmp = require("cmp")
+local luasnip = require("luasnip")
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 local ts_utils = require("nvim-treesitter.ts_utils")
 local kind_icons = {
     Text = "",
@@ -32,13 +32,13 @@ local kind_icons = {
     TypeParameter = "󰅲",
 }
 
-require('luasnip.loaders.from_vscode').lazy_load()
+require("luasnip.loaders.from_vscode").lazy_load()
 luasnip.config.setup {}
 
 cmp.setup({
-    preselect = 'item',
+    preselect = "item",
     completion = {
-        completeopt = 'menu,menuone,noinsert',
+        completeopt = "menu,menuone,noinsert",
     },
     config = {
         context = {
@@ -63,19 +63,18 @@ cmp.setup({
     },
     formatting = {
         -- changing the order of fields so the icon is the first
-        fields = {'menu', 'abbr', 'kind'},
+        fields = { "menu", "abbr", "kind" },
 
         -- here is where the change happens
         format = function(entry, vim_item)
-
-            vim_item.menu = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind)
+            vim_item.menu = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind)
 
             vim_item.menu = ({
-                buffer = '󰦨',
-                path = '/',
-                nvim_lsp = 'λ',
-                luasnip = '⋗',
-                nvim_lua = 'Π',
+                buffer = "󰦨",
+                path = "/",
+                nvim_lsp = "λ",
+                luasnip = "⋗",
+                nvim_lua = "Π",
             })[entry.source.name]
 
             if entry.source.name == "text" then
@@ -104,32 +103,32 @@ cmp.setup({
             cmp.config.compare.recently_used,
             cmp.config.compare.length,
             function(entry1, entry2)
-            local result = vim.stricmp(entry1.completion_item.label, entry2.completion_item.label)
-            if result < 0 then
+                local result = vim.stricmp(entry1.completion_item.label, entry2.completion_item.label)
+                if result < 0 then
                     return true
                 end
             end
         },
     },
     mapping = cmp.mapping.preset.insert({
-        ['<C-p>'] = cmp.mapping.select_prev_item(),
-        ['<C-n>'] = cmp.mapping.select_next_item(),
-        ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-        ['<C-f>'] = cmp.mapping.scroll_docs(4),
-        ['<C-y>'] = cmp.mapping.confirm({ select = true }),
-        ['<C-c>'] = cmp.mapping.abort(),
-        ['<C-Space>'] = cmp.mapping.complete(),
-        ['<Tab>'] = vim.NIL,
-        ['<S-Tab>'] = vim.NIL,
+        ["<C-p>"] = cmp.mapping.select_prev_item(),
+        ["<C-n>"] = cmp.mapping.select_next_item(),
+        ["<C-d>"] = cmp.mapping.scroll_docs(-4),
+        ["<C-f>"] = cmp.mapping.scroll_docs(4),
+        ["<C-y>"] = cmp.mapping.confirm({ select = true }),
+        ["<C-c>"] = cmp.mapping.abort(),
+        ["<C-Space>"] = cmp.mapping.complete(),
+        ["<Tab>"] = vim.NIL,
+        ["<S-Tab>"] = vim.NIL,
     }),
     sources = {
-        { name = 'path' },
-        { name = 'nvim_lua' },
-        { name = 'luasnip' },
-        { name = 'treesitter' },
+        { name = "path" },
+        { name = "nvim_lua" },
+        { name = "luasnip" },
+        { name = "treesitter" },
         -- { name = 'cmdline' },
         {
-            name = 'buffer',
+            name = "buffer",
             options = {
                 get_bufnrs = function()
                     return vim.api.nvim_list_bufs()
@@ -137,7 +136,7 @@ cmp.setup({
             },
         },
         {
-            name = 'nvim_lsp',
+            name = "nvim_lsp",
             entry_filter = function(entry, context)
                 local kind = entry:get_kind()
                 local node = ts_utils.get_node_at_cursor():type()
@@ -154,5 +153,3 @@ cmp.setup({
         },
     },
 })
-
-
