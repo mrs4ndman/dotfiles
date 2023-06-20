@@ -19,8 +19,8 @@ local sources = {
     }),
     formatting.rustfmt,
     formatting.shfmt,
-    -- formatting.luaformatter,
-    formatting.stylua,
+    -- formatting.lua_format,
+    -- formatting.stylua,
 
     -- Diagnostics
     diagnostics.eslint_d,

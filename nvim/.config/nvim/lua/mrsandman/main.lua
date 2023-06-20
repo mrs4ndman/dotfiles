@@ -24,7 +24,8 @@ local plugins = {
     -- 1.- Telescope config
 
     {
-        'nvim-telescope/telescope.nvim', branch = '0.1.x', -- good ole telescope
+        "nvim-telescope/telescope.nvim",
+        branch = '0.1.x', -- good ole telescope
         dependencies = {
             'nvim-lua/popup.nvim',
             'nvim-lua/plenary.nvim',
@@ -36,35 +37,35 @@ local plugins = {
     -- 2.- Load Telescope native extensions,
 
     {
-        'nvim-telescope/telescope-fzf-native.nvim',
-        build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build',
+        "nvim-telescope/telescope-fzf-native.nvim",
+        build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
         event = "VeryLazy",
     },
 
     {
         "nvim-telescope/telescope-file-browser.nvim",
-        event = "VeryLazy", },
+        event = "VeryLazy",
+    },
 
     "nvim-telescope/telescope-ui-select.nvim",
 
 
     -- 3.- Theme plugins config
     -- Remember previous colorscheme
-    { 'raddari/last-color.nvim', priority = 1000},
-
-    { 'rose-pine/neovim', lazy = true, name = 'rose-pine', priority = 1000 },
+    { 'raddari/last-color.nvim',          priority = 1000 },
+    { 'rose-pine/neovim',                 lazy = true,        name = 'rose-pine',  priority = 1000 },
     -- the coolest color scheme B)
 
-    { 'folke/tokyonight.nvim', event = "VimEnter", priority = 1000, opts = {} },
-    { 'catppuccin/nvim', lazy = true, name = "catppuccin", priority = 1000 },
-    { 'EdenEast/nightfox.nvim', lazy = true },
-    { 'olimorris/onedarkpro.nvim', lazy = true, priority = 1000 },
-    { 'Mofiqul/dracula.nvim', lazy = true, priority = 1000 },
-    { 'rmehri01/onenord.nvim', lazy = true, priority = 1000 },
-    { 'shaunsingh/nord.nvim', lazy = true,  priority = 1000 },
-    { 'rafamadriz/neon', lazy = true,  priority = 1000 },
-    { 'nyoom-engineering/oxocarbon.nvim', lazy = true,  priority = 1000 },
-    { 'AlexvZyl/nordic.nvim', lazy = true,  priority = 1000 },
+    { 'folke/tokyonight.nvim',            event = "VimEnter", priority = 1000,     opts = {} },
+    { 'catppuccin/nvim',                  lazy = true,        name = "catppuccin", priority = 1000 },
+    { 'EdenEast/nightfox.nvim',           lazy = true,        priority = 1000 },
+    { 'olimorris/onedarkpro.nvim',        lazy = true,        priority = 1000 },
+    { 'Mofiqul/dracula.nvim',             lazy = true,        priority = 1000 },
+    { 'rmehri01/onenord.nvim',            lazy = true,        priority = 1000 },
+    { 'shaunsingh/nord.nvim',             lazy = true,        priority = 1000 },
+    { 'rafamadriz/neon',                  lazy = true,        priority = 1000 },
+    { 'nyoom-engineering/oxocarbon.nvim', lazy = true,        priority = 1000 },
+    { 'AlexvZyl/nordic.nvim',             lazy = true,        priority = 1000 },
 
 
     -- 4.- Treesitter modules
@@ -72,11 +73,11 @@ local plugins = {
     {
         "nvim-treesitter/nvim-treesitter", -- parsing to the end of time
         build = ":TSUpdate",
-        event = "UIEnter",
+        event = "BufReadPre",
     },
 
     {
-        'nvim-treesitter/nvim-treesitter-textobjects',
+        "nvim-treesitter/nvim-treesitter-textobjects",
         lazy = true,
     },
 
@@ -89,7 +90,7 @@ local plugins = {
         "nvim-treesitter/nvim-treesitter-context",
         event = "BufReadPre",
         enabled = true,
-        opts = { mode = 'cursor'},
+        opts = { mode = 'cursor' },
     },
 
     {
@@ -102,7 +103,7 @@ local plugins = {
 
     "christoomey/vim-tmux-navigator", -- tmux integration
 
-    "tmux-plugins/vim-tmux", -- tmux integration x2
+    "tmux-plugins/vim-tmux",          -- tmux integration x2
 
     {
         "junegunn/fzf", -- Fuzzy searching integration
@@ -121,7 +122,7 @@ local plugins = {
         lazy = true,
     },
 
-    "farmergreg/vim-lastplace", -- Remembers where i left off the buffer
+    "farmergreg/vim-lastplace",     -- Remembers where i left off the buffer
 
     "max397574/better-escape.nvim", -- Better Esc keybindings
 
@@ -140,7 +141,7 @@ local plugins = {
         event = { "BufReadPost", "BufNewFile" },
     },
 
-    "tpope/vim-surround", -- The power of surroundings
+    "tpope/vim-surround",   -- The power of surroundings
 
     "tpope/vim-commentary", -- Powerful commenting, thanks to tpope
 
@@ -179,7 +180,7 @@ local plugins = {
     },
 
     {
-        'folke/which-key.nvim',
+        "folke/which-key.nvim",
         event = "VeryLazy",
     },
 
@@ -205,14 +206,11 @@ local plugins = {
 
     "ThePrimeagen/harpoon", -- Reeling those files in
 
-    "mbbill/undotree", -- What was that thing I did 10 days ago? Leader + U
+    "mbbill/undotree",      -- What was that thing I did 10 days ago? Leader + U
 
 
     -- Goofy stuff:
-    {
-        "eandrju/cellular-automaton.nvim",
-        cmd = "CellularAutomaton",
-    },
+    { "eandrju/cellular-automaton.nvim", cmd = "CellularAutomaton" },
 
 
     -- Language / debugging plugins
@@ -220,14 +218,16 @@ local plugins = {
     -- Rust babyyyy
     {
         "simrat39/rust-tools.nvim",
-        event = "VeryLazy",
+        lazy = true,
+        ft = "rust",
+        dependencies = { "nvim-lua/plenary.nvim" },
     },
 
+    -- Java?
+    { "mfussenegger/nvim-jdtls",         lazy = true,              ft = "java" },
+
     -- Golang poweeeer
-    {
-        "fatih/vim-go",
-        ft = { "go", "gomod", "gosum" }
-    },
+    { "fatih/vim-go",                    lazy = true,              ft = { "go", "gomod", "gosum" } },
 
     -- Debugging
 
@@ -235,10 +235,7 @@ local plugins = {
         "mfussenegger/nvim-dap",
         dependencies = {
             "rcarriga/nvim-dap-ui",
-            {
-                "theHamsta/nvim-dap-virtual-text",
-                config = true,
-            },
+            { "theHamsta/nvim-dap-virtual-text", config = true },
         },
         event = "VeryLazy",
     },
@@ -252,7 +249,7 @@ local plugins = {
     },
 
     {
-        'stevearc/aerial.nvim',
+        "stevearc/aerial.nvim",
         cmd = "AerialToggle",
         opts = {},
         dependencies = {
@@ -271,14 +268,14 @@ local plugins = {
     },
 
     ({
-        'willothy/nvim-cokeline', -- Addicted to this stuff
+        "willothy/nvim-cokeline", -- Addicted to this stuff
         event = "VeryLazy",
         dependencies = 'nvim-tree/nvim-web-devicons',
     }),
 
     -- Git signs on the gutter
     {
-        'lewis6991/gitsigns.nvim',
+        "lewis6991/gitsigns.nvim",
         event = { "BufReadPost", "BufNewFile" },
     },
 
@@ -305,72 +302,72 @@ local plugins = {
 
     -- Ideas for the brain
     {
-        'kosayoda/nvim-lightbulb',
+        "kosayoda/nvim-lightbulb",
         event = "BufReadPre",
-        dependencies = 'antoinemadec/FixCursorHold.nvim',
+        dependencies = "antoinemadec/FixCursorHold.nvim",
     },
 
 
     -- 8.- LSP Configuration
     {
-        'VonHeikemen/lsp-zero.nvim',
+        "VonHeikemen/lsp-zero.nvim",
         branch = 'v2.x',
         lazy = true,
         dependencies = {
-            'neovim/nvim-lspconfig',
+            "neovim/nvim-lspconfig",
             {
-                'williamboman/mason.nvim',
+                "williamboman/mason.nvim",
                 build = function() pcall(vim.cmd, 'MasonUpdate') end,
                 config = true,
                 event = "VimEnter",
             },
 
-            'hrsh7th/nvim-cmp',
-            'L3MON4D3/LuaSnip',
-            'saadparwaiz1/cmp_luasnip',
+            "hrsh7th/nvim-cmp",
+            "L3MON4D3/LuaSnip",
+            "saadparwaiz1/cmp_luasnip",
 
-            'hrsh7th/nvim-cmp',
-            'hrsh7th/cmp-nvim-lsp',
-            'hrsh7th/cmp-nvim-lua',
-            'hrsh7th/cmp-path',
-            'hrsh7th/cmp-buffer',
-            -- 'hrsh7th/cmp-cmdline',
+            "hrsh7th/nvim-cmp",
+            "hrsh7th/cmp-nvim-lsp",
+            "hrsh7th/cmp-nvim-lua",
+            "hrsh7th/cmp-path",
+            "hrsh7th/cmp-buffer",
+            -- "hrsh7th/cmp-cmdline",
 
-            'rafamadriz/friendly-snippets',
-            'simrat39/inlay-hints.nvim',
+            "rafamadriz/friendly-snippets",
+            "simrat39/inlay-hints.nvim",
         },
     },
     {
-        'jose-elias-alvarez/null-ls.nvim',
+        "jose-elias-alvarez/null-ls.nvim",
         dependencies = "nvim-lua/plenary.nvim",
         lazy = true,
     },
 
     {
-        'j-hui/fidget.nvim',
-        tag = 'legacy',
+        "j-hui/fidget.nvim",
+        tag = "legacy",
         opts = {},
         event = { "BufReadPost", "BufNewFile" },
     },
 
-    'folke/neodev.nvim',
+    "folke/neodev.nvim",
 
 
     -- 9.- Autopairs & tabout for tabbing out of said pairs
 
-    'airblade/vim-matchquote',
+    "airblade/vim-matchquote",
 
     {
-        'windwp/nvim-autopairs',
-        event = { "BufReadPost", "BufNewFile"},
+        "windwp/nvim-autopairs",
+        event = { "BufReadPost", "BufNewFile" },
     },
 
 
     -- Lua tabout finally working
 
     {
-        'abecodes/tabout.nvim',
-        dependencies = {'nvim-treesitter'},
+        "abecodes/tabout.nvim",
+        dependencies = { "nvim-treesitter/nvim-treesitter" }, -- parsing to the end of time
         event = "InsertEnter",
         config = function()
             require('tabout').setup {
@@ -381,13 +378,13 @@ local plugins = {
                 enable_backwards = true,
                 completion = true,
                 tabouts = {
-                    {open = "'", close = "'"},
-                    {open = '"', close = '"'},
-                    {open = '`', close = '`'},
-                    {open = '(', close = ')'},
-                    {open = '[', close = ']'},
-                    {open = '{', close = '}'},
-                    {open = '<', close = '>'},
+                    { open = "'", close = "'" },
+                    { open = '"', close = '"' },
+                    { open = '`', close = '`' },
+                    { open = '(', close = ')' },
+                    { open = '[', close = ']' },
+                    { open = '{', close = '}' },
+                    { open = '<', close = '>' },
                     -- {open = ':', close = ':'} -- Rust maybe?
                 },
                 ignore_beginning = true,
@@ -400,8 +397,8 @@ local plugins = {
     -- 10.- Startup screen
 
     {
-        'goolord/alpha-nvim',
-        dependencies = 'nvim-tree/nvim-web-devicons',
+        "goolord/alpha-nvim",
+        dependencies = "nvim-tree/nvim-web-devicons",
         event = "VimEnter"
     },
 
