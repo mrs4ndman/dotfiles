@@ -63,6 +63,8 @@ local plugins = {
     { 'rmehri01/onenord.nvim', lazy = true, priority = 1000 },
     { 'shaunsingh/nord.nvim', lazy = true,  priority = 1000 },
     { 'rafamadriz/neon', lazy = true,  priority = 1000 },
+    { 'nyoom-engineering/oxocarbon.nvim', lazy = true,  priority = 1000 },
+    { 'AlexvZyl/nordic.nvim', lazy = true,  priority = 1000 },
 
 
     -- 4.- Treesitter modules

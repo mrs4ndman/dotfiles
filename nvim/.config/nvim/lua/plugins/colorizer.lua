@@ -29,7 +29,7 @@ end
 local opts = {
 	-- TODO: Optimise the sorting and make it more responsive
 	-- HACK: Maybe move this to ../mrsandman/keymaps.lua
-	prompt_title = "Which one?",
+	prompt_title = "Which color?",
 	layout_strategy = "vertical",
 	layout_config = {
 		height = 20,
@@ -43,7 +43,9 @@ local opts = {
 		"onedark_dark",
 		"tokyonight",
 		"carbonfox",
+		"oxocarbon",
 		"nord",
+		"nordic",
 		"dracula",
 		"onenord",
 		"nightfox",
