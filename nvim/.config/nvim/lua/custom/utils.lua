@@ -6,13 +6,6 @@ wk.register({
     ["<leader>nc"] = { "<cmd>Telescope neoclip<CR>", { desc = "Neoclip toggle", silent = true } },
 })
 
--- HBAC
-
-wk.register({
-    ["<leader>vp"] = { require("hbac").toggle_pin, "Toggle HBAC pin", { silent = true } },
-    ["<leader>vo"] = { require("hbac").close_unpinned, "Close unpinned", { silent = true } },
-})
-
 -- AUTO-SESSION
 
 wk.register({

@@ -7,13 +7,19 @@ return {
         branch = 'v2.x',
         lazy = true,
         dependencies = {
-            "neovim/nvim-lspconfig",
+            {
+                "neovim/nvim-lspconfig",
+                -- opts = {
+                --     inlay_hints = { enabled = true },
+                -- },
+            },
             {
                 "williamboman/mason.nvim",
                 build = function() pcall(vim.cmd, 'MasonUpdate') end,
                 config = true,
                 event = "VimEnter",
             },
+            "williamboman/mason-lspconfig.nvim",
 
             "hrsh7th/nvim-cmp",
             "L3MON4D3/LuaSnip",
@@ -47,6 +53,10 @@ return {
         "folke/neodev.nvim",
         event = "VimEnter",
     },
-
+    -- {
+    --     "pmizio/typescript-tools.nvim",
+    --     dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+    --     opts = {},
+    -- }
 }
 

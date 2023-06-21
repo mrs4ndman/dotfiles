@@ -11,8 +11,8 @@ require("custom.illumination")
 -- Treesitter
 require("custom.treesitter")
 
--- External
-require("custom.external")
+-- Utils
+require("custom.utils")
 
 require("custom.folke")
 

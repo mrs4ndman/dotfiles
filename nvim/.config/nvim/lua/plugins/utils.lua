@@ -7,6 +7,15 @@ return {
     "tmux-plugins/vim-tmux",          -- tmux integration x2
 
     {
+        "kylechui/nvim-surround",
+        version = "*", -- Use for stability; omit to use `main` branch for the latest features
+        event = "VeryLazy",
+        config = function()
+            require("nvim-surround").setup({})
+        end
+    },
+
+    {
         "junegunn/fzf", -- Fuzzy searching integration
         event = { "BufReadPost", "BufNewFile" },
     },
@@ -63,19 +72,6 @@ return {
             timeout = 150,
             clear_empty_lines = true,
             keys = "<Esc>",
-        },
-    },
-
-    {
-        "axkirillov/hbac.nvim", -- Vacuuming up them buffers
-        lazy = true,
-        opts = {
-            autoclose = false,
-            threshold = 10,
-            close_command = function(bufnr)
-                vim.api.nvim_buf_delete(bufnr, {})
-            end,
-            close_buffers_with_windows = false,
         },
     },
 

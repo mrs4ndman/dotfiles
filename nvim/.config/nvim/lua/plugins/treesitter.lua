@@ -146,19 +146,17 @@ return {
 
     {
         "Wansmer/treesj",
-        opts = {
-
-            use_default_keymaps = false,
-
-            check_syntax_error = true,
-
-            max_join_length = 250,
-
-            cursor_behaviour = 'hold',
-
-            notify = true,
-
-            dot_repeat = true,
-        }
+        keys = { "Q" },
+        dependencies = { "nvim-treesitter/nvim-treesitter" },
+        config = function()
+            require("treesj").setup({
+                use_default_keymaps = false,
+                check_syntax_error = true,
+                max_join_length = 250,
+                cursor_behaviour = 'hold',
+                notify = true,
+                dot_repeat = true,
+            })
+        end,
     },
 }

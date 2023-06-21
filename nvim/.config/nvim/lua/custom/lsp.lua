@@ -1,3 +1,4 @@
+-- TODO: Migrate to a better way of doing this
 -- LSP Explicit config
 
 local lsp = require('lsp-zero')
@@ -18,11 +19,11 @@ lsp.ensure_installed({
     'clangd',
     'neocmake',
     'html',
-    'css-lsp',
-    'eslint-lsp',
+    'cssls',
+    'eslint',
     'tsserver',
     'bashls',
-    'ansible-language-server',
+    'ansiblels',
     'yamlls',
     'ruff_lsp',
     'rust_analyzer',
@@ -30,23 +31,23 @@ lsp.ensure_installed({
     'gopls',
     'jdtls',
     -- Formatters
-    'black',
-    'cbfmt',
-    'eslint',
-    'luaformatter',
-    'prettierd',
-    'ruff',
-    'rustfmt',
-    'shfmt',
-    'stylua',
+    -- 'black',
+    -- 'cbfmt',
+    -- 'eslint',
+    -- 'luaformatter',
+    -- 'prettierd',
+    -- 'ruff',
+    -- 'rustfmt',
+    -- 'shfmt',
+    -- 'stylua',
     -- Linters
-    'ansible-lint',
-    'flake8',
-    'shellcheck',
+    -- 'ansible-lint',
+    -- 'flake8',
+    -- 'shellcheck',
     -- DAP
-    'codelldb',
-    'go-debug-adapter',
-    'bash-debug-adapter',
+    -- 'codelldb',
+    -- 'go-debug-adapter',
+    -- 'bash-debug-adapter',
 })
 
 lsp.setup_servers({
@@ -73,6 +74,9 @@ lsp.setup_servers({
 lsp.nvim_workspace()
 
 lsp.on_attach(function(client, bufnr)
+    if client.server_capabilities.inlayHintProvider then
+        vim.lsp.buf.inlay_hint(bufnr, true)
+    end
     local opts = { buffer = bufnr, remap = false }
 
     vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, { desc = "[G]o to [D]efinition" })

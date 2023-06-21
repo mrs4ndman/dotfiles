@@ -6,7 +6,7 @@ return {
         event = { "BufReadPost", "BufNewFile" },
     },
 
-    "tpope/vim-surround",   -- The power of surroundings
+    -- "tpope/vim-surround",   -- The power of surroundings
 
     "tpope/vim-commentary", -- Powerful commenting, thanks to tpope
 
