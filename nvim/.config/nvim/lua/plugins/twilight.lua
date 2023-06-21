@@ -15,6 +15,7 @@ require("twilight").setup = {
     },
     exclude = { "alpha", "git" }
 }
+-- TWILIGHT
 
 -- Per-plugin which-key customization
 local wk = require("which-key")

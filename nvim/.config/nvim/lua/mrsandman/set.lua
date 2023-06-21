@@ -29,7 +29,8 @@ autocmd BufEnter * if &ft == 'netrw' | setlocal syntax=netrw | endif
 vim.cmd("autocmd! filetype lazy setlocal nonumber norelativenumber")
 
 -- Autoshow lightbulb for codeactions
-vim.cmd [[autocmd CursorHold,CursorHoldI * lua require('nvim-lightbulb').update_lightbulb()]]
+-- vim.cmd [[autocmd CursorHold,CursorHoldI * lua require('nvim-lightbulb').update_lightbulb()]]
+
 
 -- Highlight yanking action for a second
 vim.api.nvim_command("au TextYankPost * silent! lua vim.highlight.on_yank {timeout = 50}")
@@ -118,6 +119,9 @@ vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0
 vim.g.netrw_silent = 1
 
+-- undotree config
+vim.g.undotree_SetFocusWhenToggle =  1
+
 -- Undotree & NVIM integration config:
 vim.o.swapfile = false
 vim.o.backup = false
@@ -127,3 +131,5 @@ vim.o.undofile = true
 -- Max CMP height
 vim.o.pumheight = 20
 
+-- Sesssion config
+vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"

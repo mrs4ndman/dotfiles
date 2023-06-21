@@ -1,8 +1,11 @@
+-- Separate per-plugin config file directory
+require("plugins")
+
 -- Main config file
 require("mrsandman")
 
--- Separate per-plugin config file directory
-require("plugins")
+-- Custom plugin configs that load after most things
+require("custom")
 
 -- Language-specific configs
 require("langs")
