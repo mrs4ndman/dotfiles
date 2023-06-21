@@ -15,7 +15,8 @@ local wk = require("which-key")
 
 wk.register({
     -- which-key category entries
-    ["<leader>b"] = { name = "[B]uffers, TreeSJ" },
+    ["Q"] = { name = "TreeSJ" },
+    ["<leader>b"] = { name = "[B]uffers" },
     ["<leader>c"] = { name = "[C]lose [W]indow, Treesitter [C]on[T]ext" },
     ["<leader>d"] = { name = "DAP (+ CodeLLDB when active)" },
     ["<leader>f"] = { name = "LSP [F]ormat & TS [R]ename [F]unction, FML" },
@@ -28,9 +29,9 @@ wk.register({
     ["<leader>s"] = { name = "Cokeline+, Sessions+, Alpha" },
     ["<leader>t"] = { name = "[T]elescope+, [T]reesi[T]ter, Aerial, Harpoon term, [T]o-[D]o" },
     ["<leader>ta"] = { name = "Aerial" },
-    ["<leader>tc"] = { name = "[T]o-do [C]omments+"},
-    ["<leader>tt"] = { name = "[T]reesi[T]ter [P]layground"},
-    ["<leader>u"] = { name = "[U]ndo-Tree" },
+    -- ["<leader>tc"] = { name = "[T]o-do [C]omments+"},
+    -- ["<leader>tt"] = { name = "[T]reesi[T]ter [P]layground"},
+    -- ["<leader>u"] = { name = "[U]ndo-Tree" },
     ["<leader>v"] = { name = "HBAC, LSP, " },
     ["<leader>x"] = { name = "Trouble+" },
     ["<leader>z"] = { name = "[Z]en-Mode / Twilight" },
@@ -75,9 +76,6 @@ vim.keymap.set("n", "J", "mzJ'z", { silent = true })
 -- Keeping my cursor in the middle when searching
 vim.keymap.set("n", "n", "nzzzv", { silent = true })
 vim.keymap.set("n", "N", "Nzzzv", { silent = true })
-
--- No-do
-vim.keymap.set("n", "Q", "<nop>")
 
 -- Delete character without yanking
 vim.keymap.set({ "n", "v" }, "x", "\"_x", { silent = true })

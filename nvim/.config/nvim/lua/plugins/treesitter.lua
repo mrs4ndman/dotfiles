@@ -152,7 +152,7 @@ return {
 
             check_syntax_error = true,
 
-            max_join_length = 150,
+            max_join_length = 250,
 
             cursor_behaviour = 'hold',
 

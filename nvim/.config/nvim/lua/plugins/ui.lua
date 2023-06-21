@@ -107,6 +107,20 @@ return {
         "kosayoda/nvim-lightbulb",
         event = "BufReadPre",
         dependencies = "antoinemadec/FixCursorHold.nvim",
+        opts = {
+            ignore = { },
+            sign = {
+                enabled = true,
+                priority = 10,
+            },
+            -- status_text = {
+            --     enabled = true,
+            --     text = "󰛨",
+            --     text_unavailable = ""
+            -- },
+            autocmd = {
+                enabled = true,
+            }
+        },
     },
-
 }
