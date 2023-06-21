@@ -26,7 +26,7 @@ require("custom.primeagen")
 require("custom.dap")
 
 -- Functions
-require("custom.renaming")
+require("custom.functions")
 
 -- LSP
 require("custom.lsp")

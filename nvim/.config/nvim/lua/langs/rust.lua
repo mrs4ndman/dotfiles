@@ -29,7 +29,7 @@ rt.setup({
             ih.set_all()
         end,
         inlay_hints = {
-            auto = false,
+            auto = true,
         },
     },
 })

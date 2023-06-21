@@ -5,30 +5,13 @@
 
 vim.g.mapleader = " "
 
-
--- LEADER plugin keybinds (Space for this config)
--- TODO: Join these keybinds with their corresponding plugin definitions
-
--- Try it out if you're that desperate
-vim.keymap.set("n", "<leader>fml", "<cmd>CellularAutomaton make_it_rain<CR>", { desc = "cool stuff", silent = true })
-
 -- Lazy shortcut
 vim.keymap.set("n", "<leader>lz", "<cmd>Lazy<CR>", { desc = "Lazy", noremap = true, silent = true })
 
--- RNVIMR / ranger toggle
-vim.keymap.set("n", "<leader>r", "<cmd>RnvimrToggle<CR>", ({ desc = "Ranger", silent = true, noremap = true }))
-
--- Rename identifiers with LSP
--- TODO: Join with plugin definition
-vim.keymap.set("n", "<leader>fr", ":IncRename ", { desc = "Rename function under cursor" })
-
--- Fugitive keybinds
-vim.keymap.set("n", "<leader>gs", vim.cmd.Git, { desc = "Fugitive" });
-vim.keymap.set("n", "<leader>gd", vim.cmd.Git_diff, { desc = "Fugitive Diff" });
--- TODO: Create new Fugitive keybinds
-
 
 local wk = require("which-key")
+
+-- LEADER plugin keybinds (Space for this config)
 
 wk.register({
     -- which-key category entries
@@ -56,8 +39,8 @@ wk.register({
     ["<leader>th"] = { ":lua colorizer()<CR>", "Colorizer", { silent = true } },
 })
 
--- LSP keybinds are defined inside the lsp.lua file
-
+-- All the plugin keybinds are either with the plugin definition or in the corresponding
+-- custom/file.lua
 
 
 -- INTERNAL KEYBINDS

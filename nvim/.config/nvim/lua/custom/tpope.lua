@@ -1,4 +1,4 @@
 -- Fugitive keybinds
-vim.keymap.set("n", "<leader>gs", vim.cmd.Git, { desc = "Fugitive" });
-vim.keymap.set("n", "<leader>gd", vim.cmd.Git_diff, { desc = "Fugitive Diff" });
+vim.keymap.set("n", "<leader>gs", "<cmd>Git status<CR>", { desc = "FuGITive Status" });
+vim.keymap.set("n", "<leader>gd", "<cmd>Git diff<CR>", { desc = "FuGITive Diff" });
 -- TODO: Create new Fugitive keybinds

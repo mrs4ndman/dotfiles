@@ -160,7 +160,6 @@ end
 
 local opts = {
 	-- TODO: Optimise the sorting and make it more responsive
-	-- HACK: Maybe move this to ../mrsandman/keymaps.lua
 	prompt_title = "Which color?",
 	layout_strategy = "vertical",
 	layout_config = {

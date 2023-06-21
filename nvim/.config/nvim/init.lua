@@ -1,6 +1,3 @@
--- Separate per-plugin config file directory
-require("plugins")
-
 -- Main config file
 require("mrsandman")
 

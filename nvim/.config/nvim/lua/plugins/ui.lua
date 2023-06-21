@@ -17,12 +17,74 @@ return {
     {
         "lewis6991/gitsigns.nvim",
         event = { "BufReadPost", "BufNewFile" },
+        opts = {
+            signs = {
+                add = {
+                    hl = "DiffAdd",
+                    text = "+",
+                    numhl = "GitSignsAddNr",
+                },
+                change = {
+                    hl = "DiffChange",
+                    text = "",
+                    numhl = "GitSignsChangeNr",
+                },
+                delete = {
+                    hl = "DiffDelete",
+                    text = "_",
+                    show_count = true,
+                    numhl = "GitSignsDeleteNr",
+                },
+                topdelete = {
+                    hl = "DiffDelete",
+                    text = "‾",
+                    show_count = true,
+                    numhl = "GitSignsDeleteNr",
+                },
+                changedelete = {
+                    hl = "DiffChange",
+                    text = "~",
+                    show_count = true,
+                    numhl = "GitSignsChangeNr",
+                },
+    },
+    count_chars = {
+        [1] = "",
+        [2] = "₂",
+        [3] = "₃",
+        [4] = "₄",
+        [5] = "₅",
+        [6] = "₆",
+        [7] = "₇",
+        [8] = "₈",
+        [9] = "₉",
+        ["+"] = "",
+    },
+    numhl = true,
+    attach_to_untracked = true,
+        },
     },
 
     -- Overlength, and CSS color show
     {
         "lcheylus/overlength.nvim",
-        keys = { "n", "<leader>lt", "<cmd>OverlengthToggle<CR>" }
+        event = "VimEnter",
+        -- keys = {"<leader>lt", "<cmd>OverlengthToggle<CR>" }
+        opts = {
+
+            enabled = true,
+
+            ctermdb = 'darkred',
+            bg = '#8B0000',
+
+            textwidth_mode = 2,
+
+            default_overlenght = 80,
+            highlight_to_eol = true,
+            grace_length = 3,
+
+            disable_ft = { 'qf', 'help', 'man', 'packer', 'Telescope' },
+        },
     },
 
     -- "ap/vim-css-color", -- Frontend stuff

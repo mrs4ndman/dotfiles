@@ -3,6 +3,10 @@ return {
     {
         "smjonas/inc-rename.nvim",
         cmd = "IncRename",
+        keys = {
+            -- Rename identifiers with LSP
+            vim.keymap.set("n", "<leader>fr", ":IncRename ", { desc = "Rename function under cursor" })
+        },
         config = function()
             require("inc_rename").setup()
         end,

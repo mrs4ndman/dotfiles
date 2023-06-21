@@ -146,7 +146,6 @@ return {
 
     {
         "Wansmer/treesj",
-        keys = { "n", "<leader>bt", "<cmd>TSJToggle<CR>" },
         opts = {
 
             use_default_keymaps = false,
@@ -154,7 +153,7 @@ return {
             check_syntax_error = true,
 
             max_join_length = 150,
-             
+
             cursor_behaviour = 'hold',
 
             notify = true,
