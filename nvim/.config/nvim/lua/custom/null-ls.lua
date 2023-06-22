@@ -30,6 +30,7 @@ local sources = {
     -- diagnostics.flake8,
 
     -- Code actions
+    require("typescript.extensions.null-ls.code-actions"),
     -- code_actions.eslint_d,
     -- code_actions.shellcheck,
 }

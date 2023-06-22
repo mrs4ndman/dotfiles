@@ -75,6 +75,7 @@ cmp.setup({
                 path = "/",
                 nvim_lsp = "λ",
                 luasnip = "⋗",
+                vsnip = "V",
                 nvim_lua = "Π",
             })[entry.source.name]
 
@@ -99,8 +100,8 @@ cmp.setup({
     sorting = {
         comparators = {
             cmp.config.compare.locality,
-            cmp.config.compare.exact,
             cmp.config.compare.kind,
+            cmp.config.compare.exact,
             cmp.config.compare.recently_used,
             cmp.config.compare.length,
             function(entry1, entry2)
@@ -126,6 +127,7 @@ cmp.setup({
         { name = "path" },
         { name = "nvim_lua" },
         { name = "luasnip" },
+        { name = "vsnip" },
         { name = "treesitter" },
         -- { name = 'cmdline' },
         {

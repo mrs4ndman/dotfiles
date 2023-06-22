@@ -23,6 +23,13 @@ return {
     -- Golang poweeeer
     { "fatih/vim-go",                    lazy = true,              ft = { "go", "gomod", "gosum" } },
 
+    -- Typescript
+    { "jose-elias-alvarez/typescript.nvim" },
+    -- {
+    --     "pmizio/typescript-tools.nvim",
+    --     dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+    --     opts = {},
+    -- }
     -- Python?
     {
         "mfussenegger/nvim-dap-python",
@@ -46,5 +53,6 @@ return {
         },
         event = "VeryLazy",
     },
+    "jay-babu/mason-nvim-dap.nvim",
 
 }
