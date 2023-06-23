@@ -3,12 +3,10 @@
 
 -- First, Native LSP
 local lspconfig = require('lspconfig')
-lspconfig.lua_ls.setup {}
 lspconfig.vimls.setup {}
 lspconfig.marksman.setup {}
 lspconfig.clangd.setup {}
 lspconfig.neocmake.setup {}
-lspconfig.pylsp.setup {}
 lspconfig.html.setup {}
 lspconfig.cssls.setup {}
 lspconfig.eslint.setup {}
@@ -17,8 +15,9 @@ lspconfig.bashls.setup {}
 lspconfig.ansiblels.setup {}
 lspconfig.yamlls.setup {}
 lspconfig.ruby_ls.setup {}
+-- lspconfig.lua_ls.setup {}
 -- lspconfig.jdtls.setup {}
-
+--
 -- LSP Attach keybinds
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
@@ -54,6 +53,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
                 vim.diagnostic.open_float(nil, opts)
             end
         })
+        -- if client.server_capabilities.inlayHintProvider then
+        --     vim.lsp.buf.inlay_hint(bufnr, true)
+        -- end
         -- if client.resolved_capabilities.document_highlight then
         --     vim.cmd [[
         --     hi! LspReferenceRead cterm=bold ctermbg=red guibg=LightYellow
@@ -122,7 +124,7 @@ require("mason-lspconfig").setup {
         'dockerls',
         'yamlls',
         'ruff_lsp',
-        -- 'rust_analyzer',
+        'rust_analyzer',
         'ruby_ls',
         'pylsp',
         'gopls',
@@ -135,12 +137,10 @@ require("mason-lspconfig").setup {
 require("mason-null-ls").setup({
     ensure_installed = {
      -- Formatters
-     'black',
      'cbfmt',
      'eslint',
      'luaformatter',
      'prettierd',
-     'ruff',
      'rustfmt',
      'shfmt',
      'stylua',
@@ -148,6 +148,11 @@ require("mason-null-ls").setup({
      'ansible-lint',
      'flake8',
      'shellcheck',
+     -- Python
+     'black',
+     'mypy',
+     'pyright',
+     'ruff',
     },
     automatic_installation = true,
 })

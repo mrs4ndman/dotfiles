@@ -125,6 +125,7 @@ cmp.setup({
     }),
     sources = {
         { name = "path" },
+        { name = "crates" },
         { name = "nvim_lua" },
         { name = "luasnip" },
         { name = "vsnip" },
@@ -138,21 +139,6 @@ cmp.setup({
                 end,
             },
         },
-        {
-            name = "nvim_lsp",
-            entry_filter = function(entry, context)
-                local kind = entry:get_kind()
-                local node = ts_utils.get_node_at_cursor():type()
-                -- log(node)
-                if node == "arguments" then
-                    if kind == 6 then
-                        return true
-                    else
-                        return false
-                    end
-                end
-                return true
-            end,
-        },
+        { name = "nvim_lsp" },
     },
 })

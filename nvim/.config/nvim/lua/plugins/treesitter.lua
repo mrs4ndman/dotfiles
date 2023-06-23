@@ -151,8 +151,8 @@ return {
         config = function()
             require("treesj").setup({
                 use_default_keymaps = false,
-                check_syntax_error = true,
-                max_join_length = 250,
+                check_syntax_error = false,
+                max_join_length = 300,
                 cursor_behaviour = 'hold',
                 notify = true,
                 dot_repeat = true,

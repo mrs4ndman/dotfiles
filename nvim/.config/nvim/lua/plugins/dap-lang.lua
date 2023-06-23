@@ -12,9 +12,14 @@ return {
     },
     {
         "simrat39/rust-tools.nvim",
-        lazy = true,
+    },
+    {
+        "saecki/crates.nvim",
         ft = "rust",
-        dependencies = { "nvim-lua/plenary.nvim" },
+        dependencies = {"nvim-lua/plenary.nvim"},
+        config = function()
+            require("crates").setup()
+        end
     },
 
     -- Java?
@@ -25,15 +30,21 @@ return {
 
     -- Typescript
     { "jose-elias-alvarez/typescript.nvim" },
+
     -- {
     --     "pmizio/typescript-tools.nvim",
     --     dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
     --     opts = {},
     -- }
+
     -- Python?
     {
         "mfussenegger/nvim-dap-python",
-        dependencies = { "mfussenegger/nvim-dap"},
+        dependencies = {
+            "mfussenegger/nvim-dap",
+            "rcarriga/nvim-dap-ui",
+        },
+        ft = "python",
         keys = {
             { "<leader>dPt", function() require("dap-python").test_method() end, desc = "Debug test method" },
             { "<leader>dPc", function() require("dap-python").test_class() end, desc = "Debug test class" },

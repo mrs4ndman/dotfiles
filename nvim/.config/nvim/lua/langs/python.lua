@@ -1,0 +1,2 @@
+require("lspconfig").pylsp.setup {}
+

@@ -35,4 +35,4 @@ wk.register({
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, { desc = "Undo-tree Toggle"})
 
 -- Try it out if you're that desperate
-vim.keymap.set("n", "<leader>fml", "<cmd>CellularAutomaton make_it_rain<CR>", { desc = "cool stuff", silent = true })
+vim.keymap.set("n", "<leader>cat", "<cmd>CellularAutomaton make_it_rain<CR>", { desc = "cool stuff", silent = true })

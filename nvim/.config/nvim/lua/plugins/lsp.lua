@@ -38,9 +38,6 @@ return {
     -- },
     {
         "neovim/nvim-lspconfig",
-        -- opts = {
-        --     inlay_hints = { enabled = true },
-        -- },
     },
     "nvim-lua/plenary.nvim",
     "simrat39/inlay-hints.nvim",
