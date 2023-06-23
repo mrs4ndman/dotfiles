@@ -93,7 +93,7 @@ vim.opt.termguicolors = true
 vim.opt.updatetime = 50
 
 -- Set nvim timeout
-vim.opt.timeoutlen = 2000
+vim.opt.timeoutlen = 1000
 
 -- Added auto signs to the signcolumn
 vim.opt.signcolumn = "auto"

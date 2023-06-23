@@ -213,7 +213,7 @@ alias wut='whatis'
 # 5.- Aliases that call on multiple programs / functions
 
 alias af='alias | fzf'
-alias fv='(file=$(fzf); [ -n "$file" ])'
+alias fv='file=$(fzf); if [ -n "$file" ]; then nvim $file; fi'
 alias fenv='printenv | fzf'
 
 alias did="history | grep"
