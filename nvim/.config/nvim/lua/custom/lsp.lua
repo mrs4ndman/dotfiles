@@ -36,7 +36,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set({ "n", "v" }, "<leader>vca", vim.lsp.buf.code_action, { desc = "View code action" })
         vim.keymap.set("n", "<leader>vrr", vim.lsp.buf.references, { desc = "Show Variable References" })
         vim.keymap.set({ "n", "v" }, "<leader>vrn", vim.lsp.buf.rename, { desc = "Rename variable with LSP" })
-        vim.keymap.set("n", "<leader>ff", function() vim.lsp.buf.format { async = true } end, opts, { desc = "Format current buffer / file" })
+        vim.keymap.set("n", "<leader>ff", function() vim.lsp.buf.format { async = true } end, { desc = "Format current buffer / file" })
         vim.keymap.set("i", "<C-q>", vim.lsp.buf.signature_help, { desc = "Quickhelp on word" })
 
         vim.api.nvim_create_autocmd("CursorHold", {
@@ -134,6 +134,20 @@ require("mason-lspconfig").setup {
     automatic_installation = true,
 }
 
+require("mason-nvim-dap").setup({
+    ensure_installed = {
+     -- DAP
+     'bash-debug-adapter',
+     'codelldb',
+     'debugpy',
+     'js-debug-adapter',
+     'go-debug-adapter',
+    },
+    automatic_installation = true,
+})
+
+
+
 require("mason-null-ls").setup({
     ensure_installed = {
      -- Formatters
@@ -153,18 +167,6 @@ require("mason-null-ls").setup({
      'mypy',
      'pyright',
      'ruff',
-    },
-    automatic_installation = true,
-})
-
-require("mason-nvim-dap").setup({
-    ensure_installed = {
-     -- DAP
-     'bash-debug-adapter',
-     'codelldb',
-     'debugpy',
-     'js-debug-adapter',
-     'go-debug-adapter',
     },
     automatic_installation = true,
 })
