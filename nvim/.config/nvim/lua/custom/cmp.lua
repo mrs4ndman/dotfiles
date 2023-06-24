@@ -125,11 +125,11 @@ cmp.setup({
     }),
     sources = {
         { name = "path" },
-        { name = "crates" },
+        { name = "crates" }, -- crates.nvim plugin
         { name = "nvim_lua" },
         { name = "luasnip" },
         { name = "vsnip" },
-        { name = "treesitter" },
+        { name = "treesitter" }, -- treesitter integration
         -- { name = 'cmdline' },
         {
             name = "buffer",

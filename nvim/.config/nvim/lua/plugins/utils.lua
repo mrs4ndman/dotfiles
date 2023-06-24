@@ -15,6 +15,8 @@ return {
         end
     },
 
+    {"chrisgrieser/nvim-genghis", dependencies = "stevearc/dressing.nvim"},
+
     {
         "junegunn/fzf", -- Fuzzy searching integration
         event = { "BufReadPost", "BufNewFile" },

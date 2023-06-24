@@ -70,6 +70,12 @@ vim.keymap.set("n", "<leader>cx", "<cmd>!chmod +x %<CR>", { desc = "Make file ex
 vim.keymap.set("x", "<leader>p", "\"_dP", { desc = "Better paste :)" })
 vim.keymap.set({ "n", "v" }, "<leader>dd", [["_d]], { desc = "Better delete" })
 
+-- smart blackhole deletion
+vim.keymap.set("n", "dd", function ()
+    if vim.fn.getline(".") == "" then return '"_dd' end
+    return "dd"
+end, {expr = true})
+
 -- Appending line below to current line ("lil J")
 vim.keymap.set("n", "J", "mzJ'z", { silent = true })
 

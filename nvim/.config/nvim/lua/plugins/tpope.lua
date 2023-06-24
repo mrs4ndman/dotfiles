@@ -15,10 +15,5 @@ return {
         event = { "BufReadPost", "BufNewFile" },
     },
 
-    {
-        "tpope/vim-eunuch", -- Shell commands inside Vim
-        event = { "VimEnter" },
-    },
-
     "tpope/vim-vinegar", -- Native Ex gets extensions
 }

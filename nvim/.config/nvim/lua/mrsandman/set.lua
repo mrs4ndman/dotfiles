@@ -39,9 +39,6 @@ vim.api.nvim_command("au TextYankPost * silent! lua vim.highlight.on_yank {timeo
 -- Clipboard
 vim.api.nvim_command('set clipboard+=unnamedplus')
 
--- Highlight bracket pairs
-vim.api.nvim_command('set showmatch')
-
 -- Don't show status in cmdline
 vim.api.nvim_command('set noshowmode')
 
@@ -65,6 +62,7 @@ vim.opt.relativenumber = true
 
 -- Type-writer mode = ON xD
 vim.opt.scrolloff = 8
+vim.opt.sidescroll = 8
 
 -- Color columns
 vim.opt.colorcolumn = "81"
@@ -85,6 +83,9 @@ vim.opt.wrap = false
 -- Search tweaks, highlighting and included search
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
+
+-- Highlight bracket pairs
+vim.opt.showmatch = true
 
 -- Terminal colors
 vim.opt.termguicolors = true
@@ -130,6 +131,9 @@ vim.o.undofile = true
 
 -- Max CMP height
 vim.o.pumheight = 20
+
+-- Notify config
+vim.notify = require("notify")
 
 -- Sesssion config
 vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
