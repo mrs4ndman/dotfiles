@@ -1,4 +1,4 @@
-# Dotfiles
+# My personal dotfiles
 ## The dotfiles for my setup | Los dotfiles para mi setup
 ### Van acompañados de los [scripts](https://github.com/mrs4ndman/base/tree/main/scripts) del otro [repositorio](https://github.com/mrs4ndman/base)
 
@@ -35,6 +35,7 @@
 
 
 ### Abierto a sugerencias | Open to suggestions
+#### `refactor` branch is for neovim config testing, choose it to see what is my latest config bump
 
 :)
 

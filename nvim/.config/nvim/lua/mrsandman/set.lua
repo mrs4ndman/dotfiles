@@ -62,7 +62,8 @@ vim.opt.relativenumber = true
 
 -- Type-writer mode = ON xD
 vim.opt.scrolloff = 8
-vim.opt.sidescroll = 8
+vim.opt.sidescroll = 1
+vim.opt.sidescrolloff = 1
 
 -- Color columns
 vim.opt.colorcolumn = "81"
