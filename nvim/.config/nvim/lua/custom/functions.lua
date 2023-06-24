@@ -6,5 +6,8 @@ wk.register({
     ["<leader>tat"] = { "<cmd>AerialToggle!<CR>", "Toggle Aerial", { silent = true } },
     ["<leader>tac"] = { "<cmd>AerialClose<CR>", "Close Aerial" },
     ["<leader>tax"] = { "<cmd>AerialCloseAll<CR>", "Close all Aerial instances" },
+    ["<leader>fr"] = {function()
+        return ":IncRename " .. vim.fn.expand("<cword>")
+    end, expr = true, "Rename function under cursor" }
 })
 
