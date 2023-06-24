@@ -7,6 +7,7 @@ require("custom.cokeline")
 require("custom.overlength")
 require("custom.indent")
 require("custom.illumination")
+require("custom.notify")
 
 -- Treesitter
 require("custom.treesitter")

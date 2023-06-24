@@ -1,4 +1,3 @@
-
 return {
     -- 5.- External integration: Git, tmux, ranger & fzf, also remembers where I was in the buffer
 
