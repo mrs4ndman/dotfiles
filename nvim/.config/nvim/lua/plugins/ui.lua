@@ -16,7 +16,7 @@ return {
     -- Git signs on the gutter
     {
         "lewis6991/gitsigns.nvim",
-        event = { "BufReadPost", "BufNewFile" },
+        event = { "BufReadPre", "BufNewFile" },
         opts = {
             signs = {
                 add = {
@@ -93,7 +93,7 @@ return {
     -- Indenting visual marks
     {
         "lukas-reineke/indent-blankline.nvim",
-        event = { "BufReadPost", "BufNewFile" },
+        event = { "BufReadPre", "BufNewFile" },
     },
 
     -- Highlighting instances of words with LSP, Treesitter and Regex matching
@@ -125,7 +125,8 @@ return {
     },
     {
         "stevearc/dressing.nvim",
-        opts = {},
+        event = "VeryLazy",
     },
-    { "rcarriga/nvim-notify" },
+    { "nvim-tree/nvim-web-devicons", lazy = true },
+    { "MunifTanjim/nui.nvim", lazy = true },
 }

@@ -5,8 +5,9 @@
 
 vim.g.mapleader = " "
 
--- Lazy shortcut
+-- Lazy and Mason shortcuts
 vim.keymap.set("n", "<leader>lz", "<cmd>Lazy<CR>", { desc = "Lazy", noremap = true, silent = true })
+vim.keymap.set("n", "<leader>mp", "<cmd>Mason<CR>", { desc = "Mason", noremap = true, silent = true })
 
 
 local wk = require("which-key")
@@ -17,17 +18,17 @@ wk.register({
     -- which-key category entries
     ["Q"] = { name = "TreeSJ" },
     ["<leader>b"] = { name = "[B]uffers" },
-    ["<leader>c"] = { name = "[C]lose [W]indow, Treesitter [C]on[T]ext" },
+    ["<leader>c"] = { name = "Close + TS Context" },
     ["<leader>d"] = { name = "DAP (+ CodeLLDB when active)" },
-    ["<leader>f"] = { name = "LSP [F]ormat & TS [R]ename [F]unction, FML" },
+    ["<leader>f"] = { name = "LSP Format TS Rename Function FML" },
     ["<leader>g"] = { name = "Fu[G]itive" },
     ["<leader>i"] = { name = "[I]ndent[L]ine, Word-repetition" },
     ["<leader>k"] = { name = "Harpoon switching+" },
     ["<leader>l"] = { name = "over[L]eng[T]h, Lazy" },
     ["<leader>n"] = { name = "[N]eo[C]lip" },
     ["<leader>q"] = { name = "Close" },
-    ["<leader>s"] = { name = "Cokeline+, Sessions+, Alpha" },
-    ["<leader>t"] = { name = "[T]elescope+, [T]reesi[T]ter, Aerial, Harpoon term, [T]o-[D]o" },
+    ["<leader>s"] = { name = "Cokeline+, Sessions, Alpha" },
+    ["<leader>t"] = { name = "Telescope TS Aerial Harpoon ToDo"},
     ["<leader>ta"] = { name = "Aerial" },
     -- ["<leader>tc"] = { name = "[T]o-do [C]omments+"},
     -- ["<leader>tt"] = { name = "[T]reesi[T]ter [P]layground"},

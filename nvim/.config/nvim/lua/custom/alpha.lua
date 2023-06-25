@@ -11,6 +11,29 @@ local dashboard = require("alpha.themes.dashboard")
 -- It uses almost the same format as the "date" command in Linux (man date for info)
 local time = os.date("%_k:%M ~ %a - %b %d")
 
+vim.api.nvim_create_autocmd("User", {
+    pattern = "LazyVimStarted",
+    callback = function()
+        local stats = require("lazy").stats()
+        local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
+        dashboard.section.footer.val = {
+            "",
+            "",
+            "",
+            "                     " .. time .. "                       ",
+            "",
+            "          ⚡ Neovim loaded all " .. stats.count .. " plugins in " .. ms .. "ms",
+            "",
+            "  󰽰 I tuck you in, warm within, keep you free from sin ... 󰽰",
+            "                󰎈 'Til the Sandman, he comes 󰎈              ",
+            "",
+            "",
+            "",
+        }
+        pcall(vim.cmd.AlphaRedraw)
+    end,
+})
+
 if (vim.api.nvim_exec('echo argc()', true) == "0")
 then
 
@@ -49,15 +72,6 @@ dashboard.section.buttons.val = {
 }
 
 dashboard.section.footer.val = {
-"",
-"",
-"",
-"                     " .. time .. "                       ",
-"",
-"",
-"",
-"  󰽰 I tuck you in, warm within, keep you free from sin ... 󰽰",
-"                󰎈 'Til the Sandman, he comes 󰎈              ",
 }
 
 

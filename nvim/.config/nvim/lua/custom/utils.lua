@@ -16,7 +16,7 @@ wk.register({
     -- GENGHIS
     ["<leader>yp"] = { require("genghis").copyFilepath, "Yank current filepath" },
     ["<leader>yn"] = { require("genghis").copyFilename, "Yank current filename" },
-    ["<leader>cx"] = { require("genghis").chmodx, "Make current file executable" },
+    -- ["<leader>cx"] = { require("genghis").chmodx, "Make current file executable" },
     ["<leader>rf"] = { require("genghis").renameFile, "Rename current file" },
     ["<leader>mf"] = { require("genghis").moveAndRenameFile, "Move and rename current filepath" },
     ["<leader>nf"] = { require("genghis").createNewFile, "Create new file" },

@@ -38,12 +38,22 @@ return {
     -- },
     {
         "neovim/nvim-lspconfig",
+        event = { "BufReadPre", "BufNewFile" },
+        dependencies = {
+            "folke/neodev.nvim",
+            "williamboman/mason.nvim",
+            "williamboman/mason-lspconfig.nvim",
+        },
     },
-    "nvim-lua/plenary.nvim",
+
+    { "nvim-lua/plenary.nvim", lazy = true },
+
     "simrat39/inlay-hints.nvim",
+
     {
         "williamboman/mason.nvim",
         build = function() pcall(vim.cmd, 'MasonUpdate') end,
+        cmd = "Mason",
         event = "VimEnter",
     },
     "williamboman/mason-lspconfig.nvim",
@@ -56,8 +66,11 @@ return {
 
     {
         "jose-elias-alvarez/null-ls.nvim",
-        dependencies = "nvim-lua/plenary.nvim",
-        lazy = true,
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "williamboman/mason.nvim",
+        },
+        event = { "BufReadPre", "BufNewFile" },
     },
 
     {
@@ -73,22 +86,32 @@ return {
     },
     {
         "hrsh7th/nvim-cmp",
-        event = "VeryLazy",
+        event = "InsertEnter",
+        dependencies = {
+            "hrsh7th/cmp-nvim-lsp",
+            "hrsh7th/cmp-nvim-lua",
+            "hrsh7th/cmp-path",
+            "hrsh7th/cmp-buffer",
+            "hrsh7th/cmp-nvim-lsp-signature-help",
+            "saadparwaiz1/cmp_luasnip",
+        },
     },
-    "hrsh7th/cmp-nvim-lsp",
-    "hrsh7th/cmp-nvim-lua",
-    "hrsh7th/cmp-path",
-    "hrsh7th/cmp-buffer",
-    "hrsh7th/cmp-vsnip",
-
-    "L3MON4D3/LuaSnip",
-    "saadparwaiz1/cmp_luasnip",
-    "rafamadriz/friendly-snippets",
-
-
     {
-        "folke/neodev.nvim",
-        event = "VimEnter",
+        "L3MON4D3/LuaSnip",
+        build = (not jit.os:find("Windows"))
+        and "echo: 'NOTE: jsregexp is optional, so not a big deal if it fails to build; make install_jsregexp"
+        or nil,
+        event = "InsertEnter",
+        dependencies = {
+            "rafamadriz/friendly-snippets",
+            config = function()
+                require("luasnip.loaders.from_vscode").lazy_load()
+            end,
+        },
+        opts = {
+            history = true,
+            delete_check_events = "TextChanged",
+        }
     },
     -- {
     --     "pmizio/typescript-tools.nvim",

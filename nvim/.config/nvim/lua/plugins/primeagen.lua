@@ -9,7 +9,7 @@ return {
 
     {
         "ThePrimeagen/harpoon", -- Reeling those files in
-        event = "UIEnter",
+        event = "VimEnter",
         opts = {
             global_settings = {
                 save_on_toggle = true,
@@ -19,7 +19,7 @@ return {
 
     {
         "mbbill/undotree",      -- What was that thing I did 10 days ago? Leader + U
-        keys = { "n", "<leader>u", "<cmd>UndotreeToggle<CR>"},
+        cmd = "UndotreeToggle",
     },
 
     -- Goofy stuff:

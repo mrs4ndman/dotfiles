@@ -6,13 +6,17 @@ return {
         build = function()
             require("nvim-treesitter.install").update({ with_sync = true })
         end,
-        -- event = "BufReadPre",
-        -- TODO: Join treesitter binds
-    },
-
-    {
-        "nvim-treesitter/nvim-treesitter-textobjects",
-        lazy = true,
+        event = { "BufReadPost", "BufNewFile"},
+        dependencies = {
+            {
+                "nvim-treesitter/nvim-treesitter-textobjects",
+                init = function()
+                    require("lazy.core.loader").disable_rtp_plugin("nvim-treesitter-textobjects")
+                    load_textobjects = true
+                end,
+            },
+        },
+        cmd = { "TSUpdateSync" },
     },
 
     {
@@ -29,6 +33,6 @@ return {
 
     {
         "Wansmer/treesj",
-        dependencies = { "nvim-treesitter/nvim-treesitter" },
+        cmd = "TSJToggle",
     },
 }

@@ -14,11 +14,15 @@ return {
         end
     },
 
-    {"chrisgrieser/nvim-genghis", dependencies = "stevearc/dressing.nvim"},
+    {
+        "chrisgrieser/nvim-genghis",
+        dependencies = "stevearc/dressing.nvim",
+        event = "VeryLazy",
+    },
 
     {
         "junegunn/fzf", -- Fuzzy searching integration
-        event = { "BufReadPost", "BufNewFile" },
+        event = "VeryLazy",
     },
 
     {
@@ -68,6 +72,7 @@ return {
 
     {
         "max397574/better-escape.nvim", -- Better Esc keybindings
+        event = "VeryLazy",
         opts = {
             mapping = {"zj", "zk", "<j", "<k"},
             timeout = 150,

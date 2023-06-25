@@ -133,8 +133,5 @@ vim.o.undofile = true
 -- Max CMP height
 vim.o.pumheight = 20
 
--- Notify config
-vim.notify = require("notify")
-
 -- Sesssion config
 vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"

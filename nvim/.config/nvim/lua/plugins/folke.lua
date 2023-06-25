@@ -11,9 +11,8 @@ return {
     -- Trouble: Diagnostics and status tool:
     {
         "folke/trouble.nvim",
-        cmd = "TroubleToggle",
-        dependencies = { "nvim-tree/nvim-web-devicons" },
-        opts = {},
+        cmd = { "TroubleToggle", "Trouble" },
+        opts = { use_diagnostic_signs = true },
     },
 
     {
@@ -23,25 +22,14 @@ return {
 
     {
         "folke/todo-comments.nvim",
+        event = "BufReadPost",
+        cmd = { "TodoTrouble", "TodoTelescope", "TodoLocList", "TodoQuickFix"  },
         dependencies = { "nvim-lua/plenary.nvim" },
-        event = "VeryLazy",
-        opts = {
-            search = {
-                command = "rg",
-                args = {
-                    "--color=never",
-                    "--no-heading",
-                    "--hidden",
-                    "--line-number",
-                    "--column",
-                },
-            },
-        },
     },
 
     {
         "folke/twilight.nvim",
-        event = "VeryLazy",
+        event = "VimEnter",
         opts = {
             {
                 alpha = 0.25,
@@ -62,7 +50,7 @@ return {
     },
     {
         "folke/noice.nvim",
-        event = "VeryLazy",
+        event = "UIEnter",
         dependencies = {
             "MunifTanjim/nui.nvim",
             "rcarriga/nvim-notify",

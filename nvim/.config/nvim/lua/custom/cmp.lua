@@ -33,9 +33,6 @@ local kind_icons = {
     TypeParameter = "󰅲",
 }
 
-require("luasnip.loaders.from_vscode").lazy_load()
-luasnip.config.setup {}
-
 cmp.setup({
     preselect = "item",
     completion = {

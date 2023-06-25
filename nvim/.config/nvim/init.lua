@@ -2,7 +2,7 @@
 local function safeRequire(module)
     local success, loadedModule = pcall(require, module)
     if success then return loadedModule end
-    vim.notify_once("Error loading the " .. module .. " module into Neovim")
+    vim.notify_once("Error loading " .. module .. " module into Neovim")
 end
 
 -- Main config file
