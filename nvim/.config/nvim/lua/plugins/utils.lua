@@ -92,4 +92,5 @@ return {
             auto_save_enabled = true,
         },
     },
+    {"ellisonleao/glow.nvim", config = true, cmd = "Glow"},
 }
