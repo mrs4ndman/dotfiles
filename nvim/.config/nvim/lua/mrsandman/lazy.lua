@@ -18,19 +18,12 @@ vim.g.mapleader = " "
 require("lazy").setup({
     spec = {
         { import = "plugins" },
-        -- { import = "plugins.ui" },
-        -- { import = "plugins.colorschemes" },
-        -- { import = "plugins.treesitter" },
-        -- { import = "plugins.external"},
-        -- { import = "plugins.folke" },
-        -- { import = "plugins.tpope" },
-        -- { import = "plugins.primeagen" },
-        -- { import = "plugins.debugging" },
-        -- { import = "plugins.functions" },
-        -- { import = "plugins.lsp" },
-        -- { import = "plugins.pairs" },
-        -- { import = "plugins.alpha" },
     },
+    defaults = {
+        -- lazy = true,
+        -- version = "*",
+    },
+    install = { colorscheme = { "tokyonight", "habamax" } },
     checker = {
         enabled = true,
         notify = true,
@@ -40,6 +33,14 @@ require("lazy").setup({
         cache = {
             enabled = true,
         },
-    }
+        rtp = {
+            disabled_plugins = {
+                "gzip",
+                "tarPlugin",
+                "tutor",
+                "zipPlugin",
+            },
+        },
+    },
 })
 -- eof --

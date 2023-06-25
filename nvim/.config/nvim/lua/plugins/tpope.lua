@@ -15,5 +15,8 @@ return {
         event = { "BufReadPost", "BufNewFile" },
     },
 
-    "tpope/vim-vinegar", -- Native Ex gets extensions
+    {
+        "tpope/vim-vinegar", -- Native Ex gets extensions
+        event = "VimEnter",
+    },
 }

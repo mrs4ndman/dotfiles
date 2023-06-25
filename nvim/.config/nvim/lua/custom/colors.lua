@@ -65,7 +65,7 @@ local opts = {
 	layout_strategy = "vertical",
 	layout_config = {
 		height = 20,
-		width = 0.2,
+		width = 0.35,
 		prompt_position = "top",
 	},
 	sorting_strategy = "ascending",
