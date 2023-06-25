@@ -33,6 +33,8 @@ local kind_icons = {
     TypeParameter = "󰅲",
 }
 
+vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
+
 cmp.setup({
     preselect = "item",
     completion = {
@@ -137,5 +139,10 @@ cmp.setup({
             },
         },
         { name = "nvim_lsp" },
+    },
+    experimental = {
+        ghost_text = {
+            hl_group = "CmpGhostText",
+        },
     },
 })

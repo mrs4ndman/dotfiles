@@ -6,8 +6,18 @@ return {
         cmd = "Telescope",
         version = false,
         dependencies = {
-            'nvim-lua/popup.nvim',
-            'nvim-lua/plenary.nvim',
+            "nvim-lua/popup.nvim",
+            "nvim-lua/plenary.nvim",
+            {
+                "nvim-telescope/telescope-fzf-native.nvim",
+                build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+                event = "VeryLazy",
+            },
+            {
+                "nvim-telescope/telescope-file-browser.nvim",
+                event = "VeryLazy",
+            },
+            "nvim-telescope/telescope-ui-select.nvim",
         },
         config = function()
             require("telescope").setup {
@@ -85,20 +95,5 @@ return {
             }
         end,
     },
-
-    -- 2.- Load Telescope native extensions,
-
-    {
-        "nvim-telescope/telescope-fzf-native.nvim",
-        build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
-        event = "VeryLazy",
-    },
-
-    {
-        "nvim-telescope/telescope-file-browser.nvim",
-        event = "VeryLazy",
-    },
-
-    "nvim-telescope/telescope-ui-select.nvim",
 }
 

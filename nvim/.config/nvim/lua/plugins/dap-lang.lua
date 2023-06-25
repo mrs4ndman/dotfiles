@@ -30,7 +30,10 @@ return {
     { "fatih/vim-go",                    lazy = true,              ft = { "go", "gomod", "gosum" } },
 
     -- Typescript
-    { "jose-elias-alvarez/typescript.nvim" },
+    {
+        "jose-elias-alvarez/typescript.nvim",
+        ft = "typescript",
+    },
 
     -- {
     --     "pmizio/typescript-tools.nvim",
@@ -60,11 +63,65 @@ return {
     {
         "mfussenegger/nvim-dap",
         dependencies = {
-            "rcarriga/nvim-dap-ui",
-            { "theHamsta/nvim-dap-virtual-text", config = true },
+            {
+                "folke/which-key.nvim",
+                optional = true,
+                opts = {
+                    defaults = {
+                        ["<leader>d"] = { name = "+debug" },
+                        ["<leader>da"] = { name = "+adapters" },
+                    },
+                },
+            },
+            {
+                "theHamsta/nvim-dap-virtual-text",
+                opts = {},
+            },
+            {
+                "jay-babu/mason-nvim-dap.nvim",
+                dependencies = "williamboman/mason.nvim",
+                cmd = { "DapInstall", "DapUninstall" },
+                opts = {
+                    automatic_installation = false,
+                    handlers = {},
+                    ensure_installed = {
+                        -- DAP
+                        'bash-debug-adapter',
+                        -- 'codelldb',
+                        'debugpy',
+                        'js-debug-adapter',
+                        'go-debug-adapter',
+                    },
+                }
+            },
+            {
+                "rcarriga/nvim-dap-ui",
+                keys = {
+                    { "<leader>du", function() require("dapui").toggle({ }) end, desc = "DAP UI" },
+                    { "<leader>de", function() require("dapui").eval() end, desc = "DAP Eval", mode = {"n", "v"} },
+                },
+                opts = {},
+                config = function(_, opts)
+                    local dap = require("dap")
+                    local dapui = require("dapui")
+
+                    dap.listeners.after.event_initialized["dapui_config"] = function()
+                        dapui.open()
+                    end
+
+                    dap.listeners.before.event_terminated["dapui_config"] = function()
+                        dapui.close()
+                    end
+
+                    dap.listeners.after.event_exited["dapui_config"] = function()
+                        dapui.close()
+                    end
+                end
+            },
         },
         event = "VeryLazy",
+        config = function()
+            vim.api.nvim_set_hl(0, "DapStoppedLine", { default = true, link = "Visual" })
+        end
     },
-    "jay-babu/mason-nvim-dap.nvim",
-
 }

@@ -47,23 +47,18 @@ local config = {
         -- Disable sections and component separators
         component_separators = '',
         section_separators = '',
-        theme = {
-            -- We are going to use lualine_c an lualine_x as left and
-            -- right section. Both are highlighted by c theme .  So we
-            -- are just setting default looks o statusline
-            normal = { c = { fg = colors.fg, bg = colors.bg } },
-            inactive = { c = { fg = colors.fg, bg = colors.bg } },
-        },
+        theme = "auto",
+        globalstatus = true,
+        disabled_filetypes = { statusline = { "dashboard", "alpha" }},
     },
     sections = {
         -- these are to remove the defaults
         lualine_a = {},
         lualine_b = {},
-        lualine_y = {},
-        lualine_z = {},
-        -- These will be filled later
         lualine_c = {},
         lualine_x = {},
+        lualine_y = {},
+        lualine_z = {},
     },
     inactive_sections = {
         -- these are to remove the defaults
@@ -74,6 +69,7 @@ local config = {
         lualine_c = {},
         lualine_x = {},
     },
+    extensions = { "lazy" },
 }
 
 -- Inserts a component in lualine_c at left section
@@ -129,29 +125,23 @@ ins_left {
 }
 
 ins_left {
-    'hbac',
-    function()
-        local cur_buf = vim.api.nvim_get_current_buf()
-        return require("hbac.state").is_pinned(cur_buf) and "📍" or ""
-        -- tip: nerd fonts have pinned/unpinned icons!
-    end,
-    color = { fg = "#ef5f6b", gui = "bold" },
-}
-
-ins_left {
     'filename',
     cond = conditions.buffer_not_empty,
     color = { fg = colors.red, gui = 'bold' },
     path = 0,
 }
 
--- ins_left {
---     function()
---         return vim.fn['nvim_treesitter#statusline'](90)
---     end,
---     cond = conditions.hide_in_width,
---     padding = { left = 1, right = 0}
--- }
+ins_left {
+    function()
+        return '%='
+    end,
+}
+
+ins_left {
+    'navic',
+    function() return require("nvim-navic").get_location() end,
+    cond = conditions.hide_in_width, function() return package.loaded["nvim-navic"] and require("nvim-navic").is_available() end,
+}
 
 ins_left {
     function()
@@ -164,6 +154,20 @@ ins_left {
     'branch',
     icon = '',
     color = { fg = colors.orange, gui = 'bold' },
+    cond = conditions.hide_in_width,
+}
+
+
+ins_left {
+    'diff',
+    -- Is it me or the symbol for modified us really weird
+    symbols = { added = ' ', modified = '柳', removed = ' ' },
+    diff_color = {
+        added = { fg = colors.lime },
+        modified = { fg = colors.orange },
+        removed = { fg = colors.red },
+    },
+    cond = conditions.hide_in_width,
 }
 
 ins_left {
@@ -173,13 +177,27 @@ ins_left {
 }
 
 ins_left {
+    function() return require("noice").api.status.command.get() end,
+    cond = conditions.hide_in_width, function() return package.loaded["noice"] and require("noice").api.status.command.has() end,
+    -- padding = { left = "<", right = ">"}
+    color = { fg = 'violet', gui = 'bold' },
+}
+
+-- ins_left {
+--     require("lazy.status").updates,
+--     cond = require("lazy.status").has_updates,
+-- }
+
+
+ins_left {
     -- filetype / language component
     'filetype',
     colored = true,
     icon_only = false,
     icon = { align = 'left' },
     color = { fg = 'cyan', gui = 'bold' },
-    padding = { left = 1, right = 0}
+    padding = { left = 1, right = 0},
+    cond = conditions.hide_in_width,
 }
 
 ins_left {
@@ -189,7 +207,6 @@ ins_left {
     color = { fg = colors.cyan },
     padding = { left = 1, right = 0}
 }
-
 
 ins_left {
     -- cursor location in file component
@@ -217,19 +234,6 @@ ins_right {
     },
 }
 
-
-ins_right {
-    'diff',
-    -- Is it me or the symbol for modified us really weird
-    symbols = { added = ' ', modified = '柳', removed = ' ' },
-    diff_color = {
-        added = { fg = colors.lime },
-        modified = { fg = colors.orange },
-        removed = { fg = colors.red },
-    },
-    cond = conditions.hide_in_width,
-}
-
 ins_right {
     -- Lsp server name
     function()
@@ -248,7 +252,7 @@ ins_right {
         end
         return msg
     end,
-    icon = ' LSP:',
+    icon = '',
     color = { fg = 'cyan', gui = 'bold' },
     cond = conditions.hide_in_width,
 }
@@ -260,8 +264,6 @@ ins_right {
     color = { fg = colors.red },
     padding = { left = 0, right = 0},
 }
-
-
 
 ins_right {
     'fileformat',

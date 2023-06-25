@@ -57,12 +57,12 @@ return {
         event = "VimEnter",
     },
     "williamboman/mason-lspconfig.nvim",
-    {
-        "j-hui/fidget.nvim",
-        tag = "legacy",
-        opts = {},
-        event = { "BufReadPost", "BufNewFile" },
-    },
+    -- {
+    --     "j-hui/fidget.nvim",
+    --     tag = "legacy",
+    --     opts = {},
+    --     event = { "BufReadPost", "BufNewFile" },
+    -- },
 
     {
         "jose-elias-alvarez/null-ls.nvim",

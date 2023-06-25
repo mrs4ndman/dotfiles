@@ -94,6 +94,15 @@ return {
     {
         "lukas-reineke/indent-blankline.nvim",
         event = { "BufReadPre", "BufNewFile" },
+        opts = {
+            space_char_blankline = " ",
+            filetype_exclude = { 'help', 'markdown', 'alpha', 'Trouble', 'lazy', 'notify' },
+            buftype_exclude = { 'terminal', 'alpha', 'nofile' },
+            show_trailing_blankline_indent = false,
+            show_current_context = true,
+            show_current_context_start = true,
+            char = '┊',
+        }
     },
 
     -- Highlighting instances of words with LSP, Treesitter and Regex matching
@@ -128,5 +137,38 @@ return {
         event = "VeryLazy",
     },
     { "nvim-tree/nvim-web-devicons", lazy = true },
+    {
+        "rcarriga/nvim-notify",
+        config = {
+            stages = "static",
+            timeout = 1500,
+            render = "compact",
+            max_height = function()
+                return math.floor(vim.o.lines * 0.40)
+            end,
+            max_width = function()
+                return math.floor(vim.o.columns * 0.40)
+            end,
+        },
+    },
+
     { "MunifTanjim/nui.nvim", lazy = true },
+    {
+        "SmiteshP/nvim-navic",
+        lazy = true,
+        dependencies = "neovim/nvim-lspconfig",
+        init = function()
+            vim.g.navic_silence = true
+        end,
+        opts = function()
+            return {
+                separator = " > ",
+                highlight = true,
+                depth_limit = 5,
+                lsp = {
+                    auto_attach = true,
+                }
+            }
+        end
+    },
 }

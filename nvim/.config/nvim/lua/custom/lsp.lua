@@ -134,19 +134,6 @@ require("mason-lspconfig").setup {
     automatic_installation = true,
 }
 
-require("mason-nvim-dap").setup({
-    ensure_installed = {
-     -- DAP
-     'bash-debug-adapter',
-     'codelldb',
-     'debugpy',
-     'js-debug-adapter',
-     'go-debug-adapter',
-    },
-    automatic_installation = true,
-})
-
-
 
 require("mason-null-ls").setup({
     ensure_installed = {
