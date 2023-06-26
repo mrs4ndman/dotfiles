@@ -128,10 +128,11 @@ return {
                 'bash-debug-adapter',
                 -- 'codelldb',
                 'debugpy',
+                'delve',
                 'go-debug-adapter',
+                'java-debug-adapter',
                 'js-debug-adapter',
                 'php-debug-adapter',
-                'java-debug-adapter',
             },
         }
     },

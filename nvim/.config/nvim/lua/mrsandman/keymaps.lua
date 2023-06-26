@@ -9,6 +9,14 @@ vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>lz", "<cmd>Lazy<CR>", { desc = "Lazy", noremap = true, silent = true })
 vim.keymap.set("n", "<leader>mp", "<cmd>Mason<CR>", { desc = "Mason", noremap = true, silent = true })
 
+-- Fugitive keybinds
+vim.keymap.set("n", "<leader>gs", "<cmd>Git status<CR>", { desc = "FuGITive Status" });
+vim.keymap.set("n", "<leader>gd", "<cmd>Git diff<CR>", { desc = "FuGITive Diff" });
+-- TODO: Create new Fugitive keybinds
+
+-- Try it out if you're that desperate
+vim.keymap.set("n", "<leader>cat", "<cmd>CellularAutomaton make_it_rain<CR>", { desc = "cool stuff", silent = true })
+
 
 local wk = require("which-key")
 

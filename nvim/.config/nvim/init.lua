@@ -1,15 +1,13 @@
--- require doesn't crash the config
-local function safeRequire(module)
-    local success, loadedModule = pcall(require, module)
-    if success then return loadedModule end
-    vim.notify_once("Error loading " .. module .. " module into Neovim")
-end
+-- Main config
+require("mrsandman.bootstrap")
+require("mrsandman.lazy")
 
--- Main config file
-safeRequire("mrsandman")
+require("mrsandman.autocmds")
+require("mrsandman.keymaps")
+require("mrsandman.set")
 
 -- Custom plugin configs that load after most things
-safeRequire("custom")
+require("custom")
 
 -- Language-specific configs
-safeRequire("langs")
+require("langs")

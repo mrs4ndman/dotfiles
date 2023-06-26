@@ -1,4 +1,7 @@
+
 -- Require for all the config files
+require("mrsandman.bootstrap")
+require("mrsandman.autocmds")
 
 require("mrsandman.lazy")
 -- Lazy package manager and import list
@@ -8,3 +11,4 @@ require("mrsandman.set")
 
 require("mrsandman.keymaps")
 -- Keymaps and autocmds for the setup
+--

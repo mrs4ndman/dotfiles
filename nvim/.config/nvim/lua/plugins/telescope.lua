@@ -1,8 +1,15 @@
+Customize = require("mrsandman.customize")
+local functions = require("mrsandman.functions")
+Is_Enabled = functions.is_enabled
+Use_Defaults = functions.use_plugin_defaults
+
+local plugin = "telescope.nvim"
 return {
     -- 1.- Telescope config
 
     {
-        "nvim-telescope/telescope.nvim",
+        "nvim-telescope/" .. plugin,
+        enabled = Is_Enabled(plugin),
         cmd = "Telescope",
         version = false,
         dependencies = {
@@ -19,25 +26,25 @@ return {
             },
             "nvim-telescope/telescope-ui-select.nvim",
         },
-        config = function()
-            require("telescope").setup {
-                pickers = {
+        opts = function(_, opts)
+            if Use_Defaults(plugin) then
+                opts = opts
+            else
+                opts.pickers = {
                     colorscheme = {
                         enable_preview = true,
-                    }
-                },
-                extensions = {
+                    },
+                }
+                opts.extensions = {
                     fzf = {
                         fuzzy = true,
                         override_generic_sorter = true,
                         override_file_sorter = true,
                         case_mode = "smart_case",
                     },
-                },
-                defaults = {
-                    preview = {
-                        timeout = 500,
-                    },
+                }
+                opts.defaults = {
+                    preview = { timeout = 500 },
                     vimgrep_arguments = {
                         "rg",
                         "--no-heading",
@@ -92,7 +99,7 @@ return {
                         },
                     },
                 }
-            }
+            end
         end,
     },
 }
