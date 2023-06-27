@@ -3,6 +3,16 @@
 
 -- First, Native LSP
 local lspconfig = require('lspconfig')
+require("lspconfig").lua_ls.setup({
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { 'vim' },
+            }
+        }
+    }
+})
+require("lspconfig").rust_analyzer.setup{}
 lspconfig.vimls.setup {}
 lspconfig.marksman.setup {}
 lspconfig.clangd.setup {}
