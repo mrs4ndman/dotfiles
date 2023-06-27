@@ -55,7 +55,6 @@ return {
     'catppuccin/nvim',
     lazy = true,
     name = "catppuccin",
-    priority = 1000,
     opts = {
         flavour = "mocha",
         background = { light = "latte", dark = "mocha" },
@@ -148,6 +147,48 @@ end
         }
     end
 end
+    },
+    {
+        'maxmx03/fluoromachine.nvim',
+        enabled = Is_Enabled("fluoromachine.nvim"),
+        lazy = true,
+        opts = {
+            glow = false,
+            theme = 'retrowave'
+        },
+    },
+    {
+        'marko-cerovac/material.nvim',
+        enabled = Is_Enabled("material.nvim"),
+        opts = {
+            contrast = {
+                terminal = true,
+                floating_windows = true,
+                cursor_line = true,
+                non_current_windows = true,
+            },
+            plugins = {
+                "nvim-cmp",
+                "nvim-navic",
+                "telescope",
+                "trouble",
+                "which-key",
+            },
+            disable = {
+                colored_cursor = false,
+                borders = false,
+                background = false,
+                eob_lines = true,
+            },
+        },
+    },
+    {
+        'Mofiqul/vscode.nvim',
+        enabled = Is_Enabled("vscode.nvim"),
+        opts = {
+            transparent = false,
+            italic_comments = true,
+        }
     },
     {
         'shaunsingh/nord.nvim',

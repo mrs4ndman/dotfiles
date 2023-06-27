@@ -8,8 +8,9 @@ local plugin = "mason-lspconfig.nvim"
 return {
     "williamboman/" .. plugin,
     enabled = Is_Enabled(plugin),
-    lazy = true,
-    opts = {
+    cmd = { "LspInstall", "LspUninstall" },
+    config = function()
+        require("mason-lspconfig").setup {
         ensure_installed = {
             -- Language servers automagically installed
             'lua_ls',
@@ -35,5 +36,6 @@ return {
             'jsonls',
         },
         automatic_installation = true,
-    },
+    }
+    end
 }

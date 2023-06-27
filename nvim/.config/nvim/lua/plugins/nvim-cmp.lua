@@ -5,7 +5,7 @@ local plugin = "nvim-cmp"
 
 return {
         "hrsh7th/" .. plugin,
-        event = "UIEnter",
+        event = "InsertEnter",
         enabled = Is_Enabled(plugin),
         opts = require("custom.cmp"),
         dependencies = {

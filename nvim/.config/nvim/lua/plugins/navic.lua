@@ -12,23 +12,12 @@ return {
     init = function()
         vim.g.navic_silence = true
     end,
-    opts = function(_, opts)
-        if Use_Defaults then
-            opts = opts
-        else
-            opts = function()
-                return {
-                    separator = " > ",
-                    highlight = true,
-                    depth_limit = 4,
-                    lsp = {
-                        auto_attach = true,
-                    }
-                }
-            end
-        end
-    end,
     config = function()
-        require("nvim-navic").setup()
+        require("nvim-navic").setup({
+                separator = "> ",
+                highlight = true,
+                lsp = { auto_attach = true },
+                depth_limit = 4,
+            })
     end
 }

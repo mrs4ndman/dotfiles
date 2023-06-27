@@ -9,9 +9,5 @@ local plugin = "lualine.nvim"
 return {
     "nvim-lualine/" .. plugin,
     enabled = Is_Enabled(plugin),
-    dependencies = "SmiteshP/nvim-navic",
     event = "UIEnter",
-    config = function()
-        require("custom.lualine")
-    end
 }

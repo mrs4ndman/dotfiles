@@ -73,7 +73,6 @@ return {
             { "nvim-telescope/telescope-dap.nvim" },
             { "theHamsta/nvim-dap-virtual-text" },
             -- DAP adapters
-            { "mfussenegger/nvim-dap-python" },
             { "jbyuki/one-small-step-for-vimkind", module = "osv" },
             { "leoluz/nvim-dap-go", module = "dap-go" },
         },

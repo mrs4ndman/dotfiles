@@ -5,7 +5,6 @@
 -- Slightly modified GeoMetro
 -- (if you get it, you get it)
 local lualine = require('lualine')
-
 -- Color table for highlights
 -- stylua: ignore
 local colors = {
@@ -49,10 +48,26 @@ local config = {
         section_separators = '',
         theme = "auto",
         globalstatus = true,
-        disabled_filetypes = { statusline = { "dashboard", "alpha" }},
+        disabled_filetypes = {
+            statusline = { "dashboard", "alpha" },
+            winbar = {
+                "help",
+                "alpha",
+                "lazy",
+                "Trouble",
+            },
+        },
     },
     sections = {
         -- these are to remove the defaults
+        lualine_a = {},
+        lualine_b = {},
+        lualine_c = {},
+        lualine_x = {},
+        lualine_y = {},
+        lualine_z = {},
+    },
+    winbar = {
         lualine_a = {},
         lualine_b = {},
         lualine_c = {},
@@ -77,10 +92,62 @@ local function ins_left(component)
     table.insert(config.sections.lualine_c, component)
 end
 
+-- Inserts a component in lualine_c at right section on winbar
+local function ins_winb_left(component)
+    table.insert(config.winbar.lualine_b, component)
+end
+
+-- Inserts a component in lualine_x at right section on winbar
+local function ins_winb_right(component)
+    table.insert(config.winbar.lualine_x, component)
+end
+
 -- Inserts a component in lualine_x at right section
 local function ins_right(component)
     table.insert(config.sections.lualine_x, component)
 end
+
+ins_winb_left {
+    'navic',
+    function() return require("nvim-navic").get_location() end,
+    cond = --[[ conditions.hide_in_width, ]] function() return package.loaded["nvim-navic"] and require("nvim-navic").is_available() end,
+}
+
+-- Add components to right sections
+ins_winb_right {
+    'diagnostics',
+    sources = { 'nvim_diagnostic' },
+    symbols = { error = ' ', warn = ' ', info = ' ' },
+    diagnostics_color = {
+        color_error = { fg = colors.red },
+        color_warn = { fg = colors.yellow },
+        color_info = { fg = colors.cyan },
+    },
+}
+
+ins_winb_right {
+    -- Lsp server name
+    function()
+        local msg = 'None'
+
+        local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
+        local clients = vim.lsp.get_active_clients()
+        if next(clients) == nil then
+            return msg
+        end
+        for _, client in ipairs(clients) do
+            local filetypes = client.config.filetypes
+            if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
+                return client.name
+            end
+        end
+        return msg
+    end,
+    icon = '',
+    color = { fg = 'cyan', gui = 'bold' },
+    cond = conditions.hide_in_width,
+}
+
 
 ins_left {
     function()
@@ -132,24 +199,6 @@ ins_left {
 }
 
 ins_left {
-    function()
-        return '%='
-    end,
-}
-
-ins_left {
-    'navic',
-    function() return require("nvim-navic").get_location() end,
-    cond = conditions.hide_in_width, function() return package.loaded["nvim-navic"] and require("nvim-navic").is_available() end,
-}
-
-ins_left {
-    function()
-        return '%='
-    end,
-}
-
-ins_left {
     -- git branch icon & name
     'branch',
     icon = '',
@@ -157,29 +206,10 @@ ins_left {
     cond = conditions.hide_in_width,
 }
 
-
-ins_left {
-    'diff',
-    -- Is it me or the symbol for modified us really weird
-    symbols = { added = ' ', modified = '柳', removed = ' ' },
-    diff_color = {
-        added = { fg = colors.lime },
-        modified = { fg = colors.orange },
-        removed = { fg = colors.red },
-    },
-    cond = conditions.hide_in_width,
-}
-
-ins_left {
-    function()
-        return '%='
-    end,
-}
-
 ins_left {
     function() return require("noice").api.status.command.get() end,
-    cond = conditions.hide_in_width, function() return package.loaded["noice"] and require("noice").api.status.command.has() end,
-    -- padding = { left = "<", right = ">"}
+    cond = function() return package.loaded["noice"] and require("noice").api.status.command.has() end,
+    padding = { left = 1, right = 1},
     color = { fg = 'violet', gui = 'bold' },
 }
 
@@ -188,6 +218,12 @@ ins_left {
 --     cond = require("lazy.status").has_updates,
 -- }
 
+
+ins_left {
+    function()
+        return '%='
+    end,
+}
 
 ins_left {
     -- filetype / language component
@@ -199,6 +235,7 @@ ins_left {
     padding = { left = 1, right = 0},
     cond = conditions.hide_in_width,
 }
+
 
 ins_left {
     -- filesize component
@@ -221,41 +258,31 @@ ins_left {
     color = { fg = colors.ultraviolet, gui = 'bold' },
     padding = { left = 1, right = 0 }
 }
-
--- Add components to right sections
-ins_right {
-    'diagnostics',
-    sources = { 'nvim_diagnostic' },
-    symbols = { error = ' ', warn = ' ', info = ' ' },
-    diagnostics_color = {
-        color_error = { fg = colors.red },
-        color_warn = { fg = colors.yellow },
-        color_info = { fg = colors.cyan },
-    },
+ins_left {
+    function()
+        return '%='
+    end,
 }
 
 ins_right {
-    -- Lsp server name
-    function()
-        local msg = 'None'
-
-        local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
-        local clients = vim.lsp.get_active_clients()
-        if next(clients) == nil then
-            return msg
-        end
-        for _, client in ipairs(clients) do
-            local filetypes = client.config.filetypes
-            if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-                return client.name
-            end
-        end
-        return msg
-    end,
-    icon = '',
-    color = { fg = 'cyan', gui = 'bold' },
+    'diff',
+    -- Is it me or the symbol for modified us really weird
+    symbols = { added = ' ', modified = '柳', removed = ' ' },
+    diff_color = {
+        added = { fg = colors.lime },
+        modified = { fg = colors.orange },
+        removed = { fg = colors.red },
+    },
     cond = conditions.hide_in_width,
 }
+
+
+-- ins_left {
+--     require("noice").api.status.search.get,
+--     cond = require("noice").api.status.search.has,
+--     color = { fg = "#ff9e64" },
+-- }
+
 
 ins_right {
     'o:encoding',

@@ -1,9 +1,12 @@
 -- -- TODO: Migrate to a better way of doing this
 -- -- LSP Explicit config
-
+local navic = require("nvim-navic")
 -- First, Native LSP
 local lspconfig = require('lspconfig')
 require("lspconfig").lua_ls.setup({
+    on_attach = function (client, bufnr)
+       navic.attach(client, bufnr)
+    end,
     settings = {
         Lua = {
             diagnostics = {
@@ -12,7 +15,11 @@ require("lspconfig").lua_ls.setup({
         }
     }
 })
-require("lspconfig").rust_analyzer.setup{}
+require("lspconfig").rust_analyzer.setup{
+    on_attach = function (client, bufnr)
+       navic.attach(client, bufnr)
+    end,
+}
 lspconfig.vimls.setup {}
 lspconfig.marksman.setup {}
 lspconfig.clangd.setup {}

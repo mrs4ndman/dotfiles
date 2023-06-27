@@ -11,6 +11,8 @@ vim.g.neon_italic_comment = true
 vim.g.neon_bold = true
 vim.g.neon_transparent = false
 
+vim.g.material_style = "deep_ocean"
+
 local theme = require('last-color').recall() or 'rose-pine'
 vim.cmd(('colorscheme %s'):format(theme))
 
@@ -64,8 +66,8 @@ local opts = {
 	prompt_title = "Which color?",
 	layout_strategy = "vertical",
 	layout_config = {
-		height = 20,
-		width = 0.35,
+		height = 0.45,
+		width = 0.25,
 		prompt_position = "top",
 	},
 	sorting_strategy = "ascending",
@@ -76,8 +78,11 @@ local opts = {
 		"tokyonight",
 		"carbonfox",
 		"oxocarbon",
+		"material",
+		"vscode",
 		"nord",
 		"nordic",
+		"fluoromachine",
 		"dracula",
 		"onenord",
 		"nightfox",

@@ -6,3 +6,6 @@ require("custom.colors")
 
 -- LSP
 require("custom.lsp")
+
+-- Lualine & winbar
+require("custom.lualine")
