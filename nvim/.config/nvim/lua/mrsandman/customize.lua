@@ -6,11 +6,12 @@ Customize = {
     plugins = {
         ["FixCursorHold.nvim"] = { enabled = true },
         ["LuaSnip"] = { enabled = true },
-        ["alpha-nvim"] = { enabled = true },
+        ["alpha-nvim"] = { enabled = true, defaults = false },
         ["aerial.nvim"] = { enabled = true, defaults = false },
         ["auto-session"] = { enabled = true, defaults = false },
         ["better-escape.nvim"] = { enabled = false, defaults = false},
         ["cellular-automaton.nvim"] = { enabled = true },
+        ["Comment.nvim"] = { enabled = true, defaults = false },
         ["nvim-cokeline"] = { enabled = true, defaults = false },
         ["dracula.nvim"] = { enabled = true, defaults = false },
         ["dressing.nvim"] = { enabled = true, defaults = false },
