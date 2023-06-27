@@ -172,12 +172,6 @@ Constants = {
             Unit = "",
             Value = "",
             Variable = "",
-            buffer = "󰦨",
-            path = "/",
-            nvim_lsp = "λ",
-            luasnip = "⋗",
-            vsnip = "V",
-            nvim_lua = "Π",
         },
     },
     git = {

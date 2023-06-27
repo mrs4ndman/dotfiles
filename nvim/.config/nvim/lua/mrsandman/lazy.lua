@@ -16,6 +16,7 @@ require("lazy").setup({
         },
         rtp = {
             disabled_plugins = {
+                "man",
                 "gzip",
                 "tarPlugin",
                 "tutor",
@@ -24,4 +25,3 @@ require("lazy").setup({
         },
     },
 })
--- eof --

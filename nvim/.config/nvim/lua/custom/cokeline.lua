@@ -1,22 +1,3 @@
--- Per-plugin which-key customization
-local wk = require("which-key")
-
-wk.register({
-    ["<leader>cn"] = { "<Plug>(cokeline-focus-next)", "Change to next buffer", { silent = true } },
-    ["<leader>cp"] = { "<Plug>(cokeline-focus-prev)", "Change to previous buffer", { silent = true } },
-    ["<leader>cc"] = { "<Plug>(cokeline-pick-close)", "Pick buffer to close", { silent = true } },
-    ["<leader>csn"] = { "<Plug>(cokeline-switch-next)", "Swap with next buffer", { silent = true } },
-    ["<leader>csp"] = { "<Plug>(cokeline-switch-prev)", "Swap with next buffer", { silent = true } },
-})
-
--- Number buffer selection with Leader + c + <number>
-for i = 1, 9 do
-    vim.keymap.set('n', ('<leader>c%s'):format(i), ('<Plug>(cokeline-focus-%s)'):format(i), { desc = "Change to buffer x", silent = true })
-    vim.keymap.set('n', ('<leader>s%s'):format(i), ('<Plug>(cokeline-switch-%s)'):format(i), { desc = "Swap with buffer x", silent = true })
-end
-
--- Cokeline config file:
-
 -- Cokeline custom config:
 
 local get_hex = require('cokeline/utils').get_hex

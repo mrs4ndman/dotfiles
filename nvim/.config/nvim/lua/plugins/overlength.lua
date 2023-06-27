@@ -7,7 +7,7 @@ local plugin = "overlength.nvim"
 
 return {
     "lcheylus/" .. plugin,
-    event = "VimEnter",
+    event = "UIEnter",
     -- keys = {"<leader>lt", "<cmd>OverlengthToggle<CR>" }
     opts = function(_, opts)
         if Use_Defaults(plugin) then

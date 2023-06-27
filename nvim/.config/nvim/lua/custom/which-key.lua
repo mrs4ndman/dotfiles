@@ -62,6 +62,20 @@ wk.register({
     ["<leader>tl"] = { require("telescope.builtin").loclist, "Proyect loclist", { silent = true } },
     ["<leader>vh"] = { require("telescope.builtin").help_tags, "Help tags", { silent = true }},
     ["<leader>ts"] = { function() require("telescope.builtin").grep_string ({ search = vim.fn.input("Grep > ") }) ; end, "Grep through files", { silent = true } },
+
+    -- COKELINE
+    ["<leader>cn"] = { "<Plug>(cokeline-focus-next)", "Change to next buffer", { silent = true } },
+    ["<leader>cp"] = { "<Plug>(cokeline-focus-prev)", "Change to previous buffer", { silent = true } },
+    ["<leader>cc"] = { "<Plug>(cokeline-pick-close)", "Pick buffer to close", { silent = true } },
+    ["<leader>csn"] = { "<Plug>(cokeline-switch-next)", "Swap with next buffer", { silent = true } },
+    ["<leader>csp"] = { "<Plug>(cokeline-switch-prev)", "Swap with next buffer", { silent = true } },
+
+    -- TREESITTER
+    ["<leader>ct"] = { "<cmd>TSContextToggle<CR>", "TS Context Toggle", { silent = true }},
+    ["<leader>ttp"] = { "<cmd>TSPlaygroundToggle<CR>", "TS Playground Toggle", { silent = true }},
+
+    -- TREESJ
+    ["Q"] = { "<cmd>TSJToggle<CR>", "Toggle TS node", { silent = true } },
 })
 
 -- Trouble config:

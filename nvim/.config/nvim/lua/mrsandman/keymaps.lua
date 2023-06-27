@@ -17,6 +17,13 @@ vim.keymap.set("n", "<leader>gd", "<cmd>Git diff<CR>", { desc = "FuGITive Diff" 
 -- Try it out if you're that desperate
 vim.keymap.set("n", "<leader>cat", "<cmd>CellularAutomaton make_it_rain<CR>", { desc = "cool stuff", silent = true })
 
+-- Number buffer selection with Leader + c + <number>
+for i = 1, 9 do
+    vim.keymap.set('n', ('<leader>c%s'):format(i), ('<Plug>(cokeline-focus-%s)'):format(i), { desc = "Change to buffer x", silent = true })
+    vim.keymap.set('n', ('<leader>s%s'):format(i), ('<Plug>(cokeline-switch-%s)'):format(i), { desc = "Swap with buffer x", silent = true })
+end
+
+
 
 local wk = require("which-key")
 

@@ -1,51 +1,54 @@
+return function(_, opts)
+    local plugin = "nvim-cmp"
+    if Use_Defaults(plugin) then
+        opts = opts
+    else
+        -- CMP completions config:
+        local cmp = require("cmp")
+        local luasnip = require("luasnip")
+        local capabilities = vim.lsp.protocol.make_client_capabilities()
+        capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
+        local kind_icons = {
+            Class = "",
+            Color = "",
+            Constant = "",
+            Constructor = "",
+            Enum = "",
+            EnumMember = "",
+            Event = "",
+            Field = "",
+            File = "",
+            Folder = "",
+            Function = "",
+            Interface = "",
+            Keyword = "",
+            Method = "",
+            Module = "",
+            Operator = "",
+            Property = "",
+            Reference = "",
+            Snippet = " ",
+            Struct = "",
+            Text = "",
+            TypeParameter = "",
+            Unit = "",
+            Value = "",
+            Variable = "",
+        }
 
--- CMP completions config:
-local cmp = require("cmp")
-local luasnip = require("luasnip")
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
-local ts_utils = require("nvim-treesitter.ts_utils")
-local kind_icons = {
-    Text = "",
-    Method = "󰆧",
-    Function = "󰊕",
-    Constructor = "",
-    Field = "󰇽",
-    Variable = "󰂡",
-    Class = "󰠱",
-    Interface = "",
-    Module = "",
-    Property = "󰜢",
-    Unit = "",
-    Value = "󰎠",
-    Enum = "",
-    Keyword = "󰌋",
-    Snippet = "",
-    Color = "󰏘",
-    File = "󰈙",
-    Folder = "󰉋",
-    Reference = "",
-    EnumMember = "",
-    Constant = "󰏿",
-    Struct = "",
-    Event = "",
-    Operator = "󰆕",
-    TypeParameter = "󰅲",
-}
+        vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
 
-vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
-
-cmp.setup({
-    preselect = "item",
-    completion = {
+-- cmp.setup({
+    local preselect = "item"
+    local completion = {
         completeopt = "menu,menuone,noinsert",
-    },
-    config = {
+    }
+    local config = {
         context = {
             in_treesitter_capture = true,
         }
-    },
-    window = {
+    }
+    local window = {
         completion = cmp.config.window.bordered({
             border = "single",
             side_padding = 1,
@@ -55,13 +58,13 @@ cmp.setup({
         documentation = cmp.config.window.bordered({
             max_width = 50,
         }),
-    },
-    snippet = {
+    }
+    local snippet = {
         expand = function(args)
             luasnip.lsp_expand(args.body)
         end,
-    },
-    formatting = {
+    }
+    local formatting = {
         -- changing the order of fields so the icon is the first
         fields = { "menu", "abbr", "kind" },
 
@@ -95,8 +98,8 @@ cmp.setup({
 
             return vim_item
         end,
-    },
-    sorting = {
+    }
+    local sorting = {
         comparators = {
             cmp.config.compare.locality,
             cmp.config.compare.kind,
@@ -109,9 +112,9 @@ cmp.setup({
                     return true
                 end
             end
-        },
-    },
-    mapping = cmp.mapping.preset.insert({
+        }
+    }
+    local mapping = cmp.mapping.preset.insert({
         ["<C-p>"] = cmp.mapping.select_prev_item(),
         ["<C-n>"] = cmp.mapping.select_next_item(),
         ["<C-d>"] = cmp.mapping.scroll_docs(-4),
@@ -121,8 +124,8 @@ cmp.setup({
         ["<C-Space>"] = cmp.mapping.complete(),
         ["<Tab>"] = vim.NIL,
         ["<S-Tab>"] = vim.NIL,
-    }),
-    sources = {
+    })
+    local sources = {
         { name = "path" },
         { name = "crates" }, -- crates.nvim plugin
         { name = "nvim_lua" },
@@ -139,10 +142,25 @@ cmp.setup({
             },
         },
         { name = "nvim_lsp" },
-    },
-    experimental = {
+    }
+    local experimental = {
         ghost_text = {
             hl_group = "CmpGhostText",
         },
-    },
-})
+    }
+    -- PASSING VALUES TO THE ORIGINAL OPTS TABLE
+    opts.formatting = formatting
+    opts.mapping = mapping
+    opts.sorting = sorting
+    opts.sources = sources
+    opts.snippet = snippet
+    opts.preselect = preselect
+    opts.completion = completion
+    opts.config = config
+    opts.window = window
+    opts.experimental = experimental
+
+
+end
+end
+

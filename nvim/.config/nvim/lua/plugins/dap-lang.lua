@@ -45,7 +45,7 @@ return {
     {
         "mfussenegger/nvim-dap-python",
         dependencies = {
-            "rcarriga/nvim-dap-ui",
+            "mfussenegger/nvim-dap",
         },
         ft = "python",
         keys = {

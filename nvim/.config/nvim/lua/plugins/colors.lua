@@ -27,7 +27,7 @@ return {
     {
         'folke/tokyonight.nvim',
         enabled = Is_Enabled("tokyonight.nvim"),
-        event = "VimEnter",
+        lazy = true,
         priority = 1000,
         opts = function(_, opts)
             if Use_Defaults("tokyonight.nvim") then
