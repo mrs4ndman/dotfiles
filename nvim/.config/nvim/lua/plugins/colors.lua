@@ -185,10 +185,15 @@ end
     {
         'Mofiqul/vscode.nvim',
         enabled = Is_Enabled("vscode.nvim"),
+        lazy = true,
         opts = {
-            transparent = false,
             italic_comments = true,
         }
+    },
+    {
+        'lunarvim/horizon.nvim',
+        enabled = Is_Enabled("horizon.nvim"),
+        lazy = true,
     },
     {
         'shaunsingh/nord.nvim',
@@ -204,12 +209,10 @@ end
         'nyoom-engineering/oxocarbon.nvim',
         enabled = Is_Enabled("oxocarbon.nvim"),
         lazy = true,
-        priority = 1000,
     },
     {
         'AlexvZyl/nordic.nvim',
         enabled = Is_Enabled("nordic.nvim"),
         lazy = true,
-        priority = 1000,
     },
 }

@@ -120,7 +120,7 @@ require('cokeline').setup({
     buffers = {
         focus_on_delete = 'next',
         filter_valid = function(buffer) return buffer.filetype ~= 'netrw' end,
-        -- filter_visible = function(buffer) return buffer.type ~= 'terminal' end,
+        filter_visible = function(buffer) return buffer.filename ~= 'quickfix' end,
         new_buffers_position = 'next',
     },
 

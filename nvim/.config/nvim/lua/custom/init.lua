@@ -9,3 +9,4 @@ require("custom.lsp")
 
 -- Lualine & winbar
 require("custom.lualine")
+require("custom.cokeline")

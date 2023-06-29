@@ -14,7 +14,7 @@ return {
     end,
     config = function()
         require("nvim-navic").setup({
-                separator = "> ",
+                separator = "  ",
                 highlight = true,
                 lsp = { auto_attach = true },
                 depth_limit = 4,

@@ -21,6 +21,7 @@ Customize = {
         ["glow.nvim"] = { enabled = true, defaults = true },
         ["heirline.nvim"] = { enabled = false, defaults = false },
         ["harpoon"] = { enabled = true, defaults = false },
+        ["horizon.nvim"] = { enabled = true },
         ["inlay-hints.nvim"] = { enabled = true },
         ["inc-rename.nvim"] = { enabled = true, defaults = false },
         ["indent-blankline.nvim"] = { enabled = true },

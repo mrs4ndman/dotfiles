@@ -76,5 +76,6 @@ wk.register({
 
     -- TREESJ
     ["Q"] = { "<cmd>TSJToggle<CR>", "Toggle TS node", { silent = true } },
+    ["<leader>md"] = { "<cmd>Glow<CR>", "Toggle MD preview", { silent = true } },
 })
 

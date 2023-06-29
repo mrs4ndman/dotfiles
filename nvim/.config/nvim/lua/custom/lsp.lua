@@ -1,4 +1,3 @@
--- -- TODO: Migrate to a better way of doing this
 -- -- LSP Explicit config
 local navic = require("nvim-navic")
 -- First, Native LSP

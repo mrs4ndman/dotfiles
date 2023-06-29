@@ -10,7 +10,4 @@ return {
     enabled = Is_Enabled(plugin),
     event = "UIEnter",
     dependencies = 'nvim-tree/nvim-web-devicons',
-    config = function()
-        require("custom.cokeline")
-    end
 }
