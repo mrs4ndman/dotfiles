@@ -19,6 +19,7 @@ Customize = {
         ["fluoromachine.nvim"] = { enabled = true, defaults = false },
         ["gitsigns.nvim"] = { enabled = true, defaults = false },
         ["glow.nvim"] = { enabled = true, defaults = true },
+        ["gruber-darker.nvim"] = { enabled = true, defaults = true },
         ["heirline.nvim"] = { enabled = false, defaults = false },
         ["harpoon"] = { enabled = true, defaults = false },
         ["horizon.nvim"] = { enabled = true },

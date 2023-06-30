@@ -80,6 +80,7 @@ local opts = {
 		"oxocarbon",
 		"material",
 		"vscode",
+		"gruber-darker",
 		"nord",
 		"nordic",
 		"fluoromachine",

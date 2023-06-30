@@ -191,6 +191,11 @@ end
         }
     },
     {
+        "blazkowolf/gruber-darker.nvim",
+        enabled = Is_Enabled("gruber-darker.nvim"),
+        lazy = true,
+    },
+    {
         'lunarvim/horizon.nvim',
         enabled = Is_Enabled("horizon.nvim"),
         lazy = true,
