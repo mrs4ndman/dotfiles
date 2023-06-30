@@ -266,6 +266,7 @@ alias gpo='git push origin'
 alias grv='git revert'
 alias grc='git rm --cached'
 alias gst='git status'
+alias gs='git status -s'
 alias gsh='git stash'
 alias gsa='git stash apply'
 alias gsl='git stash list'
@@ -312,6 +313,10 @@ ex ()
     fi
 }
 #--------------------------------------------------------------#
+
+mkcd() {
+    mkdir "$1" && cd "$1" || return
+}
 
 
 #------------- AUTOCOMPLETION - AUTOCOMPLETACIÓN --------------#
