@@ -186,14 +186,34 @@ end
         'Mofiqul/vscode.nvim',
         enabled = Is_Enabled("vscode.nvim"),
         lazy = true,
-        opts = {
-            italic_comments = true,
-        }
+        opts = { italic_comments = true },
     },
     {
-        "blazkowolf/gruber-darker.nvim",
+        'tiagovla/tokyodark.nvim',
+        enabled = Is_Enabled("tokyodark.nvim"),
+        lazy = true,
+    },
+    {
+        'blazkowolf/gruber-darker.nvim',
         enabled = Is_Enabled("gruber-darker.nvim"),
         lazy = true,
+    },
+    {
+        'projekt0n/github-nvim-theme',
+        enabled = Is_Enabled("github-nvim-theme"),
+        lazy = true,
+    },
+    {
+        'NTBBloodbath/doom-one.nvim',
+        enabled = Is_Enabled("doom-one.nvim"),
+        lazy = true,
+        config = function()
+            vim.g.doom_one_terminal_colors = true
+            vim.g.doom_one_enable_treesitter = true
+            vim.g.doom_one_plugin_telescope = true
+            vim.g.doom_one_plugin_whichkey = true
+            vim.g.doom_one_plugin_vim_illuminate = true
+        end
     },
     {
         'lunarvim/horizon.nvim',
