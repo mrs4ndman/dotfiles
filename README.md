@@ -6,6 +6,7 @@
         ![image](https://github.com/mrs4ndman/dotfiles/assets/121260905/65a28326-6f6c-4d02-a44d-a768a002cdd9)
 
    - **[Alacritty](https://github.com/mrs4ndman/dotfiles/tree/main/alacritty/.config/alacritty)** : Archivos de configuración y ejemplo para Alacritty | Config and example files for Alacritty
+
    - **[.bashrc](https://github.com/mrs4ndman/dotfiles/tree/main/bashrc)** : Mi bashrc (principalmente alias custom) | Mainly custom alias
         ![image](https://github.com/mrs4ndman/dotfiles/assets/121260905/17335c5d-1f50-4011-b426-1564ef431983)
 
@@ -30,12 +31,13 @@
    - **[Btop](https://github.com/mrs4ndman/dotfiles/tree/main/btop/.config/btop/btop.conf)** : Archivo de configuración para Btop, el htop pero más chulo | The config file for Btop, the cooler htop
         ![image](https://github.com/mrs4ndman/dotfiles/assets/121260905/eaec7f36-63c8-455d-af65-ef3f7d2c051b)
 
-   - **[tmux](https://github.com/mrs4ndman/dotfiles/tree/main/tmux)** : Archivos de configuración para mis sesiones de tmux | Config files for my tmux sessions. Includes the [Rosé Pine theme](https://github.com/rose-pine/tmux) & the [scripts](https://github.com/mrs4ndman/dotfiles/tree/main/scripts/.local/scripts) from ThePrimeagen's [tmux](https://github.com/ThePrimeagen/.dotfiles/tree/master/tmux) setup
+   - **[tmux](https://github.com/mrs4ndman/dotfiles/tree/main/tmux)** : Archivos de configuración para mis sesiones de tmux | Config files for my tmux sessions. Includes the [Rosé Pine theme](https://github.com/rose-pine/tmux) & the [scripts](https://github.com/mrs4ndman/dotfiles/tree/main/scripts/.local/scripts) from ThePrimeagen's [tmux](https://github.com/ThePrimeagen/.dotfiles/tree/master/tmux) setup + a few custom ones
         ![image](https://github.com/mrs4ndman/dotfiles/assets/121260905/25d1197d-3e98-4f6d-8f58-cba06b3f9497)
 
 
 ### Abierto a sugerencias | Open to suggestions
 #### `refactor` branch is for neovim config testing, choose it to see what is my latest config bump
+#### ( It contains the most up-to-date stuff )
 
 :)
 
