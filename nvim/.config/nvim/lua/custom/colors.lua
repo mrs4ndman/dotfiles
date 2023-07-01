@@ -105,7 +105,11 @@ local opts = {
 
 local colors = pickers.new(opts)
 
-function colorizer()
+-- function colorizer()
+-- 	colors:find()
+-- end
+
+vim.api.nvim_create_user_command("Themer", function()
 	colors:find()
-end
+end, {})
 

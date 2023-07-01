@@ -68,7 +68,7 @@ wk.register({
     ["<leader>z"] = { name = "[Z]en-Mode / Twilight" },
 
     -- Custom lua functions: their which-key entries
-    ["<leader>th"] = { ":lua colorizer()<CR>", "Colorizer", { silent = true } },
+    ["<leader>th"] = { "<cmd>Themer<CR>", "Colorschme manager", { silent = true } },
 })
 
 -- All the plugin keybinds are either with the plugin definition or in the corresponding

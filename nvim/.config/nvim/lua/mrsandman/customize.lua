@@ -78,6 +78,7 @@ Customize = {
         ["telescope-ui-select.nvim"] = { enabled = true },
         ["trouble.nvim"] = { enabled = true, defaults = false },
         ["todo-comments.nvim"] = { enabled = true, defaults = false },
+        ["theme-selector.nvim"] = { enabled = false, defaults = false },
         ["tokyodark.nvim"] = { enabled = true, defaults = true },
         ["tokyonight.nvim"] = { enabled = true, defaults = false },
         ["twilight.nvim"] = { enabled = true, defaults = false },
