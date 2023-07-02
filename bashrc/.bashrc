@@ -277,6 +277,7 @@ alias gsp='git stash pop'
 
 #----------------------- TMUX ALIAS ZONE ----------------------#
 
+alias tbg-switch='tmux new-session -ds tmux-bg && tmux switch-client -t tmux-bg'
 alias tls='tmux ls'
 alias tks='tmux kill-session -t'
 alias trs='tmux rename-session'
@@ -292,20 +293,20 @@ ex ()
 {
     if [ -f $1 ] ; then
         case $1 in
-            *.tar.bz2)  tar xjf $1  ;;
-            *.tar.gz)   tar xzf $1  ;;
-            *.bz2)      bunzip2 $1  ;;
-            *.rar)      unrar x $1  ;;
-            *.gz)       gunzip $1   ;;
-            *.tar)      tar xf $1   ;;
-            *.tbz2)     tar xjf $1  ;;
-            *.tgz)      tar xzf $1  ;;
-            *.zip)      unzip $1    ;;
-            *.Z)        uncompress $1;;
-            *.7z)       7za e x $1  ;;
-            *.deb)      ar x $1     ;;
-            *.tar.xz)   tar xf $1   ;;
-            *.tar.zst)  unzstd $1   ;;
+            *.tar.bz2)  tar xjf "$1"   ;;
+            *.tar.gz)   tar xzf "$1"   ;;
+            *.bz2)      bunzip2 "$1"   ;;
+            *.rar)      unrar x "$1"   ;;
+            *.gz)       gunzip "$1"    ;;
+            *.tar)      tar xf "$1"    ;;
+            *.tbz2)     tar xjf "$1"   ;;
+            *.tgz)      tar xzf "$1"   ;;
+            *.zip)      unzip "$1"     ;;
+            *.Z)        uncompress "$1";;
+            *.7z)       7za e x "$1"   ;;
+            *.deb)      ar x "$1"      ;;
+            *.tar.xz)   tar xf "$1"    ;;
+            *.tar.zst)  unzstd "$1"    ;;
             *)          echo "'$1' could not be extracted with ex() - No se ha podido extraer con ex" ;;
         esac
     else
@@ -313,11 +314,6 @@ ex ()
     fi
 }
 #--------------------------------------------------------------#
-
-mkcd() {
-    mkdir "$1" && cd "$1" || return
-}
-
 
 #------------- AUTOCOMPLETION - AUTOCOMPLETACIÓN --------------#
 
@@ -333,6 +329,38 @@ if ! shopt -oq posix; then
     fi
 fi
 
+#--------------------------------------------------------------#
+#
+#----------------- CREATE THEN CHANGE DIR --------------------#
+
+function mkcd() {
+    mkdir "$1" && cd "$1" || return
+}
+
+#--------------------------------------------------------------#
+
+#------------------TMUX SENDER FOR OUTPUTS --------------------#
+function tsend () {
+    local input=""
+    if [[ -p /dev/stdin ]]; then
+        input="$(cat < /dev/stdin)"
+    else
+        input="$@"
+    fi
+
+    TMUX_SELECTED_SESSION=$(tmux list-sessions | sed 's/^\([^:]*\):.*/\1/' | $HOME/.fzf/bin/fzf --reverse)
+    tmux send-keys -t "$TMUX_SELECTED_SESSION" "$input" ENTER
+}
+
+function tns () { 
+    tmux new-session -ds $1 && tmux switch-client -t $1
+}
+
+function tbg () {
+    tmux new-session -ds "$1" && tmux send-key -t "$1" "$2" ENTER
+}
+#--------------------------------------------------------------#
+
 # FZF integration (https://github.com/junegunn/fzf)
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
@@ -340,7 +368,6 @@ fi
 source ~/.local/scripts/fzf-git.sh
 
 #--------------------------------------------------------------#
-
 
 #------------- PLUGIN AND ALIAS LOADING SCRIPTS ---------------#
 
@@ -359,7 +386,6 @@ fi
 #
 # minifetch
 #--------------------------------------------------------------#
-
 
 #--------------- bat (cat improved) integration ---------------#
 #

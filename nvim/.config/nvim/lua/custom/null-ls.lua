@@ -28,7 +28,7 @@ local sources = {
     -- diagnostics.eslint_d,
     diagnostics.mypy,
     diagnostics.ruff,
-    diagnostics.shellcheck,
+    -- diagnostics.shellcheck,
     -- diagnostics.flake8,
 
     -- Code actions
