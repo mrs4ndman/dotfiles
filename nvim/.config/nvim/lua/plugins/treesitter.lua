@@ -16,6 +16,7 @@ return {
                     load_textobjects = true
                 end,
             },
+            "JoosepAlviste/nvim-ts-context-commentstring",
         },
         opts = {
             ensure_installed = {
@@ -137,7 +138,10 @@ return {
                     goto_node = '<cr>',
                     show_help = '?',
                 },
-            }
+            },
+            context_commentstring = {
+                enable = true,
+            },
 
         }
     },
