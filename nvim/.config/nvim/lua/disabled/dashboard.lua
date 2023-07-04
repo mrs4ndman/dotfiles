@@ -8,8 +8,6 @@
 -- end
 -- require('dashboard').comfig {
 
-
-
 -- db.default_banner = {
 -- '',
 -- '',

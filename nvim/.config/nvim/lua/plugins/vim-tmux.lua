@@ -6,7 +6,7 @@ Use_Defaults = functions.use_plugin_defaults
 local plugin = "vim-tmux"
 
 return {
-    "tmux-plugins/" .. plugin,
-    enabled = Is_Enabled(plugin),
-    event = "VeryLazy",
+	"tmux-plugins/" .. plugin,
+	enabled = Is_Enabled(plugin),
+	event = "VeryLazy",
 }

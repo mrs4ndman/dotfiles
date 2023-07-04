@@ -6,8 +6,8 @@ Use_Defaults = functions.use_plugin_defaults
 local plugin = "nvim-genghis"
 
 return {
-    "chrisgrieser/" .. plugin,
-    enabled = Is_Enabled(plugin),
-    dependencies = "stevearc/dressing.nvim",
-    event = "VeryLazy",
+	"chrisgrieser/" .. plugin,
+	enabled = Is_Enabled(plugin),
+	dependencies = "stevearc/dressing.nvim",
+	event = "VeryLazy",
 }

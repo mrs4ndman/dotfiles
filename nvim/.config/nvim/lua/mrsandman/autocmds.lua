@@ -31,4 +31,3 @@ vim.cmd("autocmd! filetype lazy setlocal nonumber norelativenumber")
 
 -- Highlight yanking action for a second
 vim.api.nvim_command("au TextYankPost * silent! lua vim.highlight.on_yank {timeout = 50}")
-

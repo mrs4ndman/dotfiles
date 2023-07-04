@@ -7,7 +7,7 @@ local plugin = "rnvimr"
 
 -- TODO: Find another file explorer to integrate, this one causes trouble
 return {
-    "kevinhwang91/" .. plugin,
-    cmd = "RnvimrToggle",
-    enabled = Is_Enabled(plugin),
+	"kevinhwang91/" .. plugin,
+	cmd = "RnvimrToggle",
+	enabled = Is_Enabled(plugin),
 }

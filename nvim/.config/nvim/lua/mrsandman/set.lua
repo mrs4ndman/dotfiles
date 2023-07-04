@@ -2,8 +2,7 @@
 --
 -- General config
 -- Clipboard
-vim.api.nvim_command('set clipboard+=unnamedplus')
-
+vim.api.nvim_command("set clipboard+=unnamedplus")
 
 -- VIM OPTS
 
@@ -86,7 +85,7 @@ vim.g.rnvimr_pick_create = 0
 vim.g.rnvimr_enable_treesitter = 1
 
 -- undotree config
-vim.g.undotree_SetFocusWhenToggle =  1
+vim.g.undotree_SetFocusWhenToggle = 1
 
 -- Undotree & NVIM integration config:
 vim.o.swapfile = false
@@ -100,4 +99,4 @@ vim.o.pumheight = 20
 vim.notify = require("notify")
 
 -- Sesssion config
-vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"

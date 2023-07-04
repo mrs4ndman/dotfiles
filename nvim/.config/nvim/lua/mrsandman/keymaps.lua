@@ -9,36 +9,72 @@ vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>lz", "<cmd>Lazy<CR>", { desc = "Lazy", noremap = true, silent = true })
 vim.keymap.set("n", "<leader>mp", "<cmd>Mason<CR>", { desc = "Mason", noremap = true, silent = true })
 
--- Fugitive keybinds
-vim.keymap.set("n", "<leader>gs", "<cmd>Git status<CR>", { desc = "FuGITive Status" })
-vim.keymap.set("n", "<leader>gd", "<cmd>Git diff<CR>", { desc = "FuGITive Diff" })
--- TODO: Create new Fugitive keybinds
-
 -- Try it out if you're that desperate
 vim.keymap.set("n", "<leader>cat", "<cmd>CellularAutomaton make_it_rain<CR>", { desc = "cool stuff", silent = true })
 
+-- Colorizer toggle
 vim.keymap.set("n", "<leader>cl", "<cmd>ColorizerToggle<CR>", { desc = "Color picker toggle", silent = true })
+
 -- Number buffer selection with Leader + c + <number>
 for i = 1, 9 do
-    vim.keymap.set('n', ('<leader>c%s'):format(i), ('<Plug>(cokeline-focus-%s)'):format(i), { desc = "Change to buffer x", silent = true })
-    vim.keymap.set('n', ('<leader>s%s'):format(i), ('<Plug>(cokeline-switch-%s)'):format(i), { desc = "Swap with buffer x", silent = true })
+	vim.keymap.set(
+		"n",
+		("<leader>c%s"):format(i),
+		("<Plug>(cokeline-focus-%s)"):format(i),
+		{ desc = "Change to buffer x", silent = true }
+	)
+	vim.keymap.set(
+		"n",
+		("<leader>s%s"):format(i),
+		("<Plug>(cokeline-switch-%s)"):format(i),
+		{ desc = "Swap with buffer x", silent = true }
+	)
 end
 
 -- Trouble config:
-vim.keymap.set("n", "<leader>xx", "<cmd>TroubleToggle<cr>", { silent = true, noremap = true, desc = "Trouble Toggle"})
+vim.keymap.set("n", "<leader>xx", "<cmd>TroubleToggle<cr>", { silent = true, noremap = true, desc = "Trouble Toggle" })
 
-vim.keymap.set("n", "<leader>xq", "<cmd>TroubleToggle quickfix<cr>", { silent = true, noremap = true, desc = "Trouble Quickfix" })
+vim.keymap.set(
+	"n",
+	"<leader>xq",
+	"<cmd>TroubleToggle quickfix<cr>",
+	{ silent = true, noremap = true, desc = "Trouble Quickfix" }
+)
 
-vim.keymap.set("n", "<leader>xl", "<cmd>TroubleToggle loclist<cr>", { silent = true, noremap = true, desc = "Trouble Loclist" })
+vim.keymap.set(
+	"n",
+	"<leader>xl",
+	"<cmd>TroubleToggle loclist<cr>",
+	{ silent = true, noremap = true, desc = "Trouble Loclist" }
+)
 
-vim.keymap.set("n", "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>", { silent = true, noremap = true, desc = "Trouble Workspace Diagnostics" })
+vim.keymap.set(
+	"n",
+	"<leader>xw",
+	"<cmd>TroubleToggle workspace_diagnostics<cr>",
+	{ silent = true, noremap = true, desc = "Trouble Workspace Diagnostics" }
+)
 
-vim.keymap.set("n", "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>", { silent = true, noremap = true, desc = "Trouble Document Diagnostics" })
+vim.keymap.set(
+	"n",
+	"<leader>xd",
+	"<cmd>TroubleToggle document_diagnostics<cr>",
+	{ silent = true, noremap = true, desc = "Trouble Document Diagnostics" }
+)
 
-vim.keymap.set("n", "gR", "<cmd>TroubleToggle lsp_references<cr>", { silent = true, noremap = true, desc = "Trouble LSP References" })
+vim.keymap.set(
+	"n",
+	"gR",
+	"<cmd>TroubleToggle lsp_references<cr>",
+	{ silent = true, noremap = true, desc = "Trouble LSP References" }
+)
 
-vim.keymap.set("n", "<leader>iw", "<cmd>IlluminateToggle<CR>", { desc = "Word HL toggle"})
+-- Word-illuminate toggle
+vim.keymap.set("n", "<leader>iw", "<cmd>IlluminateToggle<CR>", { desc = "Word HL toggle" })
+-- TODO: Find a Lua replacement
 
+-- Oil keybind
+vim.keymap.set("n", "<leader>e", require("oil").open, { desc = "It's oiling time" })
 
 -- INTERNAL KEYBINDS
 
@@ -46,11 +82,11 @@ vim.keymap.set("n", "<leader>iw", "<cmd>IlluminateToggle<CR>", { desc = "Word HL
 --
 -- Source current config file
 vim.keymap.set("n", "<leader><leader>", function()
-    vim.cmd("so")
+	vim.cmd("so")
 end, { silent = true, desc = "Source current file" })
 
--- Netrw start
-vim.keymap.set("n", "<leader>e", vim.cmd.Ex, { desc = "Ex", silent = true })
+-- Netrw keybind
+vim.keymap.set("n", "<leader>E", vim.cmd.Ex, { desc = "Ex", silent = true })
 
 -- Get me out of here (:D)
 vim.keymap.set("n", "<leader><Esc>", "<cmd>quitall<CR>", { desc = "Quit all", silent = true })
@@ -66,14 +102,16 @@ vim.keymap.set("n", "<leader>ip", "=ap", { desc = "Indent a paragraph", silent =
 vim.keymap.set("n", "<leader>cx", "<cmd>!chmod +x %<CR>", { desc = "Make file executable", silent = true })
 
 -- greatest remaps ever,  replace current selection with paste buffer & visual deletion made easy
-vim.keymap.set("x", "<leader>p", "\"_dP", { desc = "Better paste :)" })
+vim.keymap.set("x", "<leader>p", '"_dP', { desc = "Better paste :)" })
 vim.keymap.set({ "n", "v" }, "<leader>dd", [["_d]], { desc = "Better delete" })
 
 -- smart blackhole deletion
-vim.keymap.set("n", "dd", function ()
-    if vim.fn.getline(".") == "" then return '"_dd' end
-    return "dd"
-end, {expr = true})
+vim.keymap.set("n", "dd", function()
+	if vim.fn.getline(".") == "" then
+		return '"_dd'
+	end
+	return "dd"
+end, { expr = true })
 
 -- Appending line below to current line ("lil J")
 vim.keymap.set("n", "J", "mzJ'z", { silent = true })
@@ -83,14 +121,14 @@ vim.keymap.set("n", "n", "nzzzv", { silent = true })
 vim.keymap.set("n", "N", "Nzzzv", { silent = true })
 
 -- Delete character without yanking
-vim.keymap.set({ "n", "v" }, "x", "\"_x", { silent = true })
-vim.keymap.set({ "n", "v" }, "X", "\"_X", { silent = true })
+vim.keymap.set({ "n", "v" }, "x", '"_x', { silent = true })
+vim.keymap.set({ "n", "v" }, "X", '"_X', { silent = true })
 
 -- Select all
 vim.keymap.set("n", "<leader>sa", "ggVG", { desc = "Select all" })
 
 -- Yank whole buffer
-vim.keymap.set("n", "<leader>ya", "ggVG\"+y", { desc = "Yank whole buffer" })
+vim.keymap.set("n", "<leader>ya", 'ggVG"+y', { desc = "Yank whole buffer" })
 
 -- Insert new line above and below and exit
 vim.keymap.set("n", "<leader>o", "o<Esc>", { silent = true, desc = "Insert new line below and exit" })
@@ -98,14 +136,18 @@ vim.keymap.set("n", "<leader>O", "O<Esc>", { silent = true, desc = "Insert new l
 
 -- Buffer previous, next and close, window closing too
 vim.keymap.set("n", "<leader>bn", "<cmd>bnext<CR>", { noremap = true, silent = true, desc = "Next buffer" })
-vim.keymap.set("n", "<leader>bp", "<cmd>bprevious<CR>", { noremap = true, silent = true, desc = "Previous buffer"})
-vim.keymap.set("n", "<leader>bc", "<cmd>bd<CR>", { noremap = true, silent = true, desc = "Close buffer softly"})
-vim.keymap.set("n", "<leader>cw", "<cmd>close<CR>", { noremap = true, silent = true, desc = "Close window one way"})
-vim.keymap.set("n", "<leader>q", "<cmd>close<CR>", { noremap = true, silent = true, desc = "Close window the other way"})
+vim.keymap.set("n", "<leader>bp", "<cmd>bprevious<CR>", { noremap = true, silent = true, desc = "Previous buffer" })
+vim.keymap.set("n", "<leader>bc", "<cmd>bd<CR>", { noremap = true, silent = true, desc = "Close buffer softly" })
+vim.keymap.set("n", "<leader>cw", "<cmd>close<CR>", { noremap = true, silent = true, desc = "Close window one way" })
+vim.keymap.set(
+	"n",
+	"<leader>q",
+	"<cmd>close<CR>",
+	{ noremap = true, silent = true, desc = "Close window the other way" }
+)
 
 -- Delete buffer without saving
-vim.keymap.set("n", "<leader>bd", "<cmd>bd!<CR>", { noremap = true, silent = true, desc = "Force buffer close"})
-
+vim.keymap.set("n", "<leader>bd", "<cmd>bd!<CR>", { noremap = true, silent = true, desc = "Force buffer close" })
 
 -- Normal mode CTRL Keybinds
 
@@ -116,13 +158,11 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz", { silent = true })
 -- Invoke sessionizer
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>", { desc = "tmux sessionizer" })
 
-
 -- INSERT mode Keybinds
 
 -- How to escape Vim Insert mode: keybind edition:
 
 vim.keymap.set("i", "<C-c>", "<Esc>", { silent = true })
-
 
 -- VISUAL mode Keybinds
 
