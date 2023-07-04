@@ -6,6 +6,6 @@ Use_Defaults = functions.use_plugin_defaults
 local plugin = "nui.nvim"
 
 return {
-	"MunifTanjim/" .. plugin,
-	enabled = Is_Enabled(plugin),
+  "MunifTanjim/" .. plugin,
+  enabled = Is_Enabled(plugin),
 }

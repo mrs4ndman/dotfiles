@@ -6,8 +6,8 @@ Use_Defaults = functions.use_plugin_defaults
 local plugin = "which-key.nvim"
 
 return {
-	"folke/" .. plugin,
-	enabled = Is_Enabled(plugin),
-	event = "VeryLazy",
-	keys = false,
+  "folke/" .. plugin,
+  enabled = Is_Enabled(plugin),
+  event = "VeryLazy",
+  keys = false,
 }

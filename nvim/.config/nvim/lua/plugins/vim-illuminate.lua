@@ -6,8 +6,8 @@ local plugin = "vim-illuminate"
 -- Highlighting instances of words with LSP, Treesitter and Regex matching
 
 return {
-	"RRethy/" .. plugin,
-	enabled = Is_Enabled(plugin),
-	cmd = "IlluminateToggle",
-	lazy = true,
+  "RRethy/" .. plugin,
+  enabled = Is_Enabled(plugin),
+  cmd = "IlluminateToggle",
+  lazy = true,
 }

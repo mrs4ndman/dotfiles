@@ -7,14 +7,14 @@ local plugin = "todo-comments.nvim"
 
 -- TODO: TEST
 return {
-	"folke/" .. plugin,
-	enabled = Is_Enabled(plugin),
-	dependencies = "nvim-lua/plenary.nvim",
-	cmd = { "TodoTrouble", "TodoTelescope", "TodoLocList", "TodoQuickFix" },
-	opts = {
-		signs = true,
-	},
-	config = function(opts)
-		require("todo-comments").setup(opts)
-	end,
+  "folke/" .. plugin,
+  enabled = Is_Enabled(plugin),
+  dependencies = "nvim-lua/plenary.nvim",
+  cmd = { "TodoTrouble", "TodoTelescope", "TodoLocList", "TodoQuickFix" },
+  opts = {
+    signs = true,
+  },
+  config = function(opts)
+    require("todo-comments").setup(opts)
+  end,
 }

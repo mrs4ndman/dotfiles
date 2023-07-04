@@ -6,7 +6,7 @@ Use_Defaults = functions.use_plugin_defaults
 local plugin = "vim-lastplace"
 
 return {
-	"farmergreg/" .. plugin,
-	event = "VimEnter",
-	enabled = Is_Enabled(plugin),
+  "farmergreg/" .. plugin,
+  event = "VimEnter",
+  enabled = Is_Enabled(plugin),
 }

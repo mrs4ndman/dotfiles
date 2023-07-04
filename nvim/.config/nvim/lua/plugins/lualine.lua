@@ -7,7 +7,7 @@ local plugin = "lualine.nvim"
 
 -- Best statusline for nvim in Lua
 return {
-	"nvim-lualine/" .. plugin,
-	enabled = Is_Enabled(plugin),
-	event = "UIEnter",
+  "nvim-lualine/" .. plugin,
+  enabled = Is_Enabled(plugin),
+  event = "UIEnter",
 }

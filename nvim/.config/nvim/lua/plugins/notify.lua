@@ -6,18 +6,18 @@
 local plugin = "nvim-notify"
 
 return {
-	"rcarriga/" .. plugin,
-	-- enabled = Is_Enabled(plugin),
-	priority = 1000,
-	opts = {
-		stages = "fade",
-		timeout = 1500,
-		render = "compact",
-		max_height = function()
-			return math.floor(vim.o.lines * 0.40)
-		end,
-		max_width = function()
-			return math.floor(vim.o.columns * 0.70)
-		end,
-	},
+  "rcarriga/" .. plugin,
+  -- enabled = Is_Enabled(plugin),
+  priority = 1000,
+  opts = {
+    stages = "fade",
+    timeout = 1500,
+    render = "compact",
+    max_height = function()
+      return math.floor(vim.o.lines * 0.40)
+    end,
+    max_width = function()
+      return math.floor(vim.o.columns * 0.70)
+    end,
+  },
 }

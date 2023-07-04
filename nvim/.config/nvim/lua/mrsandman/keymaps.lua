@@ -17,56 +17,56 @@ vim.keymap.set("n", "<leader>cl", "<cmd>ColorizerToggle<CR>", { desc = "Color pi
 
 -- Number buffer selection with Leader + c + <number>
 for i = 1, 9 do
-	vim.keymap.set(
-		"n",
-		("<leader>c%s"):format(i),
-		("<Plug>(cokeline-focus-%s)"):format(i),
-		{ desc = "Change to buffer x", silent = true }
-	)
-	vim.keymap.set(
-		"n",
-		("<leader>s%s"):format(i),
-		("<Plug>(cokeline-switch-%s)"):format(i),
-		{ desc = "Swap with buffer x", silent = true }
-	)
+  vim.keymap.set(
+    "n",
+    ("<leader>c%s"):format(i),
+    ("<Plug>(cokeline-focus-%s)"):format(i),
+    { desc = "Change to buffer x", silent = true }
+  )
+  vim.keymap.set(
+    "n",
+    ("<leader>s%s"):format(i),
+    ("<Plug>(cokeline-switch-%s)"):format(i),
+    { desc = "Swap with buffer x", silent = true }
+  )
 end
 
 -- Trouble config:
 vim.keymap.set("n", "<leader>xx", "<cmd>TroubleToggle<cr>", { silent = true, noremap = true, desc = "Trouble Toggle" })
 
 vim.keymap.set(
-	"n",
-	"<leader>xq",
-	"<cmd>TroubleToggle quickfix<cr>",
-	{ silent = true, noremap = true, desc = "Trouble Quickfix" }
+  "n",
+  "<leader>xq",
+  "<cmd>TroubleToggle quickfix<cr>",
+  { silent = true, noremap = true, desc = "Trouble Quickfix" }
 )
 
 vim.keymap.set(
-	"n",
-	"<leader>xl",
-	"<cmd>TroubleToggle loclist<cr>",
-	{ silent = true, noremap = true, desc = "Trouble Loclist" }
+  "n",
+  "<leader>xl",
+  "<cmd>TroubleToggle loclist<cr>",
+  { silent = true, noremap = true, desc = "Trouble Loclist" }
 )
 
 vim.keymap.set(
-	"n",
-	"<leader>xw",
-	"<cmd>TroubleToggle workspace_diagnostics<cr>",
-	{ silent = true, noremap = true, desc = "Trouble Workspace Diagnostics" }
+  "n",
+  "<leader>xw",
+  "<cmd>TroubleToggle workspace_diagnostics<cr>",
+  { silent = true, noremap = true, desc = "Trouble Workspace Diagnostics" }
 )
 
 vim.keymap.set(
-	"n",
-	"<leader>xd",
-	"<cmd>TroubleToggle document_diagnostics<cr>",
-	{ silent = true, noremap = true, desc = "Trouble Document Diagnostics" }
+  "n",
+  "<leader>xd",
+  "<cmd>TroubleToggle document_diagnostics<cr>",
+  { silent = true, noremap = true, desc = "Trouble Document Diagnostics" }
 )
 
 vim.keymap.set(
-	"n",
-	"gR",
-	"<cmd>TroubleToggle lsp_references<cr>",
-	{ silent = true, noremap = true, desc = "Trouble LSP References" }
+  "n",
+  "gR",
+  "<cmd>TroubleToggle lsp_references<cr>",
+  { silent = true, noremap = true, desc = "Trouble LSP References" }
 )
 
 -- Word-illuminate toggle
@@ -82,7 +82,7 @@ vim.keymap.set("n", "<leader>e", require("oil").open, { desc = "It's oiling time
 --
 -- Source current config file
 vim.keymap.set("n", "<leader><leader>", function()
-	vim.cmd("so")
+  vim.cmd("so")
 end, { silent = true, desc = "Source current file" })
 
 -- Netrw keybind
@@ -107,10 +107,10 @@ vim.keymap.set({ "n", "v" }, "<leader>dd", [["_d]], { desc = "Better delete" })
 
 -- smart blackhole deletion
 vim.keymap.set("n", "dd", function()
-	if vim.fn.getline(".") == "" then
-		return '"_dd'
-	end
-	return "dd"
+  if vim.fn.getline(".") == "" then
+    return '"_dd'
+  end
+  return "dd"
 end, { expr = true })
 
 -- Appending line below to current line ("lil J")
@@ -140,10 +140,10 @@ vim.keymap.set("n", "<leader>bp", "<cmd>bprevious<CR>", { noremap = true, silent
 vim.keymap.set("n", "<leader>bc", "<cmd>bd<CR>", { noremap = true, silent = true, desc = "Close buffer softly" })
 vim.keymap.set("n", "<leader>cw", "<cmd>close<CR>", { noremap = true, silent = true, desc = "Close window one way" })
 vim.keymap.set(
-	"n",
-	"<leader>q",
-	"<cmd>close<CR>",
-	{ noremap = true, silent = true, desc = "Close window the other way" }
+  "n",
+  "<leader>q",
+  "<cmd>close<CR>",
+  { noremap = true, silent = true, desc = "Close window the other way" }
 )
 
 -- Delete buffer without saving
