@@ -276,14 +276,6 @@ ins_right {
     cond = conditions.hide_in_width,
 }
 
-
--- ins_left {
---     require("noice").api.status.search.get,
---     cond = require("noice").api.status.search.has,
---     color = { fg = "#ff9e64" },
--- }
-
-
 ins_right {
     'o:encoding',
     fmt = string.lower,

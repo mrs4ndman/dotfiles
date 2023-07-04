@@ -7,7 +7,6 @@ return {
         "hrsh7th/" .. plugin,
         event = "InsertEnter",
         enabled = Is_Enabled(plugin),
-        opts = require("custom.cmp"),
         dependencies = {
             "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-path",
@@ -15,8 +14,14 @@ return {
             "hrsh7th/cmp-nvim-lua",
             "hrsh7th/cmp-nvim-lsp-document-symbol",
             "hrsh7th/cmp-nvim-lsp",
-            "L3MON4D3/LuaSnip",
+            {
+                "L3MON4D3/LuaSnip",
+                config = function()
+                    require("luasnip.loaders.from_vscode").lazy_load()
+                end
+            },
             "saadparwaiz1/cmp_luasnip",
             "rafamadriz/friendly-snippets",
         },
+        opts = require("custom.cmp"),
 }

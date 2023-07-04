@@ -19,6 +19,7 @@ require("lspconfig").rust_analyzer.setup{
        navic.attach(client, bufnr)
     end,
 }
+lspconfig.pylsp.setup {}
 lspconfig.vimls.setup {}
 lspconfig.marksman.setup {}
 lspconfig.clangd.setup {}

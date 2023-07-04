@@ -11,14 +11,7 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
         "folke/neodev.nvim",
-        "williamboman/mason.nvim",
     },
-    -- {
-    --     "j-hui/fidget.nvim",
-    --     tag = "legacy",
-    --     opts = {},
-    --     event = { "BufReadPost", "BufNewFile" },
-    -- },
     -- {
     --     "pmizio/typescript-tools.nvim",
     --     dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },

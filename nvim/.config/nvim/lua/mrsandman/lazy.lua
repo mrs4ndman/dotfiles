@@ -8,8 +8,6 @@ require("lazy").setup({
         -- { import = "plugins.notify" },
     },
     defaults = { lazy = true },
-    install = { colorscheme = { "tokyonight", "habamax" } },
-    checker = { enabled = true },
     performance = {
         cache = {
             enabled = true,

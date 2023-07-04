@@ -74,9 +74,8 @@ return {
             { "theHamsta/nvim-dap-virtual-text" },
             -- DAP adapters
             { "jbyuki/one-small-step-for-vimkind", module = "osv" },
-            { "leoluz/nvim-dap-go", module = "dap-go" },
+            { "leoluz/nvim-dap-go", module = "dap-go", ft = "go" },
         },
-        event = "VeryLazy",
         config = function(plugin, opts)
             vim.api.nvim_set_hl(0, "DapStoppedLine", { default = true, link = "Visual" })
             require("nvim-dap-virtual-text").setup {

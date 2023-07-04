@@ -40,41 +40,6 @@ vim.keymap.set("n", "gR", "<cmd>TroubleToggle lsp_references<cr>", { silent = tr
 vim.keymap.set("n", "<leader>iw", "<cmd>IlluminateToggle<CR>", { desc = "Word HL toggle"})
 
 
-local wk = require("which-key")
-
--- LEADER plugin keybinds (Space for this config)
-
-wk.register({
-    -- which-key category entries
-    ["Q"] = { name = "TreeSJ" },
-    ["<leader>b"] = { name = "[B]uffers" },
-    ["<leader>c"] = { name = "Close + TS Context" },
-    ["<leader>d"] = { name = "DAP (+ CodeLLDB when active)" },
-    ["<leader>f"] = { name = "LSP Format TS Rename Function FML" },
-    ["<leader>g"] = { name = "Fu[G]itive" },
-    ["<leader>i"] = { name = "[I]ndent[L]ine, Word-repetition" },
-    ["<leader>k"] = { name = "Harpoon switching+" },
-    ["<leader>l"] = { name = "over[L]eng[T]h, Lazy" },
-    ["<leader>n"] = { name = "[N]eo[C]lip" },
-    ["<leader>q"] = { name = "Close" },
-    ["<leader>s"] = { name = "Cokeline+, Sessions, Alpha" },
-    ["<leader>t"] = { name = "Telescope TS Aerial Harpoon ToDo"},
-    ["<leader>ta"] = { name = "Aerial" },
-    -- ["<leader>tc"] = { name = "[T]o-do [C]omments+"},
-    -- ["<leader>tt"] = { name = "[T]reesi[T]ter [P]layground"},
-    -- ["<leader>u"] = { name = "[U]ndo-Tree" },
-    ["<leader>v"] = { name = "HBAC, LSP, " },
-    ["<leader>x"] = { name = "Trouble+" },
-    ["<leader>z"] = { name = "[Z]en-Mode / Twilight" },
-
-    -- Custom lua functions: their which-key entries
-    ["<leader>th"] = { "<cmd>Themer<CR>", "Colorschme manager", { silent = true } },
-})
-
--- All the plugin keybinds are either with the plugin definition or in the corresponding
--- custom/file.lua
-
-
 -- INTERNAL KEYBINDS
 
 -- NORMAL mode Keybinds

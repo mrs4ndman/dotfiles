@@ -8,7 +8,11 @@ local plugin = "zen-mode.nvim"
 return {
     "folke/" .. plugin,
     enabled = Is_Enabled(plugin),
-    event = "VeryLazy",
+    -- event = "VeryLazy",
+    keys = {
+        "<leader>zz",
+        "<leader>zZ",
+    },
     config = function()
         -- ZEN-MODE
         vim.keymap.set("n", "<leader>zz", function()

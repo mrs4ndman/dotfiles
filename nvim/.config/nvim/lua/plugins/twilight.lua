@@ -8,7 +8,8 @@ local plugin = "twilight.nvim"
 return {
     "folke/" .. plugin,
     enabled = Is_Enabled(plugin),
-    event = "BufReadPost",
+    -- event = "BufReadPost",
+    cmd = "Twilight",
     opts = function(_,opts)
         if Use_Defaults(plugin) then
             opts = opts
