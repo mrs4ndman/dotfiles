@@ -126,59 +126,57 @@ let mapleader=" "
 nnoremap <silent> <leader><leader> :source %<CR>
 
 " Open up Ex
-silent nmap <leader>e :Ex<CR>
+nmap <silent> <leader>e :Ex<CR>
 
 " Quick exit
-silent nmap <leader><Esc> :qa<CR>
+nmap <silent> <leader><Esc> :qa<CR>
 
 " Buffer management
-silent nmap <leader>bn :bnext<CR>
-silent nmap <leader>bp :bprev<CR>
-silent nmap <leader>bc :bd<CR>
-silent nmap <leader>bd :bd!<CR>
+nmap <silent> <leader>bn :bnext<CR>
+nmap <silent> <leader>bp :bprev<CR>
+nmap <silent> <leader>bc :bd<CR>
+nmap <silent> <leader>bd :bd!<CR>
 
 " Set files to executable inside Neovim
-silent map <leader>cx :!chmod +x %<CR>
+nmap <silent> <leader>cx :!chmod +x %<CR>
 
 " Delete without yanking
-silent nmap <leader>dd [["_d]]
-
-" TODO: Check the syntax for some of these to work
+nmap <silent> <leader>dd [["_d]]
 
 " When appending line, keep the cursor centered
-silent nmap J mzJ'z
+nmap <silent> J mzJ'z
 
 " Center search movement 1
-silent nmap n nzzzv
+nmap <silent> n nzzzv
 
 " Center search movement 2
-silent nmap N Nzzzv
+nmap <silent> N Nzzzv
 
 " Create new lines above or below the cursor position
-silent nmap <leader>o O<Esc>
-silent nmap <leader>O O<Esc>
+nmap <silent> <leader>o O<Esc>
+nmap <silent> <leader>O O<Esc>
 
 " Plugin management
 silent nmap <leader>ps :PlugUpdate<CR>
 
 " Allows you to replace current selection with paste buffer
-silent xmap <leader>p "\"_dP"
+xmap <silent>  <leader>p "\"_dP"
 
 " Unmapping Q
-silent nmap Q <nop>
+nmap <silent> Q <nop>
 
 " Select whole buffer
-silent nmap <leader>sa ggVG
+nmap <silent> <leader>sa ggVG
 
 " Yank whole buffer
-silent nmap <leader>ya ggVG\"+y
+nmap <silent> <leader>ya ggVG\"+y
 
 " Keep cursor centered when navigating with Ctrl-D / Ctrl-U
-silent nmap <C-d> <C-d>zz
-silent nmap <C-u> <C-u>zz
+nmap <silent> <C-d> <C-d>zz
+nmap <silent> <C-u> <C-u>zz
 
 " Invoke tmux-sessionizer from within neovim
-silent nmap <C-f> :silent !tmux neww tmux-sessionizer<CR>
+nmap <silent> <C-f> :silent !tmux neww tmux-sessionizer<CR>
 
 " Moving around text on visual
 vnoremap <silent> <expr> J ":m '>+1<CR>gv-gv"
