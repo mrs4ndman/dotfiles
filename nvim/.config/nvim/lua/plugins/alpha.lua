@@ -10,7 +10,8 @@ return {
     -- event = "VimEnter",
     dependencies = "nvim-tree/nvim-web-devicons",
     enabled = Is_Enabled(plugin),
-    event = "VimEnter",
+    lazy = false,
+    priority = 1000,
     opts = function(_, opts)
         if Use_Defaults(plugin) then
             opts = opts

@@ -15,7 +15,7 @@ return {
         else opts.input = {
             enabled = true,
             title_pos = "center",
-            start_in_insert = false,
+            start_in_insert = true,
             border = "rounded",
             relative = "cursor",
             win_options = {

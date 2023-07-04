@@ -37,7 +37,7 @@ vim.keymap.set("n", "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>",
 
 vim.keymap.set("n", "gR", "<cmd>TroubleToggle lsp_references<cr>", { silent = true, noremap = true, desc = "Trouble LSP References" })
 
-
+vim.keymap.set("n", "<leader>iw", "<cmd>IlluminateToggle<CR>", { desc = "Word HL toggle"})
 
 
 local wk = require("which-key")
@@ -93,6 +93,9 @@ vim.keymap.set("n", "<leader>w", "<cmd>write<CR>", { desc = "Write all" })
 
 -- Substitutor for current word
 vim.keymap.set("n", "<C-s>", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
+-- indent machine
+vim.keymap.set("n", "<leader>ip", "=ap", { desc = "Indent a paragraph", silent = true })
 
 -- Set files to be executable
 vim.keymap.set("n", "<leader>cx", "<cmd>!chmod +x %<CR>", { desc = "Make file executable", silent = true })

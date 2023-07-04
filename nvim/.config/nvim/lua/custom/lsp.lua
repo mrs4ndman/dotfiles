@@ -107,9 +107,9 @@ for type, icon in pairs(signs) do
 end
 
 vim.diagnostic.config({
-    virtual_text = false,
+    virtual_text = true,
     underline = true,
     update_in_insert = false,
-    severity_sort = false,
+    severity_sort = true,
 })
 

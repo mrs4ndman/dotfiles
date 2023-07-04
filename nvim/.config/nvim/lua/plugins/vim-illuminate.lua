@@ -9,8 +9,6 @@ return {
     "RRethy/" .. plugin,
     enabled = Is_Enabled(plugin),
     cmd = "IlluminateToggle",
-    config = {
-        vim.keymap.set("n", "<leader>iw", "<cmd>IlluminateToggle<CR>", { desc = "Word HL toggle"})
-    },
+    lazy = true,
 }
 

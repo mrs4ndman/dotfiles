@@ -9,7 +9,7 @@ return  {
     "rcarriga/" .. plugin,
     -- enabled = Is_Enabled(plugin),
     priority = 1000,
-    config = {
+    opts = {
         stages = "fade",
         timeout = 1500,
         render = "compact",

@@ -12,9 +12,6 @@ wk.register({
     -- Alpha dashboard
     ["<leader>sp"] = { "<cmd>Alpha<CR>", "Toggle Start Screen", { silent = true } },
 
-    -- NEOCLIP
-    ["<leader>nc"] = { "<cmd>Telescope neoclip<CR>", { desc = "Neoclip toggle", silent = true } },
-
     -- AUTO-SESSION
     ["<leader>sd"] = { "<cmd>SessionDelete<CR>", "Delete current session", { silent = true } },
     ["<leader>sr"] = { "<cmd>SessionRestore<CR>", "Restore session for CWD", { silent = true } },

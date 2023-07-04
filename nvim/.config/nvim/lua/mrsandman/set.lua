@@ -4,9 +4,6 @@
 -- Clipboard
 vim.api.nvim_command('set clipboard+=unnamedplus')
 
--- Don't show status in cmdline
-vim.api.nvim_command('set noshowmode')
-
 
 -- VIM OPTS
 
@@ -15,7 +12,7 @@ vim.opt.guicursor = ""
 
 -- Cursorline
 vim.wo.cursorline = true
-vim.wo.cursorlineopt = "number"
+vim.wo.cursorlineopt = "both"
 
 -- Splits
 vim.opt.splitright = true
@@ -41,7 +38,7 @@ vim.opt.expandtab = true
 
 -- Vim indenting
 vim.opt.smartindent = true
-vim.o.breakindent = true
+vim.opt.breakindent = true
 
 -- No text wrapping
 vim.opt.wrap = false
@@ -52,6 +49,9 @@ vim.opt.incsearch = true
 
 -- Highlight bracket pairs
 vim.opt.showmatch = true
+
+-- bars
+vim.opt.showmode = false
 
 -- Terminal colors
 vim.opt.termguicolors = true
