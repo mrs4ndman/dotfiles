@@ -28,10 +28,12 @@ return {
           },
           find_files = {
             find_command = { "fd", "--type", "f", "--hidden", "--exclude", ".git" },
+            theme = "ivy",
           },
         }
         opts.defaults = {
           preview = { timeout = 500 },
+          theme = "dropdown",
           vimgrep_arguments = {
             "rg",
             "--no-heading",
@@ -44,17 +46,16 @@ return {
           sort_mru = true,
           sorting_strategy = "ascending",
           color_devicons = true,
+          layout_strategy = "horizontal",
           layout_config = {
             prompt_position = "top",
             horizontal = {
               width_padding = 0.04,
               height_padding = 0.1,
-              preview_width = 0.6,
             },
             vertical = {
               width_padding = 0.05,
               height_padding = 1,
-              preview_height = 0.5,
             },
           },
           border = true,

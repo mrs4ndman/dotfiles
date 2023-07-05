@@ -76,7 +76,6 @@ Customize = {
     ["oxocarbon.nvim"] = { enabled = true },
     ["plenary.nvim"] = { enabled = true },
     ["popup.nvim"] = { enabled = true },
-    ["rnvimr"] = { enabled = true, defaults = false },
     ["rust-tools.nvim"] = { enabled = true },
     ["tabout.nvim"] = { enabled = true, defaults = false },
     ["telescope.nvim"] = { enabled = true },
