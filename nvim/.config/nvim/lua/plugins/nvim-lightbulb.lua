@@ -17,14 +17,14 @@ return {
       opts = {
         ignore = {},
         sign = {
-          enabled = true,
+          enabled = false,
           priority = 10,
         },
-        -- status_text = {
-        --     enabled = true,
-        --     text = "󰛨",
-        --     text_unavailable = ""
-        -- },
+        status_text = {
+            enabled = true,
+            text = "󰛨",
+            text_unavailable = ""
+        },
         autocmd = { enabled = true },
       }
     end

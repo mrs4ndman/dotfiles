@@ -126,10 +126,11 @@ return function(_, opts)
       ["<S-Tab>"] = vim.NIL,
     })
     local sources = {
-      { name = "path" },
-      { name = "crates" }, -- crates.nvim plugin
-      { name = "nvim_lua" },
       { name = "luasnip" },
+      { name = "nvim_lsp" },
+      { name = "crates" }, -- crates.nvim plugin
+      { name = "path" },
+      { name = "nvim_lua" },
       { name = "vsnip" },
       { name = "treesitter" }, -- treesitter integration
       -- { name = 'cmdline' },
@@ -141,7 +142,6 @@ return function(_, opts)
           end,
         },
       },
-      { name = "nvim_lsp" },
     }
     local experimental = {
       ghost_text = {

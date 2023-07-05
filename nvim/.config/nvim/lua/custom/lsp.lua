@@ -5,6 +5,7 @@ local lspconfig = require("lspconfig")
 require("lspconfig").lua_ls.setup({
   on_attach = function(client, bufnr)
     navic.attach(client, bufnr)
+    require("virtualtypes").on_attach()
   end,
   settings = {
     Lua = {
@@ -18,10 +19,18 @@ require("lspconfig").rust_analyzer.setup({
   on_attach = function(client, bufnr)
     navic.attach(client, bufnr)
   end,
+  settings = {
+    ["rust-analyzer"] = {
+      diagnostics = {
+        enable = false,
+      },
+    },
+  },
 })
 lspconfig.pylsp.setup({})
 lspconfig.vimls.setup({})
 lspconfig.marksman.setup({})
+lspconfig.ocamlls.setup({})
 lspconfig.clangd.setup({})
 lspconfig.neocmake.setup({})
 -- lspconfig.html.setup {}

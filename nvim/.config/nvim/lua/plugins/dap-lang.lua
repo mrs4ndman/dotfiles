@@ -10,10 +10,6 @@ return {
     end,
   },
   {
-    "simrat39/rust-tools.nvim",
-    ft = "rust",
-  },
-  {
     "saecki/crates.nvim",
     ft = "rust",
     dependencies = { "nvim-lua/plenary.nvim" },

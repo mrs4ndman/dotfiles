@@ -50,7 +50,7 @@ return {
         },
       }
     end
-    config = {
+    local config = {
       require("dressing").setup({}),
     }
   end,

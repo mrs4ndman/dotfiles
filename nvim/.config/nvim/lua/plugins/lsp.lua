@@ -11,6 +11,13 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     "folke/neodev.nvim",
+    "jubnzv/virtual-types.nvim",
+    {
+      "weilbith/nvim-code-action-menu",
+      cmd = "CodeActionMenu",
+      keys = { { "<leader>ca", "<cmd>CodeActionMenu<CR>", desc = "Code action popup" } },
+    },
+    "folke/lsp-colors.nvim"
   },
   -- {
   --     "pmizio/typescript-tools.nvim",
