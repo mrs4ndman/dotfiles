@@ -23,7 +23,7 @@ return {
     local alpha = require("alpha")
     local dashboard = require("alpha.themes.dashboard")
     -- It uses almost the same format as the "date" command in Linux (man date for info)
-    local time = os.date("%_k:%M ~ %a - %b %d")
+    local time = os.date("%_k:%M - %a - %b %d")
 
     if vim.o.filetype == "lazy" then
       vim.cmd.close()
@@ -39,17 +39,20 @@ return {
       pattern = "LazyVimStarted",
       callback = function()
         local stats = require("lazy").stats()
+        local v = vim.version()
         local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
         dashboard.section.footer.val = {
           "",
           "",
           "",
-          "                     " .. time .. "                       ",
+          "                    " .. time,
           "",
-          "          ⚡ Neovim loaded all " .. stats.count .. " plugins in " .. ms .. "ms",
+          "                        Neovim " .. v.major .. "." .. v.minor .. "." .. v.patch,
           "",
-          "  󰽰 I tuck you in, warm within, keep you free from sin ... 󰽰",
-          "                󰎈 'Til the Sandman, he comes 󰎈              ",
+          "              " .. stats.count .. " plugins | " .. ms .. "ms |  mrs4ndman" ,
+          "",
+          "   󰽰 I tuck you in, warm within, keep you free from sin ... 󰽰",
+          "                 󰎈 'Til the Sandman, he comes 󰎈              ",
           "",
           "",
           "",
@@ -86,19 +89,15 @@ return {
         dashboard.button("f", "    Find project file", ":Telescope find_files<CR>"),
         dashboard.button("h", "󱂵    Home dir find", ":cd $HOME | Telescope find_files<CR>"),
         dashboard.button("r", "    Recent", ":Telescope oldfiles<CR>"),
-        dashboard.button("g", "    Grep word", ":Telescope live_grep<CR>"),
+        dashboard.button("g", "    Grep pattern", ":Telescope live_grep<CR>"),
         dashboard.button("l", "󰒲    Lazy", ":Lazy<CR>"),
-        dashboard.button("s", "    Main settings", ":e $NVIMRC<CR>"),
+        dashboard.button("s", "    Settings", ":e $NVIMRC<CR>"),
         dashboard.button("q", "󰿅    Quit", ":qa<CR>"),
       }
 
-      dashboard.section.footer.val = {}
-
       alpha.setup(dashboard.opts)
 
-      vim.cmd([[
-                autocmd Filetype alpha setlocal nofoldenable signcolumn=no nonumber norelativenumber
-                ]])
+      vim.cmd([[ autocmd Filetype alpha setlocal nofoldenable signcolumn=no nonumber norelativenumber ]])
     end
   end,
 }
