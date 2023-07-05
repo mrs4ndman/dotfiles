@@ -8,12 +8,6 @@ local plugin = "multicursors.nvim"
 return {
   "smoka7/" .. plugin,
   enabled = Is_Enabled(plugin),
-  -- cmd = {
-  --     "MCstart",
-  --     "MCpattern",
-  --     "MCvisualPattern",
-  --     "MCclear",
-  -- },
   keys = {
     { "<leader>mc", "<cmd>MCstart<CR>", desc = "Multi-line start" },
     { "<leader>mcc", "<cmd>MCclear<CR>", desc = "Multi-line clear sel." },

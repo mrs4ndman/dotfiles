@@ -8,6 +8,8 @@ local plugin = "oil.nvim"
 return {
   "stevearc/" .. plugin,
   enabled = Is_Enabled(plugin),
+  dependencies = { "nvim-tree/nvim-web-devicons" },
+  cmd = "Oil",
   opts = {
     columns = {
       "icon",
@@ -44,5 +46,4 @@ return {
     },
     silence_netrw_warning = true,
   },
-  dependencies = { "nvim-tree/nvim-web-devicons" },
 }

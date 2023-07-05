@@ -1,12 +1,13 @@
 -- -- LSP Explicit config
 local navic = require("nvim-navic")
+local on_attach = function (client, bufnr)
+  navic.attach(client, bufnr)
+  require("virtualtypes").on_attach()
+end
 -- First, Native LSP
 local lspconfig = require("lspconfig")
 require("lspconfig").lua_ls.setup({
-  on_attach = function(client, bufnr)
-    navic.attach(client, bufnr)
-    require("virtualtypes").on_attach()
-  end,
+  on_attach = on_attach,
   settings = {
     Lua = {
       diagnostics = {
@@ -16,9 +17,7 @@ require("lspconfig").lua_ls.setup({
   },
 })
 require("lspconfig").rust_analyzer.setup({
-  on_attach = function(client, bufnr)
-    navic.attach(client, bufnr)
-  end,
+  on_attach = on_attach,
   settings = {
     ["rust-analyzer"] = {
       diagnostics = {
