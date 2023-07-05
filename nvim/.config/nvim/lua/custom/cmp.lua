@@ -102,10 +102,12 @@ return function(_, opts)
     local sorting = {
       comparators = {
         cmp.config.compare.locality,
+        cmp.config.compare.offset,
         cmp.config.compare.kind,
-        cmp.config.compare.exact,
         cmp.config.compare.recently_used,
+        cmp.config.compare.exact,
         cmp.config.compare.length,
+        cmp.config.compare.order,
         function(entry1, entry2)
           local result = vim.stricmp(entry1.completion_item.label, entry2.completion_item.label)
           if result < 0 then

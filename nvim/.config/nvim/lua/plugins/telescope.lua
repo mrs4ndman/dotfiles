@@ -26,6 +26,9 @@ return {
           colorscheme = {
             enable_preview = true,
           },
+          find_files = {
+            find_command = { "fd", "--type", "f", "--hidden", "--exclude", ".git" },
+          },
         }
         opts.defaults = {
           preview = { timeout = 500 },
