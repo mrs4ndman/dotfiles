@@ -3,10 +3,10 @@ require("mrsandman.bootstrap")
 require("mrsandman.lazy")
 
 require("mrsandman.autocmds")
-require("mrsandman.keymaps")
 
 -- Custom plugin configs that load after most things
 require("custom")
+require("mrsandman.keymaps")
 
 -- Language-specific configs
 require("langs")

@@ -25,17 +25,7 @@ return {
   { "fatih/vim-go", lazy = true, ft = { "go", "gomod", "gosum" } },
 
   -- Typescript
-  {
-    "jose-elias-alvarez/typescript.nvim",
-    ft = "typescript",
-  },
-
-  -- {
-  --     "pmizio/typescript-tools.nvim",
-  --     dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-  --     opts = {},
-  -- }
-
+  { "jose-elias-alvarez/typescript.nvim", ft = "typescript" },
   -- Python?
   {
     "mfussenegger/nvim-dap-python",
@@ -68,19 +58,13 @@ return {
   -- Debugging
   {
     "mfussenegger/nvim-dap",
+    event = "VeryLazy",
     dependencies = {
-      {
-        "folke/which-key.nvim",
-        optional = true,
-        opts = {
-          defaults = { ["<leader>d"] = { name = "+debug" }, ["<leader>da"] = { name = "+adapters" } },
-        },
-      },
+      { "folke/which-key.nvim" },
       { "rcarriga/nvim-dap-ui" },
-      { "nvim-telescope/telescope-dap.nvim" },
       { "theHamsta/nvim-dap-virtual-text" },
       -- DAP adapters
-      { "jbyuki/one-small-step-for-vimkind", module = "osv" },
+      { "jbyuki/one-small-step-for-vimkind", module = "osv", ft = "lua" },
       { "leoluz/nvim-dap-go", module = "dap-go", ft = "go" },
     },
     config = function(plugin, opts)

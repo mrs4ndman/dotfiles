@@ -8,6 +8,6 @@ local plugin = "nvim-cokeline"
 return {
   "willothy/" .. plugin, -- Addicted to this stuff
   enabled = Is_Enabled(plugin),
-  event = "UIEnter",
+  event = "VimEnter",
   dependencies = "nvim-tree/nvim-web-devicons",
 }

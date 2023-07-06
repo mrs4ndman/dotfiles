@@ -60,15 +60,9 @@ return {
           update_when_errors = true,
           update_delay = 300,
         },
-        treesitter = {
-          update_delay = 200,
-        },
-        markdown = {
-          update_delay = 400,
-        },
-        man = {
-          update_delay = 500,
-        },
+        treesitter = { update_delay = 200 },
+        markdown = { update_delay = 400 },
+        man = { update_delay = 500 },
       }
     end
   end,

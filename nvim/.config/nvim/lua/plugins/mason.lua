@@ -7,9 +7,8 @@ local plugin = "mason.nvim"
 
 return {
   "williamboman/" .. plugin,
-  cmd = "Mason",
   enabled = Is_Enabled(plugin),
-  event = "VimEnter",
+  cmd = "Mason",
   opts = {
     ui = {
       icons = {

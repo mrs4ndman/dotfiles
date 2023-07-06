@@ -11,12 +11,11 @@ return {
     "nvim-telescope/" .. plugin,
     enabled = Is_Enabled(plugin),
     cmd = "Telescope",
-    version = false,
+    tag = "0.1.2",
     dependencies = {
-      "nvim-lua/popup.nvim",
       "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope-fzf-native.nvim",
-      "nvim-telescope/telescope-ui-select.nvim",
+      -- "nvim-telescope/telescope-fzf-native.nvim",
+      -- "nvim-telescope/telescope-ui-select.nvim",
     },
     opts = function(_, opts)
       if Use_Defaults(plugin) then
@@ -64,16 +63,12 @@ return {
           results_title = "",
           winblend = 20,
           wrap_results = true,
-          file_ignore_patterns = {},
           hidden = true,
           mappings = {
             i = {
               ["<C-n>"] = require("telescope.actions").cycle_history_next,
               ["<C-p>"] = require("telescope.actions").cycle_history_prev,
               ["<C-c>"] = require("telescope.actions").close,
-              ["<C-q>"] = require("telescope.actions").send_to_qflist,
-              ["<C-i>"] = require("telescope.actions").select_horizontal,
-              ["<C-x>"] = require("telescope.actions").select_vertical,
               ["<C-u>"] = false,
               ["<C-d>"] = false,
             },
@@ -81,9 +76,6 @@ return {
               ["<C-n>"] = require("telescope.actions").cycle_history_next,
               ["<C-p>"] = require("telescope.actions").cycle_history_prev,
               ["<C-c>"] = require("telescope.actions").close,
-              ["<C-q>"] = require("telescope.actions").send_to_qflist,
-              ["<C-i>"] = require("telescope.actions").select_horizontal,
-              ["<C-x>"] = require("telescope.actions").select_vertical,
             },
           },
         }

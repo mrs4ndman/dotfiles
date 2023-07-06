@@ -8,13 +8,11 @@ return {
   {
     "raddari/last-color.nvim",
     enabled = Is_Enabled("last-color.nvim"),
-    priority = 1000,
   },
   {
     "rose-pine/neovim", -- the coolest color scheme B)
     lazy = true,
     name = "rose-pine",
-    priority = 1000,
     opts = {
       variant = "main",
       dark_variant = "main",
@@ -28,7 +26,6 @@ return {
     "folke/tokyonight.nvim",
     enabled = Is_Enabled("tokyonight.nvim"),
     lazy = true,
-    priority = 1000,
     opts = function(_, opts)
       if Use_Defaults("tokyonight.nvim") then
         opts = opts
@@ -88,7 +85,6 @@ return {
     "EdenEast/nightfox.nvim",
     enabled = Is_Enabled("nightfox.nvim"),
     lazy = true,
-    priority = 1000,
     opts = function(_, opts)
       if Use_Defaults("nightfox.nvim") then
         opts = opts
@@ -107,7 +103,6 @@ return {
     "olimorris/onedarkpro.nvim",
     enabled = Is_Enabled("onedarkpro.nvim"),
     lazy = true,
-    priority = 1000,
     opts = function(_, opts)
       if Use_Defaults("onedarkpro.nvim") then
         opts = opts
@@ -185,6 +180,9 @@ return {
         eob_lines = true,
       },
     },
+    config = function()
+      vim.g.material_style = "deep_ocean"
+    end
   },
   {
     "Mofiqul/vscode.nvim",
@@ -228,11 +226,24 @@ return {
     "shaunsingh/nord.nvim",
     enabled = Is_Enabled("nord.nvim"),
     lazy = true,
+    config = function()
+      vim.g.nord_contrast = true
+      vim.g.nord_borders = true
+      vim.g.nord_disable_background = false
+      vim.g.nord_uniform_diff_background = true
+      vim.g.nord_bold = true
+    end,
   },
   {
     "rafamadriz/neon",
     enabled = Is_Enabled("neon"),
     lazy = true,
+    config = function()
+      vim.g.neon_style = "doom"
+      vim.g.neon_italic_comment = true
+      vim.g.neon_bold = true
+      vim.g.neon_transparent = false
+    end,
   },
   {
     "nyoom-engineering/oxocarbon.nvim",

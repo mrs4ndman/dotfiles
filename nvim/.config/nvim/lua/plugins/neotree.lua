@@ -13,18 +13,14 @@ return {
     "nvim-tree/nvim-web-devicons",
     "MunifTanjim/nui.nvim",
   },
-  keys = {
-    { "<leader>nt", "<cmd>Neotree<CR>", desc = "Multi-line start" },
-  },
+  keys = { { "<leader>nt", "<cmd>Neotree<CR>", desc = "Multi-line start" } },
   opts = {
     close_if_last_window = true,
     popup_border_style = "rounded",
     enable_git_status = true,
     -- enable_diagnostics = true,
     default_component_configs = {
-      container = {
-        enable_character_fade = true,
-      },
+      container = { enable_character_fade = true },
       indent = {
         indent_size = 2,
         padding = 1,
@@ -68,14 +64,8 @@ return {
     window = {
       position = "left",
       width = 30,
-      mapping_options = {
-        noremap = true,
-        nowait = true,
-      },
-      mappings = {
-        ["<C-c>"] = "close_window",
-        ["<Esc>"] = "close_window",
-      },
+      mapping_options = { noremap = true, nowait = true },
+      mappings = { ["<C-c>"] = "close_window", ["<Esc>"] = "close_window" },
     },
     nesting_rulse = {},
     filesystem = {
