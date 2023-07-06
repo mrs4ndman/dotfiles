@@ -21,7 +21,7 @@ return {
       opts.lsp = {
         progress = {
           enabled = true,
-          view = "mini"
+          view = "mini",
         },
         override = {
           ["vim.lsp.util.convert_input_to_markdown_lines"] = true,

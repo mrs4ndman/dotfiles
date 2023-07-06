@@ -221,10 +221,16 @@ ins_left({
   color = { fg = "violet", gui = "bold" },
 })
 
--- ins_left {
---     require("lazy.status").updates,
---     cond = require("lazy.status").has_updates,
--- }
+ins_left({
+  require("noice").api.statusline.mode.get,
+  cond = require("noice").api.statusline.mode.has,
+  color = { fg = "violet", gui = "bold" },
+})
+
+ins_left {
+    require("lazy.status").updates,
+    cond = require("lazy.status").has_updates,
+}
 
 ins_left({
   function()
