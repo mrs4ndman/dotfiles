@@ -255,4 +255,12 @@ return {
     enabled = Is_Enabled("nordic.nvim"),
     lazy = true,
   },
+  {
+    "zootedb0t/citruszest.nvim",
+    enabled = Is_Enabled("citruszest.nvim"),
+  },
+  {
+    "nyngwang/nvimgelion",
+    enabled = Is_Enabled("nvimgelion")
+  }
 }

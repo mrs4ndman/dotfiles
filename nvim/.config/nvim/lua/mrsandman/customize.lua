@@ -11,6 +11,7 @@ Customize = {
     ["auto-session"] = { enabled = true, defaults = false },
     ["better-escape.nvim"] = { enabled = false, defaults = false },
     ["cellular-automaton.nvim"] = { enabled = true },
+    ["citruszest.nvim"] = { enabled = true },
     ["Comment.nvim"] = { enabled = true, defaults = false }, -- Culprit of 6 ms, delayed by Treesitter
     ["doom-one.nvim"] = { enabled = true, defaults = false },
     ["dracula.nvim"] = { enabled = true, defaults = false },
@@ -25,7 +26,7 @@ Customize = {
     ["horizon.nvim"] = { enabled = true },
     ["hypersonic.nvim"] = { enabled = true, defaults = false },
     ["inc-rename.nvim"] = { enabled = true, defaults = false },
-    ["indent-blankline.nvim"] = { enabled = true },
+    ["indent-blankline.nvim"] = { enabled = true, defaults = false },
     ["last-color.nvim"] = { enabled = true, defaults = true },
     ["lualine.nvim"] = { enabled = true, defaults = false }, -- 10 ms culprit, need to find a way to optimise
     ["mason.nvim"] = { enabled = true, defaults = false },
@@ -56,6 +57,7 @@ Customize = {
     ["nvim-dap-ui"] = { enabled = true, defaults = false },
     ["nvim-dap-virtual-text"] = { enabled = true },
     ["nvim-genghis"] = { enabled = true },
+    ["nvimgelion"] = { enabled = true },
     ["nvim-jdtls"] = { enabled = true },
     ["nvim-lastplace"] = { enabled = true, defaults = true },
     ["nvim-lightbulb"] = { enabled = true, defaults = false },

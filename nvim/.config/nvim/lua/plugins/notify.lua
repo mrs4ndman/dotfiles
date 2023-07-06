@@ -10,7 +10,7 @@ return {
   -- enabled = Is_Enabled(plugin),
   priority = 1000,
   opts = {
-    stages = "fade",
+    stages = "static",
     timeout = 1500,
     render = "compact",
     max_height = function()
