@@ -110,6 +110,7 @@ export PATH="$HOME/.cargo/bin:$HOME/.fzf/bin:$HOME/.local/bin:$HOME/.local/scrip
 export VIMRC="$HOME/.vimrc"
 export NVIMRC="$HOME/dotfiles/nvim/.config/nvim/lua/mrsandman/main.lua"
 export VISUAL="vim"
+export OBSIDIAN_VAULT="$HOME/Documents/Obsidian Vaults/Dashboard/Current TO-DO.md"
 set -o vi
 
 #-------------------------------------------------------------#
@@ -282,7 +283,8 @@ alias tls='tmux ls'
 alias tks='tmux kill-session -t'
 alias trs='tmux rename-session'
 alias twin='$HOME/.local/scripts/tmux-windowizer'
-
+# Tmux obsidian session
+alias tobs='tmux new-session -ds obsidian -c ~/Documents/Obsidian\ Vaults'
 #--------------------------------------------------------------#
 
 #--- ARCHIVE EXTRACTOR - EXTRACTOR DE ARCHIVOS COMPRIMIDOS ---#

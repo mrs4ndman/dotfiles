@@ -73,6 +73,8 @@ vim.keymap.set(
 vim.keymap.set("n", "<leader>iw", "<cmd>IlluminateToggle<CR>", { desc = "Word HL toggle" })
 -- TODO: Find a Lua replacement
 
+-- Obsidian direct access
+-- vim.keymap.set("n", "<leader>nt", "<cmd>!cd $OBSIDIAN_VAULT | e ~/Documents/Obsidian Vaults/Dashboard/Current TO-DO.md<CR>")
 
 -- INTERNAL KEYBINDS
 

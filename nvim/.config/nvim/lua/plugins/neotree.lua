@@ -13,7 +13,7 @@ return {
     "nvim-tree/nvim-web-devicons",
     "MunifTanjim/nui.nvim",
   },
-  keys = { { "<leader>nt", "<cmd>Neotree<CR>", desc = "Multi-line start" } },
+  keys = { { "<leader>pt", "<cmd>Neotree<CR>", desc = "Neo-Tree" } },
   opts = {
     close_if_last_window = true,
     popup_border_style = "rounded",

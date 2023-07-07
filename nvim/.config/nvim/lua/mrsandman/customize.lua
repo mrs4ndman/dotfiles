@@ -73,6 +73,7 @@ Customize = {
     ["nvim-treesitter"] = { enabled = true, defaults = false },
     ["nvim-treesitter-context"] = { enabled = true },
     ["nvim-web-devicons"] = { enabled = true },
+    ["obsidian.nvim"] = { enabled = true },
     ["oil.nvim"] = { enabled = false, defaults = false },
     ["one-small-step-for-vimkind"] = { enabled = false },
     ["overlength.nvim"] = { enabled = true },
