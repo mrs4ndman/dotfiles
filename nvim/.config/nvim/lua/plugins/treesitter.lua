@@ -12,6 +12,7 @@ return {
     "nvim-treesitter/" .. plugin, -- parsing to the end of time
     enabled = Is_Enabled(plugin),
     event = "VimEnter",
+    build = ":TSUpdate",
     dependencies = {
       "nvim-treesitter/nvim-treesitter-context",
       "JoosepAlviste/nvim-ts-context-commentstring",

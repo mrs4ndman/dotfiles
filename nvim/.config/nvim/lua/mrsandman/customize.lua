@@ -80,6 +80,8 @@ Customize = {
     ["onedarkpro.nvim"] = { enabled = true, defaults = false },
     ["onenord.nvim"] = { enabled = true, defaults = false },
     ["oxocarbon.nvim"] = { enabled = true },
+    ["palenightfall.nvim"] = { enabled = true },
+    ["presence.nvim"] = { enabled = false },
     ["playground"] = { enabled = true },
     ["plenary.nvim"] = { enabled = true },
     ["popup.nvim"] = { enabled = true },

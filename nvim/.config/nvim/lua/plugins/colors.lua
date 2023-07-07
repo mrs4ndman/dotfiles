@@ -248,12 +248,10 @@ return {
   {
     "nyoom-engineering/oxocarbon.nvim",
     enabled = Is_Enabled("oxocarbon.nvim"),
-    lazy = true,
   },
   {
     "AlexvZyl/nordic.nvim",
     enabled = Is_Enabled("nordic.nvim"),
-    lazy = true,
   },
   {
     "zootedb0t/citruszest.nvim",
@@ -262,5 +260,9 @@ return {
   {
     "nyngwang/nvimgelion",
     enabled = Is_Enabled("nvimgelion")
+  },
+  {
+    "JoosepAlviste/palenightfall.nvim",
+    enabled = Is_Enabled("palenightfall.nvim"),
   }
 }

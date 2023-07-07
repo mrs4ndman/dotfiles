@@ -33,7 +33,7 @@ lspconfig.marksman.setup({})
 lspconfig.ocamlls.setup({})
 lspconfig.clangd.setup({})
 lspconfig.neocmake.setup({})
--- lspconfig.html.setup {}
+lspconfig.html.setup {}
 lspconfig.emmet_ls.setup({})
 lspconfig.cssls.setup({})
 lspconfig.eslint.setup({})
