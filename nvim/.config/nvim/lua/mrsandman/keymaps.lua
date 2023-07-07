@@ -73,8 +73,6 @@ vim.keymap.set(
 vim.keymap.set("n", "<leader>iw", "<cmd>IlluminateToggle<CR>", { desc = "Word HL toggle" })
 -- TODO: Find a Lua replacement
 
--- Oil keybind
-vim.keymap.set("n", "<leader>e", require("oil").open, { desc = "It's oiling time" })
 
 -- INTERNAL KEYBINDS
 
@@ -119,6 +117,8 @@ vim.keymap.set("n", "J", "mzJ'z", { silent = true })
 -- Keeping my cursor in the middle when searching
 vim.keymap.set("n", "n", "nzzzv", { silent = true })
 vim.keymap.set("n", "N", "Nzzzv", { silent = true })
+
+vim.keymap.set("n", "+", "S")
 
 -- Delete character without yanking
 vim.keymap.set({ "n", "v" }, "x", '"_x', { silent = true })

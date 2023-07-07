@@ -45,9 +45,6 @@ return {
         position = "left",
         reopen = true,
       },
-      undotree = {
-        position = "left",
-      },
     },
   },
 }

@@ -26,6 +26,7 @@ require("lspconfig").rust_analyzer.setup({
     },
   },
 })
+lspconfig.astro.setup({})
 lspconfig.pylsp.setup({})
 lspconfig.vimls.setup({})
 lspconfig.marksman.setup({})

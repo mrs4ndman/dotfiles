@@ -119,6 +119,10 @@ wk.register({
 
   -- TREESJ
   ["Q"] = { "<cmd>TSJToggle<CR>", "Toggle TS node", { silent = true } },
+
   -- GLOW
   ["<leader>md"] = { "<cmd>Glow<CR>", "Toggle MD preview", { silent = true } },
+
+  -- OIL
+   -- ["<leader>e"] = { require("oil").open, "It's oiling time", silent = true },
 })

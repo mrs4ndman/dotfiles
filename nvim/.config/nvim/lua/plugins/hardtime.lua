@@ -10,8 +10,8 @@ return {
   enabled = Is_Enabled(plugin),
   event = "VimEnter",
   opts = {
-    max_time = 750,
-    max_count = 3,
+    max_time = 1250,
+    max_count = 5,
     disable_mouse = true,
     hint = true,
     notification = true,
