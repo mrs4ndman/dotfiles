@@ -14,8 +14,6 @@ return {
     tag = "0.1.2",
     dependencies = {
       "nvim-lua/plenary.nvim",
-      -- "nvim-telescope/telescope-fzf-native.nvim",
-      -- "nvim-telescope/telescope-ui-select.nvim",
     },
     opts = function(_, opts)
       if Use_Defaults(plugin) then

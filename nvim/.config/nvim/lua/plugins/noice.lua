@@ -12,7 +12,6 @@ return {
   keys = false,
   dependencies = {
     "MunifTanjim/nui.nvim",
-    "rcarriga/nvim-notify",
   },
   opts = function(_, opts)
     if Use_Defaults(plugin) then

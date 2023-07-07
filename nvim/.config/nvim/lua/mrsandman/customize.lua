@@ -26,7 +26,6 @@ Customize = {
     ["horizon.nvim"] = { enabled = true },
     ["hypersonic.nvim"] = { enabled = true, defaults = false },
     ["inc-rename.nvim"] = { enabled = true, defaults = false },
-    ["indent-blankline.nvim"] = { enabled = true, defaults = false },
     ["last-color.nvim"] = { enabled = true, defaults = true },
     ["lualine.nvim"] = { enabled = true, defaults = false }, -- 10 ms culprit, need to find a way to optimise
     ["mason.nvim"] = { enabled = true, defaults = false },
@@ -34,6 +33,7 @@ Customize = {
     ["mason-nvim-dap.nvim"] = { enabled = true, defaults = false },
     ["mason-null-ls.nvim"] = { enabled = true, defaults = false },
     ["material.nvim"] = { enabled = true, defaults = false },
+    ["mini.indentscope"] = { enabled = true, defaults = false },
     ["multicursors.nvim"] = { enabled = true, defaults = false },
     ["neodev.nvim"] = { enabled = true },
     ["neon"] = { enabled = true },

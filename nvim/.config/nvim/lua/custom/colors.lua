@@ -5,7 +5,7 @@ local pickers = require("telescope.pickers")
 local finders = require("telescope.finders")
 local sorters = require("telescope.sorters")
 
-function enter(prompt_bufnr)
+local function enter(prompt_bufnr)
   local selected = action_state.get_selected_entry()
   -- print(vim.inspect(selected))
   local cmd = "colorscheme " .. selected[1]
@@ -13,14 +13,14 @@ function enter(prompt_bufnr)
   actions.close(prompt_bufnr)
 end
 
-function next_color(prompt_bufnr)
+local function next_color(prompt_bufnr)
   actions.move_selection_next(prompt_bufnr)
   local selected = action_state.get_selected_entry()
   local cmd = "colorscheme " .. selected[1]
   vim.cmd(cmd)
 end
 
-function prev_color(prompt_bufnr)
+local function prev_color(prompt_bufnr)
   actions.move_selection_previous(prompt_bufnr)
   local selected = action_state.get_selected_entry()
   local cmd = "colorscheme " .. selected[1]
@@ -72,10 +72,6 @@ local opts = {
 }
 
 local colors = pickers.new(opts)
-
--- function colorizer()
--- 	colors:find()
--- end
 
 vim.api.nvim_create_user_command("Themer", function()
   colors:find()
