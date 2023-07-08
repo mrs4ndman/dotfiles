@@ -26,7 +26,8 @@ autocmd BufEnter * if &ft == 'netrw' | setlocal syntax=netrw | endif
 -- Hide line numbers on Lazy buffers
 vim.cmd("autocmd! filetype lazy setlocal nonumber norelativenumber")
 
-vim.cmd("autocmd BufRead,BufEnter *.astro set filetype=astro")
+vim.api.nvim_create_autocmd("Filetype", { pattern = { "astro" }, command = "TSEnable highlight" })
+-- vim.cmd("autocmd BufRead,BufEnter *.astro set filetype=astro")
 
 -- Autoshow lightbulb for codeactions
 -- vim.cmd [[autocmd CursorHold,CursorHoldI * lua require('nvim-lightbulb').update_lightbulb()]]
