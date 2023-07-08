@@ -75,6 +75,7 @@ return function(_, opts)
         vim_item.menu = ({
           buffer = "󰦨",
           path = "/",
+          codeium = "󰓅 ",
           nvim_lsp = "λ",
           luasnip = "⋗",
           vsnip = "V",
@@ -130,6 +131,7 @@ return function(_, opts)
     local sources = {
       { name = "luasnip" },
       { name = "nvim_lsp" },
+      { name = "codeium" },
       { name = "crates" }, -- crates.nvim plugin
       { name = "path" },
       { name = "nvim_lua" },

@@ -12,6 +12,7 @@ Customize = {
     ["better-escape.nvim"] = { enabled = false, defaults = false },
     ["cellular-automaton.nvim"] = { enabled = true },
     ["citruszest.nvim"] = { enabled = true },
+    ["codeium.nvim"] = { enabled = true },
     ["Comment.nvim"] = { enabled = true, defaults = false }, -- Culprit of 6 ms, delayed by Treesitter
     ["doom-one.nvim"] = { enabled = true, defaults = false },
     ["dracula.nvim"] = { enabled = true, defaults = false },

@@ -46,7 +46,7 @@ local opts = {
     "doom-one",
     "tokyodark",
     "nvimgelion",
-    "palenigthfall",
+    "palenightfall",
     "onedark_dark",
     "catppuccin",
     "github_dark_high_contrast",

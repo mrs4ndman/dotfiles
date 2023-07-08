@@ -15,6 +15,12 @@ return {
     "hrsh7th/cmp-nvim-lsp-document-symbol",
     "hrsh7th/cmp-nvim-lsp",
     {
+      "jcdickinson/codeium.nvim",
+      dependencies = "nvim-lua/plenary.nvim",
+      commit = "b1ff0d6c993e3d87a4362d2ccd6c660f7444599f",
+      config = true,
+    },
+    {
       "L3MON4D3/LuaSnip",
       config = function()
         require("luasnip.loaders.from_vscode").lazy_load()
