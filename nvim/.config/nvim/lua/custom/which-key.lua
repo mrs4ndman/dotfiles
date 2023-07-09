@@ -5,24 +5,23 @@ local wk = require("which-key")
 wk.register({
   -- which-key category entries
   ["<leader>b"] = { name = "[B]uffers" },
-  ["<leader>c"] = { name = "Close + TS Context" },
+  ["<leader>c"] = { name = "Close, TS Context" },
   ["<leader>d"] = { name = "DAP (+ CodeLLDB when active)" },
   ["<leader>f"] = { name = "LSP Format TS Rename Function FML" },
-  ["<leader>g"] = { name = "Fu[G]itive" },
-  ["<leader>i"] = { name = "[I]ndent[L]ine, Word-repetition" },
-  ["<leader>k"] = { name = "Harpoon switching+" },
-  ["<leader>l"] = { name = "over[L]eng[T]h, Lazy" },
-  ["<leader>n"] = { name = "[N]eo[C]lip" },
-  ["<leader>q"] = { name = "Close" },
-  ["<leader>s"] = { name = "Cokeline+, Sessions, Alpha" },
-  ["<leader>t"] = { name = "Telescope TS Aerial Harpoon ToDo" },
-  ["<leader>ta"] = { name = "Aerial" },
-  -- ["<leader>tc"] = { name = "[T]o-do [C]omments+"},
-  -- ["<leader>tt"] = { name = "[T]reesi[T]ter [P]layground"},
-  -- ["<leader>u"] = { name = "[U]ndo-Tree" },
-  ["<leader>v"] = { name = "HBAC, LSP, " },
-  ["<leader>x"] = { name = "Trouble+" },
-  ["<leader>z"] = { name = "[Z]en-Mode / Twilight" },
+  ["<leader>gy"] = { name = " Create code snippet + link" },
+  ["<leader>i"] = { name = " [I]ndent[L]ine, Word-repetition" },
+  ["<leader>k"] = { name = " Harpoon switching+" },
+  ["<leader>l"] = { name = " over[L]eng[T]h, Lazy" },
+  ["<leader>n"] = { name = " [N]eo[C]lip" },
+  ["<leader>q"] = { name = " Close" },
+  ["<leader>s"] = { name = " Cokeline+, Sessions, Alpha" },
+  ["<leader>t"] = { name = " Telescope TS Aerial Harpoon ToDo" },
+  ["<leader>ta"] = { name = " Aerial" },
+  ["<leader>tc"] = { name = " [T]o-do [C]omments+"},
+  ["<leader>v"] = { name = " HBAC, LSP, " },
+  ["<leader>w"] = { name = " Windows"},
+  ["<leader>x"] = { name = " Trouble+" },
+  ["<leader>z"] = { name = " [Z]en-Mode / Twilight" },
 
   -- Custom lua functions: their which-key entries
   ["<leader>th"] = { "<cmd>Themer<CR>", "Colorschme manager", { silent = true } },
@@ -48,10 +47,6 @@ wk.register({
   ["<leader>sr"] = { "<cmd>SessionRestore<CR>", "Restore session for CWD", { silent = true } },
   ["<leader>ss"] = { "<cmd>SessionSave<CR>", "Save current session", { silent = true } },
 
-  -- RNVIMR / ranger toggle
-  ["<leader>R"] = { "<cmd>RnvimrToggle<CR>", "Ranger", { silent = true, noremap = true } },
-
-
   -- TO-DO
   ["<leader>td"] = { "<cmd>TodoQuickFix<CR>", "To-Do Toggle", { silent = true } },
   ["<leader>tcp"] = { require("todo-comments").jump_prev, "To-Do next inline" },
@@ -66,7 +61,7 @@ wk.register({
   ["<leader>tax"] = { "<cmd>AerialCloseAll<CR>", "Close all Aerial instances" },
 
   -- RENAMER
-  ["<leader>fr"] = {
+  ["<leader>rf"] = {
     function()
       return ":IncRename " .. vim.fn.expand("<cword>")
     end,
@@ -84,6 +79,7 @@ wk.register({
   ["<leader>tr"] = { require("telescope.builtin").oldfiles, "Recent files", { silent = true } },
   ["<leader>tl"] = { require("telescope.builtin").loclist, "Proyect loclist", { silent = true } },
   ["<leader>vh"] = { require("telescope.builtin").help_tags, "Help tags", { silent = true } },
+  ["<leader>sg"] = { require("telescope.builtin").grep_string, "Fast string grep", { silent = true} },
   ["<leader>ts"] = {
     function()
       require("telescope.builtin").grep_string({ search = vim.fn.input("Grep > ") })

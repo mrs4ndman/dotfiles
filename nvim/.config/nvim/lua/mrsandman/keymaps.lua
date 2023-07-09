@@ -76,7 +76,7 @@ vim.keymap.set("n", "<leader>iw", "<cmd>IlluminateToggle<CR>", { desc = "Word HL
 vim.keymap.set("n", "<leader>yp", require("genghis").copyFilepath, { desc = "Yank kurrent filepath" })
 vim.keymap.set("n", "<leader>yn", require("genghis").copyFilename, { desc = "Yank current filename" })
 -- vim.keymap.set("<leader>cx", { require("genghis").chmodx, desc = "Make current file executable" },
-vim.keymap.set("n", "<leader>rf", require("genghis").renameFile, { desc = "Rename current file" })
+vim.keymap.set("n", "<leader>fr", require("genghis").renameFile, { desc = "Rename current file" })
 vim.keymap.set("n", "<leader>mf", require("genghis").moveAndRenameFile, { desc = "Move and rename current filepath" })
 vim.keymap.set("n", "<leader>nf", require("genghis").createNewFile, { desc = "Create new file" })
 vim.keymap.set("n", "<leader>yf", require("genghis").duplicateFile, { desc = "Duplicate current file" })
@@ -97,9 +97,15 @@ end, { silent = true, desc = "Source current file" })
 -- Netrw keybind
 vim.keymap.set("n", "<leader>E", vim.cmd.Ex, { desc = "Ex", silent = true })
 
+-- Window splits and ?tabs?
+vim.keymap.set("n", "<leader>ws", "<cmd>split<CR>", { desc = "Horizontal split" })
+vim.keymap.set("n", "<leader>wv", "<cmd>vsplit<CR>", { desc = "Vertical split" })
+vim.keymap.set("n", "<leader>tn", "<cmd>tabnew<CR>", { desc = "New tab" })
+vim.keymap.set("n", "<leader>tn", "<cmd>tabclose<CR>", { desc = "Close tab" })
+
 -- Get me out of here (:D)
 vim.keymap.set("n", "<leader><Esc>", "<cmd>quitall<CR>", { desc = "Quit all", silent = true })
-vim.keymap.set("n", "<leader>w", "<cmd>write<CR>", { desc = "Write all" })
+vim.keymap.set("n", "<leader>W", "<cmd>write<CR>", { desc = "Write all" })
 
 -- Substitutor for current word
 vim.keymap.set("n", "<C-s>", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
@@ -121,6 +127,9 @@ vim.keymap.set("n", "dd", function()
   end
   return "dd"
 end, { expr = true })
+
+-- Yank only to nvim clipboard
+vim.keymap.set({ "n", "v" }, "<leader>yy", [[""y]])
 
 -- Appending line below to current line ("lil J")
 vim.keymap.set("n", "J", "mzJ'z", { silent = true })
@@ -181,6 +190,10 @@ vim.keymap.set("i", "<C-c>", "<Esc>", { silent = true })
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { silent = true })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { silent = true })
+
+-- Better indenting
+vim.keymap.set("v", "<", "<gv", { silent = true })
+vim.keymap.set("v", ">", ">gv", { silent = true })
 
 -- TERMINAL mode keybinds
 --
