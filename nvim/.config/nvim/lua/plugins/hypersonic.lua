@@ -9,6 +9,7 @@ return {
   "tomiis4/" .. plugin,
   enabled = Is_Enabled(plugin),
   event = "CmdlineEnter",
+  cmd = "Hypersonic",
   config = function()
     require("hypersonic").setup({
       -- config

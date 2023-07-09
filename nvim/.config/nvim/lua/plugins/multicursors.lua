@@ -8,6 +8,8 @@ local plugin = "multicursors.nvim"
 return {
   "smoka7/" .. plugin,
   enabled = Is_Enabled(plugin),
+  event = "VeryLazy",
+  dependencies = { "smoka7/hydra.nvim" },
   keys = {
     { "<leader>mc", "<cmd>MCstart<CR>", desc = "Multi-line start" },
     { "<leader>mcc", "<cmd>MCclear<CR>", desc = "Multi-line clear sel." },

@@ -41,7 +41,7 @@ Customize = {
     ["mason-null-ls.nvim"] = { enabled = true, defaults = false },
     ["material.nvim"] = { enabled = true, defaults = false },
     ["mini.indentscope"] = { enabled = true, defaults = false },
-    ["multicursors.nvim"] = { enabled = true, defaults = false },
+    ["multicursors.nvim"] = { enabled = false, defaults = false },
     ["neodev.nvim"] = { enabled = true },
     ["neon"] = { enabled = true },
     ["neo-tree.nvim"] = { enabled = true },
