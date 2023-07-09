@@ -33,17 +33,64 @@ return {
   -- Debugging
   {
     "mfussenegger/nvim-dap",
-    event = "VeryLazy",
     dependencies = {
       { "folke/which-key.nvim" },
       { "rcarriga/nvim-dap-ui" },
       { "theHamsta/nvim-dap-virtual-text" },
       -- DAP adapters
       { "jbyuki/one-small-step-for-vimkind", module = "osv", ft = "lua" },
-      { "leoluz/nvim-dap-go", module = "dap-go", ft = "go" },
+      {
+        "leoluz/nvim-dap-go",
+        module = "dap-go",
+        ft = "go",
+        config = function()
+          require("dap-go").setup({
+            dap_configurations = {
+              {
+                type = "go",
+                name = "Attach remote",
+                mode = "remote",
+                request = "attach",
+              },
+            },
+            delve = {
+              path = "dlv",
+              initialize_timeout_sec = 20,
+              port = "${port}",
+              args = {},
+            },
+          })
+        end,
+      },
     },
     config = function(plugin, opts)
       vim.api.nvim_set_hl(0, "DapStoppedLine", { default = true, link = "Visual" })
+
+      local dap = require("dap")
+      dap.configurations.lua = {
+        {
+          type = "nlua",
+          request = "attach",
+          name = "Attach to running Neovim instance",
+          host = function()
+            local value = vim.fn.input("Host [127.0.0.1]: ")
+            if value ~= "" then
+              return value
+            end
+            return "127.0.0.1"
+          end,
+          port = function()
+            local val = tonumber(vim.fn.input("Port: ", "8086"))
+            assert(val, "Please provide a port number")
+            return val
+          end,
+        },
+      }
+      dap.adapters.nlua = function(callback, config)
+        callback({ type = "server", host = config.host, port = config.port })
+      end
+
+
       require("nvim-dap-virtual-text").setup({
         commented = true,
       })
@@ -61,6 +108,7 @@ return {
         dapui.close()
       end
     end,
+
     keys = {
       {
         "<leader>du",
