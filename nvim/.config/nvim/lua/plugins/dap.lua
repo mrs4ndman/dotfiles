@@ -39,29 +39,6 @@ return {
       { "theHamsta/nvim-dap-virtual-text" },
       -- DAP adapters
       { "jbyuki/one-small-step-for-vimkind", module = "osv", ft = "lua" },
-      {
-        "leoluz/nvim-dap-go",
-        module = "dap-go",
-        ft = "go",
-        config = function()
-          require("dap-go").setup({
-            dap_configurations = {
-              {
-                type = "go",
-                name = "Attach remote",
-                mode = "remote",
-                request = "attach",
-              },
-            },
-            delve = {
-              path = "dlv",
-              initialize_timeout_sec = 20,
-              port = "${port}",
-              args = {},
-            },
-          })
-        end,
-      },
     },
     config = function(plugin, opts)
       vim.api.nvim_set_hl(0, "DapStoppedLine", { default = true, link = "Visual" })

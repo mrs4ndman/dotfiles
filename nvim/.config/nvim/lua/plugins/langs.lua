@@ -19,9 +19,6 @@ return {
   -- Java?
   { "mfussenegger/nvim-jdtls", lazy = true, ft = "java" },
 
-  -- Golang poweeeer
-  { "fatih/vim-go", lazy = true, ft = { "go", "gomod", "gosum" } },
-
   -- Typescript
   { "jose-elias-alvarez/typescript.nvim", ft = "typescript" },
 }

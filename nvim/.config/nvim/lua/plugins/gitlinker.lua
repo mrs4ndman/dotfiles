@@ -10,7 +10,9 @@ local plugin = "gitlinker.nvim"
 return {
   "ruifm/" .. plugin,
   enabled = Is_Enabled(plugin),
-  lazy = false,
+  keys = {
+    { "<leader>gy", mode = {"n", "v"} }
+  },
   dependencies = {
     "nvim-lua/plenary.nvim",
   },

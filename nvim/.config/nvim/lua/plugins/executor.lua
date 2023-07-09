@@ -7,7 +7,6 @@ local plugin = "executor.nvim"
 
 return {
   "google/" .. plugin,
-  event = "VeryLazy",
   keys = {
     { "<leader>Xc", "<cmd>ExecutorRun<CR>", desc = "Start Executor" },
     { "<leader>Xs", "<cmd>ExecutorSetCommand<CR>", desc = "Set Executor command" },

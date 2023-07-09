@@ -24,6 +24,7 @@ Customize = {
     ["gitsigns.nvim"] = { enabled = true, defaults = false },
     ["github-nvim-theme"] = { enabled = true, defaults = true },
     ["glow.nvim"] = { enabled = true, defaults = true },
+    ["go.nvim"] = { enabled = true },
     ["gruber-darker.nvim"] = { enabled = true, defaults = true },
     ["hardtime.nvim"] = { enabled = true, defaults = false },
     ["harpoon"] = { enabled = true, defaults = false },

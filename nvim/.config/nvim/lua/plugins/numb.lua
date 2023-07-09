@@ -4,6 +4,8 @@ Is_Enabled = functions.is_enabled
 Use_Defaults = functions.use_plugin_defaults
 
 local plugin = "numb.nvim"
+-- This plugin allows me to input a number in the command line and "peek" at
+-- the state of the code in the lines around it.
 
 return {
   "nacro90/" .. plugin,

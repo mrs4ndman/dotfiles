@@ -9,5 +9,5 @@ return {
   "chrisgrieser/" .. plugin,
   enabled = Is_Enabled(plugin),
   dependencies = "stevearc/dressing.nvim",
-  event = "VeryLazy"
+  event = "VimEnter",
 }

@@ -84,7 +84,7 @@ return {
 
       dashboard.section.buttons.val = {
         dashboard.button("n", "    New file", "<cmd>ene<CR>"),
-        dashboard.button("e", "󰝰    Ex", ":Ex<CR>"),
+        dashboard.button("e", "󰝰    Ex", ":Explore<CR>"),
         dashboard.button("v", "    Source session", ":SessionRestore<CR>"),
         dashboard.button("f", "    Find project file", ":Telescope find_files<CR>"),
         dashboard.button("h", "󱂵    Home dir find", ":cd $HOME | Telescope find_files<CR>"),

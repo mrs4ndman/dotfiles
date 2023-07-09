@@ -51,20 +51,6 @@ wk.register({
   -- RNVIMR / ranger toggle
   ["<leader>R"] = { "<cmd>RnvimrToggle<CR>", "Ranger", { silent = true, noremap = true } },
 
-  -- GENGHIS
-  ["<leader>yp"] = { require("genghis").copyFilepath, "Yank current filepath" },
-  ["<leader>yn"] = { require("genghis").copyFilename, "Yank current filename" },
-  -- ["<leader>cx"] = { require("genghis").chmodx, "Make current file executable" },
-  ["<leader>rf"] = { require("genghis").renameFile, "Rename current file" },
-  ["<leader>mf"] = { require("genghis").moveAndRenameFile, "Move and rename current filepath" },
-  ["<leader>nf"] = { require("genghis").createNewFile, "Create new file" },
-  ["<leader>yf"] = { require("genghis").duplicateFile, "Duplicate current file" },
-  ["<leader>Df"] = {
-    function()
-      require("genghis").trashFile({ trashLocation = "$HOME/.Trash" })
-    end,
-    "Trash current file",
-  },
 
   -- TO-DO
   ["<leader>td"] = { "<cmd>TodoQuickFix<CR>", "To-Do Toggle", { silent = true } },
