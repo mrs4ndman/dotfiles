@@ -8,7 +8,7 @@ local plugin = "noice.nvim"
 return {
   "folke/" .. plugin,
   enabled = Is_Enabled(plugin),
-  event = "VimEnter",
+  event = "VeryLazy",
   keys = false,
   dependencies = {
     "MunifTanjim/nui.nvim",

@@ -80,10 +80,27 @@ vim.keymap.set("n", "<leader>fr", require("genghis").renameFile, { desc = "Renam
 vim.keymap.set("n", "<leader>mf", require("genghis").moveAndRenameFile, { desc = "Move and rename current filepath" })
 vim.keymap.set("n", "<leader>nf", require("genghis").createNewFile, { desc = "Create new file" })
 vim.keymap.set("n", "<leader>yf", require("genghis").duplicateFile, { desc = "Duplicate current file" })
-vim.keymap.set("n", "<leader>Df", function() require("genghis").trashFile({ trashLocation = "$HOME/.Trash" }) end, { desc = "Trash current file" })
+vim.keymap.set("n", "<leader>Df", function() require("genghis").trashFile({ trashLocation = "$HOME/.Trash" }) end,
+  { desc = "Trash current file" })
 
 -- Obsidian direct access
 -- vim.keymap.set("n", "<leader>nt", "<cmd>!cd $OBSIDIAN_VAULT | e ~/Documents/Obsidian Vaults/Dashboard/Current TO-DO.md<CR>")
+
+-- LEAP KEYBINDS
+require("leap").add_default_mappings()
+-- Bidirectional leaping
+vim.keymap.set({ "n", "v" }, "<leader>lp", function()
+  local current_window = vim.fn.win_getid()
+  require("leap").leap({ target_windows = { current_window } })
+end)
+-- All-window leaping
+vim.keymap.set("n", "<leader>la", function()
+  local focusable_window_on_tabpage = vim.tbl_filter(function(win)
+    return vim.api.nvim_win_get_config(win).focusable
+  end, vim.api.nvim_tabpage_list_wins(0))
+  require("leap").leap({ target_windows = focusable_window_on_tabpage })
+end)
+
 
 -- INTERNAL KEYBINDS
 

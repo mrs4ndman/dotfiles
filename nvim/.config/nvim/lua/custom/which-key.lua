@@ -39,8 +39,6 @@ wk.register({
   -- Indent-line toggle
   ["<leader>il"] = { "<cmd>IndentBlanklineToggle<CR>", "Indent-line toggle" },
 
-  -- Alpha dashboard
-  ["<leader>sp"] = { "<cmd>Alpha<CR>", "Toggle Start Screen", { silent = true } },
 
   -- AUTO-SESSION
   ["<leader>sd"] = { "<cmd>SessionDelete<CR>", "Delete current session", { silent = true } },

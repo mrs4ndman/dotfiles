@@ -5,6 +5,10 @@ Use_Defaults = functions.use_plugin_defaults
 
 local plugin = "alpha-nvim"
 
+if Is_Enabled(plugin) then
+  vim.keymap.set("n", "<leader>sp", "<cmd>Alpha<CR>", { desc = "Toggle Alpha", silent = true })
+end
+
 return {
   "goolord/" .. plugin,
   -- event = "VimEnter",

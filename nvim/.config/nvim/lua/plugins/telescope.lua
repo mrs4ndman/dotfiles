@@ -11,7 +11,6 @@ return {
     "nvim-telescope/" .. plugin,
     enabled = Is_Enabled(plugin),
     cmd = "Telescope",
-    tag = "0.1.2",
     dependencies = {
       "nvim-lua/plenary.nvim",
     },

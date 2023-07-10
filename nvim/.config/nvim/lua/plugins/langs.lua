@@ -21,4 +21,9 @@ return {
 
   -- Typescript
   { "jose-elias-alvarez/typescript.nvim", ft = "typescript" },
+  -- {
+  --     "pmizio/typescript-tools.nvim",
+  --     dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+  --     opts = {},
+  -- }
 }

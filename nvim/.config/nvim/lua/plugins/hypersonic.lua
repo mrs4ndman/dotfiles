@@ -8,7 +8,7 @@ local plugin = "hypersonic.nvim"
 return {
   "tomiis4/" .. plugin,
   enabled = Is_Enabled(plugin),
-  event = "CmdlineEnter",
+  event = "VeryLazy",
   cmd = "Hypersonic",
   config = function()
     require("hypersonic").setup({

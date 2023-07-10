@@ -19,7 +19,7 @@ Customize = {
     ["dressing.nvim"] = { enabled = true, defaults = false },
     ["executor.nvim"] = { enabled = true, defaults = false },
     ["fluoromachine.nvim"] = { enabled = true, defaults = false },
-    ["flit.nvim"] = { enabled = true },
+    ["flit.nvim"] = { enabled = true, defaults = false },
     ["gitlinker.nvim"] = { enabled = true },
     ["gitsigns.nvim"] = { enabled = true, defaults = false },
     ["github-nvim-theme"] = { enabled = true, defaults = true },
@@ -32,7 +32,7 @@ Customize = {
     ["hypersonic.nvim"] = { enabled = true, defaults = false },
     ["inc-rename.nvim"] = { enabled = true, defaults = false },
     ["last-color.nvim"] = { enabled = true, defaults = true },
-    ["leap.nvim"] = { enabled = true },
+    ["leap.nvim"] = { enabled = true, defaults = false },
     ["leap-spooky.nvim"] = { enabled = true },
     ["lualine.nvim"] = { enabled = true, defaults = false }, -- 10 ms culprit, need to find a way to optimise
     ["mason.nvim"] = { enabled = true, defaults = false },

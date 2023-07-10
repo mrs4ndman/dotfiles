@@ -9,10 +9,16 @@ return {
   "ggandor/" .. plugin,
   enabled = Is_Enabled(plugin),
   lazy = false,
-  opts = {
-    keys = { f = "f", F = "F", t = "t", T = "T" },
-    labeled_modes = "v",
-    multiline = true,
-    opts = {}
-  }
+  opts = function(_, opts)
+    if Use_Defaults(plugin) then
+      opts = opts
+    else
+      opts = {
+        keys = { f = "f", F = "F", t = "t", T = "T" },
+        labeled_modes = "v",
+        multiline = true,
+        opts = {}
+      }
+    end
+  end
 }
