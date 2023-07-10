@@ -38,7 +38,6 @@ Customize = {
     ["mason.nvim"] = { enabled = true, defaults = false },
     ["mason-lspconfig.nvim"] = { enabled = true, defaults = false },
     ["mason-nvim-dap.nvim"] = { enabled = true, defaults = false },
-    ["mason-null-ls.nvim"] = { enabled = true, defaults = false },
     ["material.nvim"] = { enabled = true, defaults = false },
     ["mini.indentscope"] = { enabled = true, defaults = false },
     ["multicursors.nvim"] = { enabled = false, defaults = false },
@@ -51,7 +50,6 @@ Customize = {
     ["nord.nvim"] = { enabled = true },
     ["nordic.nvim"] = { enabled = true },
     ["nui.nvim"] = { enabled = true },
-    ["null-ls.nvim"] = { enabled = true },
     ["numb.nvim"] = { enabled = true, defaults = false },
     ["nvim-autopairs"] = { enabled = true, defaults = false },
     ["nvim-bqf"] = { enabled = true }, -- don't know the effect, but it is doing something i don't like

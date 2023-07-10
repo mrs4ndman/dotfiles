@@ -12,6 +12,7 @@ return {
   dependencies = {
     "folke/neodev.nvim",
     "jubnzv/virtual-types.nvim",
-    "folke/lsp-colors.nvim"
+    "folke/lsp-colors.nvim",
+    "williamboman/mason.nvim",
   },
 }
