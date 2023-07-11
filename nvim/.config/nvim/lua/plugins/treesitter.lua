@@ -23,6 +23,8 @@ return {
         "c",
         "cpp",
         "css",
+        "gitcommit",
+        "gitignore",
         "go",
         "html",
         "java",
