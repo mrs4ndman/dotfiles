@@ -29,7 +29,7 @@ Customize = {
     ["hardtime.nvim"] = { enabled = true, defaults = false },
     ["harpoon"] = { enabled = true, defaults = false },
     ["horizon.nvim"] = { enabled = true },
-    ["hypersonic.nvim"] = { enabled = true, defaults = false },
+    ["hypersonic.nvim"] = { enabled = false, defaults = false },
     ["inc-rename.nvim"] = { enabled = true, defaults = false },
     ["last-color.nvim"] = { enabled = true, defaults = true },
     ["leap.nvim"] = { enabled = true, defaults = false },

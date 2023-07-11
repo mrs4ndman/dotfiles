@@ -12,7 +12,8 @@ return {
   cmd = "Hypersonic",
   config = function()
     require("hypersonic").setup({
-      -- config
+      add_padding = false,
+      enable_cmdline = false,
     })
   end,
 }
