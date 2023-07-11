@@ -129,8 +129,8 @@ return function(_, opts)
       ["<S-Tab>"] = vim.NIL,
     })
     local sources = {
-      { name = "luasnip" },
       { name = "nvim_lsp" },
+      { name = "luasnip" },
       { name = "codeium" },
       { name = "crates" }, -- crates.nvim plugin
       { name = "path" },
