@@ -27,6 +27,8 @@ Plug 'itchyny/lightline.vim'
 Plug 'rose-pine/vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'airblade/vim-gitgutter'
+Plug 'sheerun/vim-polyglot'
+Plug 'mhinz/vim-startify'
 
 " UX
 Plug 'farmergreg/vim-lastplace'
@@ -56,7 +58,7 @@ endif
 set updatetime=50
 
 " Use system clipboard by default
-set clipboard=unnamedplus
+set clipboard+=unnamed
 
 " No burrito wrapping
 set nowrap
@@ -93,7 +95,7 @@ set mouse=nvi
 
 " Use the system clipboard | Usa el portapapeles del sistema, en vez del
 " propio
-set clipboard=unnamedplus
+set clipboard+=unnamedplus
 
 " Enable auto-completion | Habilita una forma sencilla de autocompletado
 set completeopt=menuone,longest,preview
@@ -126,57 +128,59 @@ let mapleader=" "
 nnoremap <silent> <leader><leader> :source %<CR>
 
 " Open up Ex
-nmap <silent> <leader>e :Ex<CR>
+silent nmap <leader>e :Ex<CR>
 
 " Quick exit
-nmap <silent> <leader><Esc> :qa<CR>
+silent nmap <leader><Esc> :qa<CR>
 
 " Buffer management
-nmap <silent> <leader>bn :bnext<CR>
-nmap <silent> <leader>bp :bprev<CR>
-nmap <silent> <leader>bc :bd<CR>
-nmap <silent> <leader>bd :bd!<CR>
+silent nmap <leader>bn :bnext<CR>
+silent nmap <leader>bp :bprev<CR>
+silent nmap <leader>bc :bd<CR>
+silent nmap <leader>bd :bd!<CR>
 
 " Set files to executable inside Neovim
-nmap <silent> <leader>cx :!chmod +x %<CR>
+silent map <leader>cx :!chmod +x %<CR>
 
 " Delete without yanking
-nmap <silent> <leader>dd [["_d]]
+silent nmap <leader>dd [["_d]]
+
+" TODO: Check the syntax for some of these to work
 
 " When appending line, keep the cursor centered
-nmap <silent> J mzJ'z
+silent nmap J mzJ'z
 
 " Center search movement 1
-nmap <silent> n nzzzv
+silent nmap n nzzzv
 
 " Center search movement 2
-nmap <silent> N Nzzzv
+silent nmap N Nzzzv
 
 " Create new lines above or below the cursor position
-nmap <silent> <leader>o O<Esc>
-nmap <silent> <leader>O O<Esc>
+silent nmap <leader>o O<Esc>
+silent nmap <leader>O O<Esc>
 
 " Plugin management
 silent nmap <leader>ps :PlugUpdate<CR>
 
 " Allows you to replace current selection with paste buffer
-xmap <silent>  <leader>p "\"_dP"
+silent xmap <leader>p "\"_dP"
 
 " Unmapping Q
-nmap <silent> Q <nop>
+silent nmap Q <nop>
 
 " Select whole buffer
-nmap <silent> <leader>sa ggVG
+silent nmap <leader>sa ggVG
 
 " Yank whole buffer
-nmap <silent> <leader>ya ggVG\"+y
+silent nmap <leader>ya ggVG\"+y
 
 " Keep cursor centered when navigating with Ctrl-D / Ctrl-U
-nmap <silent> <C-d> <C-d>zz
-nmap <silent> <C-u> <C-u>zz
+silent nmap <C-d> <C-d>zz
+silent nmap <C-u> <C-u>zz
 
 " Invoke tmux-sessionizer from within neovim
-nmap <silent> <C-f> :silent !tmux neww tmux-sessionizer<CR>
+silent nmap <C-f> :silent !tmux neww tmux-sessionizer<CR>
 
 " Moving around text on visual
 vnoremap <silent> <expr> J ":m '>+1<CR>gv-gv"
