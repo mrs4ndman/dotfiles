@@ -1,13 +1,32 @@
 -- -- LSP Explicit config
 local navic = require("nvim-navic")
-local on_attach = function (client, bufnr)
+local M = {}
+M.capabilities = vim.lsp.protocol.make_client_capabilities()
+M.capabilities.textDocument.completion.completionItem = {
+  documentationFormat = { "markdown", "plaintext" },
+  snippetSupport = true,
+  preselectSupport = true,
+  insertReplaceSupport = true,
+  deprecatedSupport = true,
+  commitCharactersSupport = true,
+  tagSupport = { valueSet = { 1 } },
+  resolveSupport = {
+    properties = {
+      "documentation",
+      "detail",
+      "additionalTextEdits",
+    },
+  },
+}
+M.on_attach = function (client, bufnr)
   navic.attach(client, bufnr)
   require("virtualtypes").on_attach()
 end
 -- First, Native LSP
 local lspconfig = require("lspconfig")
 require("lspconfig").lua_ls.setup({
-  on_attach = on_attach,
+  on_attach = M.on_attach,
+  capabilities = M.capabilities,
   settings = {
     Lua = {
       diagnostics = {
@@ -17,7 +36,8 @@ require("lspconfig").lua_ls.setup({
   },
 })
 require("lspconfig").rust_analyzer.setup({
-  on_attach = on_attach,
+  on_attach = M.on_attach,
+  capabilities = M.capabilities,
   settings = {
     ["rust-analyzer"] = {
       diagnostics = {
@@ -26,23 +46,26 @@ require("lspconfig").rust_analyzer.setup({
     },
   },
 })
+lspconfig.clangd.setup({
+  on_attach = M.on_attach,
+  capabilities = M.capabilities,
+})
 lspconfig.astro.setup({})
 lspconfig.pylsp.setup({})
 lspconfig.vimls.setup({})
 lspconfig.marksman.setup({})
 lspconfig.ocamlls.setup({})
-lspconfig.clangd.setup({})
 lspconfig.neocmake.setup({})
 lspconfig.html.setup {}
 lspconfig.emmet_ls.setup({})
 lspconfig.cssls.setup({})
+lspconfig.gopls.setup({})
 lspconfig.eslint.setup({})
 lspconfig.tsserver.setup({})
 lspconfig.bashls.setup({})
 lspconfig.ansiblels.setup({})
 lspconfig.yamlls.setup({})
 lspconfig.ruby_ls.setup({})
--- lspconfig.lua_ls.setup {}
 -- lspconfig.jdtls.setup {}
 --
 -- LSP Attach keybinds
