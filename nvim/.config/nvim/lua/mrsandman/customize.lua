@@ -113,6 +113,7 @@ Customize = {
     ["vim-tmux"] = { enabled = true },
     ["vim-tmux-navigator"] = { enabled = true },
     ["vim-vinegar"] = { enabled = true },
+    ["vim-visual-multi"] = { enabled = true },
     ["vscode.nvim"] = { enabled = true, defaults = false },
     ["which-key.nvim"] = { enabled = true },
     ["zen-mode.nvim"] = { enabled = true, defaults = false },
