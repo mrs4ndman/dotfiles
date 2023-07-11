@@ -14,6 +14,22 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
+    keys = {
+      -- TELESCOPE
+      {"<leader>tf", require("telescope.builtin").find_files, desc = "Find files" },
+      {"<leader>tg", require("telescope.builtin").git_files, "Git files" },
+      {"<leader>tb", require("telescope.builtin").buffers, "List buffers" },
+      {"<leader>tr", require("telescope.builtin").oldfiles, "Recent files" },
+      {"<leader>tl", require("telescope.builtin").loclist, "Proyect loclist" },
+      {"<leader>vh", require("telescope.builtin").help_tags, "Help tags" },
+      {"<leader>sg", require("telescope.builtin").grep_string, "Fast string grep" },
+      {"<leader>ts",
+        function()
+          require("telescope.builtin").grep_string({ search = vim.fn.input("Grep > ") })
+        end,
+        desc = "Grep through files"
+      },
+    },
     opts = function(_, opts)
       if Use_Defaults(plugin) then
         opts = opts

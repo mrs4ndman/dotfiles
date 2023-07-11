@@ -15,4 +15,7 @@ return {
     "folke/lsp-colors.nvim",
     "williamboman/mason.nvim",
   },
+  config = function()
+    require("custom.lsp")
+  end
 }

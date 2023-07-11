@@ -10,11 +10,16 @@ return {
   "folke/" .. plugin,
   enabled = Is_Enabled(plugin),
   dependencies = "nvim-lua/plenary.nvim",
-  cmd = { "TodoTrouble", "TodoTelescope", "TodoLocList", "TodoQuickFix" },
   opts = {
     signs = true,
   },
   config = function(opts)
     require("todo-comments").setup(opts)
+    vim.keymap.set({ "n", "v" }, "<leader>tcp", require("todo-comments").jump_prev, { desc = "To-Do previous inline" })
+    vim.keymap.set({ "n", "v" }, "<leader>tcn", require("todo-comments").jump_next, { desc = "To-Do next inline" })
   end,
+  keys = {
+    { "<leader>td", "<cmd>TodoQuickFix<CR>", desc = "To-Do Toggle", },
+  },
+  cmd = { "TodoTrouble", "TodoTelescope", "TodoLocList", "TodoQuickFix" },
 }

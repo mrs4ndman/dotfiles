@@ -5,8 +5,8 @@ require("custom.which-key")
 require("custom.colors")
 
 -- LSP
-require("custom.lsp")
+-- require("custom.lsp")
 
 -- Lualine & winbar
-require("custom.lualine")
+-- require("custom.lualine")
 require("custom.cokeline")

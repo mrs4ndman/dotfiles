@@ -10,4 +10,7 @@ return {
   enabled = Is_Enabled(plugin),
   config = true,
   cmd = "Glow",
+  keys = { -- GLOW
+    {"<leader>md", "<cmd>Glow<CR>", desc = "Toggle MD preview", { silent = true } },
+  }
 }

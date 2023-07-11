@@ -8,6 +8,5 @@ local plugin = "which-key.nvim"
 return {
   "folke/" .. plugin,
   enabled = Is_Enabled(plugin),
-  event = "VeryLazy",
-  keys = false,
+  lazy = false,
 }

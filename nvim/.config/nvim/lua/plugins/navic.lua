@@ -8,7 +8,7 @@ local plugin = "nvim-navic"
 return {
   "SmiteshP/" .. plugin,
   enabled = Is_Enabled(plugin),
-  event = "VimEnter",
+  -- event = "LspAttach",
   dependencies = "neovim/nvim-lspconfig",
   init = function()
     vim.g.navic_silence = true

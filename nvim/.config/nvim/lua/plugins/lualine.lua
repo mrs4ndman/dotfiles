@@ -10,4 +10,7 @@ return {
   "nvim-lualine/" .. plugin,
   enabled = Is_Enabled(plugin),
   event = "UIEnter",
+  config = function()
+    require("custom.lualine")
+  end
 }

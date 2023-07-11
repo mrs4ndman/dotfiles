@@ -45,11 +45,6 @@ wk.register({
   ["<leader>sr"] = { "<cmd>SessionRestore<CR>", "Restore session for CWD", { silent = true } },
   ["<leader>ss"] = { "<cmd>SessionSave<CR>", "Save current session", { silent = true } },
 
-  -- TO-DO
-  ["<leader>td"] = { "<cmd>TodoQuickFix<CR>", "To-Do Toggle", { silent = true } },
-  ["<leader>tcp"] = { require("todo-comments").jump_prev, "To-Do next inline" },
-  ["<leader>tcd"] = { require("todo-comments").jump_next, "To-Do previous inline" },
-
   -- TWILIGHT
   ["<leader>zt"] = { "<cmd>Twilight<CR>", "Twilight toggle" },
 
@@ -70,21 +65,6 @@ wk.register({
   -- OVERLENGHT
   ["<leader>lt"] = { "<cmd>OverlengthToggle<CR>", "Overlength Toggle", { silent = true } },
 
-  -- TELESCOPE
-  ["<leader>tf"] = { require("telescope.builtin").find_files, "Find files", { silent = true } },
-  ["<leader>tg"] = { require("telescope.builtin").git_files, "Git files", { silent = true } },
-  ["<leader>tb"] = { require("telescope.builtin").buffers, "List buffers", { silent = true } },
-  ["<leader>tr"] = { require("telescope.builtin").oldfiles, "Recent files", { silent = true } },
-  ["<leader>tl"] = { require("telescope.builtin").loclist, "Proyect loclist", { silent = true } },
-  ["<leader>vh"] = { require("telescope.builtin").help_tags, "Help tags", { silent = true } },
-  ["<leader>sg"] = { require("telescope.builtin").grep_string, "Fast string grep", { silent = true} },
-  ["<leader>ts"] = {
-    function()
-      require("telescope.builtin").grep_string({ search = vim.fn.input("Grep > ") })
-    end,
-    "Grep through files",
-    { silent = true },
-  },
 
   -- COKELINE
   ["<leader>cn"] = { "<Plug>(cokeline-focus-next)", "Change to next buffer", { silent = true } },
@@ -100,9 +80,6 @@ wk.register({
   -- TREESJ
   ["Q"] = { "<cmd>TSJToggle<CR>", "Toggle TS node", { silent = true } },
 
-  -- GLOW
-  ["<leader>md"] = { "<cmd>Glow<CR>", "Toggle MD preview", { silent = true } },
-
   -- OIL
-   -- ["<leader>e"] = { require("oil").open, "It's oiling time", silent = true },
+  -- ["<leader>e"] = { require("oil").open, "It's oiling time", silent = true },
 })

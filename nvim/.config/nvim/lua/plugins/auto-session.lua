@@ -7,15 +7,18 @@ local plugin = "auto-session"
 
 return {
   "rmagatti/" .. plugin,
-  event = "VimEnter",
+  -- event = "VimEnter",
+  cmd = {
+    "SessionRestore",
+    "SessionSave",
+    "SessionDelete",
+  },
   enabled = Is_Enabled(plugin),
-  config = function()
-    require("auto-session").setup({
-      log_level = "error",
-      auto_session_suppress_dirs = { "~/", "~/install", "~/Downloads" },
-      auto_session_create_enabled = false,
-      auto_restore_enabled = false,
-      auto_save_enabled = true,
-    })
-  end,
+  opts = {
+    log_level = "error",
+    auto_session_suppress_dirs = { "~/", "~/install", "~/Downloads" },
+    auto_session_create_enabled = false,
+    auto_restore_enabled = false,
+    auto_save_enabled = true,
+  }
 }
