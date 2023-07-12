@@ -21,6 +21,7 @@ Customize = {
     ["executor.nvim"] = { enabled = true, defaults = false },
     ["fluoromachine.nvim"] = { enabled = true, defaults = false },
     ["flit.nvim"] = { enabled = true, defaults = false },
+    ["git-blame.nvim"] = { enabled = true },
     ["gitlinker.nvim"] = { enabled = true },
     ["gitsigns.nvim"] = { enabled = true, defaults = false },
     ["github-nvim-theme"] = { enabled = true, defaults = true },
