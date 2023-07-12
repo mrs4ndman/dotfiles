@@ -7,7 +7,7 @@ local plugin = "auto-session"
 
 return {
   "rmagatti/" .. plugin,
-  -- event = "VimEnter",
+  event = "VimEnter",
   cmd = {
     "SessionRestore",
     "SessionSave",

@@ -23,6 +23,13 @@ return {
       },
       opts = { lsp = { auto_attach = true } }
     },
+    {
+      url = "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+      lazy = false,
+      config = function()
+        require("lsp_lines").setup()
+      end
+    }
   },
   config = function()
     require("custom.lsp")
