@@ -7,7 +7,8 @@ local plugin = "specs.nvim"
 
 return {
   "edluffy/" .. plugin,
-  lazy = false,
+  event = { "BufReadPre", "BufNewFile" },
+  -- lazy = false,
   config = function()
     require("specs").setup {
       show_jumps = true,

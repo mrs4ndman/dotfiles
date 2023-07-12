@@ -6,7 +6,8 @@ local plugin = "hlargs.nvim"
 
 return {
   "m-demare/" .. plugin,
-  lazy = false,
+  keys = "<leader>va",
+  -- lazy = false,
   config = function()
     require("hlargs").setup()
     vim.keymap.set({ "n", "v" }, "<leader>va", function()

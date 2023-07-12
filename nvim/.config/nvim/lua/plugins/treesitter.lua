@@ -8,8 +8,8 @@ local plugin = "nvim-treesitter"
 return {
   "nvim-treesitter/" .. plugin, -- parsing to the end of time
   enabled = Is_Enabled(plugin),
-  event = "VeryLazy",
-  -- event = { "BufReadPre", "BufNewFile" },
+  -- event = "VeryLazy",
+  event = { "BufReadPre", "BufNewFile" },
   -- build = ":TSUpdate",
   dependencies = {
     "nvim-treesitter/nvim-treesitter-context",

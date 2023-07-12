@@ -8,7 +8,6 @@ local plugin = "no-neck-pain.nvim"
 return {
   "shortcuts/" .. plugin,
   enabled = Is_Enabled(plugin),
-  event = "VeryLazy",
   keys = {
       "<leader>np",
       "<leader>nh",
