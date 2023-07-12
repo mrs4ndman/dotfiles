@@ -19,6 +19,7 @@ return {
       {"<leader>tg", require("telescope.builtin").git_files, desc = "Git files" },
       {"<leader>tb", require("telescope.builtin").buffers, desc = "List buffers" },
       {"<leader>tr", require("telescope.builtin").oldfiles, desc = "Recent files" },
+      {"<leader>tk", require("telescope.builtin").keymaps, desc = "Proyect loclist" },
       {"<leader>tl", require("telescope.builtin").loclist, desc = "Proyect loclist" },
       {"<leader>vh", require("telescope.builtin").help_tags, desc = "Help tags" },
       {"<leader>sg", require("telescope.builtin").grep_string, desc = "Fast string grep" },

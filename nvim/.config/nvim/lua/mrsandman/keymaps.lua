@@ -118,6 +118,22 @@ vim.keymap.set("n", "<leader>E", vim.cmd.Ex, { desc = "Ex", silent = true })
 -- Window splits and ?tabs?
 vim.keymap.set("n", "<leader>ws", "<cmd>split<CR>", { desc = "Horizontal split" })
 vim.keymap.set("n", "<leader>wv", "<cmd>vsplit<CR>", { desc = "Vertical split" })
+vim.keymap.set("n", "<A-Left>", ":vertical resize -2<CR>", {
+  desc = "Make vertical split smaller",
+  silent = true,
+})
+vim.keymap.set("n", "<A-Right>", ":vertical resize +2<CR>", {
+  desc = "Make vertical split larger",
+  silent = true,
+})
+vim.keymap.set("n", "<A-Up>", ":resize -2<CR>", {
+  desc = "Make horizontal split smaller",
+  silent = true,
+})
+vim.keymap.set("n", "<A-Down>", ":resize +2<CR>", {
+  desc = "Make horizontal split larger",
+  silent = true,
+})
 vim.keymap.set("n", "<leader>tn", "<cmd>tabnew<CR>", { desc = "New tab" })
 vim.keymap.set("n", "<leader>tn", "<cmd>tabclose<CR>", { desc = "Close tab" })
 
