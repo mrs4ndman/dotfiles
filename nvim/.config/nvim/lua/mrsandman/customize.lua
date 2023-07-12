@@ -68,7 +68,8 @@ Customize = {
     ["nvim-lastplace"] = { enabled = true, defaults = true },
     ["nvim-lightbulb"] = { enabled = true, defaults = false },
     ["nvim-lspconfig"] = { enabled = true, defaults = false }, -- brought down to ??
-    ["nvim-navic"] = { enabled = false }, -- disabled in favor of dropbar.nvim
+    ["nvim-navic"] = { enabled = true }, -- disabled in favor of dropbar.nvim
+    ["nvim-navbuddy"] = { enabled = true },
     ["nvim-notify"] = { enabled = true },
     ["nvim-scrollbar"] = { enabled = false },
     ["nvim-surround"] = { enabled = true },

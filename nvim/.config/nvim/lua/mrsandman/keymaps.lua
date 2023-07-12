@@ -93,6 +93,15 @@ vim.keymap.set("n", "<leader>la", function()
   vim.cmd([[:normal zz]])
 end)
 
+-- LSP_LINES TOGGLE
+vim.keymap.set(
+  { "n", "v" },
+  "<leader>vl",
+  require("lsp_lines").toggle,
+  { desc = "Toggle LSP line diagnostics" }
+)
+
+vim.keymap.set("n", "<leader>nb", "<cmd>Navbuddy<CR>", { desc = "Navbuddy toggle", silent = true })
 
 -- INTERNAL KEYBINDS
 

@@ -26,6 +26,7 @@ return {
         require("luasnip.loaders.from_vscode").lazy_load()
       end,
     },
+    "buschco/nvim-cmp-ts-tag-close",
     "saadparwaiz1/cmp_luasnip",
     "rafamadriz/friendly-snippets",
   },

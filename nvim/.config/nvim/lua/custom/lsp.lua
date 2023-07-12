@@ -1,5 +1,6 @@
 -- LSP Explicit config
 -- local navic = require("nvim-navic")
+local navbuddy = require("nvim-navbuddy")
 local M = {}
 M.capabilities = vim.lsp.protocol.make_client_capabilities()
 M.capabilities.textDocument.completion.completionItem = {
@@ -20,6 +21,7 @@ M.capabilities.textDocument.completion.completionItem = {
 }
 M.on_attach = function (client, bufnr)
   -- navic.attach(client, bufnr)
+  navbuddy.attach(client, bufnr)
   require("virtualtypes").on_attach()
 end
 -- First, Native LSP
@@ -145,7 +147,8 @@ for type, icon in pairs(signs) do
 end
 
 vim.diagnostic.config({
-  virtual_text = true,
+  virtual_text = false,
+  virtual_lines = true,
   underline = true,
   update_in_insert = false,
   severity_sort = true,

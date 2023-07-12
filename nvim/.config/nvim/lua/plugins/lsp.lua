@@ -14,6 +14,15 @@ return {
     "jubnzv/virtual-types.nvim",
     "folke/lsp-colors.nvim",
     "williamboman/mason.nvim",
+    {
+      "SmiteshP/nvim-navbuddy",
+      enabled = Is_Enabled("nvim-navbuddy"),
+      dependencies = {
+        "SmiteshP/nvim-navic",
+        "MunifTanjim/nui.nvim",
+      },
+      opts = { lsp = { auto_attach = true } }
+    },
   },
   config = function()
     require("custom.lsp")
