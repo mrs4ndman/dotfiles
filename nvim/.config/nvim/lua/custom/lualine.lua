@@ -108,14 +108,14 @@ local function ins_right(component)
 end
 
 ins_winb_left({
-  "navic",
-  function()
-    return require("nvim-navic").get_location()
-  end,
-  --[[ conditions.hide_in_width, ]]
-  cond = function()
-    return package.loaded["nvim-navic"] and require("nvim-navic").is_available()
-  end,
+  -- "navic",
+  -- function()
+  --   return require("nvim-navic").get_location()
+  -- end,
+  -- --[[ conditions.hide_in_width, ]]
+  -- cond = function()
+  --   return package.loaded["nvim-navic"] and require("nvim-navic").is_available()
+  -- end,
 })
 
 -- Add components to right sections
@@ -239,6 +239,29 @@ ins_left({
 })
 
 ins_left({
+  -- Lsp server name
+  function()
+    local msg = "None"
+
+    local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
+    local clients = vim.lsp.get_active_clients()
+    if next(clients) == nil then
+      return msg
+    end
+    for _, client in ipairs(clients) do
+      local filetypes = client.config.filetypes
+      if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
+        return client.name
+      end
+    end
+    return msg
+  end,
+  icon = "",
+  color = { fg = "cyan", gui = "bold" },
+  cond = conditions.hide_in_width,
+})
+
+ins_left({
   -- filetype / language component
   "filetype",
   colored = true,
@@ -277,6 +300,18 @@ ins_left({
 })
 
 ins_right({
+  "diagnostics",
+  sources = { "nvim_diagnostic" },
+  symbols = { error = " ", warn = " ", info = " " },
+  diagnostics_color = {
+    color_error = { fg = colors.red },
+    color_warn = { fg = colors.yellow },
+    color_info = { fg = colors.cyan },
+  },
+
+})
+
+ins_right({
   "diff",
   -- Is it me or the symbol for modified us really weird
   symbols = { added = " ", modified = "柳", removed = " " },
@@ -288,13 +323,6 @@ ins_right({
   cond = conditions.hide_in_width,
 })
 
-ins_right({
-  "o:encoding",
-  fmt = string.lower,
-  cond = conditions.hide_in_width,
-  color = { fg = colors.red },
-  padding = { left = 0, right = 0 },
-})
 
 ins_right({
   "fileformat",

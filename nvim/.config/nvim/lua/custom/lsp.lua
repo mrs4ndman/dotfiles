@@ -1,5 +1,5 @@
--- -- LSP Explicit config
-local navic = require("nvim-navic")
+-- LSP Explicit config
+-- local navic = require("nvim-navic")
 local M = {}
 M.capabilities = vim.lsp.protocol.make_client_capabilities()
 M.capabilities.textDocument.completion.completionItem = {
@@ -19,7 +19,7 @@ M.capabilities.textDocument.completion.completionItem = {
   },
 }
 M.on_attach = function (client, bufnr)
-  navic.attach(client, bufnr)
+  -- navic.attach(client, bufnr)
   require("virtualtypes").on_attach()
 end
 -- First, Native LSP

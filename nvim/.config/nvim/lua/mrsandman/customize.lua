@@ -17,6 +17,7 @@ Customize = {
     ["doom-one.nvim"] = { enabled = true, defaults = false },
     ["dracula.nvim"] = { enabled = true, defaults = false },
     ["dressing.nvim"] = { enabled = true, defaults = false },
+    ["dropbar.nvim"] = { enabled = true },
     ["executor.nvim"] = { enabled = true, defaults = false },
     ["fluoromachine.nvim"] = { enabled = true, defaults = false },
     ["flit.nvim"] = { enabled = true, defaults = false },
@@ -66,8 +67,8 @@ Customize = {
     ["nvim-jdtls"] = { enabled = true },
     ["nvim-lastplace"] = { enabled = true, defaults = true },
     ["nvim-lightbulb"] = { enabled = true, defaults = false },
-    ["nvim-lspconfig"] = { enabled = true, defaults = false }, -- around 17 ms effect
-    ["nvim-navic"] = { enabled = true }, -- doesn't allow lsp to load, so same effect as lsp
+    ["nvim-lspconfig"] = { enabled = true, defaults = false }, -- brought down to ??
+    ["nvim-navic"] = { enabled = false }, -- disabled in favor of dropbar.nvim
     ["nvim-notify"] = { enabled = true },
     ["nvim-scrollbar"] = { enabled = false },
     ["nvim-surround"] = { enabled = true },

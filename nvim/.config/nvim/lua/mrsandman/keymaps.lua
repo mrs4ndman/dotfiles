@@ -82,6 +82,7 @@ require("leap").add_default_mappings()
 vim.keymap.set({ "n", "v" }, "<leader>lp", function()
   local current_window = vim.fn.win_getid()
   require("leap").leap({ target_windows = { current_window } })
+  vim.cmd([[:normal zz]])
 end)
 -- All-window leaping
 vim.keymap.set("n", "<leader>la", function()
@@ -89,6 +90,7 @@ vim.keymap.set("n", "<leader>la", function()
     return vim.api.nvim_win_get_config(win).focusable
   end, vim.api.nvim_tabpage_list_wins(0))
   require("leap").leap({ target_windows = focusable_window_on_tabpage })
+  vim.cmd([[:normal zz]])
 end)
 
 
@@ -162,8 +164,8 @@ vim.keymap.set("n", "<leader>o", "o<Esc>", { silent = true, desc = "Insert new l
 vim.keymap.set("n", "<leader>O", "O<Esc>", { silent = true, desc = "Insert new line above and exit" })
 
 -- Buffer previous, next and close, window closing too
-vim.keymap.set("n", "<leader>bn", "<cmd>bnext<CR>", { noremap = true, silent = true, desc = "Next buffer" })
-vim.keymap.set("n", "<leader>bp", "<cmd>bprevious<CR>", { noremap = true, silent = true, desc = "Previous buffer" })
+vim.keymap.set("n", "<Tab>", "<cmd>bprevious<CR>", { noremap = true, silent = true, desc = "Previous buffer" })
+vim.keymap.set("n", "<S-Tab>", "<cmd>bprevious<CR>", { noremap = true, silent = true, desc = "Previous buffer" })
 vim.keymap.set("n", "<leader>bc", "<cmd>bd<CR>", { noremap = true, silent = true, desc = "Close buffer softly" })
 vim.keymap.set("n", "<leader>cw", "<cmd>close<CR>", { noremap = true, silent = true, desc = "Close window one way" })
 vim.keymap.set(

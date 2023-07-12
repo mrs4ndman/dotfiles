@@ -12,7 +12,7 @@ return {
   opts = {
     max_time = 1250,
     max_count = 5,
-    disable_mouse = true,
+    disable_mouse = false,
     hint = true,
     notification = true,
     allow_different_key = true,
