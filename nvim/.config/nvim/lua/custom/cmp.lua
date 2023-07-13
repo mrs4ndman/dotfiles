@@ -132,6 +132,7 @@ return function(_, opts)
       { name = "nvim_lsp" },
       { name = "luasnip" },
       { name = "codeium" },
+      { name = "buffer-lines" },
       { name = "crates" }, -- crates.nvim plugin
       { name = "path" },
       { name = "nvim_lua" },

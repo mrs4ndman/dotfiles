@@ -13,7 +13,7 @@ Customize = {
     ["cellular-automaton.nvim"] = { enabled = true },
     ["citruszest.nvim"] = { enabled = true },
     ["codeium.nvim"] = { enabled = true },
-    ["Comment.nvim"] = { enabled = true, defaults = false }, -- Culprit of 6 ms, delayed by Treesitter
+    ["Comment.nvim"] = { enabled = true, defaults = false },
     ["doom-one.nvim"] = { enabled = true, defaults = false },
     ["dracula.nvim"] = { enabled = true, defaults = false },
     ["dressing.nvim"] = { enabled = true, defaults = false },
@@ -33,10 +33,11 @@ Customize = {
     ["horizon.nvim"] = { enabled = true },
     ["hypersonic.nvim"] = { enabled = false, defaults = false },
     ["inc-rename.nvim"] = { enabled = true, defaults = false },
+    ["iswap.nvim"] = { enabled = true },
     ["last-color.nvim"] = { enabled = true, defaults = true },
     ["leap.nvim"] = { enabled = true, defaults = false },
     ["leap-spooky.nvim"] = { enabled = true },
-    ["lualine.nvim"] = { enabled = true, defaults = false }, -- 10 ms culprit, need to find a way to optimise
+    ["lualine.nvim"] = { enabled = true, defaults = false }, -- Migrate to a standard config format
     ["mason.nvim"] = { enabled = true, defaults = false },
     ["mason-lspconfig.nvim"] = { enabled = true, defaults = false },
     ["mason-nvim-dap.nvim"] = { enabled = true, defaults = false },
@@ -54,10 +55,10 @@ Customize = {
     ["nui.nvim"] = { enabled = true },
     ["numb.nvim"] = { enabled = true, defaults = false },
     ["nvim-autopairs"] = { enabled = true, defaults = false },
-    ["nvim-bqf"] = { enabled = true }, -- don't know the effect, but it is doing something i don't like
+    ["nvim-bqf"] = { enabled = true },
     ["nvim-cmp"] = { enabled = true, defaults = false },
     ["nvim-cokeline"] = { enabled = true, defaults = false }, -- ~ 5ms effect
-    ["nvim-dap"] = { enabled = true }, -- no effect for it and submodules
+    ["nvim-dap"] = { enabled = true },
     ["nvim-dap-go"] = { enabled = true },
     ["nvim-dap-python"] = { enabled = true },
     -- ["nvim-dap-ruby"] = { enabled = true }, -- Will get implemented
@@ -68,8 +69,8 @@ Customize = {
     ["nvim-jdtls"] = { enabled = true },
     ["nvim-lastplace"] = { enabled = true, defaults = true },
     ["nvim-lightbulb"] = { enabled = true, defaults = false },
-    ["nvim-lspconfig"] = { enabled = true, defaults = false }, -- brought down to ??
-    ["nvim-navic"] = { enabled = true }, -- disabled in favor of dropbar.nvim
+    ["nvim-lspconfig"] = { enabled = true, defaults = false },
+    ["nvim-navic"] = { enabled = true },
     ["nvim-navbuddy"] = { enabled = true },
     ["nvim-notify"] = { enabled = true },
     ["nvim-scrollbar"] = { enabled = false },
@@ -97,7 +98,6 @@ Customize = {
     ["telescope.nvim"] = { enabled = true },
     ["telescope-dap.nvim"] = { enabled = true },
     ["telescope-fzf-native.nvim"] = { enabled = true },
-    -- ["telescope-ui-select.nvim"] = { enabled = true },
     ["theme-selector.nvim"] = { enabled = false, defaults = false },
     ["trouble.nvim"] = { enabled = true, defaults = false },
     ["treesj"] = { enabled = true, defaults = false },
@@ -120,8 +120,6 @@ Customize = {
     ["vscode.nvim"] = { enabled = true, defaults = false },
     ["which-key.nvim"] = { enabled = true },
     ["zen-mode.nvim"] = { enabled = true, defaults = false },
-    -- [""] = { enabled = true },
-    -- [""] = { enabled = true },
   },
 
   debuggers = {

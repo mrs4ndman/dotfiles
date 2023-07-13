@@ -9,6 +9,7 @@ return {
   enabled = Is_Enabled(plugin),
   dependencies = {
     "hrsh7th/cmp-buffer",
+    "amarakon/nvim-cmp-buffer-lines",
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-nvim-lsp-signature-help",
     "hrsh7th/cmp-nvim-lua",
