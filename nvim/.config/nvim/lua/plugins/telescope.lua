@@ -67,7 +67,7 @@ return {
           -- results_title = "",
           winblend = 10,
           wrap_results = true,
-          hidden = true,
+          -- hidden = true,
           mappings = {
             i = {
               ["<C-n>"] = require("telescope.actions").preview_scrolling_down,

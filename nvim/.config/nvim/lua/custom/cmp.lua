@@ -130,6 +130,7 @@ return function(_, opts)
     })
     local sources = {
       { name = "nvim_lsp" },
+      { name = "treesitter" },
       { name = "luasnip" },
       { name = "codeium" },
       { name = "buffer-lines" },

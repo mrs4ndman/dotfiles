@@ -15,6 +15,7 @@ return {
     "hrsh7th/cmp-nvim-lua",
     "hrsh7th/cmp-nvim-lsp-document-symbol",
     "hrsh7th/cmp-nvim-lsp",
+    "ray-x/cmp-treesitter",
     {
       "jcdickinson/codeium.nvim",
       dependencies = "nvim-lua/plenary.nvim",
