@@ -92,6 +92,7 @@ Customize = {
     ["plenary.nvim"] = { enabled = true },
     ["popup.nvim"] = { enabled = true },
     ["rainbow-delimiters.nvim"] = { enabled = true, defaults = false },
+    ["rasmus.nvim"] = { enabled = true },
     ["rust-tools.nvim"] = { enabled = true },
     ["specs.nvim"] = { enabled = true },
     ["tabout.nvim"] = { enabled = true, defaults = false },
@@ -109,7 +110,6 @@ Customize = {
     ["undotree"] = { enabled = true },
     ["vim-be-good"] = { enabled = true },
     ["vim-commentary"] = { enabled = true },
-    -- ["vim-go"] = { enabled = true }, -- TODO: Look for alternatives
     ["vim-illuminate"] = { enabled = true },
     ["vim-matchquote"] = { enabled = true },
     ["vim-sleuth"] = { enabled = true },

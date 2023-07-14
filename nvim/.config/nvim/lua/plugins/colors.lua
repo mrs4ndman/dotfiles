@@ -264,5 +264,15 @@ return {
   {
     "JoosepAlviste/palenightfall.nvim",
     enabled = Is_Enabled("palenightfall.nvim"),
+  },
+  {
+    "kvrohit/rasmus.nvim",
+    enabled = Is_Enabled("rasmus.nvim"),
+    config = function()
+      vim.g.rasmus_italic_comments = true
+      vim.g.rasmus_bold_keywords = true
+      vim.g.rasmus_bold_functions = true
+      vim.g.rasmus_variant = "dark"
+    end
   }
 }

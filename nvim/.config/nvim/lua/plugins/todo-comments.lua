@@ -5,7 +5,6 @@ Use_Defaults = functions.use_plugin_defaults
 
 local plugin = "todo-comments.nvim"
 
--- TODO: TEST
 return {
   "folke/" .. plugin,
   enabled = Is_Enabled(plugin),
@@ -19,7 +18,7 @@ return {
     vim.keymap.set({ "n", "v" }, "<leader>tcn", require("todo-comments").jump_next, { desc = "To-Do next inline" })
   end,
   keys = {
-    { "<leader>td", "<cmd>TodoQuickFix<CR>", desc = "To-Do Toggle", },
+    { "<leader>td", "<cmd>TodoTrouble<CR>", desc = "To-Do Toggle", },
   },
   cmd = { "TodoTrouble", "TodoTelescope", "TodoLocList", "TodoQuickFix" },
 }

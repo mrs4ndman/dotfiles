@@ -2,7 +2,7 @@
 -- Set default terminal mode to insert & remove line numbers in terminal buffers
 vim.cmd([[
 augroup Terminal
-    autocmd!
+    " autocmd!
     autocmd! TermOpen * setlocal nonu nornu signcolumn=no
     autocmd! TermOpen * startinsert
 augroup END

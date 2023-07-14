@@ -28,7 +28,6 @@ local function prev_color(prompt_bufnr)
 end
 
 local opts = {
-  -- TODO: Optimise the sorting and make it more responsive
   prompt_title = "Which color?",
   layout_strategy = "vertical",
   layout_config = {
@@ -47,6 +46,7 @@ local opts = {
     "tokyodark",
     "nvimgelion",
     "palenightfall",
+    "rasmus",
     "onedark_dark",
     "catppuccin",
     "github_dark_high_contrast",

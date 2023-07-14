@@ -25,9 +25,15 @@ return {
     },
     {
       url = "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-      lazy = false,
       config = function()
         require("lsp_lines").setup()
+        -- LSP_LINES TOGGLE
+        vim.keymap.set(
+          { "n", "v" },
+          "<leader>vl",
+          require("lsp_lines").toggle,
+          { desc = "Toggle LSP line diagnostics" }
+        )
       end
     }
   },

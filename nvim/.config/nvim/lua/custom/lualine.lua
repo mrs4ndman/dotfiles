@@ -119,39 +119,39 @@ ins_winb_left({
 })
 
 -- Add components to right sections
-ins_winb_right({
-  "diagnostics",
-  sources = { "nvim_diagnostic" },
-  symbols = { error = " ", warn = " ", info = " " },
-  diagnostics_color = {
-    color_error = { fg = colors.red },
-    color_warn = { fg = colors.yellow },
-    color_info = { fg = colors.cyan },
-  },
-})
-
-ins_winb_right({
-  -- Lsp server name
-  function()
-    local msg = "None"
-
-    local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
-    local clients = vim.lsp.get_active_clients()
-    if next(clients) == nil then
-      return msg
-    end
-    for _, client in ipairs(clients) do
-      local filetypes = client.config.filetypes
-      if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-        return client.name
-      end
-    end
-    return msg
-  end,
-  icon = "",
-  color = { fg = "cyan", gui = "bold" },
-  cond = conditions.hide_in_width,
-})
+-- ins_winb_right({
+--   "diagnostics",
+--   sources = { "nvim_diagnostic" },
+--   symbols = { error = " ", warn = " ", info = " " },
+--   diagnostics_color = {
+--     color_error = { fg = colors.red },
+--     color_warn = { fg = colors.yellow },
+--     color_info = { fg = colors.cyan },
+--   },
+-- })
+--
+-- ins_winb_right({
+--   -- Lsp server name
+--   function()
+--     local msg = "None"
+--
+--     local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
+--     local clients = vim.lsp.get_active_clients()
+--     if next(clients) == nil then
+--       return msg
+--     end
+--     for _, client in ipairs(clients) do
+--       local filetypes = client.config.filetypes
+--       if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
+--         return client.name
+--       end
+--     end
+--     return msg
+--   end,
+--   icon = "",
+--   color = { fg = "cyan", gui = "bold" },
+--   cond = conditions.hide_in_width,
+-- })
 
 ins_left({
   function()

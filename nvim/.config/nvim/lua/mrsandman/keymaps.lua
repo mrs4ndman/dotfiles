@@ -71,7 +71,6 @@ vim.keymap.set(
 
 -- Word-illuminate toggle
 vim.keymap.set("n", "<leader>iw", "<cmd>IlluminateToggle<CR>", { desc = "Word HL toggle" })
--- TODO: Find a Lua replacement
 
 -- Obsidian direct access
 -- vim.keymap.set("n", "<leader>nt", "<cmd>!cd $OBSIDIAN_VAULT | e ~/Documents/Obsidian Vaults/Dashboard/Current TO-DO.md<CR>")
@@ -92,14 +91,6 @@ vim.keymap.set("n", "<leader>la", function()
   require("leap").leap({ target_windows = focusable_window_on_tabpage })
   vim.cmd([[:normal zz]])
 end)
-
--- LSP_LINES TOGGLE
-vim.keymap.set(
-  { "n", "v" },
-  "<leader>vl",
-  require("lsp_lines").toggle,
-  { desc = "Toggle LSP line diagnostics" }
-)
 
 vim.keymap.set("n", "<leader>nb", "<cmd>Navbuddy<CR>", { desc = "Navbuddy toggle", silent = true })
 
@@ -134,8 +125,6 @@ vim.keymap.set("n", "<A-Down>", ":resize +2<CR>", {
   desc = "Make horizontal split larger",
   silent = true,
 })
-vim.keymap.set("n", "<leader>tn", "<cmd>tabnew<CR>", { desc = "New tab" })
-vim.keymap.set("n", "<leader>tn", "<cmd>tabclose<CR>", { desc = "Close tab" })
 
 -- Get me out of here (:D)
 vim.keymap.set("n", "<leader><Esc>", "<cmd>quitall<CR>", { desc = "Quit all", silent = true })
@@ -146,7 +135,8 @@ vim.keymap.set("n", "<C-s>", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left
 
 -- indent machine
 vim.keymap.set("n", "<leader>ip", "=ap", { desc = "Indent a paragraph", silent = true })
-
+vim.keymap.set("n", "<leader>il", "==", { desc = "Indent-line toggle" })
+--
 -- Set files to be executable
 vim.keymap.set("n", "<leader>cx", "<cmd>!chmod +x %<CR>", { desc = "Make file executable", silent = true })
 

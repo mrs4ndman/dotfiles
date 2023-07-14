@@ -36,9 +36,6 @@ wk.register({
     "Dismiss all Notifications",
   },
 
-  -- Indent-line toggle
-  ["<leader>il"] = { "<cmd>IndentBlanklineToggle<CR>", "Indent-line toggle" },
-
 
   -- AUTO-SESSION
   ["<leader>sd"] = { "<cmd>SessionDelete<CR>", "Delete current session", { silent = true } },
