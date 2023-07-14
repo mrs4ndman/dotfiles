@@ -69,8 +69,7 @@ vim.keymap.set(
   { silent = true, noremap = true, desc = "Trouble LSP References" }
 )
 
--- Word-illuminate toggle
-vim.keymap.set("n", "<leader>iw", "<cmd>IlluminateToggle<CR>", { desc = "Word HL toggle" })
+vim.keymap.set("n", "<leader>iw", "<cmd>CursorWordToggle<CR>", { desc = "Word HL toggle" })
 
 -- Obsidian direct access
 -- vim.keymap.set("n", "<leader>nt", "<cmd>!cd $OBSIDIAN_VAULT | e ~/Documents/Obsidian Vaults/Dashboard/Current TO-DO.md<CR>")
@@ -94,6 +93,9 @@ end)
 
 vim.keymap.set("n", "<leader>nb", "<cmd>Navbuddy<CR>", { desc = "Navbuddy toggle", silent = true })
 
+vim.keymap.set("n", "<Tab>", "<Plug>(cokeline-focus-next)", { desc = "Change to next buffer", silent = true })
+vim.keymap.set("n", "<S-Tab>", "<Plug>(cokeline-focus-prev)", { desc = "Change to previous buffer", silent = true })
+--
 -- INTERNAL KEYBINDS
 
 -- NORMAL mode Keybinds
@@ -185,8 +187,9 @@ vim.keymap.set("n", "<leader>o", "o<Esc>", { silent = true, desc = "Insert new l
 vim.keymap.set("n", "<leader>O", "O<Esc>", { silent = true, desc = "Insert new line above and exit" })
 
 -- Buffer previous, next and close, window closing too
-vim.keymap.set("n", "<Tab>", "<cmd>bprevious<CR>", { noremap = true, silent = true, desc = "Previous buffer" })
-vim.keymap.set("n", "<S-Tab>", "<cmd>bprevious<CR>", { noremap = true, silent = true, desc = "Previous buffer" })
+-- To use without the cokeline bar
+-- vim.keymap.set("n", "<Tab>", "<cmd>bprevious<CR>", { noremap = true, silent = true, desc = "Previous buffer" })
+-- vim.keymap.set("n", "<S-Tab>", "<cmd>bprevious<CR>", { noremap = true, silent = true, desc = "Previous buffer" })
 vim.keymap.set("n", "<leader>bc", "<cmd>bd<CR>", { noremap = true, silent = true, desc = "Close buffer softly" })
 vim.keymap.set("n", "<leader>cw", "<cmd>close<CR>", { noremap = true, silent = true, desc = "Close window one way" })
 vim.keymap.set(
