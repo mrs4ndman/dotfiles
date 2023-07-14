@@ -153,6 +153,7 @@ alias srg='sudo ranger'
 alias tattach='tmux attach-session -t'
 alias trp='trash-put'
 alias trr='trash-restore'
+alias v='nvim'
 
 #-------------------------------------------------------------#
 

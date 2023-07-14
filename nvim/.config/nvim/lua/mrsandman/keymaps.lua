@@ -162,6 +162,12 @@ vim.keymap.set("n", "J", "mzJ'z", { silent = true })
 vim.keymap.set("n", "n", "nzzzv", { silent = true })
 vim.keymap.set("n", "N", "Nzzzv", { silent = true })
 
+-- Center cursor when skipping blocks and spaces
+vim.keymap.set("n", "{", "{zzzv", { silent = true })
+vim.keymap.set("n", "}", "}zzzv", { silent = true })
+vim.keymap.set("n", "(", "(zzzv", { silent = true })
+vim.keymap.set("n", ")", ")zzzv", { silent = true })
+
 vim.keymap.set("n", "+", "S")
 
 -- Delete character without yanking

@@ -37,6 +37,7 @@ Customize = {
     ["last-color.nvim"] = { enabled = true, defaults = true },
     ["leap.nvim"] = { enabled = true, defaults = false },
     ["leap-spooky.nvim"] = { enabled = true },
+    ["live-server.nvim"] = { enabled = true },
     ["lualine.nvim"] = { enabled = true, defaults = false }, -- Migrate to a standard config format
     ["mason.nvim"] = { enabled = true, defaults = false },
     ["mason-lspconfig.nvim"] = { enabled = true, defaults = false },
@@ -87,7 +88,7 @@ Customize = {
     ["onenord.nvim"] = { enabled = true, defaults = false },
     ["oxocarbon.nvim"] = { enabled = true },
     ["palenightfall.nvim"] = { enabled = true },
-    ["presence.nvim"] = { enabled = false },
+    ["presence.nvim"] = { enabled = true },
     ["playground"] = { enabled = true },
     ["plenary.nvim"] = { enabled = true },
     ["popup.nvim"] = { enabled = true },
