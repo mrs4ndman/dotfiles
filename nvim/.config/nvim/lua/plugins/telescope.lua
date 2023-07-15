@@ -2,7 +2,7 @@ Customize = require("mrsandman.customize")
 local functions = require("mrsandman.functions")
 Is_Enabled = functions.is_enabled
 Use_Defaults = functions.use_plugin_defaults
-local action_layout = require("telescope.actions.layout")
+-- local action_layout = require("telescope.actions.layout")
 
 local plugin = "telescope.nvim"
 return {
@@ -73,12 +73,12 @@ return {
             ["<C-p>"] = require("telescope.actions").preview_scrolling_up,
             ["<C-h>"] = require("telescope.actions").preview_scrolling_left,
             ["<C-l>"] = require("telescope.actions").preview_scrolling_right,
-            ["<M-p>"] = action_layout.toggle_preview,
+            -- ["<M-p>"] = action_layout.toggle_preview,
             ["<C-j>"] = require("telescope.actions").move_selection_next,
             ["<C-k>"] = require("telescope.actions").move_selection_previous,
           },
           n = {
-            ["<M-p>"] = action_layout.toggle_preview,
+            -- ["<M-p>"] = action_layout.toggle_preview,
             ["<C-n>"] = require("telescope.actions").preview_scrolling_down,
             ["<C-p>"] = require("telescope.actions").preview_scrolling_up,
             ["<M-s>"] = require("telescope.actions").file_split,
