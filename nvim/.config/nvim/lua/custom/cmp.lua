@@ -34,6 +34,13 @@ return function(_, opts)
       Unit = "",
       Value = "󰎠",
       Variable = "󰀫",
+      buffer = "󰦨",
+      path = "/",
+      codeium = "󰓅 ",
+      nvim_lsp = "λ",
+      luasnip = "⋗",
+      vsnip = "V",
+      nvim_lua = "Π",
     }
 
     vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
@@ -70,17 +77,7 @@ return function(_, opts)
 
       -- here is where the change happens
       format = function(entry, vim_item)
-        vim_item.menu = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind)
-
-        vim_item.menu = ({
-          buffer = "󰦨",
-          path = "/",
-          codeium = "󰓅 ",
-          nvim_lsp = "λ",
-          luasnip = "⋗",
-          vsnip = "V",
-          nvim_lua = "Π",
-        })[entry.source.name]
+        vim_item.menu = string.format("%s", kind_icons[vim_item.kind])
 
         if entry.source.name == "text" then
           vim_item.dup = 0
