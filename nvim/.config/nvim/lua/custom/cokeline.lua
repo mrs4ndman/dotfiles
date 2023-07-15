@@ -79,7 +79,7 @@ local components = {
 
   diagnostics = {
     text = function(buffer)
-      return (buffer.diagnostics.errors ~= 0 and "  " .. buffer.diagnostics.errors)
+      return (buffer.diagnostics.errors ~= 0 and " 󰅚 " .. buffer.diagnostics.errors)
         or (buffer.diagnostics.warnings ~= 0 and "  " .. buffer.diagnostics.warnings)
         or ""
     end,
@@ -91,7 +91,7 @@ local components = {
 
   close_or_unsaved = {
     text = function(buffer)
-      return buffer.is_modified and "●" or ""
+      return buffer.is_modified and "●" or "󰅖"
     end,
     fg = function(buffer)
       return buffer.is_modified and green or nil

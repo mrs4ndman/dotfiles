@@ -21,7 +21,7 @@ return {
         },
         change = {
           hl = "DiffChange",
-          text = "",
+          text = "󰇙",
           numhl = "GitSignsChangeNr",
         },
         delete = {
@@ -53,7 +53,7 @@ return {
         [7] = "₇",
         [8] = "₈",
         [9] = "₉",
-        ["+"] = "",
+        ["+"] = "󰎿",
       }
       opts.numhl = true
       opts.attach_to_untracked = true
