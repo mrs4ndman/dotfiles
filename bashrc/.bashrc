@@ -102,14 +102,14 @@ fi
 
 export BROWSER="firefox"
 export BASHRC="$HOME/.bashrc"
-export EDITOR="vim"
+export EDITOR="nvim"
 export FZF_DEFAULT_COMMAND='rg --files --hidden -g "!.git" '
 export FZF_DEFAULT_OPTS='-m --height 40% --border'
-export MAINED="nvim"
+export ALTED="vim"
 export PATH="$HOME/.cargo/bin:$HOME/.fzf/bin:$HOME/.local/bin:$HOME/.local/scripts:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 export VIMRC="$HOME/.vimrc"
 export NVIMRC="$HOME/dotfiles/nvim/.config/nvim/lua/mrsandman/main.lua"
-export VISUAL="vim"
+export VISUAL="nvim"
 export OBSIDIAN_VAULT="$HOME/Documents/Obsidian Vaults/Dashboard/Current TO-DO.md"
 set -o vi
 
