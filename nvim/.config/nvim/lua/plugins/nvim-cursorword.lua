@@ -7,6 +7,7 @@ local plugin = "nvim-cursorword"
 
 return {
   "xiyaowong/" .. plugin,
+  enabled = Is_Enabled("nvim-cursorword"),
   lazy = false,
   cmd = {
     "CursorWordToggle",

@@ -81,7 +81,7 @@ vim.keymap.set({ "n", "v" }, "<leader>lp", function()
   local current_window = vim.fn.win_getid()
   require("leap").leap({ target_windows = { current_window } })
   vim.cmd([[:normal zz]])
-end)
+end, { desc = "Leap bidirectionally" })
 -- All-window leaping
 vim.keymap.set("n", "<leader>la", function()
   local focusable_window_on_tabpage = vim.tbl_filter(function(win)
@@ -89,13 +89,14 @@ vim.keymap.set("n", "<leader>la", function()
   end, vim.api.nvim_tabpage_list_wins(0))
   require("leap").leap({ target_windows = focusable_window_on_tabpage })
   vim.cmd([[:normal zz]])
-end)
+end, { desc = "Leap on all windows" })
 
 vim.keymap.set("n", "<leader>nb", "<cmd>Navbuddy<CR>", { desc = "Navbuddy toggle", silent = true })
 
 vim.keymap.set("n", "<Tab>", "<Plug>(cokeline-focus-next)", { desc = "Change to next buffer", silent = true })
 vim.keymap.set("n", "<S-Tab>", "<Plug>(cokeline-focus-prev)", { desc = "Change to previous buffer", silent = true })
---
+
+
 -- INTERNAL KEYBINDS
 
 -- NORMAL mode Keybinds
@@ -131,6 +132,7 @@ vim.keymap.set("n", "<A-Down>", ":resize +2<CR>", {
 -- Get me out of here (:D)
 vim.keymap.set("n", "<leader><Esc>", "<cmd>quitall<CR>", { desc = "Quit all", silent = true })
 vim.keymap.set("n", "<leader>W", "<cmd>write<CR>", { desc = "Write all" })
+vim.keymap.set("n", "<leader>wq", "<cmd>wqa<CR>", { desc = "Bye :D" })
 
 -- Substitutor for current word
 vim.keymap.set("n", "<C-s>", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])

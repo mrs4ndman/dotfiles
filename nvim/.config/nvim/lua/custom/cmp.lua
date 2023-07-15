@@ -133,7 +133,7 @@ return function(_, opts)
       { name = "treesitter" },
       { name = "luasnip" },
       { name = "codeium" },
-      { name = "buffer-lines" },
+      -- { name = "buffer-lines" },
       { name = "crates" }, -- crates.nvim plugin
       { name = "path" },
       { name = "nvim_lua" },
