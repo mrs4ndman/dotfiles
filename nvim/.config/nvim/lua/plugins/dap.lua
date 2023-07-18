@@ -43,7 +43,7 @@ return {
     config = function(plugin, opts)
       vim.api.nvim_set_hl(0, "DapStoppedLine", { default = true, link = "Visual" })
 
-      local dap = require("dap")
+      local dap, dapui = require("dap"), require("dapui")
       dap.configurations.lua = {
         {
           type = "nlua",
@@ -72,7 +72,6 @@ return {
         commented = true,
       })
 
-      local dap, dapui = require("dap"), require("dapui")
       dapui.setup({})
 
       dap.listeners.after.event_initialized["dapui_config"] = function()
@@ -87,139 +86,27 @@ return {
     end,
 
     keys = {
-      {
-        "<leader>du",
-        function()
-          require("dapui").toggle()
-        end,
-        "DAP Toggle",
-      },
+      { "<leader>du", function() require("dapui").toggle() end, "DAP Toggle" },
       {
         "<leader>db",
-        function()
-          require("dap").toggle_breakpoint()
-        end,
+        function() require("dap").toggle_breakpoint() end,
         "DAP Toggle Breakpoint",
         { silent = true },
       },
-      {
-        "<leader>dc",
-        function()
-          require("dap").continue()
-        end,
-        "DAP Continue",
-      },
-      {
-        "<leader>dC",
-        function()
-          require("dap").run_to_cursor()
-        end,
-        "DAP Run To Cursor",
-      },
-      {
-        "<leader>dg",
-        function()
-          require("dap").goto_()
-        end,
-        "DAP Go to line (no execute)",
-      },
-      {
-        "<leader>di",
-        function()
-          require("dap").step_into()
-        end,
-        "Step Into",
-      },
-      {
-        "<leader>dj",
-        function()
-          require("dap").down()
-        end,
-        "DAP Down",
-      },
-      {
-        "<leader>dk",
-        function()
-          require("dap").up()
-        end,
-        "DAP Up",
-      },
-      {
-        "<leader>dl",
-        function()
-          require("dap").run_last()
-        end,
-        "DAP Run Last",
-      },
-      {
-        "<leader>do",
-        function()
-          require("dap").step_out()
-        end,
-        "DAP Step-Out",
-      },
-      {
-        "<leader>dO",
-        function()
-          require("dap").step_over()
-        end,
-        "DAP Step-Over",
-      },
-      {
-        "<leader>dp",
-        function()
-          require("dap").pause()
-        end,
-        "DAP Pause",
-      },
-      {
-        "<leader>dr",
-        function()
-          require("dap").repl.toggle()
-        end,
-        "DAP Toggle REPL",
-      },
-      {
-        "<leader>ds",
-        function()
-          require("dap").session()
-        end,
-        "DAP Session",
-      },
-      {
-        "<leader>dt",
-        function()
-          require("dap").terminate()
-        end,
-        "DAP Terminate",
-      },
-      {
-        "<leader>dw",
-        function()
-          require("dap.ui.widgets").hover()
-        end,
-        "DAP Widgets",
-      },
-    },
-  },
-  {
-    "jay-babu/mason-nvim-dap.nvim",
-    dependencies = "williamboman/mason.nvim",
-    cmd = { "DapInstall", "DapUninstall" },
-    opts = {
-      automatic_installation = false,
-      handlers = {},
-      ensure_installed = {
-        -- DAP
-        "bash-debug-adapter",
-        -- 'codelldb',
-        "debugpy",
-        "delve",
-        "go-debug-adapter",
-        "java-debug-adapter",
-        "js-debug-adapter",
-        "php-debug-adapter",
-      },
+      { "<leader>dc", function() require("dap").continue() end, "DAP Continue" },
+      { "<leader>dC", function() require("dap").run_to_cursor() end, "DAP Run To Cursor" },
+      { "<leader>dg", function() require("dap").goto_() end, "DAP Go to line (no execute)" },
+      { "<leader>di", function() require("dap").step_into() end, "Step Into" },
+      { "<leader>dj", function() require("dap").down() end, "DAP Down" },
+      { "<leader>dk", function() require("dap").up() end, "DAP Up" },
+      { "<leader>dl", function() require("dap").run_last() end, "DAP Run Last" },
+      { "<leader>do", function() require("dap").step_out() end, "DAP Step-Out" },
+      { "<leader>dO", function() require("dap").step_over() end, "DAP Step-Over" },
+      { "<leader>dp", function() require("dap").pause() end, "DAP Pause" },
+      { "<leader>dr", function() require("dap").repl.toggle() end, "DAP Toggle REPL" },
+      { "<leader>ds", function() require("dap").session() end, "DAP Session" },
+      { "<leader>dt", function() require("dap").terminate() end, "DAP Terminate" },
+      { "<leader>dw", function() require("dap.ui.widgets").hover() end, "DAP Widgets" },
     },
   },
 }

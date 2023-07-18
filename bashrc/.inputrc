@@ -6,6 +6,17 @@ set echo-control-characters off
 set completion-query-items 200
 set bell-style none
 
+set editing-mode vi
+
+$if mode=vi
+    set keymap vi-command
+    "k": history-substring-search-backward
+    "j": history-substring-search-forward
+
+    set keymap vi-insert
+    "\C-e": clear-screen
+$endif
+
 # Keybindings: 
 "\C-b":"fv \n"
 "\C-f":"tmux neww tmux-sessionizer \n"

@@ -34,10 +34,7 @@ return {
         autojump = true,
         ignore = {
           unlisted_buffers = true,
-          buftypes = "special",
-          wintypes = "special",
         },
-        nerd_font = "auto",
         open_automatic = false,
         post_jump_cmd = "normal! zz",
         lsp = {

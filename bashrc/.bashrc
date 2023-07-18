@@ -111,7 +111,7 @@ export VIMRC="$HOME/.vimrc"
 export NVIMRC="$HOME/dotfiles/nvim/.config/nvim/lua/mrsandman/main.lua"
 export VISUAL="nvim"
 export OBSIDIAN_VAULT="$HOME/Documents/Obsidian Vaults/Dashboard/Current TO-DO.md"
-set -o vi
+# Moved vi-mode to .inputrc
 
 #-------------------------------------------------------------#
 
