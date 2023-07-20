@@ -9,12 +9,12 @@ return {
   "f-person/" .. plugin,
   enabled = Is_Enabled(plugin),
   keys = {
-    { "<leader>gb", "<cmd>GitBlameToggle<CR>",  desc = "Git blame Toggle"  },
-    { "<leader>go", "<cmd>GitBlameOpenCommitURL<CR>",  desc = "Git Blame Open"  },
-    { "<leader>gO", "<cmd>GitBlameOpenFileURL<CR>",  desc = "Git Blame Open"  },
-    { "<leader>gch", "<cmd>GitBlameCopySHA<CR>",  desc = "Git Blame Open"  },
-    { "<leader>gcu", "<cmd>GitBlameCopyCommitURL<CR>",  desc = "Git Blame Open"  },
-    { "<leader>gcf", "<cmd>GitBlameCopyFileURL<CR>",  desc = "Git Blame Open"  },
+    { "<leader>gb", "<cmd>GitBlameToggle<CR>",  desc = "Blame Toggle"  },
+    { "<leader>go", "<cmd>GitBlameOpenCommitURL<CR>",  desc = "Blame Open"  },
+    { "<leader>gO", "<cmd>GitBlameOpenFileURL<CR>",  desc = "Blame Open"  },
+    { "<leader>gch", "<cmd>GitBlameCopySHA<CR>",  desc = "Blame Open"  },
+    { "<leader>gcu", "<cmd>GitBlameCopyCommitURL<CR>",  desc = "Blame Open"  },
+    { "<leader>gcf", "<cmd>GitBlameCopyFileURL<CR>",  desc = "Blame Open"  },
   },
   config = function()
     vim.g.gitblame_enabled = 0

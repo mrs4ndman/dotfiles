@@ -67,6 +67,7 @@ Customize = {
     ["nvim-dap-ui"] = { enabled = true, defaults = false },
     ["nvim-dap-virtual-text"] = { enabled = true },
     ["nvim-genghis"] = { enabled = true },
+    ["nvim-ghost.nvim"] = { enabled = true },
     ["nvimgelion"] = { enabled = true },
     ["nvim-jdtls"] = { enabled = true },
     ["nvim-lastplace"] = { enabled = true, defaults = true },
