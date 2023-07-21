@@ -8,5 +8,14 @@ return {
   "kylechui/" .. plugin,
   event = { "BufReadPost", "BufNewFile" },
   enabled = Is_Enabled(plugin),
-  config = true,
+  opts = {
+    keymaps = {
+      normal = "ys",
+      delete = "ds",
+      visual = "S",
+      visual_line = "gS",
+      change = "cs",
+      change_line = "cS",
+    }
+  }
 }

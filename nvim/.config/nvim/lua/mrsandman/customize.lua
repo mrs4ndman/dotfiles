@@ -59,6 +59,7 @@ Customize = {
     ["nvim-bqf"] = { enabled = true },
     ["nvim-cmp"] = { enabled = true, defaults = false },
     ["nvim-cokeline"] = { enabled = true, defaults = false }, -- ~ 5ms effect
+    ["nvim_context_vt"] = { enabled = true },
     ["nvim-cursorword"] = { enabled = true },
     ["nvim-dap"] = { enabled = true },
     ["nvim-dap-go"] = { enabled = true },

@@ -15,6 +15,13 @@ vim.keymap.set("n", "<leader>cat", "<cmd>CellularAutomaton make_it_rain<CR>", { 
 -- Colorizer toggle
 vim.keymap.set("n", "<leader>cl", "<cmd>ColorizerToggle<CR>", { desc = "Color picker toggle", silent = true })
 
+-- Navbuddy
+vim.keymap.set("n", "<leader>nb", "<cmd>Navbuddy<CR>", { desc = "Navbuddy toggle", silent = true })
+
+-- Cokeline quick buffer switching
+vim.keymap.set("n", "<Tab>", "<Plug>(cokeline-focus-next)", { desc = "Change to next buffer", silent = true })
+vim.keymap.set("n", "<S-Tab>", "<Plug>(cokeline-focus-prev)", { desc = "Change to previous buffer", silent = true })
+
 -- Number buffer selection with Leader + c + <number>
 for i = 1, 9 do
   vim.keymap.set(
@@ -90,11 +97,6 @@ vim.keymap.set("n", "<leader>la", function()
   require("leap").leap({ target_windows = focusable_window_on_tabpage })
   vim.cmd([[:normal zz]])
 end, { desc = "Leap on all windows" })
-
-vim.keymap.set("n", "<leader>nb", "<cmd>Navbuddy<CR>", { desc = "Navbuddy toggle", silent = true })
-
-vim.keymap.set("n", "<Tab>", "<Plug>(cokeline-focus-next)", { desc = "Change to next buffer", silent = true })
-vim.keymap.set("n", "<S-Tab>", "<Plug>(cokeline-focus-prev)", { desc = "Change to previous buffer", silent = true })
 
 
 -- INTERNAL KEYBINDS
