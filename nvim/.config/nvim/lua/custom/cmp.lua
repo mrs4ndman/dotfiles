@@ -36,11 +36,12 @@ return function(_, opts)
       Variable = "󰀫",
       buffer = "󰦨",
       path = "/",
-      codeium = "󰓅 ",
       nvim_lsp = "λ",
       luasnip = "⋗",
       vsnip = "V",
       nvim_lua = "Π",
+      Codeium = "C",
+      Tabnine = "T"
     }
 
     vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
@@ -77,7 +78,17 @@ return function(_, opts)
 
       -- here is where the change happens
       format = function(entry, vim_item)
-        vim_item.menu = string.format("%s", kind_icons[vim_item.kind])
+        vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
+        vim_item.menu = ({
+          nvim_lsp = "λ",
+          luasnip = "⋗",
+          nvim_lua = "Π",
+          codeium = "󱍋",
+          cmp_tabnine = "󱍋",
+          buffer = "󰦨",
+          path = "/",
+          vsnip = "V",
+        })[entry.source.name]
 
         if entry.source.name == "text" then
           vim_item.dup = 0
@@ -130,6 +141,7 @@ return function(_, opts)
       { name = "treesitter" },
       { name = "luasnip" },
       { name = "codeium" },
+      { name = "cmp_tabnine" },
       -- { name = "buffer-lines" },
       { name = "crates" }, -- crates.nvim plugin
       { name = "path" },
