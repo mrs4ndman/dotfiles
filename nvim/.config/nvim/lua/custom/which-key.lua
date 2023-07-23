@@ -6,7 +6,8 @@ wk.register({
   -- which-key category entries
   ["<leader>b"] = { name = "[B]uffers" },
   ["<leader>c"] = { name = "Close, TS Context" },
-  ["<leader>d"] = { name = "DAP (+ CodeLLDB when active)" },
+  ["<leader>d"] = { name = "Duck + " },
+  ["<leader>D"] = { name = "DAP (+ CodeLLDB when active)" },
   ["<leader>f"] = { name = "LSP Format TS Rename Function FML" },
   ["<leader>gy"] = { name = " Create code snippet + link" },
   ["<leader>i"] = { name = " [I]ndent[L]ine, Word-repetition" },

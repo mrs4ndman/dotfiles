@@ -98,6 +98,9 @@ vim.keymap.set("n", "<leader>la", function()
   vim.cmd([[:normal zz]])
 end, { desc = "Leap on all windows" })
 
+-- Export current state to HTML:
+vim.keymap.set("n", "<leader>xth", "<cmd>TOhtml<CR>", { desc = "Export to HTML" })
+
 
 -- INTERNAL KEYBINDS
 

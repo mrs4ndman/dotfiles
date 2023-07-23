@@ -10,14 +10,14 @@ return {
     ft = "python",
     keys = {
       {
-        "<leader>dPt",
+        "<leader>DPt",
         function()
           require("dap-python").test_method()
         end,
         desc = "Debug test method",
       },
       {
-        "<leader>dPc",
+        "<leader>DPc",
         function()
           require("dap-python").test_class()
         end,
@@ -86,27 +86,27 @@ return {
     end,
 
     keys = {
-      { "<leader>du", function() require("dapui").toggle() end, "DAP Toggle" },
+      { "<leader>Du", function() require("dapui").toggle() end, "DAP Toggle" },
       {
-        "<leader>db",
+        "<leader>Db",
         function() require("dap").toggle_breakpoint() end,
         "DAP Toggle Breakpoint",
         { silent = true },
       },
-      { "<leader>dc", function() require("dap").continue() end, "DAP Continue" },
-      { "<leader>dC", function() require("dap").run_to_cursor() end, "DAP Run To Cursor" },
-      { "<leader>dg", function() require("dap").goto_() end, "DAP Go to line (no execute)" },
-      { "<leader>di", function() require("dap").step_into() end, "Step Into" },
-      { "<leader>dj", function() require("dap").down() end, "DAP Down" },
-      { "<leader>dk", function() require("dap").up() end, "DAP Up" },
-      { "<leader>dl", function() require("dap").run_last() end, "DAP Run Last" },
-      { "<leader>do", function() require("dap").step_out() end, "DAP Step-Out" },
-      { "<leader>dO", function() require("dap").step_over() end, "DAP Step-Over" },
-      { "<leader>dp", function() require("dap").pause() end, "DAP Pause" },
-      { "<leader>dr", function() require("dap").repl.toggle() end, "DAP Toggle REPL" },
-      { "<leader>ds", function() require("dap").session() end, "DAP Session" },
-      { "<leader>dt", function() require("dap").terminate() end, "DAP Terminate" },
-      { "<leader>dw", function() require("dap.ui.widgets").hover() end, "DAP Widgets" },
+      { "<leader>Dc", function() require("dap").continue() end, "DAP Continue" },
+      { "<leader>DC", function() require("dap").run_to_cursor() end, "DAP Run To Cursor" },
+      { "<leader>Dg", function() require("dap").goto_() end, "DAP Go to line (no execute)" },
+      { "<leader>Di", function() require("dap").step_into() end, "Step Into" },
+      { "<leader>Dj", function() require("dap").down() end, "DAP Down" },
+      { "<leader>Dk", function() require("dap").up() end, "DAP Up" },
+      { "<leader>Dl", function() require("dap").run_last() end, "DAP Run Last" },
+      { "<leader>Do", function() require("dap").step_out() end, "DAP Step-Out" },
+      { "<leader>DO", function() require("dap").step_over() end, "DAP Step-Over" },
+      { "<leader>Dp", function() require("dap").pause() end, "DAP Pause" },
+      { "<leader>Dr", function() require("dap").repl.toggle() end, "DAP Toggle REPL" },
+      { "<leader>Ds", function() require("dap").session() end, "DAP Session" },
+      { "<leader>Dt", function() require("dap").terminate() end, "DAP Terminate" },
+      { "<leader>Dw", function() require("dap.ui.widgets").hover() end, "DAP Widgets" },
     },
   },
 }
