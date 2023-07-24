@@ -80,7 +80,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "[G]o to [D]efinition" })
     vim.keymap.set("n", "gT", vim.lsp.buf.type_definition, { desc = "[G]o to [T]ype definition" })
     vim.keymap.set("n", "gI", vim.lsp.buf.implementation, { desc = "[G]o to [I]mplementation" })
-    vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover help" })
+    vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover info" })
     vim.keymap.set("n", "<leader>vws", function()
       vim.lsp.buf.workspace_symbol()
     end, { desc = "Workspace Symbol" })
@@ -109,38 +109,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
         vim.diagnostic.open_float(nil, opts)
       end,
     })
-    -- if client.server_capabilities.inlayHintProvider then
-    --     vim.lsp.buf.inlay_hint(bufnr, true)
-    -- end
-    -- if client.resolved_capabilities.document_highlight then
-    --     vim.cmd [[
-    --     hi! LspReferenceRead cterm=bold ctermbg=red guibg=LightYellow
-    --     hi! LspReferenceText cterm=bold ctermbg=red guibg=LightYellow
-    --     hi! LspReferenceWrite cterm=bold ctermbg=red guibg=LightYellow
-    --     ]]
-    --     vim.api.nvim_create_augroup('lsp_document_highlight', {
-    --         clear = false
-    --     })
-    --     vim.api.nvim_clear_autocmds({
-    --         buffer = bufnr,
-    --         group = 'lsp_document_highlight',
-    --     })
-    --     vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
-    --         group = 'lsp_document_highlight',
-    --         buffer = bufnr,
-    --         callback = vim.lsp.buf.document_highlight,
-    --     })
-    --     vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
-    --         group = 'lsp_document_highlight',
-    --         buffer = bufnr,
-    --         callback = vim.lsp.buf.clear_references,
-    --     })
-    -- end
   end,
 })
 
 -- Change here the left sidebar LSP icon config for:
-local signs = { Error = "󰅚 ", Warn = " ", Hint = "󰌶 ", Info = " " }
+local signs = { Error = "󰅚 ", Warn = " ", Hint = "󰌶 ", Info = " " }
 for type, icon in pairs(signs) do
   local hl = "DiagnosticSign" .. type
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
