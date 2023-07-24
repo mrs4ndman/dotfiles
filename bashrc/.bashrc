@@ -108,7 +108,7 @@ export FZF_DEFAULT_OPTS='-m --height 40% --border'
 export ALTED="vim"
 export PATH="$HOME/.cargo/bin:$HOME/.fzf/bin:$HOME/.local/bin:$HOME/.local/scripts:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 export VIMRC="$HOME/.vimrc"
-export NVIMRC="$HOME/dotfiles/nvim/.config/nvim/lua/mrsandman/main.lua"
+export NVIMRC="$HOME/dotfiles/nvim/.config/nvim"
 export VISUAL="nvim"
 export OBSIDIAN_VAULT="$HOME/Documents/Obsidian Vaults/Dashboard/Current TO-DO.md"
 # Moved vi-mode to .inputrc
@@ -142,8 +142,6 @@ alias mft='minifetch'
 alias minifetch='neofetch --config ~/.config/neofetch/minifetch.conf'
 alias monke='termtyper'
 alias nft='neofetch'
-alias nv='nvim'
-alias nvdiff='nvim -d'
 alias nyan='nyancat -n'
 alias powershell='pwsh'
 alias powsh='pwsh'
@@ -154,7 +152,6 @@ alias srg='sudo ranger'
 alias tattach='tmux attach-session -t'
 alias trp='trash-put'
 alias trr='trash-restore'
-alias v='nvim'
 
 #-------------------------------------------------------------#
 
@@ -363,6 +360,34 @@ function tns () {
 
 function tbg () {
     tmux new-session -ds "$1" && tmux send-key -t "$1" "$2" ENTER
+}
+
+#------------------------ NEOVIM SETUP -----------------------#
+# Multiple neovim configs and aliases
+alias nv='nvim'
+alias nvdiff='nvim -d'
+alias v='nvim'
+alias LazyVim="NVIM_APPNAME=LazyVim nvim"
+alias kickstart-nvim="NVIM_APPNAME=kickstart-nvim nvim"
+alias DoomNvim="NVIM_APPNAME=DoomNvim nvim"
+alias NvChad="NVIM_APPNAME=NvChad nvim"
+alias JavaNvim="NVIM_APPNAME=DuskNvim nvim"
+alias NormalNvim="NVIM_APPNAME=NormalNVim nvim"
+alias AstroNvim="NVIM_APPNAME=AstroNvim nvim"
+alias CosmicNvim="NVIM_APPNAME=CosmicNvim nvim"
+#--------------------------------------------------------------#
+
+# Config switcher
+function nvims() {
+    items=("mrsandman" "LazyVim" "DoomNvim" "NvChad" "DuskNvim" "NormalNVim" "AstroNvim" "kickstart-nvim" "CosmicNvim")
+    config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Choose your character » " --height=~50% --layout=reverse --border --exit-0)
+    if [[ -z $config ]]; then
+        echo "Nothing selected"
+        return 0
+    elif [[ $config == "mrsandman" ]]; then
+        exec nvim
+    fi
+    NVIM_APPNAME=$config nvim $@
 }
 #--------------------------------------------------------------#
 
