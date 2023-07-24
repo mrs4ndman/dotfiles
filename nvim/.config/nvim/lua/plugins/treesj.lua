@@ -7,7 +7,10 @@ local plugin = "treesj"
 
 return {
   "Wansmer/" .. plugin,
-  cmd = "TSJToggle",
+  cmd = { "TSJJoin", "TSJSplit", "TSJToggle" },
+  keys = {
+    {"Q", "<cmd>TSJToggle<CR>", desc = "Toggle TS node" },
+  },
   opts = function(_, opts)
     if Use_Defaults(plugin) then
       opts = opts

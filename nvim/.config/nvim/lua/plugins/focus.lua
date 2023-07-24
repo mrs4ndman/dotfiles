@@ -17,5 +17,8 @@ return {
       enable = true,
       height_quickfix = 20,
     },
+    ui = {
+      signcolumn = true,
+    }
   }
 }

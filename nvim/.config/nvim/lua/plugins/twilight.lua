@@ -10,6 +10,9 @@ return {
   enabled = Is_Enabled(plugin),
   -- event = "BufReadPost",
   cmd = "Twilight",
+  keys = {
+    { "<leader>zt", "<cmd>Twilight<CR>", desc = "Twilight toggle" },
+  },
   opts = function(_, opts)
     if Use_Defaults(plugin) then
       opts = opts

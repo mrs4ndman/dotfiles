@@ -9,8 +9,8 @@ return {
   "folke/" .. plugin,
   enabled = Is_Enabled(plugin),
   keys = {
-    "<leader>zz",
-    "<leader>zZ",
+    { "<leader>zz", desc = "A bit Zen" },
+    { "<leader>zZ", desc = "Even more Zen" },
   },
   config = function()
     -- ZEN-MODE
