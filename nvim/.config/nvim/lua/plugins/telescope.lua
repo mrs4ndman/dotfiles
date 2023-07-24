@@ -64,7 +64,6 @@ return {
         prompt_prefix = "   ",
         hl_result_eol = false,
         -- results_title = "",
-        winblend = 10,
         wrap_results = true,
         hidden = true,
         mappings = {
