@@ -111,8 +111,14 @@ vim.keymap.set("n", "<leader><leader>", function()
   vim.cmd("so")
 end, { silent = true, desc = "Source current file" })
 
+-- Clear notifications and search
+vim.keymap.set("n", "<esc>", function()
+  require("notify").dismiss()
+  vim.cmd.nohl()
+end, {})
+
 -- Netrw keybind
-vim.keymap.set("n", "<leader>E", vim.cmd.Ex, { desc = "Ex", silent = true })
+-- vim.keymap.set("n", "<leader>E", vim.cmd.Ex, { desc = "Ex", silent = true })
 
 -- Window splits and ?tabs?
 vim.keymap.set("n", "<leader>ws", "<cmd>split<CR>", { desc = "Horizontal split" })
@@ -136,7 +142,7 @@ vim.keymap.set("n", "<A-Down>", ":resize +2<CR>", {
 
 -- Get me out of here (:D)
 vim.keymap.set("n", "<leader><Esc>", "<cmd>quitall<CR>", { desc = "Quit all", silent = true })
-vim.keymap.set("n", "<leader>W", "<cmd>write<CR>", { desc = "Write all" })
+vim.keymap.set("n", "<leader>ww", "<cmd>write<CR>", { desc = "Write all" })
 vim.keymap.set("n", "<leader>wq", "<cmd>wqa<CR>", { desc = "Bye :D" })
 
 -- Substitutor for current word

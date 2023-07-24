@@ -22,6 +22,7 @@ Customize = {
     ["executor.nvim"] = { enabled = true, defaults = false },
     ["flit.nvim"] = { enabled = true, defaults = false },
     ["fluoromachine.nvim"] = { enabled = true, defaults = false },
+    ["focus.nvim"] = { enabled = true },
     ["git-blame.nvim"] = { enabled = true },
     ["github-nvim-theme"] = { enabled = true, defaults = true },
     ["gitlinker.nvim"] = { enabled = true },
@@ -82,6 +83,7 @@ Customize = {
     ["nvim-scrollbar"] = { enabled = false },
     ["nvim-surround"] = { enabled = true },
     ["nvim-tetris"] = { enabled = true },
+    ["nvim-toggler"] = { enabled = true },
     ["nvim-treesitter"] = { enabled = true, defaults = false },
     ["nvim-treesitter-context"] = { enabled = true },
     ["nvim-web-devicons"] = { enabled = true },
@@ -131,7 +133,6 @@ Customize = {
     ["vim-visual-multi"] = { enabled = false },
     ["vscode.nvim"] = { enabled = true, defaults = false },
     ["which-key.nvim"] = { enabled = true },
-    ["windows.nvim"] = { enabled = true },
     ["zen-mode.nvim"] = { enabled = true, defaults = false },
   },
 }

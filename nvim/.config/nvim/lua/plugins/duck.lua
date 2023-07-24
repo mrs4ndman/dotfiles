@@ -9,13 +9,12 @@ return {
   "tamton-aquib/" .. plugin,
   enabled = Is_Enabled(plugin),
   keys = {
-    { "<leader>da" },
-    { "<leader>dh" },
-    { "<leader>dk" },
+    { "<leader>da", desc = "Hatch amogus"},
+    { "<leader>dc", desc = "Hatch cat"},
+    { "<leader>dk", desc = "Cook pet"},
   },
   config = function()
-    -- TODO: Put on hold until the DT-side gets committed
-    vim.keymap.set('n', '<leader>da', function() require("duck").hatch("ඞ", 7) end, { desc = "Hatch amogus"})
+    vim.keymap.set('n', '<leader>da', function() require("duck").hatch("ඞ", 7) end, {})
     vim.keymap.set('n', '<leader>dc', function() require("duck").hatch("🐈", 2) end, {})
     vim.keymap.set('n', '<leader>dk', function() require("duck").cook() end, {})
   end

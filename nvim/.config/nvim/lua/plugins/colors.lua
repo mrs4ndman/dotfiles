@@ -19,6 +19,7 @@ return {
       bold_vert_split = true,
       disable_background = true,
       disable_float_background = true,
+      disable_italics = true,
     },
   },
 
@@ -162,6 +163,7 @@ return {
     opts = {
       contrast = {
         terminal = true,
+        sidebars = false,
         floating_windows = true,
         cursor_line = true,
         non_current_windows = true,
@@ -181,38 +183,54 @@ return {
       },
     },
     config = function()
-      vim.g.material_style = "deep_ocean"
+      vim.g.material_style = "deep ocean"
     end
   },
   {
     "Mofiqul/vscode.nvim",
     enabled = Is_Enabled("vscode.nvim"),
-    lazy = true,
     opts = { italic_comments = true },
   },
   {
     "tiagovla/tokyodark.nvim",
     enabled = Is_Enabled("tokyodark.nvim"),
-    lazy = true,
+    config = function()
+      vim.g.tokyodark_enable_italic = false
+      vim.g.tokyodark_enable_italic_comment = true
+    end
   },
   {
     "blazkowolf/gruber-darker.nvim",
     enabled = Is_Enabled("gruber-darker.nvim"),
-    lazy = true,
   },
   {
     "projekt0n/github-nvim-theme",
     enabled = Is_Enabled("github-nvim-theme"),
-    lazy = true,
+    config = function()
+      require("github-theme").setup({
+        options = {
+          hide_end_of_buffer = true,
+          dim_inactive = true,
+          styles = {
+            comments = "italic",
+            keywords = "bold",
+            types = "italic,bold",
+          }
+        }
+      })
+    end
   },
   {
     "NTBBloodbath/doom-one.nvim",
     enabled = Is_Enabled("doom-one.nvim"),
-    lazy = true,
     config = function()
       vim.g.doom_one_terminal_colors = true
+      vim.g.doom_one_italic_comments = true
       vim.g.doom_one_enable_treesitter = true
+      vim.g.doom_one_diagnostics_text_color = true
+      -- Integrations
       vim.g.doom_one_plugin_telescope = true
+
       vim.g.doom_one_plugin_whichkey = true
       vim.g.doom_one_plugin_vim_illuminate = true
     end,

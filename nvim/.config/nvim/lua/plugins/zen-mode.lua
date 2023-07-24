@@ -8,7 +8,6 @@ local plugin = "zen-mode.nvim"
 return {
   "folke/" .. plugin,
   enabled = Is_Enabled(plugin),
-  -- event = "VeryLazy",
   keys = {
     "<leader>zz",
     "<leader>zZ",

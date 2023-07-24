@@ -23,7 +23,7 @@ return {
       ["<RIGHT>"] = {"", "i"},
     },
     disabled_filetypes = {
-      "qf", "netrw", "help", "md", "neotree", "lazy", "mason", "oil", "TelescopePrompt"
+      "alpha", "qf", "netrw", "help", "md", "neotree", "lazy", "mason", "oil", "TelescopePrompt"
     },
   },
 }
