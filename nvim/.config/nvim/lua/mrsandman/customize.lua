@@ -27,7 +27,6 @@ Customize = {
     ["github-nvim-theme"] = { enabled = true, defaults = true },
     ["gitlinker.nvim"] = { enabled = true },
     ["gitsigns.nvim"] = { enabled = true, defaults = false },
-    ["glow.nvim"] = { enabled = true, defaults = true },
     ["go.nvim"] = { enabled = true },
     ["goto-preview"] = { enabled = true },
     ["gruber-darker.nvim"] = { enabled = true, defaults = true },
@@ -42,6 +41,7 @@ Customize = {
     ["leap.nvim"] = { enabled = true, defaults = false },
     ["leap-spooky.nvim"] = { enabled = true },
     ["lualine.nvim"] = { enabled = true, defaults = false }, -- Migrate to a standard config format
+    ["nvim-markdown-preview"] = { enabled = true, defaults = false },
     ["mason-lspconfig.nvim"] = { enabled = true, defaults = false },
     ["mason-nvim-dap.nvim"] = { enabled = true, defaults = false },
     ["mason.nvim"] = { enabled = true, defaults = false },
