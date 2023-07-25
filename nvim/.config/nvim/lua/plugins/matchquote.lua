@@ -7,5 +7,5 @@ local plugin = "vim-matchquote"
 return {
   "airblade/" .. plugin,
   enabled = Is_Enabled(plugin),
-  event = "VeryLazy",
+  event = { "BufReadPost", "BufNewFile" },
 }
