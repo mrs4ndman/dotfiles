@@ -3,15 +3,13 @@ local functions = require("mrsandman.functions")
 Is_Enabled = functions.is_enabled
 Use_Defaults = functions.use_plugin_defaults
 
-local plugin = "lualine.nvim"
+local plugin = "wpm.nvim"
 
--- Best statusline for nvim in Lua
 return {
-  "nvim-lualine/" .. plugin,
+  "jcdickinson/" .. plugin,
   enabled = Is_Enabled(plugin),
-  dependencies = "jcdickinson/wpm.nvim",
-  event = "UIEnter",
   config = function()
-    require("custom.lualine")
+    require("wpm").setup({
+    })
   end
 }

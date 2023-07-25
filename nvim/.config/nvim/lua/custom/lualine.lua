@@ -259,6 +259,7 @@ ins_left({
   icon = "",
   color = { fg = "cyan", gui = "bold" },
   cond = conditions.hide_in_width,
+  padding = { left = 0, right = 0 },
 })
 
 ins_left({
@@ -323,14 +324,21 @@ ins_right({
   cond = conditions.hide_in_width,
 })
 
-
+local wpm = require("wpm")
 ins_right({
-  "fileformat",
-  fmt = string.upper,
-  icons_enabled = true,
-  color = { fg = colors.white, gui = "bold" },
-  padding = { left = 1, right = 2 },
+  wpm.wpm,
+  "wpm",
+  color = { fg = colors.pink, gui = "bold" },
+  padding = { left = 0, right = 1 },
 })
+
+-- ins_right({
+--   "fileformat",
+--   fmt = string.upper,
+--   icons_enabled = true,
+--   color = { fg = colors.white, gui = "bold" },
+--   padding = { left = 1, right = 2 },
+-- })
 --
 -- Now don't forget to initialize lualine
 lualine.setup(config)

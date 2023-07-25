@@ -16,12 +16,12 @@ return {
       group = "",
     },
     window = {
-      border = "shadow",
-      margin = { 1, 1, 1, 1 },
-      padding = { 1, 1, 1, 1 },
+      border = "single",
+      margin = { 0, 4, 1, 1 },
+      padding = { 0, 4, 2, 1 },
     },
     layout = {
-      spacing = 2,
+      spacing = 5,
       align = "center",
     }
   }

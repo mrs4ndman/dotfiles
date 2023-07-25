@@ -59,10 +59,10 @@ vim.opt.termguicolors = true
 vim.opt.updatetime = 50
 
 -- Set nvim timeout
-vim.opt.timeoutlen = 1000
+vim.opt.timeoutlen = 500
 
 -- Added auto signs to the signcolumn
-vim.opt.signcolumn = "auto"
+vim.opt.signcolumn = "auto:1-4"
 
 -- Disable fold marks
 vim.o.foldenable = false

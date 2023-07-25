@@ -133,6 +133,7 @@ Customize = {
     ["vim-visual-multi"] = { enabled = false },
     ["vscode.nvim"] = { enabled = true, defaults = false },
     ["which-key.nvim"] = { enabled = true },
+    ["wpm.nvim"] = { enabled = true },
     ["zen-mode.nvim"] = { enabled = true, defaults = false },
   },
 }
