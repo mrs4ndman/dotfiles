@@ -169,6 +169,7 @@ end, { expr = true })
 
 -- Yank only to nvim clipboard
 vim.keymap.set({ "n", "v" }, "<leader>yy", [[""y]])
+vim.keymap.set({ "n", "v" }, "<leader>pp", [[""p]])
 
 -- Appending line below to current line ("lil J")
 vim.keymap.set("n", "J", "mzJ'z", { silent = true })

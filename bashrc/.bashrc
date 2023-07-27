@@ -373,6 +373,7 @@ function tbg () {
 alias nv='nvim'
 alias nvdiff='nvim -d'
 alias v='nvim'
+alias SmallNvim="NVIM_APPNAME=SmallNvim nvim"
 alias LazyVim="NVIM_APPNAME=LazyVim nvim"
 alias kickstart-nvim="NVIM_APPNAME=kickstart-nvim nvim"
 alias DoomNvim="NVIM_APPNAME=DoomNvim nvim"
@@ -385,7 +386,7 @@ alias CosmicNvim="NVIM_APPNAME=CosmicNvim nvim"
 
 # Config switcher
 function nvims() {
-    items=("mrsandman" "LazyVim" "DoomNvim" "NvChad" "DuskNvim" "NormalNVim" "AstroNvim" "kickstart-nvim" "CosmicNvim")
+    items=("mrsandman" "SmallNvim" "LazyVim" "DoomNvim" "NvChad" "DuskNvim" "NormalNVim" "AstroNvim" "kickstart-nvim" "CosmicNvim")
     config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Choose your character » " --height=~50% --layout=reverse --border --exit-0)
     if [[ -z $config ]]; then
         echo "Nothing selected"
