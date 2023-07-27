@@ -97,6 +97,10 @@ fi
 #               https://github.com/mrs4ndman                   #
 #                                                              #
 #--------------------------------------------------------------#
+#
+#---------------------- SHELL OPTIONS -------------------------#
+shopt -s dotglob
+#--------------------------------------------------------------#
 
 #------------------------- EXPORTS ----------------------------#
 
@@ -122,6 +126,8 @@ export OBSIDIAN_VAULT="$HOME/Documents/Obsidian Vaults/Dashboard/Current TO-DO.m
 alias infuse='chmod u+x'
 alias tree-size='tree -s -h --du'
 alias trunk='tree -a -C'
+alias copy='xclip -sel clip'
+alias paste='xclip -out -sel clip'
 
 #-------------------------------------------------------------#
 
