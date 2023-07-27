@@ -42,6 +42,7 @@ Customize = {
     ["leap-spooky.nvim"] = { enabled = true },
     ["lualine.nvim"] = { enabled = true, defaults = false }, -- Migrate to a standard config format
     ["nvim-markdown-preview"] = { enabled = true, defaults = false },
+    ["markid"] = { enabled = true },
     ["mason-lspconfig.nvim"] = { enabled = true, defaults = false },
     ["mason-nvim-dap.nvim"] = { enabled = true, defaults = false },
     ["mason.nvim"] = { enabled = true, defaults = false },

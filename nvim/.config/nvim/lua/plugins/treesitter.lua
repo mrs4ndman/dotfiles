@@ -53,6 +53,7 @@ return {
         enable_autocmd = false,
       },
       autotag = { enable = true },
+      markid = { enable = true },
     })
   end
 }
