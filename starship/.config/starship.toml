@@ -69,7 +69,7 @@ vicmd_symbol = '[ ](#0000ff)'
 format = '[ $indicator ]($style)'
 bash_indicator = ''
 zsh_indicator = '𝖹'
-fish_indicator = ''
+fish_indicator = '󰈺'
 powershell_indicator = '_'
 unknown_indicator = 'mystery shell'
 style = 'bold #00ffff'
@@ -141,16 +141,16 @@ symbol = " "
 symbol = "λ "
 
 [memory_usage]
-symbol = " "
+symbol = "󰍛 "
 
 [nim]
-symbol = " "
+symbol = "󰆥 "
 
 [nix_shell]
 symbol = " "
 
 [package]
-symbol = " "
+symbol = "󰏗 "
 disabled = false
 format = "[$symbol($version )]($style)"
 

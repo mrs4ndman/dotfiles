@@ -1,12 +1,6 @@
 -- Keybindings
 require("custom.which-key")
-
--- UI
+-- Colorschemes
 require("custom.colors")
-
--- LSP
--- require("custom.lsp")
-
--- Lualine & winbar
--- require("custom.lualine")
+-- Cokeline
 require("custom.cokeline")
