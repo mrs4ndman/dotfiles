@@ -9,10 +9,10 @@ return {
   "shortcuts/" .. plugin,
   enabled = Is_Enabled(plugin),
   keys = {
-      "<leader>np",
-      "<leader>nh",
-      "<leader>nl",
-      "<leader>ns",
+    { "<leader>np", desc = "No Neck Pain" },
+    { "<leader>nwu", desc = "No Neck Pain Width Up" },
+    { "<leader>nwd", desc = "No Neck Pain Width Down" },
+    { "<leader>ns", desc = "No Neck Pain Scratchpad" },
   },
   version = "*",
   opts = {
@@ -22,8 +22,8 @@ return {
     mappings = {
       enabled = true,
       toggle = "<leader>np",
-      widthUp = "<leader>nh",
-      widthDown = "<leader>nl",
+      widthUp = "<leader>nwu",
+      widthDown = "<leader>nwd",
       scratchPad = "<leader>ns",
     },
     buffers = {

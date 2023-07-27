@@ -8,5 +8,4 @@ local plugin = "plenary.nvim"
 return {
   "nvim-lua/" .. plugin,
   enabled = Is_Enabled(plugin),
-  lazy = true,
 }

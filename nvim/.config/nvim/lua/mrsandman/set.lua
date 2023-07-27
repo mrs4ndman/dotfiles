@@ -13,10 +13,6 @@ vim.opt.guicursor = ""
 vim.wo.cursorline = true
 vim.wo.cursorlineopt = "both"
 
--- Splits
-vim.opt.splitright = true
-vim.opt.splitbelow = false
-
 -- Numbers config
 vim.opt.nu = true
 vim.opt.relativenumber = true
