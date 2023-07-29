@@ -51,7 +51,7 @@ local opts = {
     "catppuccin",
     "github_dark_high_contrast",
     "carbonfox",
-    "material",
+    "material-deep-ocean",
     "gruber-darker",
     "fluoromachine",
     "nord",

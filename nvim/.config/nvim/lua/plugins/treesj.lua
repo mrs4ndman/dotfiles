@@ -9,20 +9,14 @@ return {
   "Wansmer/" .. plugin,
   cmd = { "TSJJoin", "TSJSplit", "TSJToggle" },
   keys = {
-    {"Q", "<cmd>TSJToggle<CR>", desc = "Toggle TS node" },
+    { "Q", "<cmd>TSJToggle<CR>", desc = "Toggle TS node" },
   },
-  opts = function(_, opts)
-    if Use_Defaults(plugin) then
-      opts = opts
-    else
-      opts = {
-        use_default_keymaps = false,
-        check_syntax_error = false,
-        max_join_length = 300,
-        cursor_behaviour = "hold",
-        notify = true,
-        dot_repeat = true,
-      }
-    end
-  end,
+  opts = {
+    use_default_keymaps = false,
+    check_syntax_error = false,
+    max_join_length = 300,
+    cursor_behaviour = "hold",
+    notify = true,
+    dot_repeat = true,
+  }
 }

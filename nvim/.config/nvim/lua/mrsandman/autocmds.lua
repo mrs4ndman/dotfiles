@@ -7,7 +7,7 @@ vim.cmd([[
     autocmd! TermOpen * startinsert
   augroup END
 ]])
--- TODO: Don't really know why this isn't working
+-- TEST: Don't really know why this isn't working
 
 -- Ensure we land on normal mode after terminal
 
@@ -29,8 +29,15 @@ vim.cmd("autocmd! filetype lazy setlocal nonumber norelativenumber")
 -- vim.api.nvim_create_autocmd("Filetype", { pattern = { "astro" }, command = "TSEnable highlight" })
 -- vim.cmd("autocmd BufRead,BufEnter *.astro set filetype=astro")
 
--- Autoshow lightbulb for codeactions
--- vim.cmd [[autocmd CursorHold,CursorHoldI * lua require('nvim-lightbulb').update_lightbulb()]]
+-- vim.api.nvim_create_autocmd("FileType", {
+--   pattern = "lazy",
+--   callback = function()
+--     local previous = not require("lsp_lines").toggle()
+--     if not previous then
+--       require("lsp_lines").toggle()
+--     end
+--   end
+-- })
 
 -- Highlight yanking action for a second
 vim.api.nvim_command("au TextYankPost * silent! lua vim.highlight.on_yank {timeout = 50}")

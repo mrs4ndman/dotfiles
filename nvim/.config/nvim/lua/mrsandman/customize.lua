@@ -118,7 +118,7 @@ Customize = {
     ["telescope.nvim"] = { enabled = true, defaults = false },
     ["theme-selector.nvim"] = { enabled = false, defaults = false },
     ["todo-comments.nvim"] = { enabled = true, defaults = false },
-    ["tokyodark.nvim"] = { enabled = true, defaults = true },
+    ["tokyodark.nvim"] = { enabled = true, defaults = false },
     ["tokyonight.nvim"] = { enabled = true, defaults = false },
     ["treesj"] = { enabled = true, defaults = false },
     ["trouble.nvim"] = { enabled = true, defaults = false },
