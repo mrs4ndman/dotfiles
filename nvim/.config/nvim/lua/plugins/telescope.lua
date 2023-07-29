@@ -15,14 +15,13 @@ return {
   keys = {
     -- TELESCOPE
     { "<leader>tf", require("telescope.builtin").find_files,  desc = "Find files" },
-    { "<leader>tg", require("telescope.builtin").git_files,   desc = "Git files" },
     { "<leader>tb", require("telescope.builtin").buffers,     desc = "List buffers" },
     { "<leader>tr", require("telescope.builtin").oldfiles,    desc = "Recent files" },
     { "<leader>tl", require("telescope.builtin").loclist,     desc = "Proyect loclist" },
     { "<leader>vh", require("telescope.builtin").help_tags,   desc = "Help tags" },
     { "<leader>sg", require("telescope.builtin").grep_string, desc = "Fast string grep" },
     {
-      "<leader>ts",
+      "<leader>tg",
       function()
         require("telescope.builtin").grep_string({ search = vim.fn.input("Grep > ") })
       end,

@@ -50,8 +50,8 @@ return {
         },
       }
     end
-    local config = {
-      require("dressing").setup({}),
-    }
+    -- local config = {
+    --   require("dressing").setup({}),
+    -- }
   end,
 }
