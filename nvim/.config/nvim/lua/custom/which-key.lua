@@ -53,9 +53,6 @@ wk.register({
     "Rename function under cursor",
   },
 
-  -- OVERLENGHT
-  ["<leader>lt"] = { "<cmd>OverlengthToggle<CR>", "Overlength Toggle", { silent = true } },
-
 
   -- COKELINE
   ["<leader>cn"] = { "<Plug>(cokeline-focus-next)", "Change to next buffer", { silent = true } },

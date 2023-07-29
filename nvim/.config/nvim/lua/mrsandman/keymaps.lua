@@ -81,22 +81,9 @@ vim.keymap.set("n", "<leader>iw", "<cmd>CursorWordToggle<CR>", { desc = "Word HL
 -- Obsidian direct access
 -- vim.keymap.set("n", "<leader>nt", "<cmd>!cd $OBSIDIAN_VAULT | e ~/Documents/Obsidian Vaults/Dashboard/Current TO-DO.md<CR>")
 
--- LEAP KEYBINDS
+-- LEAP -- INFO: Remove if unused
 require("leap").add_default_mappings()
--- Bidirectional leaping
-vim.keymap.set({ "n", "v" }, "<leader>lp", function()
-  local current_window = vim.fn.win_getid()
-  require("leap").leap({ target_windows = { current_window } })
-  vim.cmd([[:normal zz]])
-end, { desc = "Leap bidirectionally" })
--- All-window leaping
-vim.keymap.set("n", "<leader>la", function()
-  local focusable_window_on_tabpage = vim.tbl_filter(function(win)
-    return vim.api.nvim_win_get_config(win).focusable
-  end, vim.api.nvim_tabpage_list_wins(0))
-  require("leap").leap({ target_windows = focusable_window_on_tabpage })
-  vim.cmd([[:normal zz]])
-end, { desc = "Leap on all windows" })
+
 
 -- Export current state to HTML:
 vim.keymap.set("n", "<leader>xth", "<cmd>TOhtml<CR>", { desc = "Export to HTML" })
