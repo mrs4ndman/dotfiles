@@ -15,9 +15,6 @@ vim.keymap.set("n", "<leader>cat", "<cmd>CellularAutomaton make_it_rain<CR>", { 
 -- Colorizer toggle
 vim.keymap.set("n", "<leader>cl", "<cmd>ColorizerToggle<CR>", { desc = "Color picker toggle", silent = true })
 
--- Navbuddy
-vim.keymap.set("n", "<leader>nb", "<cmd>Navbuddy<CR>", { desc = "Navbuddy toggle", silent = true })
-
 -- Cokeline quick buffer switching
 vim.keymap.set("n", "<Tab>", "<Plug>(cokeline-focus-next)", { desc = "Change to next buffer", silent = true })
 vim.keymap.set("n", "<S-Tab>", "<Plug>(cokeline-focus-prev)", { desc = "Change to previous buffer", silent = true })
@@ -82,7 +79,7 @@ vim.keymap.set("n", "<leader>iw", "<cmd>CursorWordToggle<CR>", { desc = "Word HL
 -- vim.keymap.set("n", "<leader>nt", "<cmd>!cd $OBSIDIAN_VAULT | e ~/Documents/Obsidian Vaults/Dashboard/Current TO-DO.md<CR>")
 
 -- LEAP -- INFO: Remove if unused
-require("leap").add_default_mappings()
+-- require("leap").add_default_mappings()
 
 
 -- Export current state to HTML:

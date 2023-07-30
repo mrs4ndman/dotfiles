@@ -8,7 +8,8 @@ local plugin = "leap.nvim"
 return {
   "ggandor/" .. plugin,
   enabled = Is_Enabled(plugin),
-  lazy = false,
+  event = { "BufReadPost", "BufNewFile" },
+  -- lazy = false,
   dependencies = {
     "ggandor/leap-ast.nvim",
     {
@@ -25,6 +26,9 @@ return {
       }
     }
   },
+  config = function()
+    require("leap").add_default_mappings()
+  end,
   keys = {
     {
       "<leader>lp",

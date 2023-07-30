@@ -17,6 +17,9 @@ return {
     {
       "SmiteshP/nvim-navbuddy",
       enabled = Is_Enabled("nvim-navbuddy"),
+      keys = {
+        { "<leader>nb", "<cmd>Navbuddy<CR>", desc = "Navbuddy toggle" }
+      },
       dependencies = {
         "SmiteshP/nvim-navic",
         "MunifTanjim/nui.nvim",
