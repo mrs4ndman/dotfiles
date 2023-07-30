@@ -94,6 +94,7 @@ return {
         dashboard.button("h", "󱂵    Home dir find", ":cd $HOME | Telescope find_files<CR>"),
         dashboard.button("r", "    Recent", ":Telescope oldfiles<CR>"),
         dashboard.button("g", "󰊄    Grep pattern", ":Telescope live_grep<CR>"),
+        dashboard.button("c", "󰏘    Colorschemes", ":Themer<CR>"),
         dashboard.button("l", "󰒲    Lazy", ":Lazy<CR>"),
         dashboard.button("s", "    Settings", ":e $NVIMRC<CR>"),
         dashboard.button("q", "󰿅    Quit", ":qa<CR>"),

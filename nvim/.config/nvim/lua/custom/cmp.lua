@@ -56,6 +56,7 @@ return function(_, opts)
         in_treesitter_capture = true,
       },
     }
+
     local window = {
       completion = cmp.config.window.bordered({
         border = "single",
@@ -128,8 +129,8 @@ return function(_, opts)
     local mapping = cmp.mapping.preset.insert({
       ["<C-p>"] = cmp.mapping.select_prev_item(),
       ["<C-n>"] = cmp.mapping.select_next_item(),
-      ["<C-d>"] = cmp.mapping.scroll_docs(-4),
-      ["<C-f>"] = cmp.mapping.scroll_docs(4),
+      ["<C-u>"] = cmp.mapping.scroll_docs(-4),
+      ["<C-d>"] = cmp.mapping.scroll_docs(4),
       ["<C-y>"] = cmp.mapping.confirm({ select = true }),
       ["<C-c>"] = cmp.mapping.abort(),
       ["<C-Space>"] = cmp.mapping.complete(),
@@ -172,6 +173,13 @@ return function(_, opts)
     })
     cmp.setup.cmdline(':', {
       mapping = cmp.mapping.preset.cmdline(),
+      enabled = function()
+        local disabled = {
+          IncRename = true
+        }
+        local cmd = vim.fn.getcmdline():match("%S+")
+        return not disabled[cmd] or cmp.close()
+      end,
       sources = cmp.config.sources({
           { name = 'path' }
         },
