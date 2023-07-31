@@ -70,8 +70,9 @@ vim.g.netrw_banner = 0
 vim.g.netrw_silent = 1
 vim.g.netrw_fastbrowse = 0
 
--- undotree config
+-- undotree and nvim-ghost config
 vim.g.undotree_SetFocusWhenToggle = 1
+vim.g.nvim_ghost_super_quiet = 1
 
 -- Undotree & NVIM integration config:
 vim.o.swapfile = false

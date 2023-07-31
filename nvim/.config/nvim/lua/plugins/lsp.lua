@@ -10,7 +10,7 @@ return {
   enabled = Is_Enabled(plugin),
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
-    "folke/neodev.nvim",
+    -- "folke/neodev.nvim",
     "jubnzv/virtual-types.nvim",
     "folke/lsp-colors.nvim",
     "williamboman/mason.nvim",

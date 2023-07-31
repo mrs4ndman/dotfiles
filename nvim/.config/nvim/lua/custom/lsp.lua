@@ -2,24 +2,24 @@
 -- local navic = require("nvim-navic")
 local navbuddy = require("nvim-navbuddy")
 local M = {}
-M.capabilities = vim.lsp.protocol.make_client_capabilities()
-M.capabilities.textDocument.completion.completionItem = {
-  documentationFormat = { "markdown", "plaintext" },
-  snippetSupport = true,
-  preselectSupport = true,
-  insertReplaceSupport = true,
-  deprecatedSupport = true,
-  commitCharactersSupport = true,
-  tagSupport = { valueSet = { 1 } },
-  resolveSupport = {
-    properties = {
-      "documentation",
-      "detail",
-      "additionalTextEdits",
-    },
-  },
-}
-M.on_attach = function (client, bufnr)
+-- M.capabilities = vim.lsp.protocol.make_client_capabilities()
+-- M.capabilities.textDocument.completion.completionItem = {
+--   documentationFormat = { "markdown", "plaintext" },
+--   snippetSupport = true,
+--   preselectSupport = true,
+--   insertReplaceSupport = true,
+--   deprecatedSupport = true,
+--   commitCharactersSupport = true,
+--   tagSupport = { valueSet = { 1 } },
+--   resolveSupport = {
+--     properties = {
+--       "documentation",
+--       "detail",
+--       "additionalTextEdits",
+--     },
+--   },
+-- }
+M.on_attach = function(client, bufnr)
   -- navic.attach(client, bufnr)
   navbuddy.attach(client, bufnr)
   require("virtualtypes").on_attach()
@@ -28,11 +28,18 @@ end
 local lspconfig = require("lspconfig")
 require("lspconfig").lua_ls.setup({
   on_attach = M.on_attach,
-  capabilities = M.capabilities,
+  -- capabilities = M.capabilities,
   settings = {
     Lua = {
       diagnostics = {
         globals = { "vim" },
+      },
+      format = {
+        enable = true,
+        defaultConfig = {
+          indent_style = "space",
+          indent_size = "2",
+        }
       },
     },
   },
