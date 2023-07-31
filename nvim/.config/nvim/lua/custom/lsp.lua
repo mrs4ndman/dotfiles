@@ -90,9 +90,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
     vim.keymap.set({ "n", "v" }, "<leader>vca", vim.lsp.buf.code_action, { desc = "View code action" })
     vim.keymap.set("n", "<leader>vrr", vim.lsp.buf.references, { desc = "Show Variable References" })
     vim.keymap.set({ "n", "v" }, "<leader>vrn", vim.lsp.buf.rename, { desc = "Rename variable with LSP" })
-    vim.keymap.set("n", "<leader>ff", function()
-      vim.lsp.buf.format({ async = true })
-    end, { desc = "Format current buffer / file" })
+    -- vim.keymap.set("n", "<leader>ff", function()
+    --   vim.lsp.buf.format({ async = true })
+    -- end, { desc = "Format current buffer / file" })
     vim.keymap.set("i", "<C-q>", vim.lsp.buf.signature_help, { desc = "Quickhelp on word" })
 
     vim.api.nvim_create_autocmd("CursorHold", {

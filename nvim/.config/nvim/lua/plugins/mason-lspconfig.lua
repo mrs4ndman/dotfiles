@@ -9,6 +9,7 @@ return {
   "williamboman/" .. plugin,
   enabled = Is_Enabled(plugin),
   cmd = { "LspInstall", "LspUninstall" },
+  event = { "BufReadPre", "BufNewFile" },
   config = function()
     require("mason-lspconfig").setup({
       ensure_installed = {
