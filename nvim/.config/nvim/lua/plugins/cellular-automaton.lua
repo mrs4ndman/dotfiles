@@ -7,4 +7,7 @@ return {
   "eandrju/" .. plugin,
   enabled = Is_Enabled(plugin),
   cmd = "CellularAutomaton",
+  keys = {
+    { "<leader>cat", "<cmd>CellularAutomaton make_it_rain<CR>", desc = "cool stuff" },
+  },
 }

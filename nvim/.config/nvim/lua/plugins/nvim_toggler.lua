@@ -8,11 +8,11 @@ local plugin = "nvim-toggler"
 return {
   "nguyenvukhang/" .. plugin,
   keys = {
-    { "<leader>dt" }
+    { "<leader>dt", desc = "Toggle this status" },
   },
   config = function()
-    vim.keymap.set({ "n", "v" }, "<leader>dt", require("nvim-toggler").toggle, { desc = "Toggle this status" })
-    require("nvim-toggler").setup {
+    vim.keymap.set({ "n", "v" }, "<leader>dt", require("nvim-toggler").toggle)
+    require("nvim-toggler").setup({
       inverses = {
         ["vim"] = "Visual Studio Code",
         ["on"] = "off",
@@ -21,6 +21,6 @@ return {
         ["beep"] = "boop",
       },
       remove_default_keybinds = true,
-    }
-  end
+    })
+  end,
 }

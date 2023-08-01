@@ -10,7 +10,7 @@ return {
     "mhartington/" .. plugin,
     enabled = Is_Enabled(plugin),
     keys = {
-      { "<leader>ff", "<cmd>Format<CR>" },
+      { "<leader>ff", "<cmd>Format<CR>", desc = "Formatter" },
     },
     config = function()
       require("formatter").setup({

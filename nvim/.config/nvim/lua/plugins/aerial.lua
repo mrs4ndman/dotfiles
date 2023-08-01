@@ -9,6 +9,16 @@ return {
   "stevearc/" .. plugin,
   enabled = Is_Enabled(plugin),
   cmd = "AerialToggle",
+  keys = {
+    { "<leader>tat", "<cmd>AerialToggle!<CR>", desc = "Toggle Aerial" },
+    { "<leader>tac", "<cmd>AerialClose<CR>", desc = "Close Aerial" },
+    { "<leader>tax", "<cmd>AerialCloseAll<CR>", desc = "Close all Aerial instances" },
+  -- -- AERIAL
+  -- ["<leader>tat"] = { "<cmd>AerialToggle!<CR>", "Toggle Aerial", { silent = true } },
+  -- ["<leader>tac"] = { "<cmd>AerialClose<CR>", "Close Aerial" },
+  -- ["<leader>tax"] = { "<cmd>AerialCloseAll<CR>", "Close all Aerial instances" },
+
+  },
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
     "nvim-tree/nvim-web-devicons",

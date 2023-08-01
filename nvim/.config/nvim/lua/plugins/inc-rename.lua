@@ -7,6 +7,14 @@ local plugin = "inc-rename.nvim"
 return {
   "smjonas/" .. plugin,
   enabled = Is_Enabled(plugin),
+  keys = {
+    {
+      "<leader>rf",
+      function() return ":IncRename " .. vim.fn.expand("<cword>") end,
+      expr = true,
+      desc = "Rename function under cursor",
+    },
+  },
   cmd = "IncRename",
   opts = function(_, opts)
     if Use_Defaults(plugin) then

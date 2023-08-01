@@ -9,17 +9,17 @@ vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>lz", "<cmd>Lazy<CR>", { desc = "Lazy", noremap = true, silent = true })
 vim.keymap.set("n", "<leader>mp", "<cmd>Mason<CR>", { desc = "Mason", noremap = true, silent = true })
 
--- Try it out if you're that desperate
-vim.keymap.set("n", "<leader>cat", "<cmd>CellularAutomaton make_it_rain<CR>", { desc = "cool stuff", silent = true })
-
--- Colorizer toggle
-vim.keymap.set("n", "<leader>cl", "<cmd>ColorizerToggle<CR>", { desc = "Color picker toggle", silent = true })
-
--- Cokeline quick buffer switching
+-- COKELINE
+-- Quick buffer switching and manipulation
 vim.keymap.set("n", "<Tab>", "<Plug>(cokeline-focus-next)", { desc = "Change to next buffer", silent = true })
 vim.keymap.set("n", "<S-Tab>", "<Plug>(cokeline-focus-prev)", { desc = "Change to previous buffer", silent = true })
+vim.keymap.set("n", "<leader>cc", "<Plug>(cokeline-pick-close)", { desc = "Pick buffer to close", silent = true })
+vim.keymap.set("n", "<leader>csp", "<Plug>(cokeline-switch-prev)", { desc = "Swap with prev buffer", silent = true })
+vim.keymap.set("n", "<leader>csn", "<Plug>(cokeline-switch-next)", { desc = "Swap with next buffer", silent = true })
+-- vim.keymap.set("n", "<leader>cp", "<Plug>(cokeline-focus-prev)", { desc = "Change to previous buffer", silent = true })
+-- vim.keymap.set("n", "<leader>cn", "<Plug>(cokeline-focus-next)", { desc = "Change to next buffer", silent = true })
 
--- Number buffer selection with Leader + c + <number>
+-- Numbered buffer selection with Leader + c + <number>
 for i = 1, 9 do
   vim.keymap.set(
     "n",
@@ -35,55 +35,8 @@ for i = 1, 9 do
   )
 end
 
--- Trouble config:
-vim.keymap.set("n", "<leader>xx", "<cmd>TroubleToggle<cr>", { silent = true, noremap = true, desc = "Trouble Toggle" })
-
-vim.keymap.set(
-  "n",
-  "<leader>xq",
-  "<cmd>TroubleToggle quickfix<cr>",
-  { silent = true, noremap = true, desc = "Trouble Quickfix" }
-)
-
-vim.keymap.set(
-  "n",
-  "<leader>xl",
-  "<cmd>TroubleToggle loclist<cr>",
-  { silent = true, noremap = true, desc = "Trouble Loclist" }
-)
-
-vim.keymap.set(
-  "n",
-  "<leader>xw",
-  "<cmd>TroubleToggle workspace_diagnostics<cr>",
-  { silent = true, noremap = true, desc = "Trouble Workspace Diagnostics" }
-)
-
-vim.keymap.set(
-  "n",
-  "<leader>xd",
-  "<cmd>TroubleToggle document_diagnostics<cr>",
-  { silent = true, noremap = true, desc = "Trouble Document Diagnostics" }
-)
-
-vim.keymap.set(
-  "n",
-  "gR",
-  "<cmd>TroubleToggle lsp_references<cr>",
-  { silent = true, noremap = true, desc = "Trouble LSP References" }
-)
-
-vim.keymap.set("n", "<leader>iw", "<cmd>CursorWordToggle<CR>", { desc = "Word HL toggle" })
-
--- Obsidian direct access
+-- OBSIDIAN: direct access
 -- vim.keymap.set("n", "<leader>nt", "<cmd>!cd $OBSIDIAN_VAULT | e ~/Documents/Obsidian Vaults/Dashboard/Current TO-DO.md<CR>")
-
--- LEAP -- INFO: Remove if unused
--- require("leap").add_default_mappings()
-
-
--- Export current state to HTML:
-vim.keymap.set("n", "<leader>xth", "<cmd>TOhtml<CR>", { desc = "Export to HTML" })
 
 
 -- INTERNAL KEYBINDS
@@ -208,6 +161,9 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz", { silent = true })
 
 -- Invoke sessionizer
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>", { desc = "tmux sessionizer" })
+--
+-- Export current state to HTML:
+vim.keymap.set("n", "<leader>xth", "<cmd>TOhtml<CR>", { desc = "Export to HTML" })
 
 -- INSERT mode Keybinds
 

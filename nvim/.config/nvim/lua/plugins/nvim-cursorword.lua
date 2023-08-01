@@ -8,6 +8,9 @@ local plugin = "nvim-cursorword"
 return {
   "xiyaowong/" .. plugin,
   enabled = Is_Enabled("nvim-cursorword"),
+  keys = {
+    { "<leader>iw", "<cmd>CursorWordToggle<CR>", desc = "Word HL toggle" },
+  },
   lazy = false,
   cmd = {
     "CursorWordToggle",

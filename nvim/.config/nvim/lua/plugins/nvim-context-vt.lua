@@ -8,7 +8,7 @@ return {
   "haringsrob/" .. plugin,
   enabled = Is_Enabled(plugin),
   keys = {
-    { "<leader>nct", "<cmd>NvimContextVtToggle<CR>", "Toggle vt context" }
+    { "<leader>ct", "<cmd>NvimContextVtToggle<CR>", desc = "Toggle VT context" }
   },
   opts = {
     enabled = false,

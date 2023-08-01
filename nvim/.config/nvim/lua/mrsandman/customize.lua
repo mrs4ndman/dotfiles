@@ -1,7 +1,7 @@
 local Customize = {}
 
 Customize = {
-  -- Plugin toggles for troubleshooting
+  -- Plugin toggles for troubleshooting and profiling
 
   plugins = {
     ["FixCursorHold.nvim"] = { enabled = true },
@@ -66,9 +66,9 @@ Customize = {
     ["nui.nvim"] = { enabled = true },
     ["numb.nvim"] = { enabled = true, defaults = false },
     ["nvim-autopairs"] = { enabled = true, defaults = false },
-    ["nvim-bqf"] = { enabled = true },
     ["nvim-cmp"] = { enabled = true, defaults = false },
     ["nvim-cokeline"] = { enabled = true, defaults = false }, -- ~ 5ms effect
+    ["nvim-colorizer.lua"] = { enabled = true },
     ["nvim_context_vt"] = { enabled = true },
     ["nvim-cursorword"] = { enabled = true },
     ["nvim-dap"] = { enabled = true },
@@ -82,7 +82,6 @@ Customize = {
     ["nvim-ghost.nvim"] = { enabled = true },
     ["nvim-jdtls"] = { enabled = true },
     ["nvim-lastplace"] = { enabled = true, defaults = true },
-    ["nvim-lightbulb"] = { enabled = true, defaults = false },
     ["nvim-lspconfig"] = { enabled = true, defaults = false },
     ["nvim-navbuddy"] = { enabled = true },
     ["nvim-navic"] = { enabled = true },

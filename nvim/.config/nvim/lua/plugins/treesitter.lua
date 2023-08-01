@@ -12,7 +12,12 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   -- build = ":TSUpdate",
   dependencies = {
-    "nvim-treesitter/nvim-treesitter-context",
+    {
+      "nvim-treesitter/nvim-treesitter-context",
+      keys = {
+        { "<leader>tct", "<cmd>TSContextToggle<CR>", desc = "TS Context Toggle" },
+      },
+    },
     "JoosepAlviste/nvim-ts-context-commentstring",
     "windwp/nvim-ts-autotag",
   },
@@ -55,5 +60,5 @@ return {
       autotag = { enable = true },
       markid = { enable = true },
     })
-  end
+  end,
 }

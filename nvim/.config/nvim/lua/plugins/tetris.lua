@@ -9,4 +9,7 @@ return {
   "alec-gibson/" .. plugin,
   enabled = Is_Enabled(plugin),
   cmd = "Tetris",
+  keys = {
+    {"<leader>T", "<cmd>Tetris<CR>", desc = "Tetris" }
+  },
 }
