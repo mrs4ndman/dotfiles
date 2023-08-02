@@ -11,7 +11,7 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   config = function()
     require("highlight-undo").setup({
-      duration = 500,
+      duration = 250,
       keymaps = {
         { { "n", "v" }, "u",     "undo", {} },
         { { "n", "v" }, "<C-r>", "redo", {} },

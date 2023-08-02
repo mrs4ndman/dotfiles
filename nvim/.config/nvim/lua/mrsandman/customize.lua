@@ -25,7 +25,7 @@ Customize = {
     ["flash.nvim"] = { enabled = false, defaults = false },
     ["flit.nvim"] = { enabled = true, defaults = false },
     ["fluoromachine.nvim"] = { enabled = true, defaults = false },
-    ["focus.nvim"] = { enabled = true },
+    ["focus.nvim"] = { enabled = false },
     ["formatter.nvim"] = { enabled = true },
     ["git-blame.nvim"] = { enabled = true },
     ["github-nvim-theme"] = { enabled = true, defaults = true },

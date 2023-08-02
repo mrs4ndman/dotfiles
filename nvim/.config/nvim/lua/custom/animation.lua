@@ -1,20 +1,35 @@
-local Animation = require("animation")
-local fps = 60
-local easing = require("animation.easing")
+local redraw_buffer = function()
+  local Animation = require("animation")
+  local fps = 45
+  local easing = require("animation.easing")
 
-vim.keymap.set("n", "<leader>ta", function()
-  local buffer = 0
+  local current_buffer = vim.api.nvim_get_current_buf()
+  local lines = vim.api.nvim_buf_get_lines(current_buffer, 0, -1, true)
+
+  -- Create a new temporary buffer and set its filetype
+  local temp_buffer = vim.api.nvim_create_buf(false, true)
+  local original_filetype = vim.api.nvim_buf_get_option(current_buffer, "filetype")
+  vim.api.nvim_buf_set_option(temp_buffer, "filetype", original_filetype)
+
+  -- Copy the contents of the original buffer to the temporary buffer
+  vim.api.nvim_buf_set_lines(temp_buffer, 0, -1, true, lines)
+
+  -- Switch to the temporary buffer
+  vim.api.nvim_set_current_buf(temp_buffer)
+
+  -- Close the temporary buffer and return to the original buffer after animation ends
+  local function close_temp_buffer()
+    vim.api.nvim_buf_delete(temp_buffer, { force = true })
+    vim.api.nvim_set_current_buf(current_buffer)
+  end
+
   local len = 0
   local place_holder = {}
-
-  local lines = vim.api.nvim_buf_get_lines(buffer, 0, -1, true)
-
   for _, line in ipairs(lines) do
     len = len + string.len(line)
     table.insert(place_holder, "")
   end
-
-  vim.api.nvim_buf_set_lines(buffer, 0, #lines, true, place_holder)
+  vim.api.nvim_buf_set_lines(temp_buffer, 0, #lines, true, place_holder)
 
   local duration = math.ceil(len / fps * 1000)
 
@@ -24,23 +39,33 @@ vim.keymap.set("n", "<leader>ta", function()
 
   local function callback()
     if lines[line_nr] == nil then
+      close_temp_buffer()
       return true
     end
     local char = string.sub(lines[line_nr], i, i)
     if char == nil then
+      line_nr = line_nr + 1
+      i = 1
+      insertLine = ""
       return true
     end
     insertLine = insertLine .. char
     i = i + 1
-    vim.api.nvim_buf_set_lines(buffer, line_nr - 1, line_nr, true, fps)
+    vim.api.nvim_buf_set_lines(temp_buffer, line_nr - 1, line_nr, true, { insertLine })
 
     if insertLine == lines[line_nr] then
-      i = 1
       line_nr = line_nr + 1
+      i = 1
       insertLine = ""
     end
   end
 
   local animation = Animation(duration, fps, easing.line, callback)
   animation:run()
-end, {})
+end
+
+vim.defer_fn(redraw_buffer, 0)
+
+return {
+  redraw_buffer = redraw_buffer,
+}

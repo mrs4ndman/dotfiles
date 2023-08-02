@@ -38,7 +38,6 @@
 - ⭐✅⚡ [Comment.nvim](https://github.com/numToStr/Comment.nvim) (`comment.lua`) - Great code-commenting plugin (integrates with Treesitter)
 - ✅ [dropbar.nvim](https://github.com/Bekaboo/dropbar.nvim) (`dropbar.lua`) - IDE-like breadcrumbs as the tabline
 - ⚡ [executor.nvim](https://github.com/google/executor.nvim) (`executor.lua`) - Per-project command executor
-- ✅ [focus.nvim](https://github.com/nvim-focus/focus.nvim) (`focus.lua`) - Auto-resizing for windows
 - ⚡ [git-blame.nvim](https://github.com/f-person/git-blame.nvim) (`git-blame.lua`) - See Git blame for the code and many other things
 - ⭐⚡ [gitlinker.nvim](https://github.com/ruifm/gitlinker.nvim) (`gitlinker.lua`) - Create permalinks for blocks of code
 - ⭐⚡ [harpoon](https://github.com/ThePrimeagen/harpoon) (`harpoon.lua`) - Harpoon for all your buffer switching needs
@@ -62,6 +61,7 @@
 - ⭐⚡ [vim-vinegar](https://github.com/tpope/vim-vinegar) (`vim-vinegar.lua`) - Supercharged Ex
 - ✅⚡ [which-key.nvim](https://github.com/folke/which-key.nvim) (`which-key.lua`) - Shows a list of your keybindings
 - ❌ [better-escape.nvim](https://github.com/max397574/better-escape.nvim) (`better-escape.lua`) - "Better" / different escape keybinds
+- ❌ [focus.nvim](https://github.com/nvim-focus/focus.nvim) (`focus.lua`) - Auto-resizing for windows
 - ❌ [multicursors.nvim](https://github.com/smoka7/multicursors.nvim) (`multicursors.lua`) - Lua version of vim-visual-multi
 - ❌ [oil.nvim](https://github.com/stevearc/oil.nvim) (`oil.lua`) - Edit your filesystem like a buffer (I use Ex)
 - ❌ [open-handlers.nvim](https://github.com/mrshmllow/open-handlers.nvim) (`open-handlers.lua`) - Open files with a specific handler
