@@ -23,8 +23,8 @@ return {
         -- Text objects are defined with i/a - obj, instead of riw, raw
         prefix = false,
         paste_on_remote_yank = true,
-      }
-    }
+      },
+    },
   },
   config = function()
     require("leap").add_default_mappings()
@@ -38,7 +38,7 @@ return {
         require("leap").leap({ target_windows = { current_window } })
         vim.cmd([[:normal zz]])
       end,
-      desc = "Bidirectional leap"
+      desc = "Bidirectional leap",
     },
     {
       "<leader>la",
@@ -50,13 +50,16 @@ return {
         require("leap").leap({ target_windows = focusable_window_on_tabpage })
         vim.cmd([[:normal zz]])
       end,
-      desc = "Leap on all windows / buffers"
+      desc = "Leap on all windows / buffers",
     },
     {
       "<leader>lt",
       mode = { "n", "x", "o" },
-      function() require("leap-ast").leap() end,
-      desc = "Leap Treesitter"
-    }
-  }
+      function()
+        local current_window = vim.fn.win_getid()
+        require("leap-ast").leap({ target_windows = { current_window } })
+      end,
+      desc = "Leap Treesitter",
+    },
+  },
 }

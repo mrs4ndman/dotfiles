@@ -18,7 +18,7 @@ return {
     vim.keymap.set("n", "<leader>fm", require("genghis").moveAndRenameFile, { desc = "Move and rename current filepath" })
     vim.keymap.set("n", "<leader>fc", require("genghis").createNewFile, { desc = "Create new file" })
     vim.keymap.set("n", "<leader>fd", require("genghis").duplicateFile, { desc = "Duplicate current file" })
-    vim.keymap.set("n", "<leader>ft", function() require("genghis").trashFile({ trashLocation = "$HOME/.Trash" }) end,
-      { desc = "Trash current file" })
+    -- vim.keymap.set("n", "<leader>ft", function() require("genghis").trashFile({ trashLocation = "~/.Trash" }) end,
+    --   { desc = "Trash current file" })
   end
 }

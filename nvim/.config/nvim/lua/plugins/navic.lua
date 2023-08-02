@@ -9,7 +9,6 @@ return {
   "SmiteshP/" .. plugin,
   enabled = Is_Enabled(plugin),
   -- event = "LspAttach",
-  dependencies = "neovim/nvim-lspconfig",
   init = function()
     vim.g.navic_silence = true
   end,

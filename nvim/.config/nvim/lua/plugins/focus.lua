@@ -16,6 +16,7 @@ return {
     autoresize = {
       enable = true,
       height_quickfix = 20,
+      minheight = 33,
     },
     ui = {
       signcolumn = true,

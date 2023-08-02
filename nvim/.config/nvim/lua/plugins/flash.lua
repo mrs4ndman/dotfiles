@@ -58,7 +58,7 @@ return {
             return matches
           end,
           search = {
-            incremental = false,
+            incremental = true,
           },
           label = { before = true, after = true, style = "inline" },
           remote_op = { restore = true },

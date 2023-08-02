@@ -41,7 +41,7 @@ return function(_, opts)
       vsnip = "V",
       nvim_lua = "Π",
       Codeium = "C",
-      Tabnine = "T"
+      Tabnine = "T",
     }
 
     vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
@@ -143,6 +143,7 @@ return function(_, opts)
       { name = "luasnip" },
       { name = "codeium" },
       { name = "cmp_tabnine" },
+      { name = "emoji" },
       -- { name = "buffer-lines" },
       { name = "crates" }, -- crates.nvim plugin
       { name = "path" },
@@ -165,32 +166,31 @@ return function(_, opts)
       },
     }
     -- CMDLINE SETUP
-    cmp.setup.cmdline('/', {
+    cmp.setup.cmdline("/", {
       mapping = cmp.mapping.preset.cmdline(),
       sources = {
-        { name = 'buffer' }
-      }
+        { name = "buffer" },
+      },
     })
-    cmp.setup.cmdline(':', {
+    cmp.setup.cmdline(":", {
       mapping = cmp.mapping.preset.cmdline(),
       enabled = function()
         local disabled = {
-          IncRename = true
+          IncRename = true,
         }
         local cmd = vim.fn.getcmdline():match("%S+")
         return not disabled[cmd] or cmp.close()
       end,
       sources = cmp.config.sources({
-          { name = 'path' }
-        },
+        { name = "path" },
+      }, {
         {
-          {
-            name = 'cmdline',
-            option = {
-              ignore_cmds = { 'Man', '!' }
-            }
-          }
-        })
+          name = "cmdline",
+          option = {
+            ignore_cmds = { "Man", "!" },
+          },
+        },
+      }),
     })
     --
     -- PASSING VALUES TO THE ORIGINAL OPTS TABLE

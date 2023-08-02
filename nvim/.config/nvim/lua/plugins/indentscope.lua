@@ -28,7 +28,7 @@ return {
           border = "both",
           indent_at_cursor = true,
         },
-        symbol = "╎"
+        symbol = "|"
       }
     end
   end,

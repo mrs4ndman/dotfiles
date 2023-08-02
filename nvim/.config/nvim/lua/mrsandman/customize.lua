@@ -16,7 +16,7 @@ Customize = {
     ["codeium.nvim"] = { enabled = true },
     ["Comment.nvim"] = { enabled = true, defaults = false },
     ["doom-one.nvim"] = { enabled = true, defaults = false },
-    ["dmap.nvim"] = { enabled = true },
+    ["dmap.nvim"] = { enabled = false },
     ["dracula.nvim"] = { enabled = true, defaults = false },
     ["dressing.nvim"] = { enabled = true, defaults = false },
     ["dropbar.nvim"] = { enabled = true },
