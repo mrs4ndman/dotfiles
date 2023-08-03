@@ -11,7 +11,6 @@ return {
   },
   {
     "rose-pine/neovim", -- the coolest color scheme B)
-    lazy = true,
     name = "rose-pine",
     opts = {
       variant = "main",
@@ -27,7 +26,6 @@ return {
   {
     "folke/tokyonight.nvim",
     enabled = Is_Enabled("tokyonight.nvim"),
-    lazy = true,
     opts = function(_, opts)
       if Use_Defaults("tokyonight.nvim") then
         opts = opts
@@ -53,7 +51,6 @@ return {
   },
   {
     "catppuccin/nvim",
-    lazy = true,
     name = "catppuccin",
     opts = {
       flavour = "mocha",
@@ -90,7 +87,6 @@ return {
   {
     "EdenEast/nightfox.nvim",
     enabled = Is_Enabled("nightfox.nvim"),
-    lazy = true,
     opts = function(_, opts)
       if Use_Defaults("nightfox.nvim") then
         opts = opts
@@ -120,9 +116,12 @@ return {
     end
   },
   {
+    "dasupradyumna/midnight.nvim",
+    enabled = Is_Enabled("midnight.nvim")
+  },
+  {
     "Mofiqul/dracula.nvim",
     enabled = Is_Enabled("dracula.nvim"),
-    lazy = true,
     config = function()
       require("dracula").setup({
         show_end_of_buffer = false,
@@ -134,7 +133,6 @@ return {
   {
     "rmehri01/onenord.nvim",
     enabled = Is_Enabled("onenord.nvim"),
-    lazy = true,
     opts = function(_, opts)
       if Use_Defaults("onenord.nvim") then
         opts = opts
@@ -246,12 +244,10 @@ return {
   {
     "lunarvim/horizon.nvim",
     enabled = Is_Enabled("horizon.nvim"),
-    lazy = true,
   },
   {
     "shaunsingh/nord.nvim",
     enabled = Is_Enabled("nord.nvim"),
-    lazy = true,
     config = function()
       vim.g.nord_contrast = true
       vim.g.nord_borders = true
@@ -263,7 +259,6 @@ return {
   {
     "rafamadriz/neon",
     enabled = Is_Enabled("neon"),
-    lazy = true,
     config = function()
       vim.g.neon_style = "doom"
       vim.g.neon_italic_comment = true

@@ -154,6 +154,6 @@
 - ⚡ [sPoNGe-BoB.NvIm](https://github.com/tjdevries/sPoNGe-BoB.NvIm) (`sPoNGe-BoB.lua`) - sPoNGe-BoB-ify your text
 - ⚡ [stand.nvim](https://github.com/mvllow/stand.nvim) (`stand.lua`) - Create and manage timers for standing up IRL
 - ⚡ [nvim-tetris](https://github.com/alec-gibson/nvim-tetris) (`tetris.lua`)
--  [vim-be-good](https://github.com/ThePrimeagen/vim-be-good) (`vim-be-good.lua`) - Goodbye bad habits, hello motion training
+- ✅ [vim-be-good](https://github.com/ThePrimeagen/vim-be-good) (`vim-be-good.lua`) - Goodbye bad habits, hello motion training
 - ❌ [hypersonic.nvim](https://github.com/tomiis4/hypersonic.nvim) (`hypersonic.lua`) - Explain vim-search regex on-the-fly
 - ❌ [presence.nvim](https://github.com/andweeb/presence.nvim) (`discord.lua`) - Discord Rich Presence for Neovim

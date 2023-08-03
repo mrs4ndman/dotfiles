@@ -14,12 +14,12 @@ return {
   },
   keys = {
     -- TELESCOPE
-    { "<leader>tf", require("telescope.builtin").find_files,  desc = "Find files" },
-    { "<leader>tb", require("telescope.builtin").buffers,     desc = "List buffers" },
-    { "<leader>tr", require("telescope.builtin").oldfiles,    desc = "Recent files" },
-    { "<leader>tl", require("telescope.builtin").loclist,     desc = "Proyect loclist" },
-    { "<leader>vh", require("telescope.builtin").help_tags,   desc = "Help tags" },
-    { "<leader>sg", require("telescope.builtin").grep_string, desc = "Fast string grep" },
+    { "<leader>tf", "<cmd>Telescope find_files<CR>",  desc = "Find files" },
+    { "<leader>tb", "<cmd>Telescope buffers<CR>",     desc = "List buffers" },
+    { "<leader>tr", "<cmd>Telescope oldfiles<CR>",    desc = "Recent files" },
+    { "<leader>tl", "<cmd>Telescope loclist<CR>",     desc = "Proyect loclist" },
+    { "<leader>vh", "<cmd>Telescope help_tags<CR>",   desc = "Help tags" },
+    { "<leader>sg", "<cmd>Telescope grep_string<CR>", desc = "Fast string grep" },
     {
       "<leader>tg",
       function()

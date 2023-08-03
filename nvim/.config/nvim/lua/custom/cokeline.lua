@@ -10,6 +10,40 @@ local warnings_fg = get_hex("DiagnosticWarn", "fg")
 local red = vim.g.terminal_color_1
 local yellow = vim.g.terminal_color_3
 
+local function harpoon_sorter()
+  local harpoon = require("harpoon.mark")
+  local cache = {}
+
+  local function marknum(buf, force)
+    local b = cache[buf.number]
+    if b == nil or force then
+      b = harpoon.get_index_of(buf.path)
+      cache[buf.number] = b
+    end
+    return b
+  end
+
+  harpoon.on("changed", function()
+    for _, buf in ipairs(require("cokeline.buffers").get_visible()) do
+      cache[buf.number] = marknum(buf, true)
+    end
+  end)
+
+  return function(a, b)
+    local ma = marknum(a)
+    local mb = marknum(b)
+    if ma and not mb then
+      return true
+    elseif mb and not ma then
+      return false
+    elseif ma == nil and mb == nil then
+      ma = a.index
+      mb = b.index
+    end
+    return ma < mb
+  end
+end
+
 local components = {
   space = {
     text = " ",
@@ -111,7 +145,7 @@ require("cokeline").setup({
     filter_visible = function(buffer)
       return buffer.filename ~= "oil://"
     end,
-    new_buffers_position = "next",
+    new_buffers_position = harpoon_sorter()
   },
 
   rendering = {

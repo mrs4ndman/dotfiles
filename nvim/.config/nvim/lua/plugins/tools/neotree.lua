@@ -67,7 +67,7 @@ return {
       mapping_options = { noremap = true, nowait = true },
       mappings = { ["<C-c>"] = "close_window", ["<Esc>"] = "close_window" },
     },
-    nesting_rulse = {},
+    nesting_rules = {},
     filesystem = {
       filtered_items = {
         visible = true,
