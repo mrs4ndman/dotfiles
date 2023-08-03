@@ -293,11 +293,13 @@ alias gsp='git stash pop'
 alias tbg-switch='tmux new-session -ds tmux-bg && tmux switch-client -t tmux-bg'
 alias tls='tmux ls'
 alias tks='tmux kill-session -t'
-alias tns='tmux new-session'
 alias trs='tmux rename-session'
 alias twin='$HOME/.local/scripts/tmux-windowizer'
 # Tmux obsidian session
 alias tobs='tmux new-session -ds obsidian -c ~/Documents/Obsidian\ Vaults'
+function tns () {
+    tmux new-session -s "$1" -d
+}
 #--------------------------------------------------------------#
 
 #--- ARCHIVE EXTRACTOR - EXTRACTOR DE ARCHIVOS COMPRIMIDOS ---#
@@ -396,7 +398,19 @@ alias CosmicNvim='NVIM_APPNAME=CosmicNvim nvim'
 
 # Config switcher
 function nvims() {
-    items=("mrsandman" "SmallNvim" "MonstahNvim" "LazyVim" "DoomNvim" "NvChad" "DuskNvim" "NormalNVim" "AstroNvim" "kickstart-nvim" "CosmicNvim")
+    items=(
+        "mrsandman"
+        "SmallNvim"
+        "MonstahNvim"
+        "LazyVim"
+        "DoomNvim"
+        "NvChad"
+        "DuskNvim"
+        "NormalNVim"
+        "AstroNvim"
+        "kickstart-nvim"
+        "CosmicNvim"
+    )
     config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Choose your character » " --height=~50% --layout=reverse --border --exit-0)
     if [[ -z $config ]]; then
         echo "Nothing selected"
