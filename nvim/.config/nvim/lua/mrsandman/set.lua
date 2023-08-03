@@ -19,8 +19,7 @@ vim.opt.relativenumber = true
 
 -- Type-writer mode = ON xD
 vim.opt.scrolloff = 8
-vim.opt.sidescroll = 1
-vim.opt.sidescrolloff = 1
+vim.opt.sidescrolloff = 8
 
 -- Color columns
 vim.opt.colorcolumn = "81"
@@ -44,6 +43,7 @@ vim.opt.incsearch = true
 
 -- Highlight bracket pairs
 vim.opt.showmatch = true
+vim.opt.matchtime = 10
 
 -- bars
 vim.opt.showmode = false

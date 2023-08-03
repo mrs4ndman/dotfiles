@@ -20,6 +20,10 @@ return {
     },
     "JoosepAlviste/nvim-ts-context-commentstring",
     "windwp/nvim-ts-autotag",
+    {
+      "David-Kunz/markid",
+      enabled = Is_Enabled("markid")
+    },
   },
   config = function()
     require("nvim-treesitter.configs").setup({

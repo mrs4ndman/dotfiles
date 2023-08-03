@@ -14,7 +14,7 @@
 - ✅ [mini.indentscope](https://github.com/echasnovski/mini.indentscope) (`indentscope.lua`) - Animated indentation lines
 - ⭐✅ [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) (`gitsigns.lua`) - Shows git diffs with signs
 - ⭐✅ [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) (`lualine.lua + custom/lualine.lua`) - Very customizable and stable statusline
-- ✅ [vim-matchquote](https://github.com/airblade/vim-matchquote) (`matchquote.lua`) - Highlight the opposite quote / parenthesis
+- ✅ [sentiment.nvim](https://github.com/utilyre/sentiment.nvim) (`sentiment.lua`) - Highlight the opposite quote / parenthesis
 - ✅ [nvim-navic](https://github.com/SmiteshP/nvim-navic) (`navic.lua`)- Dependency for SmiteshP/nvim-navbuddy
 - ✅ [noice.nvim](https://github.com/folke/noice.nvim) (`noice.lua`) - Cmdline and search UI extensions
 - ✅ [nvim-notify](https://github.com/rcarriga/nvim-notify) (`notify.lua`) - Notification UI extension

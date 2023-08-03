@@ -2,13 +2,11 @@ Customize = require("mrsandman.customize")
 local functions = require("mrsandman.functions")
 Is_Enabled = functions.is_enabled
 Use_Defaults = functions.use_plugin_defaults
--- local action_layout = require("telescope.actions.layout")
 
 local plugin = "telescope.nvim"
 return {
   "nvim-telescope/" .. plugin,
   enabled = Is_Enabled(plugin),
-  cmd = "Telescope",
   dependencies = {
     "nvim-lua/plenary.nvim",
   },
@@ -16,10 +14,10 @@ return {
     -- TELESCOPE
     { "<leader>tf", "<cmd>Telescope find_files<CR>",  desc = "Find files" },
     { "<leader>tb", "<cmd>Telescope buffers<CR>",     desc = "List buffers" },
-    { "<leader>tr", "<cmd>Telescope oldfiles<CR>",    desc = "Recent files" },
     { "<leader>tl", "<cmd>Telescope loclist<CR>",     desc = "Proyect loclist" },
     { "<leader>vh", "<cmd>Telescope help_tags<CR>",   desc = "Help tags" },
     { "<leader>sg", "<cmd>Telescope grep_string<CR>", desc = "Fast string grep" },
+    { "<leader>tr", "<cmd>Telescope oldfiles<CR>",    desc = "Recent files" },
     {
       "<leader>tg",
       function()

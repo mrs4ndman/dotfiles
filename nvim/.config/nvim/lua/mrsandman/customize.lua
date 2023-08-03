@@ -130,7 +130,7 @@ Customize = {
     ["vim-be-good"] = { enabled = true },
     ["vim-commentary"] = { enabled = true },
     ["vim-illuminate"] = { enabled = true },
-    ["vim-matchquote"] = { enabled = true },
+    ["sentiment.nvim"] = { enabled = false },
     ["vim-sleuth"] = { enabled = true },
     ["vim-tmux"] = { enabled = true },
     ["vim-tmux-navigator"] = { enabled = true },

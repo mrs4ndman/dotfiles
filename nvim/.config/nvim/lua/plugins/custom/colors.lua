@@ -16,7 +16,7 @@ return {
       variant = "main",
       dark_variant = "main",
       bold_vert_split = true,
-      disable_background = true,
+      disable_background = false,
       disable_float_background = false,
       disable_italics = true,
       highlight_groups = { NotifyBackground = { bg = 'base' } }

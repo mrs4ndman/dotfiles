@@ -28,6 +28,8 @@ require("lazy").setup({
         "man",
         "gzip",
         "tarPlugin",
+        "matchit",
+        -- "matchparen",
         "tutor",
         "zipPlugin",
       },
