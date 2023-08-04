@@ -3,6 +3,7 @@
 local navbuddy = require("nvim-navbuddy")
 local M = {}
 M.capabilities = vim.lsp.protocol.make_client_capabilities()
+M.capabilities = require("cmp_nvim_lsp").default_capabilities(M.capabilities)
 M.capabilities.textDocument.completion.completionItem = {
   documentationFormat = { "markdown", "plaintext" },
   snippetSupport = true,
@@ -77,27 +78,28 @@ vim.api.nvim_create_autocmd("LspAttach", {
     vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
 
     local opts = { buffer = ev.buf }
-    vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "[G]o to [D]efinition" })
-    vim.keymap.set("n", "gT", vim.lsp.buf.type_definition, { desc = "[G]o to [T]ype definition" })
-    vim.keymap.set("n", "gI", vim.lsp.buf.implementation, { desc = "[G]o to [I]mplementation" })
+    vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "[g]o to [d]efinition" })
+    vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "[g]o to [D]eclaration"})
+    vim.keymap.set("n", "gT", vim.lsp.buf.type_definition, { desc = "[g]o to [T]ype definition" })
+    vim.keymap.set("n", "gI", vim.lsp.buf.implementation, { desc = "[g]o to [I]mplementation" })
     vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover info" })
-    vim.keymap.set("n", "<leader>vws", function()
-      vim.lsp.buf.workspace_symbol()
-    end, { desc = "Workspace Symbol" })
-    vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float, { desc = "Diagnostic Float on current word" })
-    vim.keymap.set("n", "[d", vim.diagnostic.goto_next, { desc = "Next Diagnostic" })
-    vim.keymap.set("n", "d]", vim.diagnostic.goto_prev, { desc = "Prev Diagnostic" })
+    vim.keymap.set("n", "<leader>tS", require("telescope.builtin").lsp_document_symbols, { desc = "Telescope symbols"})
+    -- vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float, { desc = "Diagnostic Float on current word" })
+    vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Next diagnostic" })
+    vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Prev diagnostic" })
     vim.keymap.set({ "n", "v" }, "<leader>vca", vim.lsp.buf.code_action, { desc = "View code action" })
-    vim.keymap.set("n", "<leader>vrr", vim.lsp.buf.references, { desc = "Show Variable References" })
-    vim.keymap.set({ "n", "v" }, "<leader>vrn", vim.lsp.buf.rename, { desc = "Rename variable with LSP" })
+    vim.keymap.set("n", "<leader>vrr", vim.lsp.buf.references, { desc = "Show variable references" })
+    vim.keymap.set({ "n", "v" }, "<leader>vrn", vim.lsp.buf.rename, { desc = "Rename project-wide variable with LSP" })
     -- vim.keymap.set("n", "<leader>ff", function()
     --   vim.lsp.buf.format({ async = true })
     -- end, { desc = "Format current buffer / file" })
     vim.keymap.set("i", "<C-q>", vim.lsp.buf.signature_help, { desc = "Quickhelp on word" })
 
     vim.api.nvim_create_autocmd("CursorHold", {
+---@diagnostic disable-next-line: undefined-global
       buffer = bufnr,
       callback = function()
+---@diagnostic disable-next-line: redefined-local
         local opts = {
           focusable = false,
           close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },

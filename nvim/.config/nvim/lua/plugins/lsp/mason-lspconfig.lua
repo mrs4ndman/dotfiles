@@ -11,6 +11,7 @@ return {
   cmd = { "LspInstall", "LspUninstall" },
   event = { "BufReadPre", "BufNewFile" },
   config = function()
+    require("mason").setup()
     require("mason-lspconfig").setup({
       ensure_installed = {
         -- Language servers automagically installed

@@ -8,7 +8,7 @@ local plugin = "nvim-lspconfig"
 return {
   "neovim/" .. plugin,
   enabled = Is_Enabled(plugin),
-  event = { "BufReadPre", "BufNewFile" },
+  event = { "BufRead", "BufNewFile" },
   dependencies = {
     -- "folke/neodev.nvim",
     "jubnzv/virtual-types.nvim",

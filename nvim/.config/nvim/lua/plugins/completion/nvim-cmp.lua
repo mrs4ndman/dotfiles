@@ -8,6 +8,7 @@ return {
   event = "InsertEnter",
   enabled = Is_Enabled(plugin),
   dependencies = {
+    -- Completion sources
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-cmdline",
     "amarakon/nvim-cmp-buffer-lines",
@@ -18,6 +19,8 @@ return {
     "hrsh7th/cmp-nvim-lsp-document-symbol",
     "hrsh7th/cmp-nvim-lsp",
     "ray-x/cmp-treesitter",
+    -- Icons
+    "onsails/lspkind.nvim",
     {
       "jcdickinson/codeium.nvim",
       dependencies = "nvim-lua/plenary.nvim",
