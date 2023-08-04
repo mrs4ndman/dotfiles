@@ -121,7 +121,7 @@ vim.keymap.set("n", "}", "}zzzv", { silent = true })
 vim.keymap.set("n", "(", "(zzzv", { silent = true })
 vim.keymap.set("n", ")", ")zzzv", { silent = true })
 
-vim.keymap.set("n", "+", "S")
+vim.keymap.set("n", "ñ", "S")
 
 -- Delete character without yanking
 vim.keymap.set({ "n", "v" }, "x", '"_x', { silent = true })

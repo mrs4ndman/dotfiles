@@ -8,22 +8,23 @@ local lualine = require("lualine")
 -- Color table for highlights
 -- stylua: ignore
 local colors = {
-    bg          = '#202328',
-    fg          = '#bbc2cf',
-    yellow      = '#ECBE7B',
-    cyan        = '#008080',
-    pink        = '#FF00FF',
-    darkblue    = '#0037AA',
-    turquoise   = '#00CCCC',
-    green       = '#98be65',
-    lime        = '#00CC00',
-    orange      = '#FF8800',
-    sorange     = '#FF6600',
-    violet      = '#a9a1e1',
-    magenta     = '#c678dd',
-    blue        = '#51afef',
-    red         = '#FF0000',
-    ultraviolet = '#CC0099',
+  bg          = '#202328',
+  fg          = '#bbc2cf',
+  violet      = '#a9a1e1',
+  radioactive = '#FAE500',
+  yellow      = '#ECBE7B',
+  cyan        = '#008080',
+  pink        = '#FF00FF',
+  darkblue    = '#0037AA',
+  turquoise   = '#00CCCC',
+  green       = '#98be65',
+  lime        = '#00CC00',
+  orange      = '#FF8800',
+  sorange     = '#FF6600',
+  magenta     = '#c678dd',
+  blue        = '#51afef',
+  red         = '#FF0000',
+  ultraviolet = '#CC0099',
 }
 
 local conditions = {
@@ -157,31 +158,31 @@ ins_left({
   function()
     return ""
   end,
-  color = { fg = colors.lime }, -- Sets highlighting of component
-  padding = { left = 1, right = 1 }, -- We don't need space before this
+  color = { fg = colors.turquoise }, -- Sets highlighting of component
+  padding = { left = 1, right = 2 }, -- We don't need space before this
 })
 
 ins_left({
   -- mode component
   function()
-    return ""
+    return "" .. "  " .. ""
   end,
   color = function()
     -- auto change color according to neovims mode
     local mode_color = {
-      n = colors.pink,
-      i = colors.turquoise,
+      n = colors.radioactive,
+      i = colors.red,
       v = colors.orange,
-      [""] = colors.blue,
-      V = colors.sorange,
-      c = colors.green,
+      V = colors.orange,
+      [""] = colors.turquoise,
+      R = colors.blue,
+      Rv = colors.blue,
+      c = colors.magenta,
       no = colors.red,
       s = colors.orange,
       S = colors.orange,
       [""] = colors.orange,
       ic = colors.yellow,
-      R = colors.violet,
-      Rv = colors.violet,
       cv = colors.red,
       ce = colors.red,
       r = colors.cyan,
@@ -190,9 +191,10 @@ ins_left({
       ["!"] = colors.red,
       t = colors.red,
     }
-    return { fg = mode_color[vim.fn.mode()] }
+    return { fg = colors.bg, bg = mode_color[vim.fn.mode()] }
   end,
   padding = { left = 0, right = 1 },
+  separator = { left = "", right = "" },
 })
 
 ins_left({
@@ -227,10 +229,10 @@ ins_left({
   color = { fg = "violet", gui = "bold" },
 })
 
-ins_left {
-    require("lazy.status").updates,
-    cond = require("lazy.status").has_updates,
-}
+ins_left({
+  require("lazy.status").updates,
+  cond = require("lazy.status").has_updates,
+})
 
 ins_left({
   function()
@@ -239,6 +241,57 @@ ins_left({
 })
 
 ins_left({
+  "diagnostics",
+  sources = { "nvim_diagnostic" },
+  symbols = { error = " ", warn = " ", info = " " },
+  diagnostics_color = {
+    color_error = { fg = colors.red },
+    color_warn = { fg = colors.yellow },
+    color_info = { fg = colors.cyan },
+  },
+})
+
+ins_left({
+  "diff",
+  -- Is it me or the symbol for modified us really weird
+  symbols = { added = " ", modified = " ", removed = " " },
+  diff_color = {
+    added = { fg = colors.lime },
+    modified = { fg = colors.orange },
+    removed = { fg = colors.red },
+  },
+  cond = conditions.hide_in_width,
+})
+
+ins_right({
+  function()
+    return "%="
+  end,
+})
+
+ins_right({
+  -- filesize component
+  "filesize",
+  cond = conditions.buffer_not_empty,
+  color = { fg = colors.cyan },
+  padding = { left = 1, right = 0 },
+})
+
+ins_right({
+  -- cursor location in file component
+  "location",
+  color = { fg = colors.lime, gui = "bold" },
+  padding = { left = 1, right = 0 },
+})
+
+ins_right({
+  -- same as location but in % form
+  "progress",
+  color = { fg = colors.ultraviolet, gui = "bold" },
+  padding = { left = 1, right = 0 },
+})
+
+ins_right({
   -- Lsp server name
   function()
     local msg = "None"
@@ -259,78 +312,27 @@ ins_left({
   icon = "",
   color = { fg = "cyan", gui = "bold" },
   cond = conditions.hide_in_width,
-  padding = { left = 0, right = 0 },
+  padding = { left = 1, right = 0 },
 })
 
-ins_left({
+ins_right({
   -- filetype / language component
   "filetype",
   colored = true,
   icon_only = false,
   icon = { align = "left" },
   color = { fg = "cyan", gui = "bold" },
-  padding = { left = 1, right = 0 },
+  padding = { left = 1, right = 1 },
   cond = conditions.hide_in_width,
 })
 
-ins_left({
-  -- filesize component
-  "filesize",
-  cond = conditions.buffer_not_empty,
-  color = { fg = colors.cyan },
-  padding = { left = 1, right = 0 },
-})
-
-ins_left({
-  -- cursor location in file component
-  "location",
-  color = { fg = colors.lime, gui = "bold" },
-  padding = { left = 1, right = 0 },
-})
-
-ins_left({
-  -- same as location but in % form
-  "progress",
-  color = { fg = colors.ultraviolet, gui = "bold" },
-  padding = { left = 1, right = 0 },
-})
-ins_left({
-  function()
-    return "%="
-  end,
-})
-
-ins_right({
-  "diagnostics",
-  sources = { "nvim_diagnostic" },
-  symbols = { error = " ", warn = " ", info = " " },
-  diagnostics_color = {
-    color_error = { fg = colors.red },
-    color_warn = { fg = colors.yellow },
-    color_info = { fg = colors.cyan },
-  },
-
-})
-
-ins_right({
-  "diff",
-  -- Is it me or the symbol for modified us really weird
-  symbols = { added = " ", modified = " ", removed = " " },
-  diff_color = {
-    added = { fg = colors.lime },
-    modified = { fg = colors.orange },
-    removed = { fg = colors.red },
-  },
-  cond = conditions.hide_in_width,
-})
-
-local wpm = require("wpm")
-ins_right({
-  wpm.wpm,
-  "wpm",
-  color = { fg = colors.pink, gui = "bold" },
-  padding = { left = 0, right = 1 },
-})
+-- local wpm = require("wpm")
+-- ins_right({
+--   wpm.wpm,
+--   "wpm",
+--   color = { fg = colors.pink, gui = "bold" },
+--   padding = { left = 0, right = 1 },
+-- })
 
 -- ins_right({
 --   "fileformat",
