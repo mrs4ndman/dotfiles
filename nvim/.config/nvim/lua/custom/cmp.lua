@@ -132,22 +132,22 @@ return function(_, opts)
       ["<S-Tab>"] = vim.NIL,
     })
     local sources = {
-      { name = "nvim_lsp" },
-      { name = "luasnip" },
-      { name = "cmp_tabnine" },
-      { name = "codeium", keyword_length = 5 },
+      { name = "nvim_lsp", group_index = 1 },
+      { name = "luasnip", group_index = 1 },
+      { name = "cmp_tabnine", group_index = 1 },
+      { name = "codeium", keyword_length = 5, group_index = 1 },
       {
-        name = "buffer",
+        name = "buffer", group_index = 2,
         options = {
           get_bufnrs = function() return vim.api.nvim_list_bufs() end,
         },
         keyword_length = 4,
       },
-      { name = "path" },
-      { name = "emoji" },
+      { name = "path", group_index = 1 },
+      { name = "emoji", group_index = 1 },
       { name = "crates" }, -- crates.nvim plugin
-      { name = "nvim_lua" },
-      { name = "vsnip" },
+      { name = "nvim_lua", group_index = 1 },
+      { name = "vsnip", group_index = 1 },
       -- { name = "buffer-lines" },
       -- { name = "treesitter" }, -- treesitter integration
     }
