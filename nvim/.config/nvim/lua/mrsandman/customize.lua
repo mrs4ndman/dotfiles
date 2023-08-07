@@ -53,6 +53,7 @@ Customize = {
     ["mason.nvim"] = { enabled = true, defaults = false },
     ["material.nvim"] = { enabled = true, defaults = false },
     ["midnight.nvim"] = { enabled = true },
+    ["mini.ai"] = { enabled = true, defaults = false },
     ["mini.indentscope"] = { enabled = true, defaults = false },
     ["modes.nvim"] = { enabled = false },
     ["multicursors.nvim"] = { enabled = false, defaults = false },
