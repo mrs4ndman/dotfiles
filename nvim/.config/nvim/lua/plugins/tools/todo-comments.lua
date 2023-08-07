@@ -8,13 +8,13 @@ local plugin = "todo-comments.nvim"
 return {
   "folke/" .. plugin,
   enabled = Is_Enabled(plugin),
-  event = { "BufReadPost", "BufNewFile" },
+  event = { "BufRead", "BufNewFile" },
   dependencies = "nvim-lua/plenary.nvim",
   keys = {
     { "<leader>td", "<cmd>TodoTrouble<CR>", desc = "To-Do Toggle", },
   },
   cmd = { "TodoTrouble", "TodoTelescope", "TodoLocList", "TodoQuickFix" },
-  config = function(opts)
+  config = function()
     require("todo-comments").setup({
       signs = true,
       search = {

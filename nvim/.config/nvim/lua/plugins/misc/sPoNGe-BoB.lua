@@ -9,7 +9,7 @@ return {
   "tjdevries/" .. plugin,
   enabled = Is_Enabled(plugin),
   keys = {
-    { "<leader>sb", "<cmd>SpOnGeBoBtOgGlE<CR>", mode = {"n"}, desc = "Toggle SpOnGeBoB" },
-    { "<leader>sb", "<cmd>SpOnGeBoBiFy<CR>", mode = {"v"}, desc = "Toggle SpOnGeBoB" },
+    { "<leader>sB", "<cmd>SpOnGeBoBtOgGlE<CR>", mode = {"n"}, desc = "Toggle SpOnGeBoB" },
+    { "<leader>sB", "<cmd>SpOnGeBoBiFy<CR>", mode = {"v"}, desc = "Toggle SpOnGeBoB" },
   }
 }
