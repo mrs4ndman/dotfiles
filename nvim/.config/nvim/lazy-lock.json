@@ -25,7 +25,7 @@
   "doom-one.nvim": { "branch": "main", "commit": "a43528cbd7908ccec7af4587ec8e18be149095bd" },
   "dracula.nvim": { "branch": "main", "commit": "9fe831e685a76e1a1898a694623b33247c4d036c" },
   "dressing.nvim": { "branch": "master", "commit": "829bc80400651aea31b03d8fc9a99135512fe67a" },
-  "dropbar.nvim": { "branch": "master", "commit": "88d71c6fc8002b236549052944efb3fa1a6970ed" },
+  "dropbar.nvim": { "branch": "master", "commit": "47857743232f7d97d51da25196724b7657472fd0" },
   "duck.nvim": { "branch": "main", "commit": "8f18dd79c701698fc150119ef642c1881ce6a538" },
   "executor.nvim": { "branch": "main", "commit": "0fc98a2d05a0662af2d7c55899c79635bb05ac5a" },
   "flit.nvim": { "branch": "main", "commit": "498b3a4864e697f1ed1145e518c4c78c776c55d8" },
