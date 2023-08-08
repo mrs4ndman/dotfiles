@@ -35,9 +35,12 @@ for i = 1, 9 do
   )
 end
 
+vim.keymap.set("n", "<leader>sb", function()
+  require("telescope.builtin").live_grep({ search_dirs = { vim.api.nvim_buf_get_name(0) } })
+end, { desc = "Search current buffer" })
+
 -- OBSIDIAN: direct access
 -- vim.keymap.set("n", "<leader>nt", "<cmd>!cd $OBSIDIAN_VAULT | e ~/Documents/Obsidian Vaults/Dashboard/Current TO-DO.md<CR>")
-
 
 -- INTERNAL KEYBINDS
 
@@ -104,6 +107,17 @@ vim.keymap.set("n", "dd", function()
   return "dd"
 end, { expr = true })
 
+vim.keymap.set("v", "D", function()
+---@diagnostic disable-next-line: unused-local
+  local l, c = unpack(vim.api.nvim_win_get_cursor(0))
+  for _, line in ipairs(vim.api.nvim_buf_get_lines(0, l - 1, l, true)) do
+    if line:match("^%s*$") then
+      return '"_d'
+    end
+  end
+  return "d"
+end, { desc = "Visual smart d", expr = true })
+
 -- Yank only to nvim clipboard
 vim.keymap.set({ "n", "v" }, "<leader>yy", [[""y]])
 vim.keymap.set({ "n", "v" }, "<leader>pp", [[""p]])
@@ -121,7 +135,7 @@ vim.keymap.set("n", "}", "}zzzv", { silent = true })
 vim.keymap.set("n", "(", "(zzzv", { silent = true })
 vim.keymap.set("n", ")", ")zzzv", { silent = true })
 
-vim.keymap.set("n", "ñ", "S")
+vim.keymap.set("n", "+", "S")
 
 -- Delete character without yanking
 vim.keymap.set({ "n", "v" }, "x", '"_x', { silent = true })
