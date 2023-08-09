@@ -41,6 +41,18 @@ local conditions = {
   end,
 }
 
+local function wordcount()
+  return tostring(vim.fn.wordcount().words) .. " words"
+end
+
+local function readingtime()
+  return tostring(math.ceil(vim.fn.wordcount().words / 200.0)) .. " min"
+end
+
+local function is_markdown()
+  return vim.bo.filetype == "markdown" or vim.bo.filetype == "asciidoc"
+end
+
 -- Config
 local config = {
   options = {
@@ -50,13 +62,7 @@ local config = {
     theme = "auto",
     globalstatus = true,
     disabled_filetypes = {
-      statusline = { "dashboard", "alpha" },
-      winbar = {
-        "help",
-        "alpha",
-        "lazy",
-        "Trouble",
-      },
+      statusline = { "dashboard", "alpha", "trouble" },
     },
   },
   sections = {
@@ -263,10 +269,20 @@ ins_left({
   cond = conditions.hide_in_width,
 })
 
+-- ins_right({
+--   function()
+--     return "%="
+--   end,
+-- })
+
 ins_right({
-  function()
-    return "%="
-  end,
+  wordcount,
+  cond = is_markdown,
+})
+
+ins_right({
+  readingtime,
+  cond = is_markdown
 })
 
 ins_right({
