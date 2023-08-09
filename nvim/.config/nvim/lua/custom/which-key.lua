@@ -4,6 +4,7 @@ local wk = require("which-key")
 
 wk.register({
   -- which-key category entries
+  ["gp"] = { name = "LSP Previews" },
   ["<leader>b"] = { name = "[B]uffers, Block view" },
   ["<leader>c"] = { name = "Close, Colorpicker, TSContext" },
   ["<leader>ca"] = { name = "a secret" },

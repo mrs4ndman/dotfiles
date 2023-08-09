@@ -9,7 +9,6 @@ return {
   "rmagatti/" .. plugin,
   enabled = Is_Enabled(plugin),
   keys = {
-    ["gp"] = { name = "LSP Previews" },
     { "gpd", desc = "Preview Definitions" },
     { "gpt", desc = "Preview Type Definitions" },
     { "gpi", desc = "Preview Implementations" },
