@@ -8,6 +8,7 @@ local plugin = "nvim-treesitter"
 return {
   "nvim-treesitter/" .. plugin, -- parsing to the end of time
   enabled = Is_Enabled(plugin),
+  cmd = { "TSInstall", "TSUpdate" },
   event = { "BufRead", "BufNewFile" },
   dependencies = {
     {
@@ -20,7 +21,12 @@ return {
     "windwp/nvim-ts-autotag",
     {
       "David-Kunz/markid",
-      enabled = Is_Enabled("markid")
+      enabled = Is_Enabled("markid"),
+    },
+    {
+      "nvim-treesitter/nvim-treesitter-textobjects",
+      event = { "BufRead", "BufNewFile" },
+      enabled = Is_Enabled("nvim-treesitter-textobjects"),
     },
   },
   config = function()
@@ -61,6 +67,21 @@ return {
       },
       autotag = { enable = true },
       markid = { enable = true },
+      textobjects = {
+        select = {
+          enable = true,
+          lookahead = true,
+          keymaps = {
+            ["af"] = { query = "@function.outer", desc = "Around the function" },
+            ["if"] = { query = "@function.inner", desc = "Inside the function" },
+            ["ac"] = { query = "@class.outer", desc = "Around the class" },
+            ["ic"] = { query = "@class.inner", desc = "Inside the class" },
+            ["aC"] = { query = "@comment.outer", desc = "Around the comment" },
+            ["iC"] = { query = "@comment.inner", desc = "Inside the comment" },
+            ["as"] = { query = "@scope", desc = "Language scope" },
+          },
+        },
+      },
     })
   end,
 }

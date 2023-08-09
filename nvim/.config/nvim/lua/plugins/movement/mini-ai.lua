@@ -9,23 +9,23 @@ return {
   "echasnovski/" .. plugin,
   enabled = Is_Enabled(plugin),
   event = { "BufRead", "BufNewFile" },
-  opts = function(_, opts)
-    if Use_Defaults(plugin) then
-      opts = opts
-    else
-      opts = {
-        custom_textobjects = true,
-        mappings = {
-          around = "a",
-          inside = "i",
-          around_next = "an",
-          inside_next = "in",
-          around_last = "al",
-          inside_last = "il",
-          goto_left = "g[",
-          goto_right = "g]",
-        },
-      }
-    end
+  config = function()
+    require("mini.ai").setup({
+      custom_textobjects = {
+        f = false,
+      },
+      mappings = {
+        around = "a",
+        inside = "i",
+        around_next = "an",
+        inside_next = "in",
+        around_last = "al",
+        inside_last = "il",
+        goto_left = "g[",
+        goto_right = "g]",
+      },
+      silent = true,
+      n_lines = 100,
+    })
   end,
 }

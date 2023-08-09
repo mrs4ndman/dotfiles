@@ -33,7 +33,8 @@ return {
         hsl_fn = true,
         css = true,
         css_fn = true,
-        mode = "virtualtext",
+        mode = "background",
+        tailwind = true,
       },
     })
   end,

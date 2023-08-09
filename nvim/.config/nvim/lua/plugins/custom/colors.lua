@@ -19,7 +19,7 @@ return {
       disable_background = false,
       disable_float_background = false,
       disable_italics = true,
-      highlight_groups = { NotifyBackground = { bg = 'base' } }
+      highlight_groups = { NotifyBackground = { bg = "base" } },
     },
   },
 
@@ -82,7 +82,7 @@ return {
     },
     config = function()
       vim.opt.guicursor = ""
-    end
+    end,
   },
   {
     "EdenEast/nightfox.nvim",
@@ -111,13 +111,13 @@ return {
           Comment = { italic = true },
           Directory = { bold = true },
           ErrorMsg = { italic = true, bold = true },
-        }
+        },
       })
-    end
+    end,
   },
   {
     "dasupradyumna/midnight.nvim",
-    enabled = Is_Enabled("midnight.nvim")
+    enabled = Is_Enabled("midnight.nvim"),
   },
   {
     "Mofiqul/dracula.nvim",
@@ -128,7 +128,7 @@ return {
         transparent_bg = false,
         italic_comment = true,
       })
-    end
+    end,
   },
   {
     "rmehri01/onenord.nvim",
@@ -154,7 +154,7 @@ return {
         glow = false,
         theme = "fluoromachine",
       })
-    end
+    end,
   },
   {
     "marko-cerovac/material.nvim",
@@ -182,7 +182,7 @@ return {
           eob_lines = true,
         },
       })
-    end
+    end,
   },
   {
     "Mofiqul/vscode.nvim",
@@ -195,7 +195,7 @@ return {
     config = function()
       vim.g.tokyodark_enable_italic = false
       vim.g.tokyodark_enable_italic_comment = true
-    end
+    end,
   },
   {
     "blazkowolf/gruber-darker.nvim",
@@ -207,7 +207,7 @@ return {
       },
       undercurl = false,
       underline = true,
-    }
+    },
   },
   {
     "projekt0n/github-nvim-theme",
@@ -221,10 +221,10 @@ return {
             comments = "italic",
             keywords = "bold",
             types = "italic,bold",
-          }
-        }
+          },
+        },
       })
-    end
+    end,
   },
   {
     "NTBBloodbath/doom-one.nvim",
@@ -271,7 +271,7 @@ return {
     enabled = Is_Enabled("oxocarbon.nvim"),
     config = function()
       vim.opt.guicursor = ""
-    end
+    end,
   },
   {
     "AlexvZyl/nordic.nvim",
@@ -285,16 +285,16 @@ return {
           style = "classic",
         },
         telescope = {
-          style = "classic"
+          style = "classic",
         },
         leap = {
           dim_backdrop = true,
         },
         ts_context = {
           dark_background = true,
-        }
+        },
       })
-    end
+    end,
   },
   {
     "zootedb0t/citruszest.nvim",
@@ -302,7 +302,7 @@ return {
   },
   {
     "nyngwang/nvimgelion",
-    enabled = Is_Enabled("nvimgelion")
+    enabled = Is_Enabled("nvimgelion"),
   },
   {
     "JoosepAlviste/palenightfall.nvim",
@@ -317,6 +317,14 @@ return {
       vim.g.rasmus_bold_keywords = true
       vim.g.rasmus_bold_functions = true
       vim.g.rasmus_variant = "dark"
-    end
-  }
+    end,
+  },
+  {
+    "iagorrr/noctishc.nvim",
+    enabled = Is_Enabled("noctishc.nvim"),
+  },
+  {
+    "Th3Whit3Wolf/space-nvim",
+    enabled = Is_Enabled("space-nvim")
+  },
 }
