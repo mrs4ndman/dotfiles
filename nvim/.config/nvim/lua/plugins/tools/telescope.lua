@@ -14,10 +14,11 @@ return {
     -- TELESCOPE
     { "<leader>tf", "<cmd>Telescope find_files<CR>",  desc = "Find files" },
     { "<leader>tb", "<cmd>Telescope buffers<CR>",     desc = "List buffers" },
-    { "<leader>tl", "<cmd>Telescope loclist<CR>",     desc = "Proyect loclist" },
     { "<leader>vh", "<cmd>Telescope help_tags<CR>",   desc = "Help tags" },
     { "<leader>sg", "<cmd>Telescope grep_string<CR>", desc = "Fast string grep" },
     { "<leader>tr", "<cmd>Telescope oldfiles<CR>",    desc = "Recent files" },
+    { "<leader>tli", "<cmd>Telescope lsp_incoming_calls", desc = "LSP incoming calls"},
+    { "<leader>tlo", "<cmd>Telescope lsp_outgoing_calls", desc = "LSP outgoing calls"},
     {
       "<leader>tg",
       function()
