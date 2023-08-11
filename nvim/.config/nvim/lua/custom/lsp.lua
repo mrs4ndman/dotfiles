@@ -43,9 +43,9 @@ local on_attach = function(client, bufnr)
   vim.keymap.set({ "n", "v" }, "<leader>vrn", vim.lsp.buf.rename, bufopts)
   vim.keymap.set("i", "<C-q>", vim.lsp.buf.signature_help, bufopts)
   -- Formatting keybind (see formatter-guide.md)
-  vim.keymap.set("n", "<leader>F", function()
-    vim.lsp.buf.format({ async = true })
-  end, { desc = "Format current buffer / file" })
+  -- vim.keymap.set("n", "<leader>F", function()
+  --   vim.lsp.buf.format({ async = true })
+  -- end, { desc = "Format current buffer / file" })
 
   -- Floating diagnostic window on cursor
   vim.api.nvim_create_autocmd("CursorHold", {

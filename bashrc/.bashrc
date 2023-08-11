@@ -470,3 +470,5 @@ export BATPIPE;
 if whoami="mrsandman"; then
     lolcat < "$HOME/.bash-start"
 fi
+
+PATH=~/.console-ninja/.bin:$PATH
