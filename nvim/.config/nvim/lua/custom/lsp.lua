@@ -59,7 +59,10 @@ lspconfig.vimls.setup({})
 lspconfig.marksman.setup({})
 lspconfig.ocamlls.setup({})
 lspconfig.neocmake.setup({})
-lspconfig.html.setup({})
+lspconfig.html.setup {
+  on_attach = M.on_attach,
+  capabilities = M.capabilities,
+}
 -- lspconfig.emmet_ls.setup({})
 lspconfig.cssls.setup({})
 lspconfig.gopls.setup({})

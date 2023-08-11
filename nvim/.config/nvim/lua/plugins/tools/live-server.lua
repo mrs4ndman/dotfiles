@@ -7,8 +7,10 @@ local plugin = "live-server.nvim"
 
 return {
   "barrett-ruth/" .. plugin,
+  cmd = { "LiveServerStart", "LiveServerRestart", "LiveServerStop" },
   keys = {
-    { "<leader>ls", "<cmd>LiveServerStart<CR>", desc = "Restart Live Server" },
+    { "<leader>ls", "<cmd>LiveServerStart<CR>", desc = "Start Live Server" },
+    { "<leader>lr", "<cmd>LiveServerRestart<CR>", desc = "Start Live Server" },
     { "<leader>lq", "<cmd>LiveServerStop<CR>",  desc = "Stop Live Server" },
   },
   config = function()
