@@ -9,18 +9,18 @@ return {
   "rcarriga/" .. plugin,
   enabled = Is_Enabled(plugin),
   event = "VimEnter",
-  opts = {
+  config = function()
+    require("notify").setup({
     stages = "static",
     timeout = 1500,
     render = "compact",
     max_height = function()
-      return math.floor(vim.o.lines * 0.40)
+      return math.floor(vim.o.lines * 0.30)
     end,
     max_width = function()
-      return math.floor(vim.o.columns * 0.70)
+      return math.floor(vim.o.columns * 0.35)
     end,
-  },
-  config = function()
+  })
     vim.notify = require("notify")
   end,
 }

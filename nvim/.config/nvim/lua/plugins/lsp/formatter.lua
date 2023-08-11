@@ -9,6 +9,7 @@ return {
   {
     "mhartington/" .. plugin,
     enabled = Is_Enabled(plugin),
+    cmd = "Format",
     keys = {
       { "<leader>ff", "<cmd>Format<CR>", desc = "Formatter" },
     },

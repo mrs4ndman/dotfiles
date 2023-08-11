@@ -40,6 +40,21 @@ wk.register({
   -- Custom lua functions: their which-key entries
   ["<leader>th"] = { "<cmd>Themer<CR>", "Colorscheme manager", { silent = true } },
 
+  -- LSP Stuff
+  ["gd"] = { name = "[g]o to [d]efinition" },
+  ["gD"] = { name = "[g]o to [D]eclaration" },
+  ["gT"] = { name = "[g]o to [T]ype definition" },
+  ["gI"] = { name = "[g]o to [I]mplementation" },
+  ["K"] = { name = "Hover info" },
+  ["<leader>tD"] = { name = "Document LSP symbols" },
+  ["<leader>tW"] = { name = "Document LSP symbols" },
+  ["[d"] = { name = "Next diagnostic" },
+  ["]d"] = { name = "Prev diagnostic" },
+  ["<leader>vca"] = { name = "View code action" },
+  ["<leader>vrr"] = { name = "Show variable references" },
+  ["<leader>vrn"] = { name = "Rename project-wide variable with LSP" },
+
+
   -- All the plugin keybinds are either with the plugin definition or in the corresponding
   -- custom/file.lua (e.g. LSP and CMP)
 })

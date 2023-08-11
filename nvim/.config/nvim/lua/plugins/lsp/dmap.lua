@@ -8,7 +8,6 @@ local plugin = "dmap.nvim"
 return {
   "doums/" .. plugin,
   enabled = Is_Enabled(plugin),
-  event = { "LspAttach" },
   config = function()
     require("dmap").setup()
   end
