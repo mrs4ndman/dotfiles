@@ -34,6 +34,7 @@ Customize = {
     ["go.nvim"] = { enabled = true },
     ["goto-preview"] = { enabled = true },
     ["gruber-darker.nvim"] = { enabled = true, defaults = true },
+    ["hacker.nvim"] = { enabled = true },
     ["hardtime.nvim"] = { enabled = true, defaults = false },
     ["harpoon"] = { enabled = true, defaults = false },
     ["headlines.nvim"] = { enabled = false },

@@ -66,7 +66,6 @@ local on_attach = function(client, bufnr)
   -- Plugin attachments
   navbuddy.attach(client, bufnr)
   require("virtualtypes").on_attach()
-
 end
 
 -- LSP Server setups
@@ -107,6 +106,18 @@ lspconfig.clangd.setup({
 lspconfig.html.setup({
   on_attach = on_attach,
   capabilities = M.capabilities,
+})
+
+lspconfig.intelephense.setup({
+  on_attach = on_attach,
+  capabilities = M.capabilities,
+  settings = {
+    intelephense = {
+      environment = {
+        shortOpenTag = true
+      },
+    },
+  },
 })
 
 lspconfig.astro.setup({})

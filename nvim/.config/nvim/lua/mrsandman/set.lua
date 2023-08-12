@@ -9,9 +9,10 @@ vim.api.nvim_command("set clipboard+=unnamedplus")
 -- Cursor config
 vim.opt.guicursor = ""
 
--- Cursorline
+-- Cursorline and scrolling
 vim.wo.cursorline = true
 vim.wo.cursorlineopt = "both"
+vim.opt.smoothscroll = true
 
 -- Numbers config
 vim.opt.nu = true
@@ -26,9 +27,13 @@ vim.opt.colorcolumn = "81"
 
 -- Tab config
 vim.opt.tabstop = 4
--- vim.opt.softtabstop = 4
+vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
+-- vim.opt.list = true
+-- vim.opt.listchars = {
+--     eol = '⤶',
+-- }
 
 -- Vim indenting
 vim.opt.smartindent = true

@@ -39,6 +39,15 @@ vim.cmd("autocmd! filetype lazy setlocal nonumber norelativenumber")
 --   end
 -- })
 
+-- Fix for :Telescope oldfiles leaving me in insert mode
+vim.api.nvim_create_autocmd("WinLeave", {
+  callback = function()
+    if vim.bo.ft == "TelescopePrompt" and vim.fn.mode() == "i" then
+      vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "i", false)
+    end
+  end,
+})
+
 -- Highlight yanking action for a second
 vim.api.nvim_command("au TextYankPost * silent! lua vim.highlight.on_yank {timeout = 50}")
 

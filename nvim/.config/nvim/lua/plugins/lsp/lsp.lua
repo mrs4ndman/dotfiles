@@ -14,6 +14,7 @@ return {
     "jubnzv/virtual-types.nvim",
     "folke/lsp-colors.nvim",
     "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
     {
       "SmiteshP/nvim-navbuddy",
       enabled = Is_Enabled("nvim-navbuddy"),

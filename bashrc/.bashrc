@@ -290,6 +290,7 @@ alias gsp='git stash pop'
 
 #----------------------- TMUX ALIAS ZONE ----------------------#
 
+alias gotty-show-tmux='gotty tmux attach-session -t'
 alias tbg-switch='tmux new-session -ds tmux-bg && tmux switch-client -t tmux-bg'
 alias tls='tmux ls'
 alias tks='tmux kill-session -t'

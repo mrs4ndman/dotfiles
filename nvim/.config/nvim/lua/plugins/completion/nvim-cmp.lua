@@ -40,7 +40,7 @@ return {
           snippet_placeholder = "**",
           show_prediction_strength = false,
         })
-      end
+      end,
     },
     "L3MON4D3/LuaSnip",
     "buschco/nvim-cmp-ts-tag-close",

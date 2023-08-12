@@ -53,7 +53,7 @@ return {
           "",
           "                        Neovim " .. v.major .. "." .. v.minor .. "." .. v.patch,
           "",
-          "              " .. stats.count .. " plugins | " .. ms .. "ms |  mrs4ndman" ,
+          "            " .. stats.loaded .. " / " .. stats.count .. " plugins | " .. ms .. "ms |  mrs4ndman" ,
           "",
           "   󰽰 I tuck you in, warm within, keep you free from sin ... 󰽰",
           "                 󰎈 'Til the Sandman, he comes 󰎈              ",

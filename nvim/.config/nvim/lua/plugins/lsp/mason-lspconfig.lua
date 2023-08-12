@@ -21,6 +21,7 @@ return {
         "clangd",
         "neocmake",
         "html",
+        "intelephense",
         -- 'hls',
         "cssls",
         "eslint",
