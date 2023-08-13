@@ -10,11 +10,11 @@ return {
   enabled = Is_Enabled(plugin),
   keys = {
     { "<leader>gb", "<cmd>GitBlameToggle<CR>",  desc = "Blame Toggle"  },
-    { "<leader>go", "<cmd>GitBlameOpenCommitURL<CR>",  desc = "Blame Open"  },
-    { "<leader>gO", "<cmd>GitBlameOpenFileURL<CR>",  desc = "Blame Open"  },
-    { "<leader>gch", "<cmd>GitBlameCopySHA<CR>",  desc = "Blame Open"  },
-    { "<leader>gcu", "<cmd>GitBlameCopyCommitURL<CR>",  desc = "Blame Open"  },
-    { "<leader>gcf", "<cmd>GitBlameCopyFileURL<CR>",  desc = "Blame Open"  },
+    { "<leader>go", "<cmd>GitBlameOpenCommitURL<CR>",  desc = "Open Commit URL"  },
+    { "<leader>gO", "<cmd>GitBlameOpenFileURL<CR>",  desc = "Open File URL"  },
+    { "<leader>gch", "<cmd>GitBlameCopySHA<CR>",  desc = "Copy Blame Commit SHA"  },
+    { "<leader>gcu", "<cmd>GitBlameCopyCommitURL<CR>",  desc = "Copy Commit URL"  },
+    { "<leader>gcf", "<cmd>GitBlameCopyFileURL<CR>",  desc = "Copy File URL"  },
   },
   config = function()
     vim.g.gitblame_enabled = 0
