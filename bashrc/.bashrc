@@ -135,7 +135,7 @@ alias paste='xclip -out -sel clip'
 # 2.- Program shorthands | Atajos cortos a programas
 
 alias afk='watch -n 1 neofetch --stdout | lolcat'
-alias bt='bashtop'
+alias bt='btop'
 alias ct='batcat --number'
 alias empty-can='trash-empty'
 alias fsh='flameshot >/dev/null 2>&1 &! disown'
@@ -290,7 +290,7 @@ alias gsp='git stash pop'
 
 #----------------------- TMUX ALIAS ZONE ----------------------#
 
-alias gotty-show-tmux='gotty tmux attach-session -t'
+alias gotty-show-tmux='gotty --term xterm --config "~/.gotty" tmux attach-session -t'
 alias tbg-switch='tmux new-session -ds tmux-bg && tmux switch-client -t tmux-bg'
 alias tls='tmux ls'
 alias tks='tmux kill-session -t'

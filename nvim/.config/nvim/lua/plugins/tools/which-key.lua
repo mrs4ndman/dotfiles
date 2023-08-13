@@ -10,7 +10,8 @@ return {
   enabled = Is_Enabled(plugin),
   opts = {
     key_labels = {
-      ["<leader>"] = "Space"
+      ["<leader>"] = "Space",
+      ["ñ"] = "Meta"
     },
     icons = {
       group = "",

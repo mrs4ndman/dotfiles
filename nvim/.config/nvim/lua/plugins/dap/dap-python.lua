@@ -4,14 +4,14 @@ return {
   ft = "python",
   keys = {
     {
-      "<leader>DPt",
+      "<localleader>DPt",
       function()
         require("dap-python").test_method()
       end,
       desc = "Debug test method",
     },
     {
-      "<leader>DPc",
+      "<localleader>DPc",
       function()
         require("dap-python").test_class()
       end,

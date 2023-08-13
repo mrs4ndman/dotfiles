@@ -9,7 +9,7 @@ return {
   "NvChad/" .. plugin,
   enabled = Is_Enabled(plugin),
   keys = {
-    { "<leader>cl", "<cmd>ColorizerToggle<CR>", desc = "Color picker toggle" },
+    { "<localleader>c", "<cmd>ColorizerToggle<CR>", desc = "Color picker toggle" },
   },
   config = function()
     require("colorizer").setup({

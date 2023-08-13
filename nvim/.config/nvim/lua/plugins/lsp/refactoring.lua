@@ -4,7 +4,7 @@ Is_Enabled = functions.is_enabled
 Use_Defaults = functions.use_plugin_defaults
 
 local plugin = "refactoring.nvim"
--- TODO: Create keybinds for the plugin
+
 return {
   "ThePrimeagen/" .. plugin,
   keys = {

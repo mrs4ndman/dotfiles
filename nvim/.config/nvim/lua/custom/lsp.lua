@@ -6,6 +6,8 @@ local navbuddy = require("nvim-navbuddy")
 local M = {}
 M.capabilities = vim.lsp.protocol.make_client_capabilities()
 M.capabilities = require("cmp_nvim_lsp").default_capabilities(M.capabilities)
+-- INFO: For Vue LS
+-- M.capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = true
 M.capabilities.textDocument.completion.completionItem = {
   documentationFormat = { "markdown", "plaintext" },
   snippetSupport = true,

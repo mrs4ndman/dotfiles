@@ -10,7 +10,6 @@ wk.register({
   ["<leader>ca"] = { name = "a secret" },
   ["<leader>cs"] = { name = "Cokeline change-switch" },
   ["<leader>d"] = { name = "Duck" },
-  ["<leader>D"] = { name = "DAP" },
   ["<leader>e"] = { name = "Refactoring extractions" },
   ["<leader>f"] = { name = "LSP Format + Genghis" },
   ["<leader>g"] = { name = "Git Blame + Links" },
@@ -33,9 +32,12 @@ wk.register({
   ["<leader>w"] = { name = "Windows + Saving" },
   ["<leader>x"] = { name = "Trouble + Export to HTML" },
   ["<leader>xt"] = { name = "Export to HTML" },
-  ["<leader>X"] = { name = "Executor" },
   ["<leader>y"] = { name = "Yank" },
   ["<leader>z"] = { name = "[Z]en-Mode / Twilight" },
+
+  ["<localleader>x"] = { name = "Executor" },
+  ["<localleader>D"] = { name = "DAP" },
+  ["<localleader>DP"] = { name = "Python testing" },
 
   -- Custom lua functions: their which-key entries
   ["<leader>th"] = { "<cmd>Themer<CR>", "Colorscheme manager", { silent = true } },

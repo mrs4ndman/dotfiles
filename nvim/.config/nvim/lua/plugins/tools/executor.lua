@@ -8,11 +8,11 @@ local plugin = "executor.nvim"
 return {
   "google/" .. plugin,
   keys = {
-    { "<leader>Xc", "<cmd>ExecutorRun<CR>", desc = "Start Executor" },
-    { "<leader>Xs", "<cmd>ExecutorSetCommand<CR>", desc = "Set Executor command" },
-    { "<leader>Xd", "<cmd>ExecutorToggleDetail<CR>", desc = "Toggle Executor detail" },
-    { "<leader>Xr", "<cmd>ExecutorReset<CR>", desc = "Reset Executor status" },
-    { "<leader>Xp", "<cmd>ExecutorShowPresets<CR>", desc = "Show presets for CWD" },
+    { "<localleader>xc", "<cmd>ExecutorRun<CR>", desc = "Start Executor" },
+    { "<localleader>xs", "<cmd>ExecutorSetCommand<CR>", desc = "Set Executor command" },
+    { "<localleader>xd", "<cmd>ExecutorToggleDetail<CR>", desc = "Toggle Executor detail" },
+    { "<localleader>xr", "<cmd>ExecutorReset<CR>", desc = "Reset Executor status" },
+    { "<localleader>xp", "<cmd>ExecutorShowPresets<CR>", desc = "Show presets for CWD" },
   },
   opts = {
     use_split = true,

@@ -71,117 +71,117 @@ return {
 
   keys = {
     {
-      "<leader>Du",
+      "<localleader>Du",
       function()
         require("dapui").toggle()
       end,
-      "DAP Toggle",
+      desc = "DAP Toggle",
     },
     {
-      "<leader>Db",
+      "<localleader>Db",
       function()
         require("dap").toggle_breakpoint()
       end,
-      "DAP Toggle Breakpoint",
+      desc = "DAP Toggle Breakpoint",
       { silent = true },
     },
     {
-      "<leader>Dc",
+      "<localleader>Dc",
       function()
         require("dap").continue()
       end,
-      "DAP Continue",
+      desc = "DAP Continue",
     },
     {
-      "<leader>DC",
+      "<localleader>DC",
       function()
         require("dap").run_to_cursor()
       end,
-      "DAP Run To Cursor",
+      desc = "DAP Run To Cursor",
     },
     {
-      "<leader>Dg",
+      "<localleader>Dg",
       function()
         require("dap").goto_()
       end,
-      "DAP Go to line (no execute)",
+      desc = "DAP Go to line (no execute)",
     },
     {
-      "<leader>Di",
+      "<localleader>Di",
       function()
         require("dap").step_into()
       end,
-      "Step Into",
+      desc = "DAP Step Into",
     },
     {
-      "<leader>Dj",
+      "<localleader>Dj",
       function()
         require("dap").down()
       end,
-      "DAP Down",
+      desc = "DAP Down",
     },
     {
-      "<leader>Dk",
+      "<localleader>Dk",
       function()
         require("dap").up()
       end,
-      "DAP Up",
+      desc = "DAP Up",
     },
     {
-      "<leader>Dl",
+      "<localleader>Dl",
       function()
         require("dap").run_last()
       end,
-      "DAP Run Last",
+      desc = "DAP Run Last",
     },
     {
-      "<leader>Do",
+      "<localleader>Do",
       function()
         require("dap").step_out()
       end,
-      "DAP Step-Out",
+      desc = "DAP Step-Out",
     },
     {
-      "<leader>DO",
+      "<localleader>DO",
       function()
         require("dap").step_over()
       end,
-      "DAP Step-Over",
+      desc = "DAP Step-Over",
     },
     {
-      "<leader>Dp",
+      "<localleader>Dp",
       function()
         require("dap").pause()
       end,
-      "DAP Pause",
+      desc = "DAP Pause",
     },
     {
-      "<leader>Dr",
+      "<localleader>Dr",
       function()
         require("dap").repl.toggle()
       end,
-      "DAP Toggle REPL",
+      desc = "DAP Toggle REPL",
     },
     {
-      "<leader>Ds",
+      "<localleader>Ds",
       function()
         require("dap").session()
       end,
-      "DAP Session",
+      desc = "DAP Session",
     },
     {
-      "<leader>Dt",
+      "<localleader>Dt",
       function()
         require("dap").terminate()
       end,
-      "DAP Terminate",
+      desc = "DAP Terminate",
     },
     {
-      "<leader>Dw",
+      "<localleader>Dw",
       function()
         require("dap.ui.widgets").hover()
       end,
-      "DAP Widgets",
+      desc = "DAP Widgets",
     },
   },
 }

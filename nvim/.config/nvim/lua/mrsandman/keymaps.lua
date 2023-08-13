@@ -4,6 +4,7 @@
 -- Key thing: Mapleader as Space
 
 vim.g.mapleader = " "
+vim.g.maplocalleader = "ñ"
 
 -- Lazy and Mason shortcuts
 vim.keymap.set("n", "<leader>lz", "<cmd>Lazy<CR>", { desc = "Lazy", noremap = true, silent = true })

@@ -1,6 +1,7 @@
 -- Mr Sandman's .lua config for NVIM lazy.lua
 
 vim.g.mapleader = " "
+vim.g.maplocalleader = "ñ"
 
 require("lazy").setup({
   spec = {
