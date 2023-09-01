@@ -100,6 +100,28 @@ vim.keymap.set("n", "<leader>cx", "<cmd>!chmod +x %<CR>", { desc = "Make file ex
 vim.keymap.set("x", "<leader>p", '"_dP', { desc = "Better paste :)" })
 vim.keymap.set({ "n", "v" }, "<leader>dd", [["_d]], { desc = "Better delete" })
 
+-- Enable custom mappings for 1-9 yank-paste registers
+for i = 1, 9 do
+  vim.keymap.set(
+    { "n", "v" },
+    ("<leader>y%s"):format(i),
+    ([["%sy]]):format(i),
+    { desc = "Yank into this numbered register" }
+  )
+  vim.keymap.set(
+    { "n", "v" },
+    ("<leader>p%s"):format(i),
+    ([["%sp]]):format(i),
+    { desc = "Paste from this numbered register" }
+  )
+  vim.keymap.set(
+    "v",
+    ("<leader>d%s"):format(i),
+    ([["%sd]]):format(i),
+    { desc = "Delete into this numbered register" }
+  )
+end
+
 -- smart blackhole deletion
 vim.keymap.set("n", "dd", function()
   if vim.fn.getline(".") == "" then
@@ -109,7 +131,7 @@ vim.keymap.set("n", "dd", function()
 end, { expr = true })
 
 vim.keymap.set("v", "D", function()
----@diagnostic disable-next-line: unused-local
+  ---@diagnostic disable-next-line: unused-local
   local l, c = unpack(vim.api.nvim_win_get_cursor(0))
   for _, line in ipairs(vim.api.nvim_buf_get_lines(0, l - 1, l, true)) do
     if line:match("^%s*$") then
