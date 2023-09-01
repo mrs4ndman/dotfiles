@@ -134,6 +134,8 @@ Customize = {
     ["undotree"] = { enabled = true },
     ["vim-be-good"] = { enabled = true },
     ["vim-commentary"] = { enabled = true },
+    ["vim-dadbod"] = { enabled = true },
+    ["vim-dadbod-ui"] = { enabled = true },
     ["vim-illuminate"] = { enabled = true },
     ["sentiment.nvim"] = { enabled = false },
     ["vim-sleuth"] = { enabled = true },
