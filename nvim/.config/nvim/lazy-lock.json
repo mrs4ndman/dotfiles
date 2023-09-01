@@ -77,7 +77,7 @@
   "nordic.nvim": { "branch": "main", "commit": "e19f45aafd8bb546d7cc5f9ae0d301e2e9712ab8" },
   "nui.nvim": { "branch": "main", "commit": "aa1b4c1e05983ff7debd2b4b2788651db099de2f" },
   "numb.nvim": { "branch": "master", "commit": "3f7d4a74bd456e747a1278ea1672b26116e0824d" },
-  "nvim-autopairs": { "branch": "master", "commit": "ae5b41ce880a6d850055e262d6dfebd362bb276e" },
+  "nvim-autopairs": { "branch": "master", "commit": "a52fc6eeec116746110b703381777c46d89d9e27" },
   "nvim-cmp": { "branch": "main", "commit": "5dce1b778b85c717f6614e3f4da45e9f19f54435" },
   "nvim-cmp-buffer-lines": { "branch": "master", "commit": "2036e6fbb40c770eb82f1940a0ce0b2988f8ef32" },
   "nvim-cmp-ts-tag-close": { "branch": "main", "commit": "f1ad5333da4f2ac66aa3a324e5d3096b13fad5dc" },

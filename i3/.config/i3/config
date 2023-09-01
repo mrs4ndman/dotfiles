@@ -73,6 +73,10 @@ bindsym $mod+d exec --no-startup-id dmenu_run
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 bindsym $mod+a exec --no-startup-id i3-dmenu-desktop
 
+# Screenlock
+bindsym $mod+Escape exec i3lock
+
+
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -108,8 +112,8 @@ bindsym $mod+c focus child
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "Main"
-set $ws2 "BG"
+set $ws1 "1"
+set $ws2 "2"
 set $ws3 "3"
 set $ws4 "4"
 set $ws5 "5"
@@ -193,7 +197,7 @@ bindsym $mod+Shift+Right move right
 bar {
         i3bar_command i3bar --transparency
         status_command /home/mrsandman/.config/i3status/brightness.sh
-        mode hide
+        # mode hide
         position top
         # colors {
         #         focused_workspace  #4c7899 #285577 #ffffff
