@@ -1,6 +1,7 @@
 -- Mr Sandman's .lua config for NVIM lazy.lua
 
 vim.g.mapleader = " "
+-- A little special key 😎
 vim.g.maplocalleader = "ñ"
 
 require("lazy").setup({
@@ -17,13 +18,11 @@ require("lazy").setup({
     { import = "plugins.custom" },
   },
   defaults = { lazy = true },
-  checker = {
-    enabled = true,
-  },
+  install = { colorscheme = { "tokyonight", "habamax" } },
+  checker = { enabled = true, notify = false },
+  change_detection = { notify = false },
   performance = {
-    cache = {
-      enabled = true,
-    },
+    cache = { enabled = true },
     rtp = {
       disabled_plugins = {
         "man",

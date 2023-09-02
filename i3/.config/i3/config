@@ -31,12 +31,18 @@ exec --no-startup-id nm-applet
 # Wallpaper manager (feh)
 exec --no-startup-id feh --bg-scale /home/mrsandman/Pictures/Backgrounds/wallhaven-hellsing.jpg
 
-# Use pactl to adjust volume in PulseAudio.
+# Use pactl and pulsemixer to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pulsemixer --change-volume +5 --max-volume 100 && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pulsemixer --change-volume -5 --max-volume 100 && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+# Music management be like
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioStop exec playerctl stop
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
 
 # Use light to use screen and keyboard brightness control
 bindsym XF86MonBrightnessUp exec --no-startup-id light -A 1
@@ -135,6 +141,9 @@ bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 
+bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev
+
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
 bindsym $mod+Shift+2 move container to workspace number $ws2
@@ -196,10 +205,7 @@ bindsym $mod+Shift+Right move right
 # finds out, if available)
 bar {
         i3bar_command i3bar --transparency
-        status_command /home/mrsandman/.config/i3status/brightness.sh
+        status_command /home/mrsandman/.config/i3status/bar_add_on.sh
         # mode hide
         position top
-        # colors {
-        #         focused_workspace  #4c7899 #285577 #ffffff
-        # }
 }

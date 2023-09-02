@@ -1,18 +1,20 @@
 general {
     colors = true
+    color_good = "#a3be8c"
+    color_bad = "#bf616a"
+    color_degraded = "#ebcb8b"
     interval = 1
 }
 
 order += "volume master"
 order += "battery 0"
 order += "tztime local"
-order += "disk /"
 order += "memory"
-order += "wireless wlan0"
+order += "wireless wlo1"
 order += "ethernet eth0"
 
-wireless wlan0 {
-        format_up = "W: (%quality at %essid, %bitrate) %ip"
+wireless wlo1 {
+        format_up = "W:%quality, %bitrate-> %ip"
         format_down = "W: off"
 }
 
@@ -46,15 +48,7 @@ memory {
         format_degraded = "Left: %free"
 }
 
-disk "/" {
-        format = "Disk: %used"
-}
-
 tztime local {
-        format = "%Y-%m-%d %H:%M:%S"
+        format = "%H:%M:%S %d-%m"
         hide_if_equals_localtime = false
-}
-
-read_file uptime {
-        path = "/proc/uptime"
 }
