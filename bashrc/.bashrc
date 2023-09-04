@@ -385,6 +385,8 @@ alias nv='nvim'
 alias nvdiff='nvim -d'
 alias v='nvim'
 alias SmallNvim='NVIM_APPNAME=SmallNvim nvim'
+alias CaixetaNvim='NVIM_APPNAME=Caixeta nvim'
+alias PrimeagenNvim='NVIM_APPNAME=Primeagen nvim'
 alias MonstahNvim='NVIM_APPNAME=MonstahNvim nvim'
 alias LazyVim='NVIM_APPNAME=LazyVim nvim'
 alias kickstart-nvim='NVIM_APPNAME=kickstart-nvim nvim'
@@ -402,6 +404,8 @@ function nvims() {
     items=(
         "mrsandman"
         "SmallNvim"
+        "Caixeta"
+        "Primeagen"
         "MonstahNvim"
         "LazyVim"
         "DoomNvim"

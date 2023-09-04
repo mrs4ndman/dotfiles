@@ -1,4 +1,0 @@
--- TODO: Figure out this stuff when I get told to work on typescript
--- require("typescript-tools").setup {
---
--- }

@@ -23,7 +23,7 @@ return {
           html = {
             require("formatter.filetypes.html").prettierd,
           },
-          javascript = { vim.lsp.buf.format({ async = true })},
+          javascript = { vim.lsp.buf.format({ async = true }) },
         },
       })
     end,

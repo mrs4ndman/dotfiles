@@ -2,10 +2,8 @@ return {
   -- Typescript
   {
     "pmizio/typescript-tools.nvim",
-    ft = "typescript",
+    ft = { "javascript", "typescript" },
     dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-    config = function()
-      require("langs.typescript")
-    end
-  }
+    opts = {},
+  },
 }

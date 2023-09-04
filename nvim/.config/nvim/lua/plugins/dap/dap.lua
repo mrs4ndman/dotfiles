@@ -93,6 +93,13 @@ return {
       desc = "DAP Continue",
     },
     {
+      "<localleader>DL",
+      function()
+        require("osv").launch({ port = 8086 })
+      end,
+      desc = "Start Lua debugging"
+    },
+    {
       "<localleader>DC",
       function()
         require("dap").run_to_cursor()

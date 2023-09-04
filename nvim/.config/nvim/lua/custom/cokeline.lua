@@ -128,6 +128,7 @@ local components = {
       return buffer.is_modified and "●" or "󰅖"
     end,
     fg = function(buffer)
+---@diagnostic disable-next-line: undefined-global
       return buffer.is_modified and green or nil
     end,
     delete_buffer_on_left_click = true,

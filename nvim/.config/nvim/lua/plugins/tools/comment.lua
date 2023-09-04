@@ -8,9 +8,8 @@ local plugin = "Comment.nvim"
 return {
   "numToStr/" .. plugin,
   enabled = Is_Enabled(plugin),
-  event = { "BufReadPost", "BufNewFile" },
-  opts = {
-  },
+  event = { "BufRead", "BufNewFile" },
+  opts = {},
   config = function()
     require("Comment").setup({
       pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
