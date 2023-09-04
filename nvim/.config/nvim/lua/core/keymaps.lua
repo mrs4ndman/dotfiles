@@ -114,12 +114,7 @@ for i = 1, 9 do
     ([["%sp]]):format(i),
     { desc = "Paste from this numbered register" }
   )
-  vim.keymap.set(
-    "v",
-    ("<leader>d%s"):format(i),
-    ([["%sd]]):format(i),
-    { desc = "Delete into this numbered register" }
-  )
+  vim.keymap.set("v", ("<leader>d%s"):format(i), ([["%sd]]):format(i), { desc = "Delete into this numbered register" })
 end
 
 -- smart blackhole deletion
@@ -163,6 +158,18 @@ vim.keymap.set("n", "+", "S")
 -- Delete character without yanking
 vim.keymap.set({ "n", "v" }, "x", '"_x', { silent = true })
 vim.keymap.set({ "n", "v" }, "X", '"_X', { silent = true })
+
+-- Incredible markdown codeblocks:
+vim.keymap.set("n", "<leader>C", function()
+  if vim.bo.filetype == "markdown" then
+    local keys = vim.api.nvim_replace_termcodes('<ESC>',true,false,true)
+    vim.api.nvim_feedkeys([[i
+```
+
+```]], "n", true)
+    vim.api.nvim_feedkeys(keys .. [[kkA]],'n',false)
+  end
+end)
 
 -- Select all
 vim.keymap.set("n", "<leader>sa", "ggVG", { desc = "Select all" })

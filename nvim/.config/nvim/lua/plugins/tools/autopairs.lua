@@ -8,5 +8,5 @@ return {
   "windwp/" .. plugin,
   event = { "BufReadPost", "BufNewFile" },
   enabled = Is_Enabled(plugin),
-  config = true,
+  opts = { check_ts = true }
 }

@@ -1,5 +1,6 @@
 -- Plugins?
 require("mrsandman.bootstrap")
+---@diagnostic disable-next-line: different-requires
 require("mrsandman.lazy")
 
 -- Some autocmds and settings

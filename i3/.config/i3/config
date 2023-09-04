@@ -50,8 +50,9 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86MonBrightnessUp exec --no-startup-id light -A 1
 bindsym XF86MonBrightnessDown exec --no-startup-id light -U 1
 # Find a better way to set keyboard brightness
-# bindsym XF86KbdBrightnessUp exec --no-startup-id 
-# bindsym XF86KbdBrightnessDown exec --no-startup-id 
+bindsym XF86KbdBrightnessUp     exec brightnessctl --device='asus::kbd_backlight' set 1+
+bindsym XF86KbdBrightnessDown   exec brightnessctl --device='asus::kbd_backlight' set 1-
+
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -211,3 +212,6 @@ bar {
         # mode hide
         position top
 }
+
+gaps outer 3
+gaps inner 3

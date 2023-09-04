@@ -9,7 +9,6 @@ local plugin = "lualine.nvim"
 return {
   "nvim-lualine/" .. plugin,
   enabled = Is_Enabled(plugin),
-  -- dependencies = "jcdickinson/wpm.nvim",
   event = "UIEnter",
   config = function()
     require("custom.lualine")

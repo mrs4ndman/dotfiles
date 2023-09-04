@@ -12,6 +12,9 @@ return {
   enabled = Is_Enabled(plugin),
   event = "VimEnter",
   config = function()
-    require("numb").setup()
-  end
+    require("numb").setup({
+      show_cursorline = true,
+      centered_peeking = true,
+    })
+  end,
 }

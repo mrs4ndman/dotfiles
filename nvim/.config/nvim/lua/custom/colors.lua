@@ -49,6 +49,7 @@ local opts = {
     "rose-pine",
     "citruszest",
     "doom-one",
+    "enfocado",
     "nvimgelion",
     "space-nvim",
     "palenightfall",
@@ -67,6 +68,7 @@ local opts = {
     "tokyonight-moon",
   }),
   sorter = sorters.get_generic_fuzzy_sorter({}),
+---@diagnostic disable-next-line: unused-local
   attach_mappings = function(prompt_bufnr, map)
     map("i", "<CR>", enter)
     map("i", "<C-k>", prev_color)

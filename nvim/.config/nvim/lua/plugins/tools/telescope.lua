@@ -12,14 +12,14 @@ return {
   },
   keys = {
     -- TELESCOPE
-    { "<leader>tf",  "<cmd>Telescope find_files<CR>",     desc = "Find files" },
-    { "<leader>tb",  "<cmd>Telescope buffers<CR>",        desc = "List buffers" },
-    { "<leader>vh",  "<cmd>Telescope help_tags<CR>",      desc = "Help tags" },
-    { "<leader>sg",  "<cmd>Telescope grep_string<CR>",    desc = "Fast string grep" },
-    { "<leader>tr",  "<cmd>Telescope oldfiles<CR>",       desc = "Recent files" },
+    { "<leader>tf", "<cmd>Telescope find_files<CR>", desc = "Find files" },
+    { "<leader>tb", "<cmd>Telescope buffers<CR>", desc = "List buffers" },
+    { "<leader>vh", "<cmd>Telescope help_tags<CR>", desc = "Help tags" },
+    { "<leader>sg", "<cmd>Telescope grep_string<CR>", desc = "Fast string grep" },
+    { "<leader>tr", "<cmd>Telescope oldfiles<CR>", desc = "Recent files" },
     { "<leader>tli", "<cmd>Telescope lsp_incoming_calls", desc = "LSP incoming calls" },
     { "<leader>tlo", "<cmd>Telescope lsp_outgoing_calls", desc = "LSP outgoing calls" },
-    { "<leader>ti",  "<cmd>Telescope media_files<CR>",    desc = "Image preview" },
+    { "<leader>ti", "<cmd>Telescope media_files<CR>", desc = "Image preview" },
     {
       "<leader>tg",
       function()
@@ -38,6 +38,7 @@ return {
           find_command = { "fd", "--type", "f", "--hidden", "--exclude", ".git", "--strip-cwd-prefix" },
           theme = "ivy",
         },
+        buffers = { ignore_current_buffer = true },
       }
       opts.defaults = {
         theme = "dropdown",
@@ -49,6 +50,7 @@ return {
           "--column",
           "--smart-case",
           "--hidden",
+          "--glob=!{.git,.svn,.hg,.DS_Store,thumbs.db,node_modules,bower_components}"
         },
         sort_mru = true,
         sorting_strategy = "ascending",
@@ -67,6 +69,8 @@ return {
         hidden = true,
         mappings = {
           i = {
+            ["<C-q>"] = require("telescope.actions").send_to_qflist + require("telescope.actions").open_qflist,
+            ["<M-q>"] = require("telescope.actions").send_selected_to_qflist + require("telescope.actions").open_qflist,
             ["<C-n>"] = require("telescope.actions").preview_scrolling_down,
             ["<C-p>"] = require("telescope.actions").preview_scrolling_up,
             ["<C-h>"] = require("telescope.actions").preview_scrolling_left,
@@ -74,6 +78,7 @@ return {
             -- ["<M-p>"] = action_layout.toggle_preview,
             ["<C-j>"] = require("telescope.actions").move_selection_next,
             ["<C-k>"] = require("telescope.actions").move_selection_previous,
+            ["<Esc>"] = require("telescope.actions").close,
           },
           n = {
             -- ["<M-p>"] = action_layout.toggle_preview,

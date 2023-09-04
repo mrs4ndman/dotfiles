@@ -342,13 +342,6 @@ ins_right({
   cond = conditions.hide_in_width,
 })
 
--- local wpm = require("wpm")
--- ins_right({
---   wpm.wpm,
---   "wpm",
---   color = { fg = colors.pink, gui = "bold" },
---   padding = { left = 0, right = 1 },
--- })
 
 -- ins_right({
 --   "fileformat",

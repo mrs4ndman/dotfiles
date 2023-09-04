@@ -28,6 +28,10 @@ return {
   },
   config = function()
     require("leap").add_default_mappings()
+    require("leap").setup = {
+      -- max_phase_one_targets = 50,
+      highlight_unlabeled_phase_one_targets = false,
+    }
   end,
   keys = {
     {

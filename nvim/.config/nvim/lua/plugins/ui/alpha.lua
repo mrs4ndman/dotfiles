@@ -28,13 +28,14 @@ return {
     local dashboard = require("alpha.themes.dashboard")
     -- It uses almost the same format as the "date" command in Linux (man date for info)
     local time = os.date("%_k:%M - %a - %b %d")
+    local lazy = require("lazy")
 
     if vim.o.filetype == "lazy" then
       vim.cmd.close()
       vim.api.nvim_create_autocmd("User", {
         pattern = "AlphaReady",
         callback = function()
-          require("lazy").show()
+          lazy.show()
         end,
       })
     end
@@ -42,7 +43,7 @@ return {
     vim.api.nvim_create_autocmd("User", {
       pattern = "LazyVimStarted",
       callback = function()
-        local stats = require("lazy").stats()
+        local stats = lazy.stats()
         local v = vim.version()
         local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
         dashboard.section.footer.val = {

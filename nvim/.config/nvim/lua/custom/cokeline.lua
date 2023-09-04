@@ -137,7 +137,7 @@ local components = {
 }
 
 require("cokeline").setup({
-  show_if_buffers_are_at_least = 2, -- It allows to hide it when in a single buffer
+  show_if_buffers_are_at_least = 5,
   buffers = {
     focus_on_delete = "next",
     filter_valid = function(buffer)

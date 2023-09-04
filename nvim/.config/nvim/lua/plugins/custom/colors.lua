@@ -325,6 +325,12 @@ return {
   },
   {
     "Th3Whit3Wolf/space-nvim",
-    enabled = Is_Enabled("space-nvim")
+    enabled = Is_Enabled("space-nvim"),
+  },
+  {
+    "wuelnerdotexe/vim-enfocado",
+    config = function()
+      vim.g.enfocado_style = "neon"
+    end,
   },
 }
