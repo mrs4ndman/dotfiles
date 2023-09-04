@@ -34,6 +34,8 @@ vim.opt.expandtab = true
 -- vim.opt.listchars = {
 --     eol = '⤶',
 -- }
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 
 -- Vim indenting
 vim.opt.smartindent = true

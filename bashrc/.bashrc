@@ -136,6 +136,7 @@ alias paste='xclip -out -sel clip'
 
 alias afk='watch -n 1 neofetch --stdout | lolcat'
 alias bt='btop'
+alias btctl='bluetoothctl'
 alias ct='batcat --number'
 alias empty-can='trash-empty'
 alias fsh='flameshot >/dev/null 2>&1 &! disown'
