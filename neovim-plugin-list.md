@@ -67,7 +67,7 @@
 - ❌ [multicursors.nvim](https://github.com/smoka7/multicursors.nvim) ![](https://img.shields.io/github/stars/smoka7/multicursors.nvim) ![](https://img.shields.io/github/last-commit/smoka7/multicursors.nvim) ![](https://img.shields.io/github/commit-activity/y/smoka7/multicursors.nvim) (`multicursors.lua`) - Lua version of vim-visual-multi
 - ❌ [oil.nvim](https://github.com/stevearc/oil.nvim) ![](https://img.shields.io/github/stars/stevearc/oil.nvim) ![](https://img.shields.io/github/last-commit/stevearc/oil.nvim) ![](https://img.shields.io/github/commit-activity/y/stevearc/oil.nvim) (`oil.lua`) - Edit your filesystem like a buffer (I use Ex)
 - ❌ [open-handlers.nvim](https://github.com/mrshmllow/open-handlers.nvim) ![](https://img.shields.io/github/stars/mrshmllow/open-handlers.nvim) ![](https://img.shields.io/github/last-commit/mrshmllow/open-handlers.nvim) ![](https://img.shields.io/github/commit-activity/y/mrshmllow/open-handlers.nvim) (`open-handlers.lua`) - Open files with a specific handler
-- ❌[vim-visual-multi](https://github.com/mg979/vim-visual-multi) ![](https://img.shields.io/github/stars/mg979/vim-visual-multi) ![](https://img.shields.io/github/last-commit/mg979/vim-visual-multi) ![](https://img.shields.io/github/commit-activity/y/mg979/vim-visual-multi) (`vim-visual-multi.lua`) - Multi-cursor power
+- ❌ [vim-visual-multi](https://github.com/mg979/vim-visual-multi) ![](https://img.shields.io/github/stars/mg979/vim-visual-multi) ![](https://img.shields.io/github/last-commit/mg979/vim-visual-multi) ![](https://img.shields.io/github/commit-activity/y/mg979/vim-visual-multi) (`vim-visual-multi.lua`) - Multi-cursor power
 <br>
 
 
@@ -86,7 +86,6 @@
 - ⭐✅⚡ [mason.nvim](https://github.com/williamboman/mason.nvim) ![](https://img.shields.io/github/stars/williamboman/mason.nvim) ![](https://img.shields.io/github/last-commit/williamboman/mason.nvim) ![](https://img.shields.io/github/commit-activity/y/williamboman/mason.nvim) (mason.lua & `lsp.lua`) - Manage LSP Servers, Formatters, Linters and more
 - ⭐✅⚡ [mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim) ![](https://img.shields.io/github/stars/williamboman/mason-lspconfig.nvim) ![](https://img.shields.io/github/last-commit/williamboman/mason-lspconfig.nvim) ![](https://img.shields.io/github/commit-activity/y/williamboman/mason-lspconfig.nvim) (`mason-lspconfig.lua`) - Auto-install LSP servers
 - ✅ [virtual-types.nvim](https://github.com/jubnzv/virtual-types.nvim) ![](https://img.shields.io/github/stars/jubnzv/virtual-types.nvim) ![](https://img.shields.io/github/last-commit/jubnzv/virtual-types.nvim) ![](https://img.shields.io/github/commit-activity/y/jubnzv/virtual-types.nvim) (`lsp.lua`) - Show type annotations for LSP CodeLens
-- ✅ [lsp-colors.nvim](https://github.com/folke/lsp-colors.nvim) ![](https://img.shields.io/github/stars/folke/lsp-colors.nvim) ![](https://img.shields.io/github/last-commit/folke/lsp-colors.nvim) ![](https://img.shields.io/github/commit-activity/y/folke/lsp-colors.nvim) (`lsp.lua`) - Fill in HL groups for some LSPs
 - ✅⚡ [nvim-navbuddy](https://github.com/SmiteshP/nvim-navbuddy) ![](https://img.shields.io/github/stars/SmiteshP/nvim-navbuddy) ![](https://img.shields.io/github/last-commit/SmiteshP/nvim-navbuddy) ![](https://img.shields.io/github/commit-activity/y/SmiteshP/nvim-navbuddy) (`lsp.lua`) - Menu for navigating code through LSP
 - ⭐✅⚡ [lsp_lines.nvim](https://git.sr.ht/~whynothugo/lsp_lines.nvim)  (`lsp.lua`) - Create multi-line virtual-text diagnostics
 - ⚡ [nvim_context_vt](https://github.com/haringsrob/nvim_context_vt) ![](https://img.shields.io/github/stars/haringsrob/nvim_context_vt) ![](https://img.shields.io/github/last-commit/haringsrob/nvim_context_vt) ![](https://img.shields.io/github/commit-activity/y/haringsrob/nvim_context_vt) (`nvim-context-vt.lua`) - Show function context in the closing statement with virtual text
@@ -97,6 +96,7 @@
 - ⚡ [refactoring.nvim](https://github.com/ThePrimeagen/refactoring.nvim) ![](https://img.shields.io/github/stars/ThePrimeagen/refactoring.nvim) ![](https://img.shields.io/github/last-commit/ThePrimeagen/refactoring.nvim) ![](https://img.shields.io/github/commit-activity/y/ThePrimeagen/refactoring.nvim) (`refactoring.lua`) - Refactor LSP code
 - ❌ [aerial.nvim](https://github.com/stevearc/aerial.nvim) ![](https://img.shields.io/github/stars/stevearc/aerial.nvim) ![](https://img.shields.io/github/last-commit/stevearc/aerial.nvim) ![](https://img.shields.io/github/commit-activity/y/stevearc/aerial.nvim) (`aerial.lua`) - Code outline window for symbols, LSP and Treesitter
 - ❌ [dmap.nvim](https://github.com/doums/dmap.nvim) ![](https://img.shields.io/github/stars/doums/dmap.nvim) ![](https://img.shields.io/github/last-commit/doums/dmap.nvim) ![](https://img.shields.io/github/commit-activity/y/doums/dmap.nvim) (`dmap.lua`) - Sidebar with clickable LSP events
+- ❌ [lsp-colors.nvim](https://github.com/folke/lsp-colors.nvim) ![](https://img.shields.io/github/stars/folke/lsp-colors.nvim) ![](https://img.shields.io/github/last-commit/folke/lsp-colors.nvim) ![](https://img.shields.io/github/commit-activity/y/folke/lsp-colors.nvim) (`lsp.lua`) - Fill in HL groups for some LSPs
 <br>
 
 
@@ -144,7 +144,7 @@
 <br>
 
 
-## MIscellaneous / small stuff
+## Miscellaneous / small stuff
 
 - **DAP / debugging** -> look at `plugins/dap` , `lua/langs` and `mason_nvim_dap.lua` for the setups
 

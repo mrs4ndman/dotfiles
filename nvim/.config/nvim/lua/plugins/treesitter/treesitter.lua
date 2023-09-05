@@ -9,7 +9,7 @@ return {
   "nvim-treesitter/" .. plugin, -- parsing to the end of time
   enabled = Is_Enabled(plugin),
   cmd = { "TSInstall", "TSUpdate" },
-  event = { "BufReadPost", "BufNewFile" },
+  event = { "BufRead", "BufNewFile" },
   dependencies = {
     {
       "nvim-treesitter/nvim-treesitter-context",
