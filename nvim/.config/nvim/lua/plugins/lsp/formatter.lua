@@ -33,15 +33,67 @@ return {
     enabled = Is_Enabled("mason-tool-installer.nvim"),
     cmd = { "MasonToolsInstall", "MasonToolsUpdate" },
     event = { "BufReadPre", "BufNewFile" },
+    dependencies = {
+      {
+        "williamboman/mason.nvim",
+        enabled = Is_Enabled("mason.nvim"),
+        cmd = "Mason",
+        opts = {
+          ui = {
+            icons = {
+              package_installed = "✓",
+              package_pending = "➜",
+              package_uninstalled = "✗",
+            },
+          },
+        },
+      },
+    },
     config = function()
-      require("mason-tool-installer").setup {
+      require("mason").setup()
+      require("mason-tool-installer").setup({
         ensure_installed = {
+          -- Formatters
           "stylua",
           "prettierd",
+          -- DAP
+          -- 'codelldb',
+          "bash-debug-adapter",
+          "debugpy",
+          "delve",
+          "go-debug-adapter",
+          "java-debug-adapter",
+          "js-debug-adapter",
+          "php-debug-adapter",
+          "debugpy",
+          -- LSPs
+          "lua_ls",
+          "vimls",
+          "html",
+          "astro",
+          "tsserver",
+          "cssls",
+          "eslint",
+          "intelephense",
+          "marksman",
+          "clangd",
+          "neocmake",
+          "jsonls",
+          "pylsp",
+          "ruby_ls",
+          "bashls",
+          -- 'hls',
+          "ansiblels",
+          "dockerls",
+          "yamlls",
+          "ruff_lsp",
+          "rust_analyzer",
+          "gopls",
+          "jdtls",
         },
         auto_update = true,
         debounce_hours = 2,
-      }
-    end
+      })
+    end,
   },
 }

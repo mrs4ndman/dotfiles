@@ -8,12 +8,10 @@ local plugin = "nvim-lspconfig"
 return {
   "neovim/" .. plugin,
   enabled = Is_Enabled(plugin),
-  event = { "BufRead", "BufNewFile" },
+  event = { "BufRead", "BufNewFile", "BufAdd" },
   dependencies = {
-    -- "folke/neodev.nvim",
     "jubnzv/virtual-types.nvim",
-    "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
     {
       "SmiteshP/nvim-navbuddy",
       enabled = Is_Enabled("nvim-navbuddy"),

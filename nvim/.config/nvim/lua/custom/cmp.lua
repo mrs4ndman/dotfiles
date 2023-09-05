@@ -1,20 +1,22 @@
+-- Very custom CMP setup
 return function(_, opts)
   local plugin = "nvim-cmp"
   if Use_Defaults(plugin) then
     opts = opts
   else
     -- CMP completions config:
+    -- Local variables
     local cmp = require("cmp")
     local luasnip = require("luasnip")
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
-    -- cmp.setup({
     local preselect = cmp.PreselectMode.Item
 
     local completion = {
       completeopt = "menu,menuone,noinsert",
     }
+
     local config = {
       context = {
         in_treesitter_capture = true,
@@ -70,6 +72,7 @@ return function(_, opts)
         },
       }),
     }
+
     local sorting = {
       comparators = {
         cmp.config.compare.locality,
@@ -131,10 +134,11 @@ return function(_, opts)
       ["<Tab>"] = vim.NIL,
       ["<S-Tab>"] = vim.NIL,
     })
+
     local sources = {
-      { name = "nvim_lsp"},
-      { name = "cmp_tabnine"},
-      { name = "codeium", keyword_length = 4 },
+      { name = "nvim_lsp" },
+      { name = "cmp_tabnine" },
+      { name = "codeium",    keyword_length = 4 },
       {
         name = "buffer",
         options = {
@@ -189,7 +193,7 @@ return function(_, opts)
         },
       }),
     })
-    --
+
     -- PASSING VALUES TO THE ORIGINAL OPTS TABLE
     opts.formatting = formatting
     opts.mapping = mapping

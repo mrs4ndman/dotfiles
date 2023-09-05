@@ -8,7 +8,7 @@ local plugin = "highlight-undo.nvim"
 return {
   "tzachar/" .. plugin,
   enabled = Is_Enabled(plugin),
-  event = { "BufReadPre", "BufNewFile" },
+  event = { "BufRead", "BufNewFile" },
   config = function()
     require("highlight-undo").setup({
       duration = 250,

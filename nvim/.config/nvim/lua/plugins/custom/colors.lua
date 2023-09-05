@@ -64,7 +64,6 @@ return {
         flash = true,
         gitsigns = true,
         harpoon = true,
-        illuminate = true,
         lsp_trouble = true,
         leap = true,
         mason = true,
@@ -238,7 +237,6 @@ return {
       vim.g.doom_one_plugin_telescope = true
 
       vim.g.doom_one_plugin_whichkey = true
-      vim.g.doom_one_plugin_vim_illuminate = true
     end,
   },
   {

@@ -36,18 +36,12 @@ local on_attach = function(client, bufnr)
   vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
   vim.keymap.set("n", "<leader>tD", require("telescope.builtin").lsp_document_symbols, bufopts)
   vim.keymap.set("n", "<leader>tW", require("telescope.builtin").lsp_dynamic_workspace_symbols, bufopts)
-  -- Not needed anymore bc of autocmd below
-  -- vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float, { desc = "Diagnostic Float on current word" })
   vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, bufopts)
   vim.keymap.set("n", "]d", vim.diagnostic.goto_next, bufopts)
   vim.keymap.set({ "n", "v" }, "<leader>vca", vim.lsp.buf.code_action, bufopts)
   vim.keymap.set("n", "<leader>vrr", vim.lsp.buf.references, bufopts)
   vim.keymap.set({ "n", "v" }, "<leader>vrn", vim.lsp.buf.rename, bufopts)
   vim.keymap.set("i", "<C-q>", vim.lsp.buf.signature_help, bufopts)
-  -- Formatting keybind (see formatter-guide.md)
-  -- vim.keymap.set("n", "<leader>F", function()
-  --   vim.lsp.buf.format({ async = true })
-  -- end, { desc = "Format current buffer / file" })
 
   -- Floating diagnostic window on cursor
   vim.api.nvim_create_autocmd("CursorHold", {
@@ -110,6 +104,7 @@ lspconfig.html.setup({
   capabilities = M.capabilities,
 })
 
+-- PHP
 lspconfig.intelephense.setup({
   on_attach = on_attach,
   capabilities = M.capabilities,
@@ -122,33 +117,26 @@ lspconfig.intelephense.setup({
   },
 })
 
+-- Many server configs
+lspconfig.eslint.setup({})
+lspconfig.tsserver.setup({
+  on_attach = on_attach,
+  capabilities = M.capabilities,
+})
 lspconfig.astro.setup({})
+lspconfig.cssls.setup({})
 lspconfig.pylsp.setup({})
 lspconfig.vimls.setup({})
 lspconfig.marksman.setup({})
 lspconfig.ocamlls.setup({})
 lspconfig.neocmake.setup({})
 -- lspconfig.emmet_ls.setup({})
-lspconfig.cssls.setup({})
 lspconfig.gopls.setup({})
-lspconfig.eslint.setup({})
-lspconfig.tsserver.setup({
-  on_attach = on_attach,
-  capabilities = M.capabilities,
-})
 lspconfig.bashls.setup({})
 lspconfig.ansiblels.setup({})
 lspconfig.yamlls.setup({})
 lspconfig.ruby_ls.setup({})
 -- lspconfig.jdtls.setup {}
-
--- LSP Attach keybinds
--- vim.api.nvim_create_autocmd("LspAttach", {
---   group = vim.api.nvim_create_augroup("UserLspConfig", {}),
---   callback = function(ev)
---     vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
---   end,
--- })
 
 -- Change here the left sidebar LSP icon config for:
 local signs = { Error = "󰅚 ", Warn = " ", Hint = "󰌶 ", Info = " " }

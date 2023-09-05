@@ -9,20 +9,18 @@ return {
   "nvim-treesitter/" .. plugin, -- parsing to the end of time
   enabled = Is_Enabled(plugin),
   cmd = { "TSInstall", "TSUpdate" },
-  event = { "BufRead", "BufNewFile" },
+  event = { "BufRead", "BufNewFile", "BufAdd" },
   dependencies = {
     {
       "nvim-treesitter/nvim-treesitter-context",
       keys = {
         { "<leader>tct", "<cmd>TSContextToggle<CR>", desc = "TS Context Toggle" },
       },
+      opts = { mode = "cursor" },
     },
     "JoosepAlviste/nvim-ts-context-commentstring",
     "windwp/nvim-ts-autotag",
-    {
-      "David-Kunz/markid",
-      enabled = Is_Enabled("markid"),
-    },
+    { "David-Kunz/markid", enabled = Is_Enabled("markid") },
     {
       "nvim-treesitter/nvim-treesitter-textobjects",
       event = { "BufRead", "BufNewFile" },
@@ -31,11 +29,39 @@ return {
     {
       "David-Kunz/treesitter-unit",
       config = function()
-        vim.keymap.set("x", "iu", ':lua require("treesitter-unit").select()<CR>', { noremap = true, desc = "Inside TS unit" })
-        vim.keymap.set("x", "au", ':lua require("treesitter-unit").select(true)<CR>', { noremap = true, desc = "Around TS unit" })
-        vim.keymap.set("o", "iu", ':<c-u>lua require"treesitter-unit".select()<CR>', { noremap = true, desc = "Inside TS unit" })
-        vim.keymap.set("o", "au", ':<c-u>lua require"treesitter-unit".select(true)<CR>', { noremap = true, desc = "Around TS unit" })
-      end
+        vim.keymap.set(
+          "x",
+          "iu",
+          ':lua require("treesitter-unit").select()<CR>',
+          { noremap = true, desc = "Inside TS unit" }
+        )
+        vim.keymap.set(
+          "x",
+          "au",
+          ':lua require("treesitter-unit").select(true)<CR>',
+          { noremap = true, desc = "Around TS unit" }
+        )
+        vim.keymap.set(
+          "o",
+          "iu",
+          ':<c-u>lua require"treesitter-unit".select()<CR>',
+          { noremap = true, desc = "Inside TS unit" }
+        )
+        vim.keymap.set(
+          "o",
+          "au",
+          ':<c-u>lua require"treesitter-unit".select(true)<CR>',
+          { noremap = true, desc = "Around TS unit" }
+        )
+      end,
+    },
+    {
+      "nvim-treesitter/playground",
+      keys = {
+        { "<leader>ttp", "<cmd>TSPlaygroundToggle<CR>", desc = "TS Playground Toggle" },
+      },
+      enabled = Is_Enabled("playground"),
+      cmd = "TSPlaygroundToggle",
     },
   },
   config = function()

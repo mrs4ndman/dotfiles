@@ -10,6 +10,7 @@ local warnings_fg = get_hex("DiagnosticWarn", "fg")
 local red = vim.g.terminal_color_1
 local yellow = vim.g.terminal_color_3
 
+-- Custom buffer sorting function
 local function harpoon_sorter()
   local harpoon = require("harpoon.mark")
   local cache = {}
@@ -44,6 +45,7 @@ local function harpoon_sorter()
   end
 end
 
+-- Start of components table
 local components = {
   space = {
     text = " ",
@@ -144,7 +146,7 @@ require("cokeline").setup({
       return buffer.filetype ~= "netrw"
     end,
     filter_visible = function(buffer)
-      return buffer.filename ~= "oil://"
+      return buffer.filename ~= "netrw"
     end,
     new_buffers_position = harpoon_sorter()
   },
@@ -164,6 +166,7 @@ require("cokeline").setup({
     bg = get_hex("Background", "bg"),
   },
 
+  -- We join the whole table and pass it on
   components = {
     components.space,
     components.separator,

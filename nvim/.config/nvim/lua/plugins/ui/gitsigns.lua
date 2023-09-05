@@ -7,7 +7,7 @@ local plugin = "gitsigns.nvim"
 
 return {
   "lewis6991/" .. plugin,
-  event = { "BufReadPre", "BufNewFile" },
+  event = { "BufRead", "BufNewFile" },
   enabled = Is_Enabled(plugin),
   opts = function(_, opts)
     if Use_Defaults(plugin) then

@@ -1,12 +1,12 @@
 Customize = require("mrsandman.customize")
 local M = {}
 
-local function _error_handler(err)
-  require("notify")(err)
-end
-
 local function _is_enabled(plugin)
   return Customize.plugins[plugin].enabled
+end
+
+local function _error_handler(err)
+  require("notify")(err)
 end
 
 function M.is_enabled(plugin)

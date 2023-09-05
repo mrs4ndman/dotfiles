@@ -35,23 +35,6 @@ return {
       callback({ type = "server", host = config.host, port = config.port })
     end
 
-    require("mason").setup()
-    require("mason-nvim-dap").setup({
-      automatic_installation = true,
-      handlers = {},
-      ensure_installed = {
-        -- DAP
-        "bash-debug-adapter",
-        -- 'codelldb',
-        "debugpy",
-        "delve",
-        "go-debug-adapter",
-        "java-debug-adapter",
-        "js-debug-adapter",
-        "php-debug-adapter",
-      },
-    })
-
     require("nvim-dap-virtual-text").setup({
       commented = true,
     })

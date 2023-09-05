@@ -8,7 +8,7 @@ local plugin = "mini.indentscope"
 return {
   "echasnovski/" .. plugin,
   enabled = Is_Enabled(plugin),
-  event = { "BufReadPost", "BufNewFile" },
+  event = { "BufRead", "BufNewFile", "BufAdd" },
   config = function()
     require("mini.indentscope").setup({
       draw = {
