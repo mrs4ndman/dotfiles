@@ -2,7 +2,6 @@ local Customize = {}
 
 Customize = {
   -- Plugin toggles for troubleshooting and profiling
-
   plugins = {
     ["FixCursorHold.nvim"] = { enabled = false },
     ["LuaSnip"] = { enabled = true },
@@ -27,7 +26,7 @@ Customize = {
     ["fluoromachine.nvim"] = { enabled = true, defaults = false },
     ["focus.nvim"] = { enabled = false },
     ["formatter.nvim"] = { enabled = true },
-    ["git-blame.nvim"] = { enabled = true }, -- WARN: Optimise git setup
+    ["git-blame.nvim"] = { enabled = true },
     ["github-nvim-theme"] = { enabled = true, defaults = true },
     ["gitlinker.nvim"] = { enabled = true },
     ["gitsigns.nvim"] = { enabled = true, defaults = false },

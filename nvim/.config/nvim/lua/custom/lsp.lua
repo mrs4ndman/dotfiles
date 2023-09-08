@@ -123,8 +123,11 @@ lspconfig.tsserver.setup({
   on_attach = on_attach,
   capabilities = M.capabilities,
 })
+lspconfig.cssls.setup({
+  on_attach = on_attach,
+  capabilities = M.capabilities
+})
 lspconfig.astro.setup({})
-lspconfig.cssls.setup({})
 lspconfig.pylsp.setup({})
 lspconfig.vimls.setup({})
 lspconfig.marksman.setup({})

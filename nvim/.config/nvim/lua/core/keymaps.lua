@@ -17,8 +17,6 @@ vim.keymap.set("n", "<S-Tab>", "<Plug>(cokeline-focus-prev)", { desc = "Change t
 vim.keymap.set("n", "<leader>cc", "<Plug>(cokeline-pick-close)", { desc = "Pick buffer to close", silent = true })
 vim.keymap.set("n", "<leader>csp", "<Plug>(cokeline-switch-prev)", { desc = "Swap with prev buffer", silent = true })
 vim.keymap.set("n", "<leader>csn", "<Plug>(cokeline-switch-next)", { desc = "Swap with next buffer", silent = true })
--- vim.keymap.set("n", "<leader>cp", "<Plug>(cokeline-focus-prev)", { desc = "Change to previous buffer", silent = true })
--- vim.keymap.set("n", "<leader>cn", "<Plug>(cokeline-focus-next)", { desc = "Change to next buffer", silent = true })
 
 -- Numbered buffer selection with Leader + c + <number>
 for i = 1, 9 do
@@ -44,9 +42,8 @@ end, { desc = "Search current buffer" })
 -- vim.keymap.set("n", "<leader>nt", "<cmd>!cd $OBSIDIAN_VAULT | e ~/Documents/Obsidian Vaults/Dashboard/Current TO-DO.md<CR>")
 
 -- INTERNAL KEYBINDS
-
 -- NORMAL mode Keybinds
---
+
 -- Source current config file
 vim.keymap.set("n", "<leader><leader>", function()
   vim.cmd("so")
@@ -92,7 +89,7 @@ vim.keymap.set("n", "<C-s>", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left
 -- indent machine
 vim.keymap.set("n", "<leader>ip", "=ap", { desc = "Indent a paragraph", silent = true })
 vim.keymap.set("n", "<leader>il", "==", { desc = "Indent-line toggle" })
---
+
 -- Set files to be executable
 vim.keymap.set("n", "<leader>cx", "<cmd>!chmod +x %<CR>", { desc = "Make file executable", silent = true })
 
@@ -100,7 +97,7 @@ vim.keymap.set("n", "<leader>cx", "<cmd>!chmod +x %<CR>", { desc = "Make file ex
 vim.keymap.set("x", "<leader>p", '"_dP', { desc = "Better paste :)" })
 vim.keymap.set({ "n", "v" }, "<leader>dd", [["_d]], { desc = "Better delete" })
 
--- Enable custom mappings for 1-9 yank-paste registers
+-- Enable custom mappings for 1-9 yank-paste-delete registers
 for i = 1, 9 do
   vim.keymap.set(
     { "n", "v" },
@@ -153,6 +150,7 @@ vim.keymap.set("n", "}", "}zzzv", { silent = true })
 vim.keymap.set("n", "(", "(zzzv", { silent = true })
 vim.keymap.set("n", ")", ")zzzv", { silent = true })
 
+-- "S" functionality remap for Leap functionality
 vim.keymap.set("n", "+", "S")
 
 -- Delete character without yanking
@@ -162,14 +160,14 @@ vim.keymap.set({ "n", "v" }, "X", '"_X', { silent = true })
 -- Incredible markdown codeblocks:
 vim.keymap.set("n", "<leader>C", function()
   if vim.bo.filetype == "markdown" then
-    local keys = vim.api.nvim_replace_termcodes('<ESC>',true,false,true)
+    local keys = vim.api.nvim_replace_termcodes('<ESC>', true, false, true)
     vim.api.nvim_feedkeys([[i
 ```
 
 ```]], "n", true)
-    vim.api.nvim_feedkeys(keys .. [[kkA]],'n',false)
+    vim.api.nvim_feedkeys(keys .. [[kkA]], 'n', false)
   end
-end)
+end, { desc = "Codeblock" })
 
 -- Select all
 vim.keymap.set("n", "<leader>sa", "ggVG", { desc = "Select all" })
@@ -180,6 +178,7 @@ vim.keymap.set("n", "<leader>ya", 'ggVG"+y', { desc = "Yank whole buffer" })
 -- Insert new line above and below and exit
 vim.keymap.set("n", "<leader>o", "o<Esc>", { silent = true, desc = "Insert new line below and exit" })
 vim.keymap.set("n", "<leader>O", "O<Esc>", { silent = true, desc = "Insert new line above and exit" })
+vim.keymap.set("i", "<C-p>", "<Esc>:Telescope oldfiles<CR>")
 
 -- Buffer previous, next and close, window closing too
 -- To use without the cokeline bar
@@ -196,6 +195,7 @@ vim.keymap.set(
 
 -- Delete buffer without saving
 vim.keymap.set("n", "<leader>bd", "<cmd>bd!<CR>", { noremap = true, silent = true, desc = "Force buffer close" })
+
 
 -- Normal mode CTRL Keybinds
 
@@ -218,7 +218,6 @@ vim.keymap.set("i", "<C-c>", "<Esc>", { silent = true })
 -- VISUAL mode Keybinds
 
 -- Moving around text on visual
-
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { silent = true })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { silent = true })
 
@@ -227,6 +226,8 @@ vim.keymap.set("v", "<", "<gv", { silent = true })
 vim.keymap.set("v", ">", ">gv", { silent = true })
 
 -- TERMINAL mode keybinds
---
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
+vim.keymap.set("n", "<leader>te>", ":bd!", { desc = "Exit terminal" })
+-- TERMINAL mode keybinds
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 vim.keymap.set("n", "<leader>te>", ":bd!", { desc = "Exit terminal" })

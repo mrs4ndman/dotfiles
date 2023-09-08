@@ -1,10 +1,7 @@
--- NVIM terminal config
---
--- General config
+-- VIM OPTS
+
 -- Clipboard
 vim.api.nvim_command("set clipboard+=unnamedplus")
-
--- VIM OPTS
 
 -- Cursor config
 vim.opt.guicursor = ""
@@ -34,6 +31,8 @@ vim.opt.expandtab = true
 -- vim.opt.listchars = {
 --     eol = '⤶',
 -- }
+
+-- If I even want to fold
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 

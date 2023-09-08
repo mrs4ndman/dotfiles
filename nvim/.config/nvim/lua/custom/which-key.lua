@@ -4,7 +4,6 @@ local wk = require("which-key")
 
 wk.register({
   -- which-key category entries
-  ["gp"] = { name = "LSP Previews" },
   ["<leader>b"] = { name = "[B]uffers, Block view" },
   ["<leader>c"] = { name = "Close, Colorpicker, TSContext" },
   ["<leader>ca"] = { name = "a secret" },
@@ -47,6 +46,7 @@ wk.register({
   ["gD"] = { name = "[g]o to [D]eclaration" },
   ["gT"] = { name = "[g]o to [T]ype definition" },
   ["gI"] = { name = "[g]o to [I]mplementation" },
+  ["gp"] = { name = "LSP Previews" },
   ["K"] = { name = "Hover info" },
   ["<leader>tD"] = { name = "Document LSP symbols" },
   ["<leader>tW"] = { name = "Document LSP symbols" },
@@ -55,7 +55,6 @@ wk.register({
   ["<leader>vca"] = { name = "View code action" },
   ["<leader>vrr"] = { name = "Show variable references" },
   ["<leader>vrn"] = { name = "Rename project-wide variable with LSP" },
-
 
   -- All the plugin keybinds are either with the plugin definition or in the corresponding
   -- custom/file.lua (e.g. LSP and CMP)

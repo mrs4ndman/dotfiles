@@ -79,9 +79,7 @@ local opts = {
 
 local colors = pickers.new(opts)
 
-vim.api.nvim_create_user_command("Themer", function()
-  colors:find()
-end, {})
+vim.api.nvim_create_user_command("Themer", function() colors:find() end, {})
 
 -- last-color plugin
 local theme = require("last-color").recall() or "rose-pine"

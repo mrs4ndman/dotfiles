@@ -1,11 +1,11 @@
 -- Cokeline custom config:
 
-local get_hex = require("cokeline/utils").get_hex
-local mappings = require("cokeline/mappings")
+local get_hl_attr = require("cokeline.hlgroups").get_hl_attr
+local mappings = require("cokeline.mappings")
 
-local comments_fg = get_hex("Comment", "fg")
-local errors_fg = get_hex("DiagnosticError", "fg")
-local warnings_fg = get_hex("DiagnosticWarn", "fg")
+local comments_fg = get_hl_attr("Comment", "fg")
+local errors_fg = get_hl_attr("DiagnosticError", "fg")
+local warnings_fg = get_hl_attr("DiagnosticWarn", "fg")
 
 local red = vim.g.terminal_color_1
 local yellow = vim.g.terminal_color_3
@@ -47,23 +47,12 @@ end
 
 -- Start of components table
 local components = {
-  space = {
-    text = " ",
-    truncation = { priority = 1 },
-  },
-
-  two_spaces = {
-    text = "  ",
-    truncation = { priority = 1 },
-  },
-
+  space = { text = " ", truncation = { priority = 1 } },
+  two_spaces = { text = "  ", truncation = { priority = 1 } },
   separator = {
-    text = function(buffer)
-      return buffer.index ~= 1 and "▏" or ""
-    end,
+    text = function(buffer) return buffer.index ~= 1 and "▏" or "" end,
     truncation = { priority = 1 },
   },
-
   devicon = {
     text = function(buffer)
       return (mappings.is_picking_focus() or mappings.is_picking_close()) and buffer.pick_letter .. " "
@@ -79,9 +68,7 @@ local components = {
   },
 
   index = {
-    text = function(buffer)
-      return buffer.index .. " 󰁎 "
-    end,
+    text = function(buffer) return buffer.index .. " 󰁎 " end,
     truncation = { priority = 1 },
   },
 
@@ -91,10 +78,7 @@ local components = {
     end,
     fg = comments_fg,
     style = "italic",
-    truncation = {
-      priority = 3,
-      direction = "left",
-    },
+    truncation = { priority = 3, direction = "left" },
   },
 
   filename = {
@@ -107,10 +91,7 @@ local components = {
         or (buffer.diagnostics.errors ~= 0 and "underline")
         or nil
     end,
-    truncation = {
-      priority = 2,
-      direction = "left",
-    },
+    truncation = { priority = 2, direction = "left" },
   },
 
   diagnostics = {
@@ -142,28 +123,20 @@ require("cokeline").setup({
   show_if_buffers_are_at_least = 5,
   buffers = {
     focus_on_delete = "next",
-    filter_valid = function(buffer)
-      return buffer.filetype ~= "netrw"
-    end,
-    filter_visible = function(buffer)
-      return buffer.filename ~= "netrw"
-    end,
+    filter_valid = function(buffer) return buffer.filetype ~= "netrw" end,
+    filter_visible = function(buffer) return buffer.filename ~= "netrw" end,
     new_buffers_position = harpoon_sorter()
   },
 
-  rendering = {
-    max_buffer_width = 30,
-  },
+  rendering = { max_buffer_width = 30 },
 
-  pick = {
-    use_filename = false,
-  },
+  pick = { use_filename = false },
 
   default_hl = {
     fg = function(buffer)
-      return buffer.is_focused and get_hex("Normal", "fg") or get_hex("Comment", "fg")
+      return buffer.is_focused and get_hl_attr("Normal", "fg") or get_hl_attr("Comment", "fg")
     end,
-    bg = get_hex("Background", "bg"),
+    bg = get_hl_attr("Background", "bg"),
   },
 
   -- We join the whole table and pass it on

@@ -1,9 +1,6 @@
--- Eviline config for lualine, modified by MrSandman
--- Author: shadmansaleh
--- Credit: glepnir
---
 -- Slightly modified GeoMetro
 -- (if you get it, you get it)
+
 local lualine = require("lualine")
 -- Color table for highlights
 -- stylua: ignore
@@ -104,26 +101,15 @@ local function ins_winb_left(component)
   table.insert(config.winbar.lualine_b, component)
 end
 
--- Inserts a component in lualine_x at right section on winbar
-local function ins_winb_right(component)
-  table.insert(config.winbar.lualine_x, component)
-end
-
 -- Inserts a component in lualine_x at right section
 local function ins_right(component)
   table.insert(config.sections.lualine_x, component)
 end
 
-ins_winb_left({
-  -- "navic",
-  -- function()
-  --   return require("nvim-navic").get_location()
-  -- end,
-  -- --[[ conditions.hide_in_width, ]]
-  -- cond = function()
-  --   return package.loaded["nvim-navic"] and require("nvim-navic").is_available()
-  -- end,
-})
+-- Inserts a component in lualine_x at right section on winbar
+-- local function ins_winb_right(component)
+--   table.insert(config.winbar.lualine_x, component)
+-- end
 
 -- Add components to right sections
 -- ins_winb_right({
@@ -219,9 +205,7 @@ ins_left({
 })
 
 ins_left({
-  function()
-    return require("noice").api.status.command.get()
-  end,
+  function() return require("noice").api.status.command.get() end,
   cond = function()
     return package.loaded["noice"] and require("noice").api.status.command.has()
   end,
@@ -241,9 +225,7 @@ ins_left({
 })
 
 ins_left({
-  function()
-    return "%="
-  end,
+  function() return "%=" end,
 })
 
 ins_left({
@@ -275,15 +257,9 @@ ins_left({
 --   end,
 -- })
 
-ins_right({
-  wordcount,
-  cond = is_markdown,
-})
+ins_right({ wordcount, cond = is_markdown })
 
-ins_right({
-  readingtime,
-  cond = is_markdown
-})
+ins_right({ readingtime, cond = is_markdown })
 
 ins_right({
   -- filesize component
@@ -341,7 +317,6 @@ ins_right({
   padding = { left = 1, right = 1 },
   cond = conditions.hide_in_width,
 })
-
 
 -- ins_right({
 --   "fileformat",
