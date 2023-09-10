@@ -148,16 +148,29 @@ end
 
 ins_left({
   function()
+    return "▊"
+  end,
+  color = { fg = colors.blue },
+  padding = { left = 0 },
+})
+
+ins_left({
+  function()
+    -- return "" .. " ?"
     return ""
   end,
   color = { fg = colors.turquoise }, -- Sets highlighting of component
-  padding = { left = 1, right = 2 }, -- We don't need space before this
+  padding = { left = 1, right = 1 }, -- We don't need space before this
 })
 
 ins_left({
   -- mode component
   function()
-    return "" .. "  " .. ""
+    local VMode = vim.fn.mode()
+    local VUpper = "[" .. string.upper(VMode) .. "]"
+    return "   " .. VUpper
+    -- u
+    -- return " "
   end,
   color = function()
     -- auto change color according to neovims mode
@@ -185,15 +198,21 @@ ins_left({
     }
     return { fg = colors.bg, bg = mode_color[vim.fn.mode()] }
   end,
-  padding = { left = 0, right = 1 },
-  separator = { left = "", right = "" },
+  padding = { left = 0, right = 0 },
+  separator = { left = " ", right = "" },
 })
 
 ins_left({
   "filename",
   cond = conditions.buffer_not_empty,
-  color = { fg = colors.red, gui = "bold" },
+  color = { fg = "lime", gui = "bold" },
   path = 0,
+  symbols = {
+    modified = "[+]", -- Text to show when the file is modified.
+    readonly = "[]", -- Text to show when the file is non-modifiable or readonly.
+    unnamed = "[No Name]", -- Text to show for unnamed buffers.
+    newfile = "[New]", -- Text to show for newly created file before first write
+  },
 })
 
 ins_left({
@@ -205,7 +224,9 @@ ins_left({
 })
 
 ins_left({
-  function() return require("noice").api.status.command.get() end,
+  function()
+    return "󰌓 " .. require("noice").api.status.command.get()
+  end,
   cond = function()
     return package.loaded["noice"] and require("noice").api.status.command.has()
   end,
@@ -225,17 +246,20 @@ ins_left({
 })
 
 ins_left({
-  function() return "%=" end,
+  function()
+    return "%="
+  end,
 })
 
 ins_left({
   "diagnostics",
   sources = { "nvim_diagnostic" },
-  symbols = { error = " ", warn = " ", info = " " },
+  symbols = { error = " ", warn = " ", info = " ", hint = " " },
   diagnostics_color = {
-    color_error = { fg = colors.red },
-    color_warn = { fg = colors.yellow },
-    color_info = { fg = colors.cyan },
+    error = { fg = colors.red },
+    warn = { fg = colors.yellow },
+    info = { fg = colors.turquoise },
+    hint = { fg = colors.magenta },
   },
 })
 
@@ -270,17 +294,26 @@ ins_right({
 })
 
 ins_right({
-  -- cursor location in file component
-  "location",
-  color = { fg = colors.lime, gui = "bold" },
-  padding = { left = 1, right = 0 },
-})
-
-ins_right({
   -- same as location but in % form
   "progress",
   color = { fg = colors.ultraviolet, gui = "bold" },
   padding = { left = 1, right = 0 },
+})
+
+
+ins_right({
+  function()
+    return "->"
+  end,
+  color = { fg = colors.lime },
+  padding = { left = 1, right = 0 }
+})
+
+ins_right({
+  -- cursor location in file component
+  "location",
+  color = { fg = colors.lime, gui = "bold" },
+  padding = { left = 1, right = 0},
 })
 
 ins_right({
@@ -316,6 +349,14 @@ ins_right({
   color = { fg = "cyan", gui = "bold" },
   padding = { left = 1, right = 1 },
   cond = conditions.hide_in_width,
+})
+
+ins_right({
+  function()
+    return "▊"
+  end,
+  color = { fg = colors.blue },
+  padding = { left = 0 },
 })
 
 -- ins_right({

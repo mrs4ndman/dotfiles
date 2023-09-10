@@ -111,7 +111,7 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden -g "!.git" '
 export FZF_DEFAULT_OPTS='-m --height 40% --border'
 export GPG_TTY=$(tty)
 export ALTED="vim"
-export PATH="$HOME/.console-ninja/.bin:/usr/local/go/bin:$HOME/.cargo/bin:$HOME/.fzf/bin:$HOME/.local/bin:$HOME/.local/scripts:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+export PATH="$HOME/.config/emacs/bin:$HOME/.console-ninja/.bin:/usr/local/go/bin:$HOME/.cargo/bin:$HOME/.fzf/bin:$HOME/.local/bin:$HOME/.local/scripts:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 export VIMRC="$HOME/.vimrc"
 export NVIMRC="$HOME/dotfiles/nvim/.config/nvim"
 export VISUAL="nvim"
@@ -119,6 +119,8 @@ export OBSIDIAN_VAULT="$HOME/Documents/Obsidian Vaults/Dashboard/Current TO-DO.m
 # Moved vi-mode to .inputrc
 
 #-------------------------------------------------------------#
+# Temp alias
+alias d='doom run'
 
 #------------- MIS PROPIOS ALIAS - MY OWN ALIASES -------------#
 
@@ -143,6 +145,7 @@ alias fsh='flameshot >/dev/null 2>&1 &! disown'
 alias gotty="~/go/bin/gotty"
 alias htmlup='~/go/bin/simplehttp'
 alias lebron-james='trash-put'
+alias i3keys='screenkey -s large --scr 2 -p bottom --font-size large --geometry 1000x600+1520+820'
 alias list-can='trash-list'
 alias lol='toilet --gay lol'
 alias matrix='cmatrix -a -C red'

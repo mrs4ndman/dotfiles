@@ -19,7 +19,6 @@ return {
     { "<leader>tr", "<cmd>Telescope oldfiles<CR>", desc = "Recent files" },
     { "<leader>tli", "<cmd>Telescope lsp_incoming_calls", desc = "LSP incoming calls" },
     { "<leader>tlo", "<cmd>Telescope lsp_outgoing_calls", desc = "LSP outgoing calls" },
-    { "<leader>ti", "<cmd>Telescope media_files<CR>", desc = "Image preview" },
     {
       "<leader>tg",
       function()

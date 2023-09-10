@@ -14,9 +14,6 @@ vim.keymap.set("n", "<leader>mp", "<cmd>Mason<CR>", { desc = "Mason", noremap = 
 -- Quick buffer switching and manipulation
 vim.keymap.set("n", "<Tab>", "<Plug>(cokeline-focus-next)", { desc = "Change to next buffer", silent = true })
 vim.keymap.set("n", "<S-Tab>", "<Plug>(cokeline-focus-prev)", { desc = "Change to previous buffer", silent = true })
-vim.keymap.set("n", "<leader>cc", "<Plug>(cokeline-pick-close)", { desc = "Pick buffer to close", silent = true })
-vim.keymap.set("n", "<leader>csp", "<Plug>(cokeline-switch-prev)", { desc = "Swap with prev buffer", silent = true })
-vim.keymap.set("n", "<leader>csn", "<Plug>(cokeline-switch-next)", { desc = "Swap with next buffer", silent = true })
 
 -- Numbered buffer selection with Leader + c + <number>
 for i = 1, 9 do
@@ -59,7 +56,7 @@ end, {})
 -- vim.keymap.set("n", "<leader>E", vim.cmd.Ex, { desc = "Ex", silent = true })
 
 -- Window splits and ?tabs?
-vim.keymap.set("n", "<leader>ws", "<cmd>split<CR>", { desc = "Horizontal split" })
+vim.keymap.set("n", "<leader>wh", "<cmd>split<CR>", { desc = "Horizontal split" })
 vim.keymap.set("n", "<leader>wv", "<cmd>vsplit<CR>", { desc = "Vertical split" })
 vim.keymap.set("n", "<A-Left>", ":vertical resize -2<CR>", {
   desc = "Make vertical split smaller",
@@ -88,7 +85,7 @@ vim.keymap.set("n", "<C-s>", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left
 
 -- indent machine
 vim.keymap.set("n", "<leader>ip", "=ap", { desc = "Indent a paragraph", silent = true })
-vim.keymap.set("n", "<leader>il", "==", { desc = "Indent-line toggle" })
+vim.keymap.set("n", "<leader>il", "==", { desc = "Indent current line" })
 
 -- Set files to be executable
 vim.keymap.set("n", "<leader>cx", "<cmd>!chmod +x %<CR>", { desc = "Make file executable", silent = true })
@@ -184,17 +181,12 @@ vim.keymap.set("i", "<C-p>", "<Esc>:Telescope oldfiles<CR>")
 -- To use without the cokeline bar
 -- vim.keymap.set("n", "<Tab>", "<cmd>bprevious<CR>", { noremap = true, silent = true, desc = "Previous buffer" })
 -- vim.keymap.set("n", "<S-Tab>", "<cmd>bprevious<CR>", { noremap = true, silent = true, desc = "Previous buffer" })
-vim.keymap.set("n", "<leader>bc", "<cmd>bd<CR>", { noremap = true, silent = true, desc = "Close buffer softly" })
-vim.keymap.set("n", "<leader>cw", "<cmd>close<CR>", { noremap = true, silent = true, desc = "Close window one way" })
-vim.keymap.set(
-  "n",
-  "<leader>q",
-  "<cmd>close<CR>",
-  { noremap = true, silent = true, desc = "Close window the other way" }
-)
 
 -- Delete buffer without saving
 vim.keymap.set("n", "<leader>bd", "<cmd>bd!<CR>", { noremap = true, silent = true, desc = "Force buffer close" })
+vim.keymap.set("n", "<leader>bc", "<cmd>bd<CR>", { noremap = true, silent = true, desc = "Close buffer softly" })
+vim.keymap.set("n", "<leader>q", "<cmd>close<CR>", { noremap = true, silent = true, desc = "Close window the other way" })
+
 
 
 -- Normal mode CTRL Keybinds
@@ -209,11 +201,12 @@ vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>", { de
 -- Export current state to HTML:
 vim.keymap.set("n", "<leader>xth", "<cmd>TOhtml<CR>", { desc = "Export to HTML" })
 
+
 -- INSERT mode Keybinds
 
 -- How to escape Vim Insert mode: keybind edition:
-
 vim.keymap.set("i", "<C-c>", "<Esc>", { silent = true })
+
 
 -- VISUAL mode Keybinds
 
@@ -225,9 +218,8 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { silent = true })
 vim.keymap.set("v", "<", "<gv", { silent = true })
 vim.keymap.set("v", ">", ">gv", { silent = true })
 
+
 -- TERMINAL mode keybinds
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 vim.keymap.set("n", "<leader>te>", ":bd!", { desc = "Exit terminal" })
--- TERMINAL mode keybinds
-vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
-vim.keymap.set("n", "<leader>te>", ":bd!", { desc = "Exit terminal" })
+

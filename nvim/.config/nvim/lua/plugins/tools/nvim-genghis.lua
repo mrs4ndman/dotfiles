@@ -9,7 +9,14 @@ return {
   "chrisgrieser/" .. plugin,
   enabled = Is_Enabled(plugin),
   dependencies = "stevearc/dressing.nvim",
-  keys = { { "<leader>fp" }, { "<leader>fn" }, { "<leader>fr" }, { "<leader>fm" }, { "<leader>fc" }, { "<leader>fd" } },
+  keys = {
+    { "<leader>fp", desc = "Yank current filepath" },
+    { "<leader>fn", desc = "Yank current filename" },
+    { "<leader>fr", desc = "Rename current file" },
+    { "<leader>fm", desc = "Move and rename current file" },
+    { "<leader>fc", desc = "Create new file" },
+    { "<leader>fd", desc = "Duplicate current file" },
+  },
   config = function()
     vim.keymap.set("n", "<leader>fp", require("genghis").copyFilepath, { desc = "Yank kurrent filepath" })
     vim.keymap.set("n", "<leader>fn", require("genghis").copyFilename, { desc = "Yank current filename" })
