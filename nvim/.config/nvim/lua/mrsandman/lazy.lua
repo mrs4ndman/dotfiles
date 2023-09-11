@@ -6,16 +6,16 @@ vim.g.maplocalleader = "ñ"
 
 require("lazy").setup({
   spec = {
+    { import = "plugins.custom" },
+    { import = "plugins.movement" },
+    { import = "plugins.treesitter" },
+    { import = "plugins.lsp" },
     { import = "plugins.ui" },
     { import = "plugins.tools" },
-    { import = "plugins.lsp" },
     { import = "plugins.dap" },
-    { import = "plugins.movement" },
     { import = "plugins.langs" },
     { import = "plugins.completion" },
     { import = "plugins.misc" },
-    { import = "plugins.treesitter" },
-    { import = "plugins.custom" },
   },
   defaults = { lazy = true },
   install = { colorscheme = { "tokyonight", "habamax" } },

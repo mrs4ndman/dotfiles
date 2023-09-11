@@ -71,6 +71,8 @@ return function(_, opts)
           cmp_tabnine = "󱍋",
         },
       }),
+      -- Tailwind CSS cmp icons
+      require("tailwindcss-colorizer-cmp").formatter,
     }
 
     local sorting = {

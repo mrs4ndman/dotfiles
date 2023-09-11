@@ -42,6 +42,15 @@ return {
         })
       end,
     },
+    {
+      "roobert/tailwindcss-colorizer-cmp.nvim",
+      -- optionally, override the default options:
+      config = function()
+        require("tailwindcss-colorizer-cmp").setup({
+          color_square_width = 2,
+        })
+      end
+    },
     "L3MON4D3/LuaSnip",
     "buschco/nvim-cmp-ts-tag-close",
     "saadparwaiz1/cmp_luasnip",

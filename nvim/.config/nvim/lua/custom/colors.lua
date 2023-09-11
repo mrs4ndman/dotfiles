@@ -52,6 +52,7 @@ local opts = {
     "enfocado",
     "nvimgelion",
     "space-nvim",
+    "oh-lucy",
     "palenightfall",
     "rasmus",
     "carbonfox",

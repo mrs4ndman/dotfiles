@@ -16,13 +16,13 @@ return {
       "SmiteshP/nvim-navbuddy",
       enabled = Is_Enabled("nvim-navbuddy"),
       keys = {
-        { "<leader>nb", "<cmd>Navbuddy<CR>", desc = "Navbuddy toggle" }
+        { "<leader>nb", "<cmd>Navbuddy<CR>", desc = "Navbuddy toggle" },
       },
       dependencies = {
         "SmiteshP/nvim-navic",
         "MunifTanjim/nui.nvim",
       },
-      opts = { lsp = { auto_attach = true } }
+      opts = { lsp = { auto_attach = true } },
     },
     {
       url = "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
@@ -35,10 +35,10 @@ return {
           require("lsp_lines").toggle,
           { desc = "Toggle LSP line diagnostics" }
         )
-      end
-    }
+      end,
+    },
   },
   config = function()
     require("custom.lsp")
-  end
+  end,
 }

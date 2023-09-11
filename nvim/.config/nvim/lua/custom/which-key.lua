@@ -35,6 +35,8 @@ wk.register({
   ["<leader>y"] = { name = "[Register yanking]" },
   ["<leader>z"] = { name = "[Zen-Mode] [Twilight]" },
 
+  ["<localleader>b"] = { name = "[Shade]" },
+  ["<localleader>h"] = { name = "[Hover-split]" },
   ["<localleader>x"] = { name = "[Executor]" },
   ["<localleader>D"] = { name = "[DAP]" },
   ["<localleader>DP"] = { name = "[DAP] Python testing" },
@@ -43,19 +45,11 @@ wk.register({
   ["<leader>th"] = { "<cmd>Themer<CR>", "Colorscheme manager", { silent = true } },
 
   -- LSP Stuff
-  ["gd"] = { name = "[g]o to [d]efinition" },
-  ["gD"] = { name = "[g]o to [D]eclaration" },
-  ["gT"] = { name = "[g]o to [T]ype definition" },
-  ["gI"] = { name = "[g]o to [I]mplementation" },
-  ["gp"] = { name = "LSP Previews" },
-  ["K"] = { name = "Hover info" },
-  ["<leader>tD"] = { name = "[Telescope] Document symbols" },
-  ["<leader>tW"] = { name = "[Telescope] Workspace symbols" },
-  ["[d"] = { name = "Next diagnostic" },
-  ["]d"] = { name = "Prev diagnostic" },
-  ["<leader>vca"] = { name = "View code action" },
-  ["<leader>vrr"] = { name = "Show variable references" },
-  ["<leader>vrn"] = { name = "Rename project-wide variable with LSP" },
+  ["gp"] = { name = "[LSP] Previews" },
+
+  -- Filling in the blanks for native stuff
+  ["gj"] = { name = "Go up 1 wrapped line" },
+  ["gk"] = { name = "Go down 1 wrapped line" },
 
   -- All the plugin keybinds are either with the plugin definition or in the corresponding
   -- custom/file.lua (e.g. LSP and CMP)

@@ -28,20 +28,19 @@ require("luasnip.loaders.from_vscode").lazy_load()
 local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
-  local bufopts = { noremap = true, silent = true, buffer = bufnr }
-  vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
-  vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
-  vim.keymap.set("n", "gT", vim.lsp.buf.type_definition, bufopts)
-  vim.keymap.set("n", "gI", vim.lsp.buf.implementation, bufopts)
-  vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
-  vim.keymap.set("n", "<leader>tD", require("telescope.builtin").lsp_document_symbols, bufopts)
-  vim.keymap.set("n", "<leader>tW", require("telescope.builtin").lsp_dynamic_workspace_symbols, bufopts)
-  vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, bufopts)
-  vim.keymap.set("n", "]d", vim.diagnostic.goto_next, bufopts)
-  vim.keymap.set({ "n", "v" }, "<leader>vca", vim.lsp.buf.code_action, bufopts)
-  vim.keymap.set("n", "<leader>vrr", vim.lsp.buf.references, bufopts)
-  vim.keymap.set({ "n", "v" }, "<leader>vrn", vim.lsp.buf.rename, bufopts)
-  vim.keymap.set("i", "<C-q>", vim.lsp.buf.signature_help, bufopts)
+  vim.keymap.set("n", "gd", vim.lsp.buf.definition, { noremap = true, desc = "[LSP] Go to Definition", buffer = bufnr })
+  vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { noremap = true, desc = "[LSP] Go to Declaration", buffer = bufnr })
+  vim.keymap.set("n", "gT", vim.lsp.buf.type_definition, { noremap = true,desc = "[LSP] Go to Type definition", buffer = bufnr })
+  vim.keymap.set("n", "gI", vim.lsp.buf.implementation, { noremap = true,  desc = "[LSP] Go to Implementation", buffer = bufnr })
+  vim.keymap.set("n", "K", vim.lsp.buf.hover, { noremap = true, desc = "[LSP] Hover info", buffer = bufnr })
+  vim.keymap.set("n", "<leader>tD", "<cmd>Telescope lsp_dynamic_document_symbols<CR>", { noremap = true, desc = "[LSP] Dynamic document symbols", buffer = bufnr })
+  vim.keymap.set("n", "<leader>tW", "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>", { noremap = true, desc = "[LSP] Dynamic workspace symbols", buffer = bufnr })
+  vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { noremap = true, desc = "[LSP] Previous diagnostic", buffer = bufnr })
+  vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { noremap = true, desc = "[LSP] Next diagnostic", buffer = bufnr })
+  vim.keymap.set({ "n", "v" }, "<leader>vca", vim.lsp.buf.code_action, { noremap = true, desc = "[LSP] View code actions", buffer = bufnr })
+  vim.keymap.set("n", "<leader>vrr", vim.lsp.buf.references, { noremap = true, desc = "[LSP} Show references", buffer = bufnr })
+  vim.keymap.set({ "n", "v" }, "<leader>vrn", vim.lsp.buf.rename, { noremap = true, desc = "[LSP] Rename element under cursor", buffer = bufnr })
+  vim.keymap.set("i", "<C-q>", vim.lsp.buf.signature_help, { noremap = true, desc = "[LSP] Signature help", buffer = bufnr })
 
   -- Floating diagnostic window on cursor
   vim.api.nvim_create_autocmd("CursorHold", {
@@ -99,12 +98,12 @@ lspconfig.clangd.setup({
 })
 
 -- Web Dev swag
-lspconfig.html.setup({
-  on_attach = on_attach,
-  capabilities = M.capabilities,
-})
+lspconfig.html.setup({ on_attach = on_attach, capabilities = M.capabilities })
+lspconfig.eslint.setup({})
+lspconfig.tsserver.setup({ on_attach = on_attach, capabilities = M.capabilities })
+lspconfig.cssls.setup({ on_attach = on_attach, capabilities = M.capabilities })
 
--- PHP
+-- Pee-H-Pee
 lspconfig.intelephense.setup({
   on_attach = on_attach,
   capabilities = M.capabilities,
@@ -117,25 +116,29 @@ lspconfig.intelephense.setup({
   },
 })
 
--- Many server configs
-lspconfig.eslint.setup({})
-lspconfig.tsserver.setup({
-  on_attach = on_attach,
-  capabilities = M.capabilities,
-})
-lspconfig.cssls.setup({
+-- SHHHHELLLL
+lspconfig.bashls.setup({
   on_attach = on_attach,
   capabilities = M.capabilities
 })
+
+-- Note-taking helper
+lspconfig.marksman.setup({
+  on_attach = on_attach,
+  capabilities = M.capabilities
+})
+
+lspconfig.vimls.setup({
+  on_attach = on_attach,
+  capabilities = M.capabilities
+})
+
 lspconfig.astro.setup({})
 lspconfig.pylsp.setup({})
-lspconfig.vimls.setup({})
-lspconfig.marksman.setup({})
 lspconfig.ocamlls.setup({})
 lspconfig.neocmake.setup({})
 -- lspconfig.emmet_ls.setup({})
 lspconfig.gopls.setup({})
-lspconfig.bashls.setup({})
 lspconfig.ansiblels.setup({})
 lspconfig.yamlls.setup({})
 lspconfig.ruby_ls.setup({})

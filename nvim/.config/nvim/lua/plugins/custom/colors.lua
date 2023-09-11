@@ -327,8 +327,20 @@ return {
   },
   {
     "wuelnerdotexe/vim-enfocado",
+    enabled = Is_Enabled("vim-enfocado"),
     config = function()
       vim.g.enfocado_style = "neon"
+    end,
+  },
+  {
+    "Yazeed1s/oh-lucy.nvim",
+    enabled = Is_Enabled("oh-lucy.nvim"),
+    init = function()
+      vim.g.oh_lucy_italic_comments = true
+      vim.g.oh_lucy_italic_keywords = true
+      -- vim.g.oh_lucy_italic_booleans = false
+      -- vim.g.oh_lucy_italic_functions = false
+      -- vim.g.oh_lucy_italic_variables = false
     end,
   },
 }
