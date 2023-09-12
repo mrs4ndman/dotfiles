@@ -22,9 +22,20 @@ return {
         },
         -- Text objects are defined with i/a - obj, instead of riw, raw
         prefix = false,
-        paste_on_remote_yank = true,
+        paste_on_ramote_yank = false,
       },
     },
+    -- {
+    --   "rasulomaroff/telepath.nvim",
+    --   dependencies = "ggandor/leap.nvim",
+    --   keys = {
+    --     -- you can use your own keys
+    --     { "r", function() require("telepath").remote({ restore = true }) end, mode = "o" },
+    --     { "R", function() require("telepath").remote({ restore = true, recursive = true }) end, mode = "o" },
+    --     { "m", function() require("telepath").remote() end, mode = "o" },
+    --     { "M", function() require("telepath").remote({ recursive = true }) end, mode = "o" },
+    --   },
+    -- },
   },
   config = function()
     require("leap").add_default_mappings()

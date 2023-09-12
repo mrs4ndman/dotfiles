@@ -8,6 +8,8 @@ M.capabilities = vim.lsp.protocol.make_client_capabilities()
 M.capabilities = require("cmp_nvim_lsp").default_capabilities(M.capabilities)
 -- INFO: For Vue LS
 -- M.capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = true
+
+---@diagnostic disable-next-line: missing-fields
 M.capabilities.textDocument.completion.completionItem = {
   documentationFormat = { "markdown", "plaintext" },
   snippetSupport = true,
@@ -30,17 +32,35 @@ local on_attach = function(client, bufnr)
 
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, { noremap = true, desc = "[LSP] Go to Definition", buffer = bufnr })
   vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { noremap = true, desc = "[LSP] Go to Declaration", buffer = bufnr })
-  vim.keymap.set("n", "gT", vim.lsp.buf.type_definition, { noremap = true,desc = "[LSP] Go to Type definition", buffer = bufnr })
-  vim.keymap.set("n", "gI", vim.lsp.buf.implementation, { noremap = true,  desc = "[LSP] Go to Implementation", buffer = bufnr })
+  vim.keymap.set("n", "gT", vim.lsp.buf.type_definition, { noremap = true, desc = "[LSP] Go to Type definition", buffer = bufnr })
+  vim.keymap.set("n", "gI", vim.lsp.buf.implementation, { noremap = true, desc = "[LSP] Go to Implementation", buffer = bufnr })
   vim.keymap.set("n", "K", vim.lsp.buf.hover, { noremap = true, desc = "[LSP] Hover info", buffer = bufnr })
-  vim.keymap.set("n", "<leader>tD", "<cmd>Telescope lsp_dynamic_document_symbols<CR>", { noremap = true, desc = "[LSP] Dynamic document symbols", buffer = bufnr })
-  vim.keymap.set("n", "<leader>tW", "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>", { noremap = true, desc = "[LSP] Dynamic workspace symbols", buffer = bufnr })
+  -- stylua: ignore
+  vim.keymap.set("n", "<leader>tD", "<cmd>Telescope lsp_dynamic_document_symbols<CR>", { desc = "[LSP] Dynamic document symbols", buffer = bufnr })
+  vim.keymap.set("n", "<leader>tW", "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>", { desc = "[LSP] Dynamic workspace symbols", buffer = bufnr })
   vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { noremap = true, desc = "[LSP] Previous diagnostic", buffer = bufnr })
   vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { noremap = true, desc = "[LSP] Next diagnostic", buffer = bufnr })
   vim.keymap.set({ "n", "v" }, "<leader>vca", vim.lsp.buf.code_action, { noremap = true, desc = "[LSP] View code actions", buffer = bufnr })
   vim.keymap.set("n", "<leader>vrr", vim.lsp.buf.references, { noremap = true, desc = "[LSP} Show references", buffer = bufnr })
   vim.keymap.set({ "n", "v" }, "<leader>vrn", vim.lsp.buf.rename, { noremap = true, desc = "[LSP] Rename element under cursor", buffer = bufnr })
   vim.keymap.set("i", "<C-q>", vim.lsp.buf.signature_help, { noremap = true, desc = "[LSP] Signature help", buffer = bufnr })
+
+  -- INFO: For Typescript
+  if client.name == "tsserver" then
+    vim.keymap.set("n", "<leader>fR", "<cmd>TypescriptRenameFile<CR>", { desc = "[Typescript] Rename file" })
+    vim.keymap.set("n", "<leader>oi", "<cmd>TypescriptOrganizeImports<CR>", { desc = "[Typescript] Organize imports" })
+    vim.keymap.set("n", "<leader>ru", "<cmd>TypescriptRemoveUnused<CR>", { desc = "[Typescript] Remove unused" })
+  end
+
+  -- INFO: For Svelte
+  -- vim.api.nvim_create_autocmd("BufWritePost", {
+  --   pattern = { "*.js", "*.ts" },
+  --   callback = function(ctx)
+  --     if client.name == "svelte" then
+  --       client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.file })
+  --     end
+  --   end,
+  -- })
 
   -- Floating diagnostic window on cursor
   vim.api.nvim_create_autocmd("CursorHold", {
@@ -58,6 +78,11 @@ local on_attach = function(client, bufnr)
     end,
   })
 
+  -- TODO: Need to configure this for the ones that need it:
+  -- if client.server_capabilities.inlayHintProvider then
+  --   vim.lsp.inlay_hint(bufnr, true)
+  -- end
+
   -- Plugin attachments
   navbuddy.attach(client, bufnr)
   require("virtualtypes").on_attach()
@@ -73,6 +98,13 @@ require("lspconfig").lua_ls.setup({
     Lua = {
       diagnostics = {
         globals = { "vim" },
+      },
+      workspace = {
+        library = {
+          vim.fn.expand("$VIMRUNTIME/lua"),
+          vim.fn.stdpath("config") .. "/lua",
+          vim.api.nvim_get_runtime_file("", true),
+        },
       },
     },
   },
@@ -110,7 +142,7 @@ lspconfig.intelephense.setup({
   settings = {
     intelephense = {
       environment = {
-        shortOpenTag = true
+        shortOpenTag = true,
       },
     },
   },
@@ -119,18 +151,18 @@ lspconfig.intelephense.setup({
 -- SHHHHELLLL
 lspconfig.bashls.setup({
   on_attach = on_attach,
-  capabilities = M.capabilities
+  capabilities = M.capabilities,
 })
 
 -- Note-taking helper
 lspconfig.marksman.setup({
   on_attach = on_attach,
-  capabilities = M.capabilities
+  capabilities = M.capabilities,
 })
 
 lspconfig.vimls.setup({
   on_attach = on_attach,
-  capabilities = M.capabilities
+  capabilities = M.capabilities,
 })
 
 lspconfig.astro.setup({})

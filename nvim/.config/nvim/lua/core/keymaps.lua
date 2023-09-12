@@ -113,6 +113,7 @@ end
 
 -- smart blackhole deletion
 vim.keymap.set("n", "dd", function()
+---@diagnostic disable-next-line: param-type-mismatch
   if vim.fn.getline(".") == "" then
     return '"_dd'
   end
@@ -173,7 +174,7 @@ vim.keymap.set("n", "<leader>sa", "ggVG", { desc = "Select all" })
 vim.keymap.set("n", "<leader>ya", 'ggVG"+y', { desc = "Yank whole buffer" })
 
 -- Insert new line above and below and exit
-vim.keymap.set("n", "<leader>o", "o<Esc>", { silent = true, desc = "Insert new line below and exit" })
+-- vim.keymap.set("n", "<leader>o", "o<Esc>", { silent = true, desc = "Insert new line below and exit" })
 vim.keymap.set("n", "<leader>O", "O<Esc>", { silent = true, desc = "Insert new line above and exit" })
 vim.keymap.set("i", "<C-p>", "<Esc>:Telescope oldfiles<CR>")
 
