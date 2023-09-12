@@ -1,11 +1,12 @@
 -- AUTOCMDS for various things
 -- Correct syntax highlighting inside netrw
-vim.cmd([[
-  autocmd BufEnter * if &ft == 'netrw' | setlocal syntax=netrw | endif
-]])
-
--- Hide line numbers on Lazy buffers
-vim.cmd("autocmd! filetype lazy setlocal nonumber norelativenumber")
+vim.api.nvim_create_autocmd("BufEnter", {
+  callback = function()
+    if vim.bo.filetype == "netrw" then
+      vim.cmd([[setlocal syntax=netrw]])
+    end
+  end
+})
 
 -- Fix for :Telescope oldfiles leaving me in insert mode
 vim.api.nvim_create_autocmd("WinLeave", {
@@ -17,10 +18,14 @@ vim.api.nvim_create_autocmd("WinLeave", {
 })
 
 -- Highlight yanking action for a second
-vim.api.nvim_command("au TextYankPost * silent! lua vim.highlight.on_yank {timeout = 50}")
+vim.api.nvim_create_autocmd("TextYankPost",{
+  callback = function()
+    vim.highlight.on_yank {timeout = 60}
+  end
+})
 
 -- Create Registry cleaner
-function ClearReg()
+local function ClearReg()
   print("Clearing registers")
   vim.cmd([[
     let regs=split('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/-"', '\zs')
@@ -31,7 +36,5 @@ function ClearReg()
 end
 
 -- Clearing the registers?
-vim.api.nvim_create_user_command("ClearReg", function()
-  ClearReg()
-end, {})
+vim.api.nvim_create_user_command("ClearReg", function() ClearReg() end, {})
 vim.keymap.set("n", "<leader>cr", "<cmd>ClearReg<CR>", { desc = "Clear registers" })

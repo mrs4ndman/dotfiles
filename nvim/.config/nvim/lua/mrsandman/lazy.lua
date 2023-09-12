@@ -17,10 +17,11 @@ require("lazy").setup({
     { import = "plugins.completion" },
     { import = "plugins.misc" },
   },
-  defaults = { lazy = true },
+  defaults = { lazy = true, version = false },
   install = { colorscheme = { "tokyonight", "habamax" } },
   checker = { enabled = true, notify = false },
   change_detection = { notify = false },
+  ui = { size = { width = 0.7, height = 0.7 }, wrap = true, border = "single" },
   performance = {
     cache = { enabled = true },
     rtp = {

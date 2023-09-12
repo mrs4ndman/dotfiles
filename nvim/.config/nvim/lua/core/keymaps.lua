@@ -81,7 +81,7 @@ vim.keymap.set("n", "<leader>ww", "<cmd>write<CR>", { desc = "Write all" })
 vim.keymap.set("n", "<leader>wq", "<cmd>wqa<CR>", { desc = "Bye :D" })
 
 -- Substitutor for current word
-vim.keymap.set("n", "<C-s>", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+vim.keymap.set("n", "<C-s>", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gIc<Left><Left><Left><Left>]])
 
 -- indent machine
 vim.keymap.set("n", "<leader>ip", "=ap", { desc = "Indent a paragraph", silent = true })

@@ -290,24 +290,15 @@ ins_right({
   -- filesize component
   "filesize",
   cond = conditions.buffer_not_empty,
-  color = { fg = colors.cyan },
+  color = { fg = colors.ultraviolet },
   padding = { left = 1, right = 0 },
 })
 
 ins_right({
   -- same as location but in % form
   "progress",
-  color = { fg = colors.ultraviolet, gui = "bold" },
+  color = { fg = "violet", gui = "bold" },
   padding = { left = 1, right = 0 },
-})
-
-
-ins_right({
-  function()
-    return "->"
-  end,
-  color = { fg = colors.lime },
-  padding = { left = 1, right = 0 }
 })
 
 ins_right({
@@ -353,6 +344,14 @@ ins_right({
   cond = conditions.hide_in_width,
 })
 
+-- ins_right({
+--   "fileformat",
+--   fmt = string.upper,
+--   icons_enabled = true,
+--   color = { fg = colors.white, gui = "bold" },
+--   padding = { left = 1, right = 2 },
+-- })
+
 ins_right({
   function()
     return "▊"
@@ -361,13 +360,5 @@ ins_right({
   padding = { left = 0 },
 })
 
--- ins_right({
---   "fileformat",
---   fmt = string.upper,
---   icons_enabled = true,
---   color = { fg = colors.white, gui = "bold" },
---   padding = { left = 1, right = 2 },
--- })
---
 -- Now don't forget to initialize lualine
 lualine.setup(config)

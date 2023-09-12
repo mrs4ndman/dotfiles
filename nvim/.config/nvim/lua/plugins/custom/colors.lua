@@ -333,6 +333,12 @@ return {
     end,
   },
   {
+    "dustypomerleau/tol.nvim",
+    enabled = Is_Enabled("tol.nvim"),
+    config = function()
+    end,
+  },
+  {
     "Yazeed1s/oh-lucy.nvim",
     enabled = Is_Enabled("oh-lucy.nvim"),
     init = function()

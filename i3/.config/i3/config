@@ -66,7 +66,7 @@ bindsym $mod+Shift+s exec spotify
 bindsym $mod+Shift+d exec discord
 
 # Start obsidian, cava, firefox, flameshot
-bindsym $mod+Shift+m exec cava
+bindsym $mod+Shift+m exec kitty cava
 bindsym $mod+b exec firefox
 bindsym $mod+n exec flatpak run md.obsidian.Obsidian 
 bindcode 107 exec flameshot

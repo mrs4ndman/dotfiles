@@ -65,7 +65,7 @@ local opts = {
     "onenord",
     "nightfox",
     "nordfox",
-    "neon",
+    "tol",
     "tokyonight-moon",
   }),
   sorter = sorters.get_generic_fuzzy_sorter({}),
