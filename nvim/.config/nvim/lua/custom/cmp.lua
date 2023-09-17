@@ -167,7 +167,12 @@ return function(_, opts)
     }
 
     vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
-
+    local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+    local cmp = require('cmp')
+    cmp.event:on(
+      'confirm_done',
+      cmp_autopairs.on_confirm_done()
+    )
     -- CMDLINE SETUP
     cmp.setup.cmdline("/", {
       mapping = cmp.mapping.preset.cmdline(),
@@ -175,26 +180,29 @@ return function(_, opts)
         { name = "buffer" },
       },
     })
-    cmp.setup.cmdline(":", {
-      mapping = cmp.mapping.preset.cmdline(),
-      enabled = function()
-        local disabled = {
-          IncRename = true,
-        }
-        local cmd = vim.fn.getcmdline():match("%S+")
-        return not disabled[cmd] or cmp.close()
-      end,
-      sources = cmp.config.sources({
-        { name = "path" },
-      }, {
-        {
-          name = "cmdline",
-          option = {
-            ignore_cmds = { "Man", "!" },
+    cmp.setup.cmdline(
+      ":",
+      {
+        mapping = cmp.mapping.preset.cmdline(),
+        enabled = function()
+          local disabled = {
+            IncRename = true,
+          }
+          local cmd = vim.fn.getcmdline():match("%S+")
+          return not disabled[cmd] or cmp.close()
+        end,
+        sources = cmp.config.sources({
+          { name = "path" },
+        }, {
+          {
+            name = "cmdline",
+            option = {
+              ignore_cmds = { "Man", "!" },
+            },
           },
-        },
-      }),
-    })
+        }),
+      } -- If you want insert `(` after select function or method item
+    )
 
     -- PASSING VALUES TO THE ORIGINAL OPTS TABLE
     opts.formatting = formatting

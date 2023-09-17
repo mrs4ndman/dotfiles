@@ -7,6 +7,7 @@ local plugin = "rainbow-delimiters.nvim"
 
 return {
   "HiPhish/" .. plugin,
+  enabled = Is_Enabled(plugin),
   event = "BufReadPost",
   config = function()
     local rainbow_delimiters = require("rainbow-delimiters")

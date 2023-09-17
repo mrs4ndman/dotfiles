@@ -110,7 +110,7 @@ Customize = {
     ["popup.nvim"] = { enabled = true },
     ["presence.nvim"] = { enabled = false },
     ["put_at_end.nvim"] = { enabled = true },
-    ["rainbow-delimiters.nvim"] = { enabled = true, defaults = false },
+    ["rainbow-delimiters.nvim"] = { enabled = false, defaults = false },
     ["rasmus.nvim"] = { enabled = true },
     ["refactoring.nvim"] = { enabled = true },
     ["rust-tools.nvim"] = { enabled = true },

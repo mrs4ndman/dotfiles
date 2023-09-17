@@ -22,7 +22,7 @@ exec --no-startup-id dex --autostart --environment i3
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -i /home/mrsandman/Pictures/Backgrounds/Dark_Ocean.jpg --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -31,6 +31,7 @@ exec --no-startup-id blueman-applet
 
 # Wallpaper manager (feh)
 exec --no-startup-id feh --bg-fill --recursive --randomize /home/mrsandman/Pictures/Backgrounds/*
+bindsym $mod+Shift+w exec feh --bg-fill /home/mrsandman/Pictures/Backgrounds/blacklotus-pop.png
 exec --no-startup-id compton
 
 # Use pactl and pulsemixer to adjust volume in PulseAudio.
@@ -57,9 +58,16 @@ bindsym XF86KbdBrightnessDown   exec brightnessctl --device='asus::kbd_backlight
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+# Power stages keybinds
+bindsym $mod+F2 exec notify-send "Power profile" "Switching to battery mode" && system76-power profile battery
+bindsym $mod+F3 exec notify-send "Power profile" "Switching to balanced mode" && system76-power profile balanced
+bindsym $mod+F4 exec notify-send "Power profile" "It's turbo time" && system76-power profile performance
+
+
 # start tmux / simple terminal
 bindsym $mod+t exec kitty tmux
 bindsym $mod+Shift+t exec kitty
+bindsym $mod+F1 exec kitty tmux attach
 
 # Start discord and spotify
 bindsym $mod+Shift+s exec spotify
@@ -70,6 +78,10 @@ bindsym $mod+Shift+m exec kitty cava
 bindsym $mod+b exec firefox
 bindsym $mod+n exec flatpak run md.obsidian.Obsidian 
 bindcode 107 exec flameshot
+
+# Start file explorers
+bindsym $mod+r exec kitty tmux new-session -sRanger ranger || tmux attach-session -t Ranger
+bindsym $mod+f exec nautilus
 
 # Screenkey stuff
 bindsym $mod+Ctrl+s exec screenkey -s large --scr 2 -p bottom --font-size large --geometry 1000x600+1520+820
@@ -86,8 +98,9 @@ bindsym $mod+d exec --no-startup-id dmenu_run
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 bindsym $mod+a exec --no-startup-id i3-dmenu-desktop
 
-# Screenlock
+# Screenlock and suspend
 bindsym $mod+Escape exec i3lock
+bindsym $mod+Shift+Escape exec systemctl suspend
 
 
 # change focus
@@ -189,10 +202,10 @@ mode "resize" {
         bindsym Up resize shrink height 10 px or 10 ppt
         bindsym Right resize grow width 10 px or 10 ppt
 
-        # back to normal: Enter or Escape or $mod+r
+        # back to normal: Enter or Escape or $mod+Enter
         bindsym Return mode "default"
         bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
+        bindsym $mod+Return mode "default"
 }
 
 bindsym $mod+Return mode "resize"
@@ -219,3 +232,4 @@ bar {
 for_window [class="screenkey" ] floating enable
 gaps outer 3
 gaps inner 3
+for_window [class="kitty"] border pixel 1

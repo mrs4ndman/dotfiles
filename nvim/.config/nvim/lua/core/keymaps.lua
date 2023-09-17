@@ -113,7 +113,7 @@ end
 
 -- smart blackhole deletion
 vim.keymap.set("n", "dd", function()
----@diagnostic disable-next-line: param-type-mismatch
+  ---@diagnostic disable-next-line: param-type-mismatch
   if vim.fn.getline(".") == "" then
     return '"_dd'
   end
@@ -208,6 +208,7 @@ vim.keymap.set("n", "<leader>xth", "<cmd>TOhtml<CR>", { desc = "Export to HTML" 
 -- How to escape Vim Insert mode: keybind edition:
 vim.keymap.set("i", "<C-c>", "<Esc>", { silent = true })
 
+vim.keymap.set("i", "<C-H>", "<C-o>diw")
 
 -- VISUAL mode Keybinds
 
@@ -223,4 +224,3 @@ vim.keymap.set("v", ">", ">gv", { silent = true })
 -- TERMINAL mode keybinds
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 vim.keymap.set("n", "<leader>te>", ":bd!", { desc = "Exit terminal" })
-
