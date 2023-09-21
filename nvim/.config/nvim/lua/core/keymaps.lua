@@ -202,6 +202,12 @@ vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>", { de
 -- Export current state to HTML:
 vim.keymap.set("n", "<leader>xth", "<cmd>TOhtml<CR>", { desc = "Export to HTML" })
 
+-- Normal mode ALT keybinds
+-- Sidescrolling: Go-Go-Gadget :D
+vim.keymap.set("", "<ScrollWheelLeft>", "<Nop>")
+vim.keymap.set("", "<ScrollWheelRight>", "<Nop>")
+vim.keymap.set("n", "<M-H>", "2<ScrollWheelLeft>")
+vim.keymap.set("n", "<M-L>", "2<ScrollWheelRight>")
 
 -- INSERT mode Keybinds
 

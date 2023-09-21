@@ -139,8 +139,8 @@ return function(_, opts)
 
     local sources = {
       { name = "nvim_lsp" },
-      { name = "cmp_tabnine" },
-      { name = "codeium", keyword_length = 4 },
+      -- { name = "cmp_tabnine" },
+      { name = "codeium"--[[ , keyword_length = 4  ]]},
       {
         name = "buffer",
         options = {

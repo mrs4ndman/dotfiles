@@ -45,6 +45,11 @@ local on_attach = function(client, bufnr)
   vim.keymap.set({ "n", "v" }, "<leader>vrn", vim.lsp.buf.rename, { noremap = true, desc = "[LSP] Rename element under cursor", buffer = bufnr })
   vim.keymap.set("i", "<C-q>", vim.lsp.buf.signature_help, { noremap = true, desc = "[LSP] Signature help", buffer = bufnr })
 
+  if vim.lsp.inlay_hint then
+    vim.keymap.set("n", "<leader>ih", function() vim.lsp.inlay_hint(0, nil) end,
+      { desc = "Toggle Inlay hints" })
+  end
+
   -- INFO: For Typescript
   if client.name == "tsserver" then
     vim.keymap.set("n", "<leader>fR", "<cmd>TypescriptRenameFile<CR>", { desc = "[Typescript] Rename file" })
@@ -106,6 +111,7 @@ require("lspconfig").lua_ls.setup({
           vim.api.nvim_get_runtime_file("", true),
         },
       },
+      hint = { enable = true },
     },
   },
 })
@@ -131,8 +137,33 @@ lspconfig.clangd.setup({
 
 -- Web Dev swag
 lspconfig.html.setup({ on_attach = on_attach, capabilities = M.capabilities })
-lspconfig.eslint.setup({})
-lspconfig.tsserver.setup({ on_attach = on_attach, capabilities = M.capabilities })
+-- lspconfig.eslint.setup({})
+lspconfig.tsserver.setup({
+  on_attach = on_attach,
+  capabilities = M.capabilities,
+  -- javascript = {
+  --   inlayHints = {
+  --     includeInlayEnumMemberValueHints = true,
+  --     includeInlayFunctionLikeReturnTypeHints = true,
+  --     includeInlayFunctionParameterTypeHints = true,
+  --     includeInlayParameterNameHints = 'all',
+  --     includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+  --     includeInlayPropertyDeclarationTypeHints = true,
+  --     includeInlayVariableTypeHints = true,
+  --   },
+  -- },
+  -- typescript = {
+  --   inlayHints = {
+  --     includeInlayEnumMemberValueHints = true,
+  --     includeInlayFunctionLikeReturnTypeHints = true,
+  --     includeInlayFunctionParameterTypeHints = true,
+  --     includeInlayParameterNameHints = 'all',
+  --     includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+  --     includeInlayPropertyDeclarationTypeHints = true,
+  --     includeInlayVariableTypeHints = true,
+  --   },
+  -- },
+})
 lspconfig.cssls.setup({ on_attach = on_attach, capabilities = M.capabilities })
 
 -- Pee-H-Pee

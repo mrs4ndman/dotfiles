@@ -59,6 +59,7 @@ return {
         "javascript",
         "json",
         "lua",
+        "luadoc",
         "markdown",
         "markdown_inline",
         "php",

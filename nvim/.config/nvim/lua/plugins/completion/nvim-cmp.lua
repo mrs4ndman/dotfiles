@@ -24,7 +24,7 @@ return {
     {
       "jcdickinson/codeium.nvim",
       dependencies = "nvim-lua/plenary.nvim",
-      commit = "b1ff0d6c993e3d87a4362d2ccd6c660f7444599f",
+      -- commit = "b1ff0d6c993e3d87a4362d2ccd6c660f7444599f",
       config = true,
     },
     {

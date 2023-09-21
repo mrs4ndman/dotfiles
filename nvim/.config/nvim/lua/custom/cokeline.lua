@@ -123,8 +123,8 @@ require("cokeline").setup({
   show_if_buffers_are_at_least = 5,
   buffers = {
     focus_on_delete = "next",
-    filter_valid = function(buffer) return buffer.filetype ~= "netrw" end,
-    filter_visible = function(buffer) return buffer.filename ~= "netrw" end,
+    filter_valid = function(buffer) return buffer.filetype ~= "netrw" or "oil" end,
+    filter_visible = function(buffer) return buffer.filename ~= "netrw" or "oil" end,
     new_buffers_position = harpoon_sorter()
   },
 
