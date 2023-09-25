@@ -52,6 +52,7 @@ Customize = {
     ["mason-nvim-dap.nvim"] = { enabled = true, defaults = false },
     ["mason-tool-installer.nvim"] = { enabled = true },
     ["material.nvim"] = { enabled = true, defaults = false },
+    ["md-pdf.nvim"] = { enabled = true },
     ["midnight.nvim"] = { enabled = true },
     ["mini.ai"] = { enabled = true, defaults = false },
     ["mini.indentscope"] = { enabled = true, defaults = false },

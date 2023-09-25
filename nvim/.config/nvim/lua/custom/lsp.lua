@@ -28,7 +28,7 @@ require("luasnip.loaders.from_vscode").lazy_load()
 
 -- First, Native LSP attach
 local on_attach = function(client, bufnr)
-  vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+  vim.api.nvim_set_option_value("omnifunc", "v:lua.vim.lsp.omnifunc", bufnr)
 
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, { noremap = true, desc = "[LSP] Go to Definition", buffer = bufnr })
   vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { noremap = true, desc = "[LSP] Go to Declaration", buffer = bufnr })
@@ -43,7 +43,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set({ "n", "v" }, "<leader>vca", vim.lsp.buf.code_action, { noremap = true, desc = "[LSP] View code actions", buffer = bufnr })
   vim.keymap.set("n", "<leader>vrr", vim.lsp.buf.references, { noremap = true, desc = "[LSP} Show references", buffer = bufnr })
   vim.keymap.set({ "n", "v" }, "<leader>vrn", vim.lsp.buf.rename, { noremap = true, desc = "[LSP] Rename element under cursor", buffer = bufnr })
-  vim.keymap.set("i", "<C-q>", vim.lsp.buf.signature_help, { noremap = true, desc = "[LSP] Signature help", buffer = bufnr })
+  vim.keymap.set("n", "<C-i>", vim.lsp.buf.signature_help, { noremap = true, desc = "[LSP] Signature help", buffer = bufnr })
 
   if vim.lsp.inlay_hint then
     vim.keymap.set("n", "<leader>ih", function() vim.lsp.inlay_hint(0, nil) end,
@@ -166,6 +166,17 @@ lspconfig.tsserver.setup({
 })
 lspconfig.cssls.setup({ on_attach = on_attach, capabilities = M.capabilities })
 
+lspconfig.astro.setup({
+  on_attach = on_attach,
+  capabilities = M.capabilities,
+  init_options = {
+    typescript = {
+      tsdk = 'node_modules/typescript/lib'
+    }
+  },
+})
+
+
 -- Pee-H-Pee
 lspconfig.intelephense.setup({
   on_attach = on_attach,
@@ -191,19 +202,23 @@ lspconfig.marksman.setup({
   capabilities = M.capabilities,
 })
 
+-- Good ole Vimscript
 lspconfig.vimls.setup({
   on_attach = on_attach,
   capabilities = M.capabilities,
 })
 
-lspconfig.astro.setup({})
+lspconfig.yamlls.setup({
+  on_attach = on_attach,
+  capabilities = M.capabilities,
+})
+
 lspconfig.pylsp.setup({})
 lspconfig.ocamlls.setup({})
 lspconfig.neocmake.setup({})
 -- lspconfig.emmet_ls.setup({})
 lspconfig.gopls.setup({})
 lspconfig.ansiblels.setup({})
-lspconfig.yamlls.setup({})
 lspconfig.ruby_ls.setup({})
 -- lspconfig.jdtls.setup {}
 

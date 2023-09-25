@@ -95,20 +95,24 @@ vim.keymap.set("x", "<leader>p", '"_dP', { desc = "Better paste :)" })
 vim.keymap.set({ "n", "v" }, "<leader>dd", [["_d]], { desc = "Better delete" })
 
 -- Enable custom mappings for 1-9 yank-paste-delete registers
-for i = 1, 9 do
+local alphabet = "abcdefghijklmnopqrstuvwxyz"
+
+for i = 1, #alphabet do
+  local letter = alphabet:sub(i, i)
+
   vim.keymap.set(
     { "n", "v" },
-    ("<leader>y%s"):format(i),
-    ([["%sy]]):format(i),
-    { desc = "Yank into this numbered register" }
+    ("<leader>y%s"):format(letter),
+    ([["%sy]]):format(letter),
+    { desc = "Yank into this letter's register" }
   )
   vim.keymap.set(
     { "n", "v" },
-    ("<leader>p%s"):format(i),
-    ([["%sp]]):format(i),
-    { desc = "Paste from this numbered register" }
+    ("<leader>p%s"):format(letter),
+    ([["%sp]]):format(letter),
+    { desc = "Paste from this letter's register" }
   )
-  vim.keymap.set("v", ("<leader>d%s"):format(i), ([["%sd]]):format(i), { desc = "Delete into this numbered register" })
+  vim.keymap.set("v", ("<leader>d%s"):format(letter), ([["%sd]]):format(i), { desc = "Delete into this letter's register" })
 end
 
 -- smart blackhole deletion
@@ -214,7 +218,6 @@ vim.keymap.set("n", "<M-L>", "2<ScrollWheelRight>")
 -- How to escape Vim Insert mode: keybind edition:
 vim.keymap.set("i", "<C-c>", "<Esc>", { silent = true })
 
-vim.keymap.set("i", "<C-H>", "<C-o>diw")
 
 -- VISUAL mode Keybinds
 

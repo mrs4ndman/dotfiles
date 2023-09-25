@@ -229,7 +229,14 @@ bar {
         # mode hide
         position top
 }
-for_window [class="screenkey" ] floating enable
+
+# Wait, i3 has native gaps now?
 gaps outer 3
 gaps inner 3
+
+# Window-specific stuff
+for_window [class="screenkey" ] floating enable
 for_window [class="kitty"] border pixel 1
+for_window [class="Psensor"] floating enable, move to workspace $ws5
+for_window [class="discord"] move to workspace $ws4
+for_window [title="Spotify"] move to workspace $ws4

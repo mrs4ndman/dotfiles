@@ -24,6 +24,7 @@ return {
             require("formatter.filetypes.html").prettierd,
           },
           javascript = { vim.lsp.buf.format({ async = true }) },
+          astro = require("formatter.defaults.prettierd"),
         },
       })
     end,
