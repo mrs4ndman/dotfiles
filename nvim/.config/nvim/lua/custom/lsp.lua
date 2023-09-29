@@ -90,7 +90,6 @@ local on_attach = function(client, bufnr)
 
   -- Plugin attachments
   navbuddy.attach(client, bufnr)
-  require("virtualtypes").on_attach()
 end
 
 -- LSP Server setups

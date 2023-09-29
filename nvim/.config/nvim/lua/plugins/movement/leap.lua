@@ -11,7 +11,7 @@ return {
   event = { "BufReadPost", "BufNewFile" },
   -- lazy = false,
   dependencies = {
-    "ggandor/leap-ast.nvim",
+    -- "ggandor/leap-ast.nvim",
     {
       "ggandor/leap-spooky.nvim",
       opts = {
@@ -67,14 +67,14 @@ return {
       end,
       desc = "Leap on all windows / buffers",
     },
-    {
-      "<leader>lt",
-      mode = { "n", "x", "o" },
-      function()
-        local current_window = vim.fn.win_getid()
-        require("leap-ast").leap({ target_windows = { current_window } })
-      end,
-      desc = "Leap Treesitter",
-    },
+    -- {
+    --   "<leader>lt",
+    --   mode = { "n", "x", "o" },
+    --   function()
+    --     local current_window = vim.fn.win_getid()
+    --     require("leap-ast").leap({ target_windows = { current_window } })
+    --   end,
+    --   desc = "Leap Treesitter",
+    -- },
   },
 }

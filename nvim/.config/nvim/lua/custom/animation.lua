@@ -1,4 +1,4 @@
--- WARN: !!DISABLED: Used with disabled/animation.lua!!
+-- WARN: !DISABLED: Used with disabled/animation.lua!!
 local redraw_buffer = function()
   local Animation = require("animation")
   local fps = 45
@@ -9,8 +9,8 @@ local redraw_buffer = function()
 
   -- Create a new temporary buffer and set its filetype
   local temp_buffer = vim.api.nvim_create_buf(false, true)
-  local original_filetype = vim.api.nvim_buf_get_option(current_buffer, "filetype")
-  vim.api.nvim_buf_set_option(temp_buffer, "filetype", original_filetype)
+  local original_filetype = vim.api.nvim_get_option_value("filetype", { current_buffer })
+  vim.api.nvim_set_option_value("filetype", original_filetype, { temp_buffer })
 
   -- Copy the contents of the original buffer to the temporary buffer
   vim.api.nvim_buf_set_lines(temp_buffer, 0, -1, true, lines)

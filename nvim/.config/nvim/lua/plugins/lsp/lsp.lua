@@ -10,7 +10,7 @@ return {
   enabled = Is_Enabled(plugin),
   event = { "BufRead", "BufNewFile", "BufAdd" },
   dependencies = {
-    "jubnzv/virtual-types.nvim",
+    -- "jubnzv/virtual-types.nvim",
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     {
       "SmiteshP/nvim-navbuddy",

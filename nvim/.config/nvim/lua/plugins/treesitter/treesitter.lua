@@ -35,14 +35,14 @@ return {
         vim.keymap.set("o", "au", ':<c-u>lua require"treesitter-unit".select(true)<CR>', { noremap = true, desc = "Around TS unit" })
       end,
     },
-    {
-      "nvim-treesitter/playground",
-      keys = {
-        { "<leader>ttp", "<cmd>TSPlaygroundToggle<CR>", desc = "TS Playground Toggle" },
-      },
-      enabled = Is_Enabled("playground"),
-      cmd = "TSPlaygroundToggle",
-    },
+    -- {
+    --   "nvim-treesitter/playground",
+    --   keys = {
+    --     { "<leader>ttp", "<cmd>TSPlaygroundToggle<CR>", desc = "TS Playground Toggle" },
+    --   },
+    --   enabled = Is_Enabled("playground"),
+    --   cmd = "TSPlaygroundToggle",
+    -- },
   },
   config = function()
     require("nvim-treesitter.configs").setup({
@@ -64,6 +64,7 @@ return {
         "markdown_inline",
         "php",
         "rust",
+        "ssh_config",
         "tsx",
         "typescript",
         "toml",

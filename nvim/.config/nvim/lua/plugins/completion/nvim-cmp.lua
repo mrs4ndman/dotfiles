@@ -11,7 +11,7 @@ return {
     -- Completion sources
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-cmdline",
-    "amarakon/nvim-cmp-buffer-lines",
+    -- "amarakon/nvim-cmp-buffer-lines",
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-emoji",
     "hrsh7th/cmp-nvim-lsp-signature-help",

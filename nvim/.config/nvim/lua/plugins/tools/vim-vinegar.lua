@@ -1,7 +1,7 @@
 local plugin = "vim-vinegar"
 
 return {
-  "tpope/", -- Native Ex gets extensions
+  "tpope/vim-vinegar", -- Native Ex gets extensions
   enabled = Is_Enabled(plugin),
   event = "VimEnter",
 }

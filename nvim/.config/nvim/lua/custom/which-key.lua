@@ -23,7 +23,7 @@ wk.register({
   ["<leader>s"] = { name = "[Sessions] [Timer] [ISwap]" },
   ["<leader>t"] = { name = "[Telescope] [TS] [Harpoon] [To-Do]" },
   ["<leader>te"] = { name = "[Built-in] Terminal" },
-  ["<leader>tt"] = { name = "[TS] Playground" },
+  -- ["<leader>tt"] = { name = "[TS] Playground" },
   ["<leader>tc"] = { name = "[To-Do] [TS Context]" },
   ["<leader>tl"] = { name = "[Telescope] LSP Calls" },
   ["<leader>v"] = { name = "[Telescope] [Diags] [LSP]" },

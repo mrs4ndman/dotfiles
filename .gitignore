@@ -1,2 +1,4 @@
-nvim/.config/nvim/lazy-lock.json
+nvim/.config/nvim/plugin-list.txt
 bashrc/.bash-start
+zshrc/
+fish/

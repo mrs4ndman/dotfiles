@@ -22,7 +22,7 @@ exec --no-startup-id dex --autostart --environment i3
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -i /home/mrsandman/Pictures/Backgrounds/blacklotus-pop.png --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -51,17 +51,17 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86MonBrightnessUp exec --no-startup-id light -A 1
 bindsym XF86MonBrightnessDown exec --no-startup-id light -U 1
 # Find a better way to set keyboard brightness
-bindsym XF86KbdBrightnessUp     exec brightnessctl --device='asus::kbd_backlight' set 1+
-bindsym XF86KbdBrightnessDown   exec brightnessctl --device='asus::kbd_backlight' set 1-
+bindsym XF86KbdBrightnessUp     exec --no-startup-id brightnessctl --device='asus::kbd_backlight' set 1+
+bindsym XF86KbdBrightnessDown   exec --no-startup-id brightnessctl --device='asus::kbd_backlight' set 1-
 
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # Power stages keybinds
-bindsym $mod+F2 exec notify-send "Power profile" "Switching to battery mode" && system76-power profile battery
-bindsym $mod+F3 exec notify-send "Power profile" "Switching to balanced mode" && system76-power profile balanced
-bindsym $mod+F4 exec notify-send "Power profile" "It's turbo time" && system76-power profile performance
+bindsym $mod+F2 exec --no-startup-id notify-send "Power profile" "Switching to battery mode" && system76-power profile battery
+bindsym $mod+F3 exec --no-startup-id notify-send "Power profile" "Switching to balanced mode" && system76-power profile balanced
+bindsym $mod+F4 exec --no-startup-id notify-send "Power profile" "It's turbo time" && system76-power profile performance
 
 
 # start tmux / simple terminal
