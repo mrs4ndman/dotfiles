@@ -212,6 +212,10 @@ lspconfig.yamlls.setup({
   capabilities = M.capabilities,
 })
 
+lspconfig.jsonls.setup({
+  on_attach = on_attach,
+  capabilities = M.capabilities
+})
 lspconfig.pylsp.setup({})
 lspconfig.ocamlls.setup({})
 lspconfig.neocmake.setup({})

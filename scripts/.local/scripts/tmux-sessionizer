@@ -3,7 +3,7 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(find ~/Gitchub ~/dotfiles ~/learning/**/ ~/hs/**/ ~/notes/**/ -mindepth 1 -maxdepth 1 -type d ! -name ".*" | $HOME/.fzf/bin/fzf)
+    selected=$(find ~/Gitchub ~/dotfiles ~/learning/**/ ~/hs/**/ ~/notes/**/ -mindepth 1 -maxdepth 1 -type d ! -name ".*" | $HOME/.fzf/bin/fzf --preview='onefetch --include-hidden {}')
 fi
 if [[ -z $selected ]]; then
     exit 0

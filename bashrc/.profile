@@ -29,11 +29,3 @@ fi
 
 # opam configuration
 test -r /home/mrsandman/.opam/opam-init/init.sh && . /home/mrsandman/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
-#
-# Nix
-if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
-  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
-fi
-# End Nix
-
-if [ -e /home/mrsandman/.nix-profile/etc/profile.d/nix.sh ]; then . /home/mrsandman/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer

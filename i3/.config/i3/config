@@ -34,6 +34,9 @@ exec --no-startup-id feh --bg-fill --recursive --randomize /home/mrsandman/Pictu
 bindsym $mod+Shift+w exec feh --bg-fill /home/mrsandman/Pictures/Backgrounds/blacklotus-pop.png
 exec --no-startup-id compton
 
+# TEMP
+exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
+ 
 # Use pactl and pulsemixer to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pulsemixer --change-volume +5 --max-volume 100 && $refresh_i3status
