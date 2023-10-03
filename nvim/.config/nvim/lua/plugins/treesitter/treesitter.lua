@@ -48,6 +48,7 @@ return {
     require("nvim-treesitter.configs").setup({
       ensure_installed = {
         "astro",
+        "bash",
         "c",
         "cpp",
         "css",
@@ -63,6 +64,7 @@ return {
         "markdown",
         "markdown_inline",
         "php",
+        "regex",
         "rust",
         "ssh_config",
         "tsx",

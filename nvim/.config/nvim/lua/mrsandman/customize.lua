@@ -43,7 +43,7 @@ Customize = {
     ["hypersonic.nvim"] = { enabled = false, defaults = false },
     ["inc-rename.nvim"] = { enabled = true, defaults = false },
     ["iswap.nvim"] = { enabled = true },
-    ["last-color.nvim"] = { enabled = true, defaults = true },
+    ["last-color.nvim"] = { enabled = true },
     ["leap.nvim"] = { enabled = true, defaults = false },
     ["lualine.nvim"] = { enabled = true, defaults = false }, -- Migrate to a standard config format
     ["nvim-markdown-preview"] = { enabled = true, defaults = false },
