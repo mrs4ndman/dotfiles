@@ -8,6 +8,7 @@ return function(_, opts)
     -- Local variables
     local cmp = require("cmp")
     local luasnip = require("luasnip")
+    require("luasnip.loaders.from_snipmate").load({ paths = "~/dotfiles/nvim/.config/nvim/snippets/" })
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
@@ -140,7 +141,7 @@ return function(_, opts)
     local sources = {
       { name = "nvim_lsp" },
       -- { name = "cmp_tabnine" },
-      { name = "codeium"--[[ , keyword_length = 4  ]]},
+      { name = "codeium" --[[ , keyword_length = 4  ]] },
       {
         name = "buffer",
         options = {
@@ -156,8 +157,25 @@ return function(_, opts)
       { name = "emoji" },
       { name = "crates" }, -- crates.nvim plugin
       { name = "nvim_lua" },
+      -- LaTeX stuff
+      {
+        name = "vimtex",
+        option = {
+          info_in_menu = 1,
+          info_in_window = 1,
+          match_against_description = 1,
+          symbols_in_menu = 1,
+        }
+      },
+      {
+        name = "latex_symbols",
+        filetype = { "tex", "latex" },
+        option = {
+          strategy = 0,
+          cache = true,
+        }
+      }
       -- { name = "buffer-lines" },
-      -- { name = "treesitter" }, -- treesitter integration
     }
 
     local experimental = {

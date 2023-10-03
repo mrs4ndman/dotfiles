@@ -18,7 +18,12 @@ return {
     "hrsh7th/cmp-nvim-lua",
     "hrsh7th/cmp-nvim-lsp-document-symbol",
     "hrsh7th/cmp-nvim-lsp",
-    "ray-x/cmp-treesitter",
+    -- {
+    --   "micangl/cmp-vimtex",
+    --   ft = "tex",
+      -- BUG: Report omnifunc autotrigger to the repo 
+    -- },
+    "kdheepak/cmp-latex-symbols",
     -- Icons
     "onsails/lspkind.nvim",
     {
@@ -49,7 +54,7 @@ return {
         require("tailwindcss-colorizer-cmp").setup({
           color_square_width = 2,
         })
-      end
+      end,
     },
     "L3MON4D3/LuaSnip",
     "buschco/nvim-cmp-ts-tag-close",

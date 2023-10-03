@@ -132,12 +132,26 @@ silent nmap <leader>e :Ex<CR>
 
 " Quick exit
 silent nmap <leader><Esc> :qa<CR>
+silent nmap <leader>ww :w<CR>
+silent nmap <leader>wq :wqa<CR>
 
 " Buffer management
 silent nmap <leader>bn :bnext<CR>
 silent nmap <leader>bp :bprev<CR>
+silent nmap <Tab> :bnext<CR>
+silent nmap <S-Tab> :bprev<CR>
 silent nmap <leader>bc :bd<CR>
 silent nmap <leader>bd :bd!<CR>
+
+" Window splits?
+silent nmap <leader>q :close<CR>
+silent nmap <leader>wv :vsplit<CR>
+silent nmap <leader>wh :split<CR>
+
+silent nmap <A-Left> :vertical resize -2<CR>
+silent nmap <A-Right> :vertical resize +2<CR>
+silent nmap <A-Up> :resize -2<CR>
+silent nmap <A-Down> :resize +2<CR>
 
 " Set files to executable inside Neovim
 silent map <leader>cx :!chmod +x %<CR>
@@ -181,6 +195,9 @@ silent nmap <C-u> <C-u>zz
 
 " Invoke tmux-sessionizer from within neovim
 silent nmap <C-f> :silent !tmux neww tmux-sessionizer<CR>
+
+silent nmap <M-H>, 2<ScrollWheelLeft>
+silent nmap <M-L>, 2<ScrollWheelRight>
 
 " Moving around text on visual
 vnoremap <silent> <expr> J ":m '>+1<CR>gv-gv"

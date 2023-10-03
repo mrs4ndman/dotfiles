@@ -213,6 +213,9 @@ vim.keymap.set("", "<ScrollWheelRight>", "<Nop>")
 vim.keymap.set("n", "<M-H>", "2<ScrollWheelLeft>")
 vim.keymap.set("n", "<M-L>", "2<ScrollWheelRight>")
 
+-- No plz
+vim.keymap.set("n", "<C-z>", "<Nop>")
+
 -- INSERT mode Keybinds
 
 -- How to escape Vim Insert mode: keybind edition:

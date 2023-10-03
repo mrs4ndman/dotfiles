@@ -28,8 +28,6 @@ require("luasnip.loaders.from_vscode").lazy_load()
 
 -- First, Native LSP attach
 local on_attach = function(client, bufnr)
-  vim.api.nvim_set_option_value("omnifunc", "v:lua.vim.lsp.omnifunc", bufnr)
-
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, { noremap = true, desc = "[LSP] Go to Definition", buffer = bufnr })
   vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { noremap = true, desc = "[LSP] Go to Declaration", buffer = bufnr })
   vim.keymap.set("n", "gT", vim.lsp.buf.type_definition, { noremap = true, desc = "[LSP] Go to Type definition", buffer = bufnr })
