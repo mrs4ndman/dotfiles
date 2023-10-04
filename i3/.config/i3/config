@@ -45,10 +45,10 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 # Music management be like
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioStop exec playerctl stop
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
+bindsym XF86AudioStop exec --no-startup-id playerctl stop
+bindsym XF86AudioNext exec --no-startup-id playerctl next
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
 # Use light to use screen and keyboard brightness control
 bindsym XF86MonBrightnessUp exec --no-startup-id light -A 1
@@ -102,7 +102,7 @@ bindsym $mod+d exec --no-startup-id dmenu_run
 bindsym $mod+a exec --no-startup-id i3-dmenu-desktop
 
 # Screenlock and suspend
-bindsym $mod+Escape exec i3lock
+bindsym $mod+Escape exec i3lock -i /home/mrsandman/Pictures/Backgrounds/blacklotus-pop.png --nofork
 bindsym $mod+Shift+Escape exec systemctl suspend
 
 

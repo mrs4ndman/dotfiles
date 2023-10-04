@@ -24,6 +24,8 @@ return {
       -- BUG: Report omnifunc autotrigger to the repo 
     -- },
     "kdheepak/cmp-latex-symbols",
+    "hrsh7th/cmp-omni",
+    "f3fora/cmp-spell",
     -- Icons
     "onsails/lspkind.nvim",
     {

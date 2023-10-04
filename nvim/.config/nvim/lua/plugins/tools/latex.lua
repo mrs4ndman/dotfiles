@@ -1,6 +1,9 @@
 local plugin = "vimtex"
 return {
   "lervag/vimtex",
+  keys = {
+    { "<localleader>t", "<cmd>VimtexCompile<CR> | VimtexView<CR>" }
+  },
   enabled = Is_Enabled(plugin),
   ft = { "bib", "tex" },
   config = function()

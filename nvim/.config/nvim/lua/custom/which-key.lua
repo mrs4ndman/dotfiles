@@ -9,7 +9,7 @@ wk.register({
   ["<leader>ca"] = { name = "a secret" },
   ["<leader>d"] = { name = "[Pets] [DB] [Word-toggler]" },
   ["<leader>e"] = { name = "[Refactoring -> Extract]" },
-  ["<leader>f"] = { name = "[Formatter] [File-Ops]" },
+  ["<leader>f"] = { name = "[Formatter]" },
   ["<leader>g"] = { name = "[Git (Blame + Links)]" },
   ["<leader>gc"] = { name = "Blame Copy" },
   ["<leader>i"] = { name = "[Indenting] [ISwap] [Word HL]" },

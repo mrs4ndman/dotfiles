@@ -55,6 +55,8 @@ return {
       require("mason-tool-installer").setup({
         ensure_installed = {
           -- Formatters
+          "cbfmt",
+          "shfmt",
           "stylua",
           "prettierd",
           -- DAP
@@ -76,6 +78,7 @@ return {
           "css-lsp",
           "eslint-lsp",
           "intelephense",
+          "ltex-ls",
           "marksman",
           "clangd",
           "neocmakelsp",

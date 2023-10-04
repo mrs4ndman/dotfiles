@@ -70,6 +70,7 @@ return function(_, opts)
           Tabnine = "T",
           codeium = "󱍋",
           cmp_tabnine = "󱍋",
+          omni = "[Ø]"
         },
       }),
       -- Tailwind CSS cmp icons
@@ -141,7 +142,17 @@ return function(_, opts)
     local sources = {
       { name = "nvim_lsp" },
       -- { name = "cmp_tabnine" },
-      { name = "codeium" --[[ , keyword_length = 4  ]] },
+      {
+        name = "codeium",--[[ , keyword_length = 4  ]]
+      },
+      {
+        name = "spell",
+        filetype = { "tex", "markdown", "txt" },
+      },
+      {
+        name = "omni",
+        filetype = { "tex" },
+      },
       {
         name = "buffer",
         options = {
@@ -160,12 +171,13 @@ return function(_, opts)
       -- LaTeX stuff
       {
         name = "vimtex",
+        filetype = { "tex", "latex" },
         option = {
           info_in_menu = 1,
           info_in_window = 1,
           match_against_description = 1,
           symbols_in_menu = 1,
-        }
+        },
       },
       {
         name = "latex_symbols",
@@ -173,8 +185,8 @@ return function(_, opts)
         option = {
           strategy = 0,
           cache = true,
-        }
-      }
+        },
+      },
       -- { name = "buffer-lines" },
     }
 
@@ -185,12 +197,9 @@ return function(_, opts)
     }
 
     vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
-    local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-    local cmp = require('cmp')
-    cmp.event:on(
-      'confirm_done',
-      cmp_autopairs.on_confirm_done()
-    )
+    local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+    local cmp = require("cmp")
+    cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
     -- CMDLINE SETUP
     cmp.setup.cmdline("/", {
       mapping = cmp.mapping.preset.cmdline(),

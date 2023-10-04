@@ -12,5 +12,5 @@ map K zoom in
 map J zoom out
 map p print
 map w recolor
-map k 5k
-map j 5j
+# map k 5k
+# map j 5j

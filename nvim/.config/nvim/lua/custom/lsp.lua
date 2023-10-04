@@ -34,7 +34,8 @@ local on_attach = function(client, bufnr)
   vim.keymap.set("n", "gI", vim.lsp.buf.implementation, { noremap = true, desc = "[LSP] Go to Implementation", buffer = bufnr })
   vim.keymap.set("n", "K", vim.lsp.buf.hover, { noremap = true, desc = "[LSP] Hover info", buffer = bufnr })
   -- stylua: ignore
-  vim.keymap.set("n", "<leader>tD", "<cmd>Telescope lsp_dynamic_document_symbols<CR>", { desc = "[LSP] Dynamic document symbols", buffer = bufnr })
+  vim.keymap.set("n", "<leader>tD", "<cmd>Telescope lsp_dynamic_document_symbols<CR>",
+    { desc = "[LSP] Dynamic document symbols", buffer = bufnr })
   vim.keymap.set("n", "<leader>tW", "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>", { desc = "[LSP] Dynamic workspace symbols", buffer = bufnr })
   vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { noremap = true, desc = "[LSP] Previous diagnostic", buffer = bufnr })
   vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { noremap = true, desc = "[LSP] Next diagnostic", buffer = bufnr })
@@ -44,8 +45,9 @@ local on_attach = function(client, bufnr)
   vim.keymap.set("n", "<C-i>", vim.lsp.buf.signature_help, { noremap = true, desc = "[LSP] Signature help", buffer = bufnr })
 
   if vim.lsp.inlay_hint then
-    vim.keymap.set("n", "<leader>ih", function() vim.lsp.inlay_hint(0, nil) end,
-      { desc = "Toggle Inlay hints" })
+    vim.keymap.set("n", "<leader>ih", function()
+      vim.lsp.inlay_hint(0, nil)
+    end, { desc = "Toggle Inlay hints" })
   end
 
   -- INFO: For Typescript
@@ -168,11 +170,10 @@ lspconfig.astro.setup({
   capabilities = M.capabilities,
   init_options = {
     typescript = {
-      tsdk = 'node_modules/typescript/lib'
-    }
+      tsdk = "node_modules/typescript/lib",
+    },
   },
 })
-
 
 -- Pee-H-Pee
 lspconfig.intelephense.setup({
@@ -199,6 +200,11 @@ lspconfig.marksman.setup({
   capabilities = M.capabilities,
 })
 
+lspconfig.texlab.setup({
+  on_attach = on_attach,
+  capabilities = M.capabilities,
+})
+
 -- Good ole Vimscript
 lspconfig.vimls.setup({
   on_attach = on_attach,
@@ -212,7 +218,7 @@ lspconfig.yamlls.setup({
 
 lspconfig.jsonls.setup({
   on_attach = on_attach,
-  capabilities = M.capabilities
+  capabilities = M.capabilities,
 })
 lspconfig.pylsp.setup({})
 lspconfig.ocamlls.setup({})
@@ -221,7 +227,11 @@ lspconfig.neocmake.setup({})
 lspconfig.gopls.setup({})
 lspconfig.ansiblels.setup({})
 lspconfig.ruby_ls.setup({})
--- lspconfig.jdtls.setup {}
+
+-- lspconfig.jdtls.setup({
+--   on_attach = on_attach,
+--   capabilities = M.capabilities,
+-- })
 
 -- Change here the left sidebar LSP icon config for:
 local signs = { Error = "󰅚 ", Warn = " ", Hint = "󰌶 ", Info = " " }

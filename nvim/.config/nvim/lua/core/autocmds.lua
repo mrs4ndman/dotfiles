@@ -8,7 +8,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
   end,
 })
 
--- Markdown settings
+-- Markdown and LaTeX settings
 vim.api.nvim_create_autocmd("Filetype", {
   pattern = "markdown",
   callback = function()
@@ -16,6 +16,13 @@ vim.api.nvim_create_autocmd("Filetype", {
     vim.keymap.set("n", "j", "gj")
     vim.keymap.set("n", "k", "gk")
   end,
+})
+
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = "*.tex",
+  callback = function ()
+    vim.bo.filetype = "tex"
+  end
 })
 
 -- PSeInt settings
