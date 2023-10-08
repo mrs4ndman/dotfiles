@@ -10,6 +10,9 @@ return {
   enabled = Is_Enabled(plugin),
   cmd = { "TSInstall", "TSUpdate" },
   event = { "BufRead", "BufNewFile", "BufAdd" },
+  build = function()
+    vim.cmd("TSUpdate")
+  end,
   dependencies = {
     {
       "nvim-treesitter/nvim-treesitter-context",
@@ -107,7 +110,7 @@ return {
 
             -- You can use regex matching (i.e. lua pattern) and/or pass a list in a "query" key to group multiple queries.
             -- ["]o"] = { query = { "@loop.inner", "@loop.outer" } }
-            ["]l"] = { query = "@loop.*", desc = "Go to next loop part"},
+            ["]l"] = { query = "@loop.*", desc = "Go to next loop part" },
             ["]s"] = { query = "@scope", query_group = "locals", desc = "Next scope" },
             ["]z"] = { query = "@fold", query_group = "folds", desc = "Next fold" },
           },

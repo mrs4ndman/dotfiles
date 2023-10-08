@@ -25,11 +25,12 @@ require("lazy").setup({
   performance = {
     cache = { enabled = true },
     rtp = {
+      reset = true,
       disabled_plugins = {
         "man",
         "gzip",
         "tarPlugin",
-        "matchit",
+        -- "matchit",
         -- "matchparen",
         "tutor",
         "zipPlugin",

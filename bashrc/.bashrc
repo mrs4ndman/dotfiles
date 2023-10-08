@@ -313,7 +313,7 @@ function tns () {
 
 ex ()
 {
-    if [ -f $1 ] ; then
+    if [ -f "$1" ] ; then
         case $1 in
             *.tar.bz2)  tar xjf "$1"   ;;
             *.tar.gz)   tar xzf "$1"   ;;
@@ -359,6 +359,10 @@ function mkcd() {
     mkdir "$1" && cd "$1" || return
 }
 
+function javaclean() {
+    mv "$1.java" "$1.class" ../  
+}
+
 #--------------------------------------------------------------#
 
 #------------------TMUX SENDER FOR OUTPUTS --------------------#
@@ -370,12 +374,12 @@ function tsend () {
         input="$@"
     fi
 
-    TMUX_SELECTED_SESSION=$(tmux list-sessions | sed 's/^\([^:]*\):.*/\1/' | $HOME/.fzf/bin/fzf --reverse)
+    TMUX_SELECTED_SESSION=$(tmux list-sessions | sed 's/^\([^:]*\):.*/\1/' | "$HOME"/.fzf/bin/fzf --reverse)
     tmux send-keys -t "$TMUX_SELECTED_SESSION" "$input" ENTER
 }
 
 function tns () { 
-    tmux new-session -ds $1 && tmux switch-client -t $1
+    tmux new-session -ds "$1" && tmux switch-client -t "$1"
 }
 
 function tbg () {
@@ -433,16 +437,16 @@ function nvims() {
 
 # FZF integration (https://github.com/junegunn/fzf)
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+[ -f ~/.fzf.bash ] && source "$HOME"/.fzf.bash
 
-source ~/.local/scripts/fzf-git.sh
+source "$HOME"/.local/scripts/fzf-git.sh
 
 #--------------------------------------------------------------#
 
 #------------- PLUGIN AND ALIAS LOADING SCRIPTS ---------------#
 
 if command -v thefuck >/dev/null 2>&1; then
-    eval $(thefuck --alias)
+    eval "$(thefuck --alias)"
 fi
 
 if command -v starship >/dev/null 2>&1; then
@@ -476,7 +480,7 @@ export BATPIPE;
 
 #-------------------- Custom bash start ----------------------#
 
-if whoami="mrsandman"; then
+if USER="mrsandman"; then
     lolcat < "$HOME/.bash-start"
 fi
 

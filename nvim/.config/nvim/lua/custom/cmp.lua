@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-field
 -- Very custom CMP setup
 return function(_, opts)
   local plugin = "nvim-cmp"

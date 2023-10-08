@@ -8,20 +8,14 @@ local plugin = "refactoring.nvim"
 return {
   "ThePrimeagen/" .. plugin,
   keys = {
-    { "<leader>ex", desc = "Extract Function" },
-    { "<leader>ef", desc = "Extract Function To File" },
-    { "<leader>ev", desc = "Extract Variable"},
-    { "<leader>ri", desc = "Refactor Inline Variable" },
-    { "<leader>eb", desc = "Extract Block" },
-    { "<leader>ebf", desc = "Extract Block To File" },
-    { "<leader>rr", desc = "UI Select refactoring" },
+    { "<leader>rr", desc = "[refactoring] Select refactoring" },
   },
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
   },
   config = function()
-    require('refactoring').setup({
+    require("refactoring").setup({
 
       prompt_func_return_type = {
         go = true,
@@ -36,18 +30,8 @@ return {
         java = true,
       },
     })
-    vim.keymap.set("x", "<leader>ex", function() require("refactoring").refactor('Extract Function') end)
-    vim.keymap.set("x", "<leader>ef", function() require("refactoring").refactor('Extract Function To File') end)
-    vim.keymap.set("x", "<leader>ev", function() require("refactoring").refactor('Extract Variable') end)
-    vim.keymap.set({ "n", "x" }, "<leader>ri", function() require("refactoring").refactor('Inline Variable') end)
-    vim.keymap.set("n", "<leader>eb", function() require("refactoring").refactor('Extract Block') end)
-    vim.keymap.set("n", "<leader>ebf", function() require("refactoring").refactor('Extract Block To File') end)
-    vim.keymap.set({ "n", "x" }, "<leader>rr", function() require("refactoring").select_refactor() end)
-
-    vim.keymap.set(
-      "n",
-      "<leader>rp",
-      ""
-    )
-  end
+    vim.keymap.set({ "n", "x" }, "<leader>rr", function()
+      require("refactoring").select_refactor()
+    end)
+  end,
 }

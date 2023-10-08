@@ -10,9 +10,11 @@ return {
   keys = {
     {
       "<leader>rf",
-      function() return ":IncRename " .. vim.fn.expand("<cword>") end,
+      function()
+        return ":IncRename " .. vim.fn.expand("<cword>")
+      end,
       expr = true,
-      desc = "Rename function under cursor",
+      desc = "[inc-rename] Rename symbol under cursor",
     },
   },
   cmd = "IncRename",

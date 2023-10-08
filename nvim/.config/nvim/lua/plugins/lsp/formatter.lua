@@ -25,6 +25,7 @@ return {
           },
           javascript = { vim.lsp.buf.format({ async = true }) },
           astro = require("formatter.defaults.prettierd"),
+          java = { vim.lsp.buf.format({ async = true }) },
         },
       })
     end,

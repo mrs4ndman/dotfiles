@@ -6,30 +6,24 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = "ñ"
 
+local function put_at_end(char)
+  local pos = vim.api.nvim_win_get_cursor(0)
+  local row = pos[1] - 1
+  local current_line = vim.api.nvim_get_current_line()
+  local col = #current_line
+
+  vim.api.nvim_buf_set_text(0, row, col, row, col, { char })
+end
+
+local function put_at_beginning(char)
+  local pos = vim.api.nvim_win_get_cursor(0)
+  local row = pos[1] - 1
+  local col = 0
+  vim.api.nvim_buf_set_text(0, row, col, row, col, { char })
+end
 -- Lazy and Mason shortcuts
 vim.keymap.set("n", "<leader>lz", "<cmd>Lazy<CR>", { desc = "Lazy", noremap = true, silent = true })
 vim.keymap.set("n", "<leader>mp", "<cmd>Mason<CR>", { desc = "Mason", noremap = true, silent = true })
-
--- COKELINE
--- Quick buffer switching and manipulation
-vim.keymap.set("n", "<Tab>", "<Plug>(cokeline-focus-next)", { desc = "Change to next buffer", silent = true })
-vim.keymap.set("n", "<S-Tab>", "<Plug>(cokeline-focus-prev)", { desc = "Change to previous buffer", silent = true })
-
--- Numbered buffer selection with Leader + c + <number>
-for i = 1, 9 do
-  vim.keymap.set(
-    "n",
-    ("<leader>c%s"):format(i),
-    ("<Plug>(cokeline-focus-%s)"):format(i),
-    { desc = "Change to buffer x", silent = true }
-  )
-  vim.keymap.set(
-    "n",
-    ("<leader>s%s"):format(i),
-    ("<Plug>(cokeline-switch-%s)"):format(i),
-    { desc = "Swap with buffer x", silent = true }
-  )
-end
 
 vim.keymap.set("n", "<leader>sb", function()
   require("telescope.builtin").live_grep({ search_dirs = { vim.api.nvim_buf_get_name(0) } })
@@ -100,19 +94,8 @@ local alphabet = "abcdefghijklmnopqrstuvwxyz"
 for i = 1, #alphabet do
   local letter = alphabet:sub(i, i)
 
-  vim.keymap.set(
-    { "n", "v" },
-    ("<leader>y%s"):format(letter),
-    ([["%sy]]):format(letter),
-    { desc = "Yank into this letter's register" }
-  )
-  vim.keymap.set(
-    { "n", "v" },
-    ("<leader>p%s"):format(letter),
-    ([["%sp]]):format(letter),
-    { desc = "Paste from this letter's register" }
-  )
-  vim.keymap.set("v", ("<leader>d%s"):format(letter), ([["%sd]]):format(i), { desc = "Delete into this letter's register" })
+  vim.keymap.set({ "n", "v" }, ("<leader>y%s"):format(letter), ([["%sy]]):format(letter), { desc = ("%s"):format(letter) .. " register yank" })
+  vim.keymap.set({ "n", "v" }, ("<leader>p%s"):format(letter), ([["%sp]]):format(letter), { desc = ("%s"):format(letter) .. " register paste" })
 end
 
 -- smart blackhole deletion
@@ -162,12 +145,16 @@ vim.keymap.set({ "n", "v" }, "X", '"_X', { silent = true })
 -- Incredible markdown codeblocks:
 vim.keymap.set("n", "<leader>C", function()
   if vim.bo.filetype == "markdown" then
-    local keys = vim.api.nvim_replace_termcodes('<ESC>', true, false, true)
-    vim.api.nvim_feedkeys([[i
+    local keys = vim.api.nvim_replace_termcodes("<ESC>", true, false, true)
+    vim.api.nvim_feedkeys(
+      [[i
 ```
 
-```]], "n", true)
-    vim.api.nvim_feedkeys(keys .. [[kkA]], 'n', false)
+```]],
+      "n",
+      true
+    )
+    vim.api.nvim_feedkeys(keys .. [[kkA]], "n", false)
   end
 end, { desc = "Codeblock" })
 
@@ -184,15 +171,35 @@ vim.keymap.set("i", "<C-p>", "<Esc>:Telescope oldfiles<CR>")
 
 -- Buffer previous, next and close, window closing too
 -- To use without the cokeline bar
--- vim.keymap.set("n", "<Tab>", "<cmd>bprevious<CR>", { noremap = true, silent = true, desc = "Previous buffer" })
--- vim.keymap.set("n", "<S-Tab>", "<cmd>bprevious<CR>", { noremap = true, silent = true, desc = "Previous buffer" })
+vim.keymap.set("n", "<Tab>", "<cmd>bnext<CR>", { noremap = true, silent = true, desc = "Previous buffer" })
+vim.keymap.set("n", "<S-Tab>", "<cmd>bprevious<CR>", { noremap = true, silent = true, desc = "Previous buffer" })
 
 -- Delete buffer without saving
 vim.keymap.set("n", "<leader>bd", "<cmd>bd!<CR>", { noremap = true, silent = true, desc = "Force buffer close" })
 vim.keymap.set("n", "<leader>bc", "<cmd>bd<CR>", { noremap = true, silent = true, desc = "Close buffer softly" })
 vim.keymap.set("n", "<leader>q", "<cmd>close<CR>", { noremap = true, silent = true, desc = "Close window the other way" })
 
+local end_strings = {
+  ";",
+  ",",
+  ":",
+  ".",
+  ")",
+  "]",
+  "\\",
+}
+for _, char in ipairs(end_strings) do
+  vim.keymap.set("n", "<leader>" .. char, function()
+    put_at_end(char)
+  end, { desc = "Put " .. char .. " at the end of the line" })
+end
 
+vim.keymap.set("n", "<leader>-", function()
+  put_at_beginning("- ")
+end, { desc = "Put - at the beginning of the line" })
+vim.keymap.set("n", "<leader>*", function()
+  put_at_beginning("* ")
+end, { desc = "Put * at the beginning of the line" })
 
 -- Normal mode CTRL Keybinds
 
@@ -221,7 +228,6 @@ vim.keymap.set("n", "<C-z>", "<Nop>")
 -- How to escape Vim Insert mode: keybind edition:
 vim.keymap.set("i", "<C-c>", "<Esc>", { silent = true })
 
-
 -- VISUAL mode Keybinds
 
 -- Moving around text on visual
@@ -232,7 +238,8 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { silent = true })
 vim.keymap.set("v", "<", "<gv", { silent = true })
 vim.keymap.set("v", ">", ">gv", { silent = true })
 
-
 -- TERMINAL mode keybinds
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
+vim.keymap.set("n", "<leader>te>", ":bd!", { desc = "Exit terminal" })
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 vim.keymap.set("n", "<leader>te>", ":bd!", { desc = "Exit terminal" })

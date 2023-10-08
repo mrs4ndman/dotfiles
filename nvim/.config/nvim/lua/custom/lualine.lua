@@ -22,6 +22,25 @@ local colors = {
   blue        = '#51afef',
   red         = '#FF0000',
   ultraviolet = '#CC0099',
+  catppuccin_rosewater = '#f5e0dc',
+  catppuccin_flamingo = '#f2cdcd',
+  catppuccin_pink = '#f5c2e7',
+  catppuccin_mauve = '#cba6f7',
+  catppuccin_red = '#f38ba8',
+  catppuccin_maroon = '#eba0ac',
+  catppuccin_peach = '#fab387',
+  catppuccin_yellow = '#f9e2af',
+  catppuccin_green = '#a6e3a1',
+  catppuccin_teal = '#94e2d5',
+  catppuccin_sky = '#89dceb',
+  catppuccin_sapphire = '#74c7ec',
+  catppuccin_blue = '#89b4fa',
+  catppuccin_lavender = '#b4befe',
+  catppuccin_base = '#1e1e2e',
+  catppuccin_text = '#cdd6f4',
+  catppuccin_subtext0 = '#a6adc8',
+  catppuccin_mantle = '#181825',
+  catppuccin_surface0 = '#313244',
 }
 
 local conditions = {
@@ -216,6 +235,15 @@ ins_left({
   },
 })
 
+-- ins_left({
+--   ---@return string
+--   function()
+--    return --[[ "🎵" .. ]] require("custom.music"):player_split()
+--   end,
+--   color = { fg = colors.turquoise }, -- Sets highlighting of component
+--   padding = { left = 1, right = 1 }, -- We don't need space before this
+-- })
+
 ins_left({
   -- git branch icon & name
   "branch",
@@ -312,20 +340,14 @@ ins_right({
   -- Lsp server name
   function()
     local msg = "None"
+    local clients = vim.lsp.get_clients({ bufnr = 0 })
 
-    local buf_ft = vim.api.nvim_get_option_value("filetype", { 0 })
-    local clients = vim.lsp.get_clients()
     if next(clients) == nil then
       return msg
     end
     for _, client in ipairs(clients) do
----@diagnostic disable-next-line: undefined-field
-      local filetypes = client.config.filetypes
-      if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
         return client.name
-      end
     end
-    return msg
   end,
   icon = "",
   color = { fg = "cyan", gui = "bold" },

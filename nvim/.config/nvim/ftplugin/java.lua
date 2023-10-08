@@ -1,6 +1,7 @@
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
-local jdtls_path = vim.fn.stdpath("data") .. "/mason/packages/jdtls"
-local home = os.getenv("HOME")
+-- local jdtls_path = vim.fn.stdpath("data") .. "/mason/packages/jdtls"
+-- local home = os.getenv("HOME")
+local navbuddy = require("nvim-navbuddy")
 local M = {}
 M.capabilities = vim.lsp.protocol.make_client_capabilities()
 M.capabilities = require("cmp_nvim_lsp").default_capabilities(M.capabilities)
@@ -20,6 +21,22 @@ M.on_attach = function(client, bufnr)
   vim.keymap.set("n", "<leader>vrr", vim.lsp.buf.references, { noremap = true, desc = "[LSP} Show references", buffer = bufnr })
   vim.keymap.set({ "n", "v" }, "<leader>vrn", vim.lsp.buf.rename, { noremap = true, desc = "[LSP] Rename element under cursor", buffer = bufnr })
   vim.keymap.set("n", "<C-i>", vim.lsp.buf.signature_help, { noremap = true, desc = "[LSP] Signature help", buffer = bufnr })
+
+  vim.api.nvim_create_autocmd("CursorHold", {
+    buffer = bufnr,
+    callback = function()
+      local opts = {
+        focusable = false,
+        close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+        border = "rounded",
+        source = "always",
+        prefix = " ",
+        scope = "cursor",
+      }
+      vim.diagnostic.open_float(nil, opts)
+    end,
+  })
+  navbuddy.attach(client, bufnr)
 end
 
 ---@diagnostic disable-next-line: missing-fields
@@ -36,7 +53,6 @@ M.capabilities.textDocument.completion.completionItem = {
   },
 }
 
--- local workspace_dir = home .. "/learning/java/" .. project_name
 local config = {
   capabilities = M.capabilities,
   on_attach = M.on_attach,

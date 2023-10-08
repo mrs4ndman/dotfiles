@@ -8,6 +8,14 @@ vim.api.nvim_create_autocmd("BufEnter", {
   end,
 })
 
+vim.api.nvim_create_autocmd("TermOpen", {
+  callback = function()
+    vim.opt.number = false
+    vim.opt.relativenumber = false
+    vim.cmd([[startinsert]])
+  end
+})
+
 -- Markdown and LaTeX settings
 vim.api.nvim_create_autocmd("Filetype", {
   pattern = "markdown",

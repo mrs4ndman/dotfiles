@@ -22,7 +22,7 @@ return {
       padding = { 0, 4, 2, 1 },
     },
     layout = {
-      spacing = 5,
+      spacing = 2,
       align = "center",
     }
   }

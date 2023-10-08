@@ -10,18 +10,18 @@ return {
   "ThePrimeagen/" .. plugin, -- Reeling those files in
   enabled = Is_Enabled(plugin),
   keys = {
-    { "<leader>1",  desc = "Harpoon buf 1" },
-    { "<leader>2",  desc = "Harpoon buf 2" },
-    { "<leader>3",  desc = "Harpoon buf 3" },
-    { "<leader>4",  desc = "Harpoon buf 4" },
-    { "<leader>5",  desc = "Harpoon buf 5" },
-    { "<leader>6",  desc = "Harpoon buf 6" },
-    { "<leader>7",  desc = "Harpoon buf 7" },
-    { "<leader>8",  desc = "Harpoon buf 8" },
-    { "<leader>9",  desc = "Harpoon buf 9" },
-    { "<leader>0",  desc = "Harpoon buf 10" },
-    { "<leader>a",  desc = "Harpoon add" },
-    { "<leader>h",  desc = "Harpoon menu" },
+    { "<leader>1", desc = "Harpoon buf 1" },
+    { "<leader>2", desc = "Harpoon buf 2" },
+    { "<leader>3", desc = "Harpoon buf 3" },
+    { "<leader>4", desc = "Harpoon buf 4" },
+    { "<leader>5", desc = "Harpoon buf 5" },
+    { "<leader>6", desc = "Harpoon buf 6" },
+    { "<leader>7", desc = "Harpoon buf 7" },
+    { "<leader>8", desc = "Harpoon buf 8" },
+    { "<leader>9", desc = "Harpoon buf 9" },
+    { "<leader>0", desc = "Harpoon buf 10" },
+    { "<leader>a", desc = "Harpoon add" },
+    { "<leader>h", desc = "Harpoon menu" },
     { "<leader>kn", desc = "Harpoon next" },
     { "<leader>kp", desc = "Harpoon prev" },
     { "<leader>t1", desc = "Harpoon term 1" },
@@ -29,22 +29,17 @@ return {
     { "<leader>t3", desc = "Harpoon term 3" },
     { "<leader>t4", desc = "Harpoon term 4" },
   },
-  opts = function(_, opts)
-    if Use_Defaults(plugin) then
-      opts = opts
-    else
-      opts.global_settings = {
+  config = function()
+    require("harpoon").setup({
+      global_settings = {
         save_on_toggle = true,
         save_on_change = true,
         mark_branch = false,
-      }
-    end
-  end,
-  config = function(_, opts)
-    require(plugin).setup(opts)
-    local mark = require(plugin .. ".mark")
-    local ui = require(plugin .. ".ui")
-    local term = require(plugin .. ".term")
+      },
+    })
+    local mark = require("harpoon.mark")
+    local ui = require("harpoon.ui")
+    local term = require("harpoon.term")
 
     vim.keymap.set("n", "<leader>a", mark.add_file, { desc = "Harpoon a file" })
     vim.keymap.set("n", "<leader>h", ui.toggle_quick_menu, { desc = "Harpoon menu" })

@@ -8,7 +8,7 @@ local plugin = "nvim-toggler"
 return {
   "nguyenvukhang/" .. plugin,
   keys = {
-    { "<leader>dt", desc = "Toggle this status" },
+    { "<leader>dt", desc = "Toggle word" },
   },
   config = function()
     vim.keymap.set({ "n", "v" }, "<leader>dt", require("nvim-toggler").toggle)

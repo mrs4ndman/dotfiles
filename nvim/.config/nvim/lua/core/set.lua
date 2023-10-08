@@ -6,10 +6,14 @@ vim.api.nvim_command("set clipboard+=unnamedplus")
 -- Cursor config
 vim.opt.guicursor = ""
 
--- Cursorline and scrolling
+-- Cursorline, statusline and scrolling
 vim.wo.cursorline = true
 vim.wo.cursorlineopt = "both"
 vim.opt.smoothscroll = true
+vim.opt.laststatus = 3
+
+vim.opt.showmode = false
+vim.opt.laststatus = 3
 
 -- Numbers config
 vim.opt.nu = true

@@ -50,7 +50,7 @@ return {
           },
           hide_inactive_statusline = false,
           dim_inactive = true,
-          lualine_bold = true,
+          -- lualine_bold = true,
         }
       end
     end,

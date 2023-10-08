@@ -118,7 +118,7 @@ Customize = {
     ["space-nvim"] = { enabled = true },
     ["specs.nvim"] = { enabled = false },
     ["sPoNGe-BoB.NvIm"] = { enabled = true },
-    ["stand.nvim"] = { enabled = true },
+    ["stand.nvim"] = { enabled = false },
     ["tabout.nvim"] = { enabled = true, defaults = false },
     ["tabs-vs-spaces.nvim"] = { enabled = false },
     ["telescope-dap.nvim"] = { enabled = true },

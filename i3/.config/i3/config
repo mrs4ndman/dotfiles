@@ -243,3 +243,7 @@ for_window [class="kitty"] border pixel 1
 for_window [class="Psensor"] floating enable, move to workspace $ws5
 for_window [class="discord"] move to workspace $ws4
 for_window [title="Spotify"] move to workspace $ws4
+
+# Some color accents
+client.focused #0037AA #0037AA #ffffff #2e9ef4 #285577
+# client.focused_inactive #0037AA #0037AA #ffffff #2e9ef4 #285577

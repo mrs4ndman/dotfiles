@@ -42,7 +42,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set({ "n", "v" }, "<leader>vca", vim.lsp.buf.code_action, { noremap = true, desc = "[LSP] View code actions", buffer = bufnr })
   vim.keymap.set("n", "<leader>vrr", vim.lsp.buf.references, { noremap = true, desc = "[LSP} Show references", buffer = bufnr })
   vim.keymap.set({ "n", "v" }, "<leader>vrn", vim.lsp.buf.rename, { noremap = true, desc = "[LSP] Rename element under cursor", buffer = bufnr })
-  vim.keymap.set("n", "<C-i>", vim.lsp.buf.signature_help, { noremap = true, desc = "[LSP] Signature help", buffer = bufnr })
+  vim.keymap.set("n", "<C-n>", vim.lsp.buf.signature_help, { noremap = true, desc = "[LSP] Signature help", buffer = bufnr })
 
   if vim.lsp.inlay_hint then
     vim.keymap.set("n", "<leader>ih", function()
@@ -234,7 +234,12 @@ lspconfig.ruby_ls.setup({})
 -- })
 
 -- Change here the left sidebar LSP icon config for:
-local signs = { Error = "󰅚 ", Warn = " ", Hint = "󰌶 ", Info = " " }
+local signs = {
+  Error = require("core.icons").diagnostics.ERROR,
+  Warn = require("core.icons").diagnostics.WARN,
+  Hint = require("core.icons").diagnostics.HINT,
+  Info = require("core.icons").diagnostics.INFO,
+}
 for type, icon in pairs(signs) do
   local hl = "DiagnosticSign" .. type
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
