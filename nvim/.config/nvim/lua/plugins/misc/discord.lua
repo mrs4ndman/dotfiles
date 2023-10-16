@@ -8,7 +8,7 @@ local plugin = "presence.nvim"
 return {
   "andweeb/" .. plugin,
   enabled = Is_Enabled(plugin),
-  lazy = false,
+  lazy = true,
   config = function()
     require("presence").setup({
       auto_update = true,

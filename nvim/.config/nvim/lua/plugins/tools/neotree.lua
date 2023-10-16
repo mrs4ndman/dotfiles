@@ -7,7 +7,7 @@ local plugin = "neo-tree.nvim"
 
 return {
   "nvim-neo-tree/" .. plugin,
-  enabled = Is_Enabled(plugin),
+  enabled = false,
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-tree/nvim-web-devicons",

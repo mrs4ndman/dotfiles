@@ -9,7 +9,7 @@ return {
   "nvim-treesitter/" .. plugin, -- parsing to the end of time
   enabled = Is_Enabled(plugin),
   cmd = { "TSInstall", "TSUpdate" },
-  event = { "BufRead", "BufNewFile", "BufAdd" },
+  event = { "BufRead", "BufNewFile" },
   build = function()
     vim.cmd("TSUpdate")
   end,

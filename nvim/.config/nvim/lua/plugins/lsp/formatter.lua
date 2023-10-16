@@ -60,6 +60,7 @@ return {
           "shfmt",
           "stylua",
           "prettierd",
+          "commitlint",
           -- DAP
           -- 'codelldb',
           "bash-debug-adapter",

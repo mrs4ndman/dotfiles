@@ -146,6 +146,7 @@ alias gotty="~/go/bin/gotty"
 alias htmlup='~/go/bin/simplehttp'
 alias lebron-james='trash-put'
 alias i3keys='screenkey -s large --scr 2 -p bottom --font-size large --geometry 1000x600+1520+820'
+alias javatime='cd $HOME/hs/1º/programming/practicas/Java'
 alias list-can='trash-list'
 alias lol='toilet --gay lol'
 alias matrix='cmatrix -a -C red'

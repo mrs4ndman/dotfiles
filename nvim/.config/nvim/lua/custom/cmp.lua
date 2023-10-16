@@ -142,9 +142,8 @@ return function(_, opts)
 
     local sources = {
       { name = "nvim_lsp" },
-      -- { name = "cmp_tabnine" },
       {
-        name = "codeium",--[[ , keyword_length = 4  ]]
+        name = "codeium",
       },
       {
         name = "spell",
@@ -162,7 +161,6 @@ return function(_, opts)
           end,
         },
         keyword_length = 5,
-        -- priority = 6,
       },
       { name = "luasnip", keyword_length = 2 },
       { name = "path" },
@@ -188,7 +186,6 @@ return function(_, opts)
           cache = true,
         },
       },
-      -- { name = "buffer-lines" },
     }
 
     local experimental = {
@@ -199,7 +196,6 @@ return function(_, opts)
 
     vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
     local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-    local cmp = require("cmp")
     cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
     -- CMDLINE SETUP
     cmp.setup.cmdline("/", {

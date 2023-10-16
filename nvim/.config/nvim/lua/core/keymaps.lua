@@ -41,9 +41,11 @@ vim.keymap.set("n", "<leader><leader>", function()
 end, { silent = true, desc = "Source current file" })
 
 -- Clear notifications and search
-vim.keymap.set("n", "<esc>", function()
+vim.keymap.set("n", "<Esc>", function()
   require("notify").dismiss()
-  vim.cmd.nohl()
+  vim.cmd("Noice dismiss")
+  vim.cmd("nohl")
+  vim.cmd("nohlsearch")
 end, {})
 
 -- Netrw keybind

@@ -5,11 +5,12 @@ local plugin = "gh.nvim"
 
 return {
   "ldelossa/gh.nvim",
-  enabled = Is_Enabled(plugin),
+  enabled = false,
   dependencies = { "ldelossa/litee.nvim" },
-  event = "VeryLazy",
+  lazy = false,
   keys = {
     { "<leader>g?", ":e /home/mrsandman/dotfiles/nvim/.config/nvim/gh-usage.md<CR>", desc = "[gh.nvim] Help" },
+    -- { "<leader>G", require("plugins.tools.gh"), desc = "[gh.nvim] Help" },
   },
   config = function()
     require("litee.lib").setup()

@@ -1,6 +1,6 @@
 -- LSP Explicit config
 local lspconfig = require("lspconfig")
-local navbuddy = require("nvim-navbuddy")
+-- local navbuddy = require("nvim-navbuddy")
 
 -- Defining capabilities for LSPs
 local M = {}
@@ -89,7 +89,7 @@ local on_attach = function(client, bufnr)
   -- end
 
   -- Plugin attachments
-  navbuddy.attach(client, bufnr)
+  -- navbuddy.attach(client, bufnr)
 end
 
 -- LSP Server setups
@@ -220,7 +220,10 @@ lspconfig.jsonls.setup({
   on_attach = on_attach,
   capabilities = M.capabilities,
 })
-lspconfig.pylsp.setup({})
+lspconfig.pylsp.setup({
+  on_attach = on_attach,
+  capabilities = M.capabilities,
+})
 lspconfig.ocamlls.setup({})
 lspconfig.neocmake.setup({})
 -- lspconfig.emmet_ls.setup({})

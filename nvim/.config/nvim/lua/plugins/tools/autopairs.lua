@@ -6,7 +6,7 @@ local plugin = "nvim-autopairs"
 return {
   -- 9.- Autopairs & tabout for tabbing out of said pairs
   "windwp/" .. plugin,
-  event = { "BufRead", "BufNewFile", "BufAdd" },
+  event = { "BufRead", "BufNewFile" },
   enabled = Is_Enabled(plugin),
   opts = { check_ts = true }
 }
