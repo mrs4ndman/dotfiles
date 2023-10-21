@@ -47,17 +47,17 @@ return {
         local v = vim.version()
         local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
         dashboard.section.footer.val = {
+          -- "",
+          -- "",
           "",
+          "             " .. time,
           "",
+          "                 Neovim " .. v.major .. "." .. v.minor .. "." .. v.patch,
           "",
-          "                    " .. time,
+          "    " .. stats.loaded .. " / " .. stats.count .. " plugins | " .. ms .. "ms |  mrs4ndman",
           "",
-          "                        Neovim " .. v.major .. "." .. v.minor .. "." .. v.patch,
-          "",
-          "           " .. stats.loaded .. " / " .. stats.count .. " plugins | " .. ms .. "ms |  mrs4ndman",
-          "",
-          "       󰽰 The phone is ringing, the world is spinning 󰽰",
-          "                     󰎈 Just let me out 󰎈",
+          "󰽰 The phone is ringing, the world is spinning 󰽰",
+          "               󰎈 Just let me out 󰎈",
           -- "   󰽰 I tuck you in, warm within, keep you free from sin ... 󰽰",
           -- "                 󰎈 'Til the Sandman, he comes 󰎈              ",
           "",
@@ -69,43 +69,42 @@ return {
     })
 
     -- if vim.cmd.echo"argc()" == "0" then
-      -- Header section config
-      dashboard.section.header.val = {
+    -- Header section config
+    dashboard.section.header.val = {
+      "                                                                                    ",
+      " ███╗   ███╗██████╗ ███████╗ █████╗ ███╗   ██╗██████╗ ███╗   ███╗ █████╗ ███╗   ██╗ ",
+      " ████╗ ████║██╔══██╗██╔════╝██╔══██╗████╗  ██║██╔══██╗████╗ ████║██╔══██╗████╗  ██║ ",
+      " ██╔████╔██║██████╔╝███████╗███████║██╔██╗ ██║██║  ██║██╔████╔██║███████║██╔██╗ ██║ ",
+      " ██║╚██╔╝██║██╔══██╗╚════██║██╔══██║██║╚██╗██║██║  ██║██║╚██╔╝██║██╔══██║██║╚██╗██║ ",
+      " ██║ ╚═╝ ██║██║  ██║███████║██║  ██║██║ ╚████║██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║ ",
+      " ╚═╝     ╚═╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═══╝╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝ ",
+      "                                                                                    ",
+      "                                   N E O V I M                                      ",
+      "                                                                                    ",
+      "                                      ／|__                                         ",
+      "                                     (o o /                                         ",
+      "_____________________________________ |.   ~. _____________________________________ ",
+      "                                      じしf_,)ノ                                    ",
+      -- "                                                                                    ",
+    }
 
-        "                                                                                    ",
-        " ███╗   ███╗██████╗ ███████╗ █████╗ ███╗   ██╗██████╗ ███╗   ███╗ █████╗ ███╗   ██╗ ",
-        " ████╗ ████║██╔══██╗██╔════╝██╔══██╗████╗  ██║██╔══██╗████╗ ████║██╔══██╗████╗  ██║ ",
-        " ██╔████╔██║██████╔╝███████╗███████║██╔██╗ ██║██║  ██║██╔████╔██║███████║██╔██╗ ██║ ",
-        " ██║╚██╔╝██║██╔══██╗╚════██║██╔══██║██║╚██╗██║██║  ██║██║╚██╔╝██║██╔══██║██║╚██╗██║ ",
-        " ██║ ╚═╝ ██║██║  ██║███████║██║  ██║██║ ╚████║██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║ ",
-        " ╚═╝     ╚═╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═══╝╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝ ",
-        "                                                                                    ",
-        "                                   N E O V I M                                      ",
-        "                                                                                    ",
-        "                                      ／|__                                         ",
-        "                                     (o o /                                         ",
-        "_____________________________________ |.   ~. _____________________________________ ",
-        "                                      じしf_,)ノ                                    ",
-        "                                                                                    ",
-      }
+    dashboard.section.buttons.val = {
+      dashboard.button("n", "    New file", "<cmd>ene<CR>"),
+      dashboard.button("o", "⚡   It's Oil time", ":Oil<CR>"),
+      dashboard.button("v", "    Source session", ":SessionRestore<CR>"),
+      dashboard.button("f", "󰈞    Find project file", ":Telescope find_files<CR>"),
+      dashboard.button("r", "    Recent", ":Telescope oldfiles<CR>"),
+      dashboard.button("g", "󰊄    Grep pattern", ":Telescope live_grep<CR>"),
+      dashboard.button("c", "󰏘    Colorschemes", ":Themer<CR>"),
+      dashboard.button("l", "󰒲    Plugins", ":Lazy<CR>"),
+      dashboard.button("q", "󰿅    Get me out :D", ":qa<CR>"),
+      -- dashboard.button("h", "󱂵    Home dir find", ":cd $HOME | Telescope find_files<CR>"),
+      -- dashboard.button("s", "    Settings", ":e $NVIMRC<CR>"),
+    }
 
-      dashboard.section.buttons.val = {
-        dashboard.button("n", "    New file", "<cmd>ene<CR>"),
-        dashboard.button("e", "󰝰    Ex", ":Explore<CR>"),
-        dashboard.button("v", "    Source session", ":SessionRestore<CR>"),
-        dashboard.button("f", "󰈞    Find project file", ":Telescope find_files<CR>"),
-        dashboard.button("h", "󱂵    Home dir find", ":cd $HOME | Telescope find_files<CR>"),
-        dashboard.button("r", "    Recent", ":Telescope oldfiles<CR>"),
-        dashboard.button("g", "󰊄    Grep pattern", ":Telescope live_grep<CR>"),
-        dashboard.button("c", "󰏘    Colorschemes", ":Themer<CR>"),
-        dashboard.button("l", "󰒲    Lazy", ":Lazy<CR>"),
-        dashboard.button("s", "    Settings", ":e $NVIMRC<CR>"),
-        dashboard.button("q", "󰿅    Quit", ":qa<CR>"),
-      }
+    alpha.setup(dashboard.opts)
 
-      alpha.setup(dashboard.opts)
-
-      vim.cmd([[ autocmd Filetype alpha setlocal nofoldenable signcolumn=no nonumber norelativenumber ]])
+    vim.cmd([[ autocmd Filetype alpha setlocal nofoldenable signcolumn=no nonumber norelativenumber ]])
     -- end
   end,
 }

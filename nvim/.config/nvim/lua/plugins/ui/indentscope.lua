@@ -25,7 +25,7 @@ return {
         border = "both",
         indent_at_cursor = true,
       },
-      symbol = "|"
+      symbol = require("core.icons").misc.vertical_bar
     })
   end
 }

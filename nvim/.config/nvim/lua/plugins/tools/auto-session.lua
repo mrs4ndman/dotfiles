@@ -25,5 +25,8 @@ return {
     auto_session_create_enabled = false,
     auto_restore_enabled = false,
     auto_save_enabled = true,
+    session_lens = {
+      load_on_setup = false,
+    }
   }
 }

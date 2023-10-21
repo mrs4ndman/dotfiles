@@ -1,4 +1,7 @@
 local wk = require("which-key")
+-- last-color plugin
+local theme = require("last-color").recall() or "tokyonight"
+vim.cmd(("colorscheme %s"):format(theme))
 
 -- LEADER plugin keybinds (Space for this config)
 

@@ -2,4 +2,4 @@
 require("custom.which-key")
 
 -- Colorschemes
-require("custom.colors")
+-- require("custom.colors")

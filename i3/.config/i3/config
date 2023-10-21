@@ -65,6 +65,7 @@ floating_modifier $mod
 bindsym $mod+F2 exec --no-startup-id notify-send "Power profile" "Switching to battery mode" && system76-power profile battery
 bindsym $mod+F3 exec --no-startup-id notify-send "Power profile" "Switching to balanced mode" && system76-power profile balanced
 bindsym $mod+F4 exec --no-startup-id notify-send "Power profile" "It's turbo time" && system76-power profile performance
+bindsym $mod+Shift+F4 exec --no-startup-id notify-send "Shutting down" && sleep 5 && systemctl poweroff
 
 
 # start tmux / simple terminal

@@ -90,6 +90,7 @@ local on_attach = function(client, bufnr)
 
   -- Plugin attachments
   -- navbuddy.attach(client, bufnr)
+  print("LSP Attached")
 end
 
 -- LSP Server setups

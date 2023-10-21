@@ -153,6 +153,7 @@ return function(_, opts)
         name = "omni",
         filetype = { "tex" },
       },
+      { name = "luasnip", keyword_length = 2 },
       {
         name = "buffer",
         options = {
@@ -162,7 +163,6 @@ return function(_, opts)
         },
         keyword_length = 5,
       },
-      { name = "luasnip", keyword_length = 2 },
       { name = "path" },
       { name = "emoji" },
       { name = "crates" }, -- crates.nvim plugin

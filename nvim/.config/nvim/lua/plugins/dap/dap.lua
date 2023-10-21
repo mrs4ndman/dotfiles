@@ -80,7 +80,7 @@ return {
       function()
         require("osv").launch({ port = 8086 })
       end,
-      desc = "Start Lua debugging"
+      desc = "Start Lua debugging",
     },
     {
       "<localleader>DC",

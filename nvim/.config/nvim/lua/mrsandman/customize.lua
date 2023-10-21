@@ -123,7 +123,7 @@ Customize = {
     ["tabs-vs-spaces.nvim"] = { enabled = false },
     ["telescope-dap.nvim"] = { enabled = true },
     ["telescope.nvim"] = { enabled = true, defaults = false },
-    -- ["theme-selector.nvim"] = { enabled = false, defaults = false },
+    ["theme-selector.nvim"] = { enabled = true, defaults = false },
     ["todo-comments.nvim"] = { enabled = true, defaults = false },
     ["tol.nvim"] = { enabled = true },
     ["tokyodark.nvim"] = { enabled = true, defaults = false },

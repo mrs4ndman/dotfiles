@@ -22,6 +22,10 @@ require("lazy").setup({
   checker = { enabled = true, notify = false },
   change_detection = { notify = false },
   ui = { size = { width = 0.7, height = 0.7 }, wrap = true, border = "single" },
+  dev = {
+    path = "~/Gitchub/nvim-plugins",
+    fallback = true,
+  },
   performance = {
     cache = { enabled = true },
     rtp = {

@@ -22,8 +22,8 @@ local function put_at_beginning(char)
   vim.api.nvim_buf_set_text(0, row, col, row, col, { char })
 end
 -- Lazy and Mason shortcuts
-vim.keymap.set("n", "<leader>lz", "<cmd>Lazy<CR>", { desc = "Lazy", noremap = true, silent = true })
-vim.keymap.set("n", "<leader>mp", "<cmd>Mason<CR>", { desc = "Mason", noremap = true, silent = true })
+vim.keymap.set("n", "<leader>lz", "<cmd>Lazy<CR>", { desc = "Lazy", silent = true })
+vim.keymap.set("n", "<leader>mp", "<cmd>Mason<CR>", { desc = "Mason", silent = true })
 
 vim.keymap.set("n", "<leader>sb", function()
   require("telescope.builtin").live_grep({ search_dirs = { vim.api.nvim_buf_get_name(0) } })
@@ -173,13 +173,13 @@ vim.keymap.set("i", "<C-p>", "<Esc>:Telescope oldfiles<CR>")
 
 -- Buffer previous, next and close, window closing too
 -- To use without the cokeline bar
-vim.keymap.set("n", "<Tab>", "<cmd>bnext<CR>", { noremap = true, silent = true, desc = "Previous buffer" })
-vim.keymap.set("n", "<S-Tab>", "<cmd>bprevious<CR>", { noremap = true, silent = true, desc = "Previous buffer" })
+vim.keymap.set("n", "<Tab>", "<cmd>bnext<CR>", { silent = true, desc = "Previous buffer" })
+vim.keymap.set("n", "<S-Tab>", "<cmd>bprevious<CR>", { silent = true, desc = "Previous buffer" })
 
 -- Delete buffer without saving
-vim.keymap.set("n", "<leader>bd", "<cmd>bd!<CR>", { noremap = true, silent = true, desc = "Force buffer close" })
-vim.keymap.set("n", "<leader>bc", "<cmd>bd<CR>", { noremap = true, silent = true, desc = "Close buffer softly" })
-vim.keymap.set("n", "<leader>q", "<cmd>close<CR>", { noremap = true, silent = true, desc = "Close window the other way" })
+vim.keymap.set("n", "<leader>bd", "<cmd>bd!<CR>", { silent = true, desc = "Force buffer close" })
+vim.keymap.set("n", "<leader>bc", "<cmd>bd<CR>", { silent = true, desc = "Close buffer softly" })
+vim.keymap.set("n", "<leader>q", "<cmd>close<CR>", { silent = true, desc = "Close window the other way" })
 
 local end_strings = {
   ";",

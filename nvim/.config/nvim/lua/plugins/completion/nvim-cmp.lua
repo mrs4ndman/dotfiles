@@ -19,9 +19,9 @@ return {
     "hrsh7th/cmp-nvim-lsp-document-symbol",
     "hrsh7th/cmp-nvim-lsp",
     -- {
+    -- BUG: Report omnifunc autotrigger to the repo
     --   "micangl/cmp-vimtex",
     --   ft = "tex",
-      -- BUG: Report omnifunc autotrigger to the repo 
     -- },
     "kdheepak/cmp-latex-symbols",
     "hrsh7th/cmp-omni",
@@ -54,6 +54,24 @@ return {
       config = function()
         require("tailwindcss-colorizer-cmp").setup({
           color_square_width = 2,
+        })
+      end,
+    },
+    {
+      "kristijanhusak/vim-dadbod-completion",
+      config = function()
+        vim.api.nvim_create_autocmd("FileType", {
+          pattern = { "sql", "mysql", "plsql" },
+          callback = function()
+            ---@diagnostic disable-next-line: undefined-field
+            require("cmp").setup.buffer({
+              sources = {
+                { name = "vim-dadbod-completion" },
+                { name = "luasnip" },
+                { name = "buffer" },
+              },
+            })
+          end,
         })
       end,
     },
