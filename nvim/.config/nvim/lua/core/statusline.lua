@@ -42,9 +42,9 @@ function M.mode_component()
     ["ntT"] = "NORMAL",
     ["v"] = "VISUAL",
     ["vs"] = "VISUAL",
-    ["V"] = "VISUAL",
+    ["V"] = "V-LINE",
     ["Vs"] = "VISUAL",
-    ["\22"] = "VISUAL",
+    ["\22"] = "V-BLOCK",
     ["\22s"] = "VISUAL",
     ["s"] = "SELECT",
     ["S"] = "SELECT",
@@ -74,8 +74,14 @@ function M.mode_component()
     hl = "Normal"
   elseif mode:find("PENDING") then
     hl = "Pending"
+  elseif mode:find("REPLACE") then
+    hl = "Replace"
   elseif mode:find("VISUAL") then
     hl = "Visual"
+  elseif mode:find("V-LINE") then
+    hl = "V_LINE"
+  elseif mode:find("V-BLOCK") then
+    hl = "V_BLOCK"
   elseif mode:find("INSERT") or mode:find("SELECT") then
     hl = "Insert"
   elseif mode:find("COMMAND") or mode:find("TERMINAL") or mode:find("EX") then
@@ -83,21 +89,46 @@ function M.mode_component()
   end
 
   return table.concat({
-    string.format("%%#StatuslineModeSeparator%s#", hl),
+    string.format("%%#StatuslineModeSeparator%s#   ", hl),
     string.format("%%#StatuslineMode%s#%s", hl, mode),
-    string.format("%%#StatuslineModeSeparator%s#", hl),
+    string.format("%%#StatuslineModeSeparator%s#  %%", hl),
   })
+end
+
+--- Filename (if any)
+---@return string
+function M.filename_component()
+---@diagnostic disable-next-line: unused-local
+  local default_options = {
+    symbols = {
+      modified = "[+]", -- Text to show when the file is modified.
+      readonly = "[]", -- Text to show when the file is non-modifiable or readonly.
+      unnamed = "[No Name]", -- Text to show for unnamed buffers.
+      newfile = "[New]", -- Text to show for newly created file before first write
+    },
+    file_status = true,
+    newfile_status = false,
+    path = 0,
+    shorting_target = 40,
+  }
+    local relpath = "%f%m%r"
+    return string.format('%%#StatuslineFilename# %s', relpath)
 end
 
 --- Git status (if any)
 ---@return string
+
 function M.git_component()
+  local check_git_workspace = function()
+    local filepath = vim.fn.expand("%:p:h")
+    local gitdir = vim.fn.finddir(".git", filepath .. ";")
+    return gitdir and #gitdir > 0 and #gitdir < #filepath
+  end
   local head = vim.b.gitsigns_head
-  if not head then
+  if (not head) or (not check_git_workspace) then
     return ""
   end
-
-  return string.format(" %s", head)
+  return string.format("%%#StatuslineGit# %s", head)
 end
 
 --- The current debugging status (if any)
@@ -203,8 +234,10 @@ function M.filetype_component()
     gitcommit = { "", "Conditional" },
     gitrebase = { "", "Conditional" },
     lazy = { icons.symbol_kinds.Method, "Special" },
+    TelescopePrompt = { "󰭎", "Comment" },
     lazyterm = { "", "Special" },
     qf = { icons.misc.search, "Conditional" },
+    alpha = { icons.misc.alpha, "Conditional" }
     -- OverseerForm = { "󰦬", "Special" },
     -- OverseerList = { "󰦬", "Special" },
     -- fzf = { "", "Special" },
@@ -234,11 +267,22 @@ function M.filetype_component()
 
   return string.format("%%#%s#%s %%#StatuslineTitle#%s", icon_hl, icon, filetype)
 end
---- File-content encoding for the current buffer.
+
+--- LSP name return
 ---@return string
-function M.encoding_component()
-  local encoding = vim.opt.fileencoding:get()
-  return encoding ~= "" and string.format("%%#StatuslineModeSeparatorOther# %s", encoding) or ""
+function M.lsp_component()
+  -- local encoding = vim.opt.fileencoding:get()
+  -- return encoding ~= "" and string.format("%%#StatuslineModeSeparatorOther# %s", encoding) or ""
+  local msg = " None"
+  local clients = vim.lsp.get_clients({ bufnr = 0 })
+  local icon = " "
+
+  if next(clients) == nil then
+    return icon .. " " .. msg
+  end
+  for _, client in ipairs(clients) do
+    return clients ~= "" and string.format("%%#StatuslineLSPIcon# %s %%#StatuslineLSP#%s", icon, client.name) or ""
+  end
 end
 
 --- The current line, total line count, and column position.
@@ -249,18 +293,22 @@ function M.position_component()
   local col = vim.fn.virtcol(".")
 
   return table.concat({
-    "%#StatuslineItalic#l: ",
-    string.format("%%#StatuslineTitle#%d", line),
-    string.format("%%#StatuslineItalic#/%d c: %d", line_count, col),
+    "%#StatuslinePosSeparator#l: ",
+    string.format("%%#StatuslineCurrentLine#%d", line),
+    string.format("%%#StatuslinePosSeparator#/%d ", line_count),
+    string.format("| c → %%#StatuslineColumnIndicator#%d", col)
+    -- StatuslineCurrentLine = {},
+    -- StatuslineTotalLines = {},
   })
 end
 
 --- Side marks, a la Doom-Emacs
 ---@return string
 function M.side_marks_component()
-  local hl = "Sidemark" 
-
-  return "▊"
+  --   -- local bar = "▊"
+  --   -- hl = M.get_or_create_hl(hl)
+  --   -- string.format("%%#StatuslineModeSeparator%s#", hl),
+  return string.format("%%#StatuslineSidemark#▊")
 end
 
 --- Renders the statusline.
@@ -278,25 +326,24 @@ function M.render()
     concat_components({
       M.side_marks_component(),
       M.mode_component(),
+      M.filename_component(),
       M.git_component(),
-      M.dap_component() or M.lsp_progress_component(),
+      "%#Statusline#%=",
     }),
-    "%#Statusline#%=",
     concat_components({
+      "%#Statusline#%=",
+      M.dap_component() or M.lsp_progress_component(),
       M.diagnostics_component(),
       M.filetype_component(),
-      M.encoding_component(),
+      M.lsp_component(),
       M.position_component(),
       M.side_marks_component(),
     }),
-    " ",
+    "",
   })
 end
 
 vim.api.nvim_set_hl(0, "Statusline", { fg = "#C0C5CE", bg = "" })
--- vim.api.nvim_set_hl(0, "Statusline", { fg = "#C0C5CE", bg = "" })
--- vim.api.nvim_set_hl(0, "Statusline", { fg = "#C0C5CE", bg = "" })
--- vim.api.nvim_set_hl(0, "Statusline", { fg = "#C0C5CE", bg = "" })
 
 vim.o.statusline = "%!v:lua.require'core.statusline'.render()"
 return M

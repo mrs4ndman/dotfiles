@@ -10,24 +10,28 @@ return {
   "ThePrimeagen/" .. plugin, -- Reeling those files in
   enabled = Is_Enabled(plugin),
   keys = {
-    { "<leader>1", desc = "Harpoon buf 1" },
-    { "<leader>2", desc = "Harpoon buf 2" },
-    { "<leader>3", desc = "Harpoon buf 3" },
-    { "<leader>4", desc = "Harpoon buf 4" },
-    { "<leader>5", desc = "Harpoon buf 5" },
-    { "<leader>6", desc = "Harpoon buf 6" },
-    { "<leader>7", desc = "Harpoon buf 7" },
-    { "<leader>8", desc = "Harpoon buf 8" },
-    { "<leader>9", desc = "Harpoon buf 9" },
-    { "<leader>0", desc = "Harpoon buf 10" },
+    { "<leader>1", desc = "Harpoon file 1" },
+    { "<leader>2", desc = "Harpoon file 2" },
+    { "<leader>3", desc = "Harpoon file 3" },
+    { "<leader>4", desc = "Harpoon file 4" },
+    { "<leader>5", desc = "Harpoon file 5" },
+    { "<leader>6", desc = "Harpoon file 6" },
+    { "<leader>7", desc = "Harpoon file 7" },
+    { "<leader>8", desc = "Harpoon file 8" },
+    { "<leader>9", desc = "Harpoon file 9" },
+    { "<leader>0", desc = "Harpoon file 10" },
+    { "<localleader>a", desc = "Harpoon file 1" },
+    { "<localleader>s", desc = "Harpoon file 2" },
+    { "<localleader>d", desc = "Harpoon file 3" },
+    { "<localleader>f", desc = "Harpoon file 4" },
     { "<leader>a", desc = "Harpoon add" },
     { "<leader>h", desc = "Harpoon menu" },
     { "<leader>kn", desc = "Harpoon next" },
     { "<leader>kp", desc = "Harpoon prev" },
-    { "<leader>t1", desc = "Harpoon term 1" },
-    { "<leader>t2", desc = "Harpoon term 2" },
-    { "<leader>t3", desc = "Harpoon term 3" },
-    { "<leader>t4", desc = "Harpoon term 4" },
+    { "<leader>t1", desc = "Harpoon terminal 1" },
+    { "<leader>t2", desc = "Harpoon terminal 2" },
+    { "<leader>t3", desc = "Harpoon terminal 3" },
+    { "<leader>t4", desc = "Harpoon terminal 4" },
   },
   config = function()
     require("harpoon").setup({
@@ -48,64 +52,23 @@ return {
     vim.keymap.set("n", "<leader>kn", ui.nav_next, { desc = "Harpoon switch next" })
     vim.keymap.set("n", "<leader>kp", ui.nav_prev, { desc = "Harpoon switch previous" })
 
-    vim.keymap.set("n", "<localleader>a", function()
-      ui.nav_file(1)
-    end, { desc = "Harpoon 1", silent = true })
+    local localleaderKeys = { a = 1, s = 2, d = 3, f = 4 }
 
-    vim.keymap.set("n", "<localleader>s", function()
-      ui.nav_file(2)
-    end, { desc = "Harpoon 2", silent = true })
+    for k, v in pairs(localleaderKeys) do
+      vim.keymap.set("n", "<localleader>" .. k, function()
+        ui.nav_file(v)
+      end)
+    end
 
-    vim.keymap.set("n", "<localleader>d", function()
-      ui.nav_file(3)
-    end, { desc = "Harpoon 3", silent = true })
-
-    vim.keymap.set("n", "<localleader>f", function()
-      ui.nav_file(4)
-    end, { desc = "Harpoon 4", silent = true })
-
-    vim.keymap.set("n", "<leader>1", function()
-      ui.nav_file(1)
-    end, { desc = "Harpoon file", silent = true })
-    vim.keymap.set("n", "<leader>2", function()
-      ui.nav_file(2)
-    end, { desc = "Harpoon file", silent = true })
-    vim.keymap.set("n", "<leader>3", function()
-      ui.nav_file(3)
-    end, { desc = "Harpoon file", silent = true })
-    vim.keymap.set("n", "<leader>4", function()
-      ui.nav_file(4)
-    end, { desc = "Harpoon file", silent = true })
-    vim.keymap.set("n", "<leader>5", function()
-      ui.nav_file(5)
-    end, { desc = "Harpoon file", silent = true })
-    vim.keymap.set("n", "<leader>6", function()
-      ui.nav_file(6)
-    end, { desc = "Harpoon file", silent = true })
-    vim.keymap.set("n", "<leader>7", function()
-      ui.nav_file(7)
-    end, { desc = "Harpoon file", silent = true })
-    vim.keymap.set("n", "<leader>8", function()
-      ui.nav_file(8)
-    end, { desc = "Harpoon file", silent = true })
-    vim.keymap.set("n", "<leader>9", function()
-      ui.nav_file(9)
-    end, { desc = "Harpoon file", silent = true })
-    vim.keymap.set("n", "<leader>0", function()
-      ui.nav_file(0)
-    end, { desc = "Harpoon file", silent = true })
-
-    vim.keymap.set("n", "<leader>t1", function()
-      term.gotoTerminal(1)
-    end, { desc = "Harpoon terminal 1", silent = true })
-    vim.keymap.set("n", "<leader>t2", function()
-      term.gotoTerminal(2)
-    end, { desc = "Harpoon terminal 2", silent = true })
-    vim.keymap.set("n", "<leader>t3", function()
-      term.gotoTerminal(3)
-    end, { desc = "Harpoon terminal 3", silent = true })
-    vim.keymap.set("n", "<leader>t4", function()
-      term.gotoTerminal(4)
-    end, { desc = "Harpoon terminal 4", silent = true })
+    for i = 1, 9 do
+      vim.keymap.set("n", string.format("<leader>%s", i), function()
+        ui.nav_file(i)
+      end)
+    end
+    for i = 1, 4 do
+      vim.keymap.set("n", string.format("<leader>T%s", i), function()
+        term.gotoTerminal(i)
+      end)
+    end
   end,
 }

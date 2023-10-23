@@ -51,6 +51,8 @@ M.misc = {
   bug = "",
   search = "",
   vertical_bar = "│",
+  telescope = "",
+  alpha = "",
 }
 
 return M

@@ -15,19 +15,13 @@ return {
   keys = {
     -- TELESCOPE
     { "<leader>tf",  "<cmd>Telescope find_files<CR>",     desc = "Find files" },
+    { "<leader>tg",  "<cmd>Telescope grep_string<CR>",    desc = "Grep through files" },
     { "<leader>tb",  "<cmd>Telescope buffers<CR>",        desc = "List buffers" },
     { "<leader>vh",  "<cmd>Telescope help_tags<CR>",      desc = "Help tags" },
     { "<leader>sg",  "<cmd>Telescope grep_string<CR>",    desc = "Fast string grep" },
     { "<leader>tr",  "<cmd>Telescope oldfiles<CR>",       desc = "Recent files" },
     { "<leader>tli", "<cmd>Telescope lsp_incoming_calls", desc = "LSP incoming calls" },
     { "<leader>tlo", "<cmd>Telescope lsp_outgoing_calls", desc = "LSP outgoing calls" },
-    {
-      "<leader>tg",
-      function()
-        require("telescope.builtin").grep_string({ search = vim.fn.input("Grep > ") })
-      end,
-      desc = "Grep through files",
-    },
   },
   opts = function(_, opts)
     if Use_Defaults(plugin) then
@@ -38,6 +32,13 @@ return {
         find_files = {
           find_command = { "fd", "--type", "f", "--hidden", "--exclude", ".git", "--strip-cwd-prefix" },
           theme = "ivy",
+        },
+        oldfiles = {
+          theme = "ivy",
+        },
+        live_grep = {
+          layout_strategy = "vertical",
+          -- theme = "dropdown"
         },
         buffers = { ignore_current_buffer = true },
       }
@@ -150,11 +151,11 @@ return {
         "tokyonight",
         "oxocarbon",
         "catppuccin",
-        "github_dark_high_contrast",
         "rose-pine",
         "enfocado",
         "material-deep-ocean",
         "fluoromachine",
+        -- "github_dark_high_contrast",
         -- "carbonfox",
         -- "doom-one",
         -- "onedark_dark",
