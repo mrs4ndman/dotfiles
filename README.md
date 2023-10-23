@@ -4,7 +4,8 @@
 
 - **[Neovim](https://github.com/mrs4ndman/dotfiles/tree/main/nvim/.config/nvim)** : Directorio con las configuraciones (y backups / defaults correspondientes) de Neovim | Folder with the configs (and backups / defaults) for Neovim.
    ![image](https://github.com/mrs4ndman/dotfiles/assets/121260905/64975641-81de-42cb-8148-254fed30e84d)
-   ![image](https://github.com/mrs4ndman/dotfiles/assets/121260905/7d079351-a601-4364-883d-73546ce9c0b9) 
+   ![Custom-statusline](https://github.com/mrs4ndman/dotfiles/assets/121260905/8e836ef3-e675-4f8a-9c38-676644647f2d)
+
    - Full-featured and cool startup and custom colorscheme switcher. Which-key reveals the keybinds, and the completion and UI have been optimised for fast startup. Currently working on the debugging setup.
 <br>
 
