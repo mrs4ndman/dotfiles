@@ -3,8 +3,8 @@
 #### The tools I use the most are Neovim and tmux inside Alacritty. All of these live inside a PopOS! setup, recreated through the [scripts](https://github.com)
 
 - **[Neovim](https://github.com/mrs4ndman/dotfiles/tree/main/nvim/.config/nvim)** : Directorio con las configuraciones (y backups / defaults correspondientes) de Neovim | Folder with the configs (and backups / defaults) for Neovim.
-   ![image](https://github.com/mrs4ndman/dotfiles/assets/121260905/64975641-81de-42cb-8148-254fed30e84d)
-   ![Custom-statusline](https://github.com/mrs4ndman/dotfiles/assets/121260905/8e836ef3-e675-4f8a-9c38-676644647f2d)
+   ![Start screen](https://github.com/mrs4ndman/dotfiles/assets/121260905/3bab3fa8-253f-43e8-9965-e5b73b7b1f6c)
+   ![Fully custom statusline](https://github.com/mrs4ndman/dotfiles/assets/121260905/8e836ef3-e675-4f8a-9c38-676644647f2d)
 
    - Full-featured and cool startup and custom colorscheme switcher. Which-key reveals the keybinds, and the completion and UI have been optimised for fast startup. Currently working on the debugging setup.
 <br>
@@ -32,7 +32,7 @@
    - **[.vimrc](https://github.com/mrs4ndman/dotfiles/tree/main/vimrc)** : .vimrc general para hacerlo más agradable, pero no un editor (para eso Neovim) | Simple .vimrc conf file (my main editor is Neovim)
    ![image](https://github.com/mrs4ndman/dotfiles/assets/121260905/cb46ac06-b05a-420d-94ba-0b7bfd048223)
 <br>
-
+<!--
    - **[zsh](https://github.com/mrs4ndman/dotfiles/tree/main/zshrc)** : Archivo configuración para la shell ZSH cuando lo uso | ZSH shell config file (for when i rarely use it)
    ![image](https://github.com/mrs4ndman/dotfiles/assets/121260905/c6f292cf-eec9-404e-ae04-1f4b3d8697f2)
 <br>
@@ -40,6 +40,7 @@
    - **[Fish](https://github.com/mrs4ndman/dotfiles/tree/main/fish)** : Archivo configuración para la shell Fish cuando lo uso | Fish shell config file (for when i rarely use it)
    ![image](https://github.com/mrs4ndman/dotfiles/assets/121260905/0489edfe-f62c-4904-8c61-11f644d07297)
 <br>
+-->
 
    - **[Hyprland](https://github.com/mrs4ndman/dotfiles/tree/main/hypr/.config/hypr)** : Configuraciones para Hyprland + ajustes para keybinds con mi portátil ( sorry for the bad quality picture :/ )
    ![image](https://github.com/mrs4ndman/dotfiles/assets/121260905/3a682a30-8a97-4a8b-8af0-331afdbe543a)
