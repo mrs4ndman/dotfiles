@@ -37,8 +37,8 @@ vim.opt.expandtab = true
 -- }
 
 -- If I even want to fold
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+-- vim.opt.foldmethod = "expr"
+-- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 
 -- Vim indenting
 vim.opt.smartindent = true

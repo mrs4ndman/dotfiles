@@ -12,19 +12,19 @@ return {
   -- lazy = false,
   dependencies = {
     -- "ggandor/leap-ast.nvim",
-    {
-      "ggandor/leap-spooky.nvim",
-      opts = {
-        -- Text object hooks
-        affixes = {
-          magnetic = { window = "M", cross_window = "m" },
-          remote = { window = "R", cross_window = "r" },
-        },
-        -- Text objects are defined with i/a - obj, instead of riw, raw
-        prefix = false,
-        paste_on_ramote_yank = false,
-      },
-    },
+    -- {
+    --   "ggandor/leap-spooky.nvim",
+    --   opts = {
+    --     -- Text object hooks
+    --     affixes = {
+    --       magnetic = { window = "M", cross_window = "m" },
+    --       remote = { window = "R", cross_window = "r" },
+    --     },
+    --     -- Text objects are defined with i/a - obj, instead of riw, raw
+    --     prefix = false,
+    --     paste_on_ramote_yank = false,
+    --   },
+    -- },
     -- {
     --   "rasulomaroff/telepath.nvim",
     --   dependencies = "ggandor/leap.nvim",

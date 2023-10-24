@@ -6,6 +6,7 @@ local plugin = "nvim-cmp"
 return {
   "hrsh7th/" .. plugin,
   event = "InsertEnter",
+  -- event = { "InsertEnter", "CmdlineEnter" },
   enabled = Is_Enabled(plugin),
   dependencies = {
     -- Completion sources

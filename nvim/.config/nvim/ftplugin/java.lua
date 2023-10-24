@@ -8,19 +8,27 @@ M.capabilities = require("cmp_nvim_lsp").default_capabilities(M.capabilities)
 M.on_attach = function(client, bufnr)
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, { noremap = true, desc = "[LSP] Go to Definition", buffer = bufnr })
   vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { noremap = true, desc = "[LSP] Go to Declaration", buffer = bufnr })
-  vim.keymap.set("n", "gT", vim.lsp.buf.type_definition, { noremap = true, desc = "[LSP] Go to Type definition", buffer = bufnr })
-  vim.keymap.set("n", "gI", vim.lsp.buf.implementation, { noremap = true, desc = "[LSP] Go to Implementation", buffer = bufnr })
+  vim.keymap.set("n", "gT", vim.lsp.buf.type_definition,
+    { noremap = true, desc = "[LSP] Go to Type definition", buffer = bufnr })
+  vim.keymap.set("n", "gI", vim.lsp.buf.implementation,
+    { noremap = true, desc = "[LSP] Go to Implementation", buffer = bufnr })
   vim.keymap.set("n", "K", vim.lsp.buf.hover, { noremap = true, desc = "[LSP] Hover info", buffer = bufnr })
-    -- stylua: ignore
-    vim.keymap.set("n", "<leader>tD", "<cmd>Telescope lsp_dynamic_document_symbols<CR>",
-      { desc = "[LSP] Dynamic document symbols", buffer = bufnr })
-  vim.keymap.set("n", "<leader>tW", "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>", { desc = "[LSP] Dynamic workspace symbols", buffer = bufnr })
-  vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { noremap = true, desc = "[LSP] Previous diagnostic", buffer = bufnr })
+  -- stylua: ignore
+  vim.keymap.set("n", "<leader>tD", "<cmd>Telescope lsp_dynamic_document_symbols<CR>",
+    { desc = "[LSP] Dynamic document symbols", buffer = bufnr })
+  vim.keymap.set("n", "<leader>tW", "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>",
+    { desc = "[LSP] Dynamic workspace symbols", buffer = bufnr })
+  vim.keymap.set("n", "[d", vim.diagnostic.goto_prev,
+    { noremap = true, desc = "[LSP] Previous diagnostic", buffer = bufnr })
   vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { noremap = true, desc = "[LSP] Next diagnostic", buffer = bufnr })
-  vim.keymap.set({ "n", "v" }, "<leader>vca", vim.lsp.buf.code_action, { noremap = true, desc = "[LSP] View code actions", buffer = bufnr })
-  vim.keymap.set("n", "<leader>vrr", vim.lsp.buf.references, { noremap = true, desc = "[LSP} Show references", buffer = bufnr })
-  vim.keymap.set({ "n", "v" }, "<leader>vrn", vim.lsp.buf.rename, { noremap = true, desc = "[LSP] Rename element under cursor", buffer = bufnr })
-  vim.keymap.set("n", "<C-n>", vim.lsp.buf.signature_help, { noremap = true, desc = "[LSP] Signature help", buffer = bufnr })
+  vim.keymap.set({ "n", "v" }, "<leader>vca", vim.lsp.buf.code_action,
+    { noremap = true, desc = "[LSP] View code actions", buffer = bufnr })
+  vim.keymap.set("n", "<leader>vrr", vim.lsp.buf.references,
+    { noremap = true, desc = "[LSP} Show references", buffer = bufnr })
+  vim.keymap.set({ "n", "v" }, "<leader>vrn", vim.lsp.buf.rename,
+    { noremap = true, desc = "[LSP] Rename element under cursor", buffer = bufnr })
+  vim.keymap.set("n", "<C-n>", vim.lsp.buf.signature_help,
+    { noremap = true, desc = "[LSP] Signature help", buffer = bufnr })
 
   vim.api.nvim_create_autocmd("CursorHold", {
     buffer = bufnr,
@@ -37,6 +45,11 @@ M.on_attach = function(client, bufnr)
     end,
   })
   -- navbuddy.attach(client, bufnr)
+  if client.name == "jdtls" then
+    require("jdtls").setup_dap { hotcodereplace = "auto" }
+    require("jdtls.dap").setup_dap_main_class_configs()
+    vim.lsp.codelens.refresh()
+  end
 end
 
 ---@diagnostic disable-next-line: missing-fields
@@ -60,6 +73,12 @@ local config = {
   -- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
   cmd = { "/home/mrsandman/.local/share/nvim/mason/bin/jdtls" },
   root_dir = vim.fs.dirname(vim.fs.find({ "gradlew", ".git", "mvnw" }, { upward = true })[1]),
+}
+config['init_options'] = {
+  bundles = {
+    vim.fn.glob(
+    "/home/mrsandman/.local/share/nvim/mason/packages/java-debug-adapter/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar")
+  },
 }
 -- This starts a new client & server,
 -- or attaches to an existing client & server depending on the `root_dir`.

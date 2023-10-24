@@ -13,7 +13,7 @@ vim.api.nvim_create_autocmd("TermOpen", {
     vim.opt.number = false
     vim.opt.relativenumber = false
     vim.cmd([[startinsert]])
-  end
+  end,
 })
 
 -- Markdown and LaTeX settings
@@ -28,9 +28,9 @@ vim.api.nvim_create_autocmd("Filetype", {
 
 vim.api.nvim_create_autocmd("BufEnter", {
   pattern = "*.tex",
-  callback = function ()
+  callback = function()
     vim.bo.filetype = "tex"
-  end
+  end,
 })
 
 -- PSeInt settings
@@ -38,6 +38,33 @@ vim.api.nvim_create_autocmd("BufEnter", {
   pattern = "*.psc",
   callback = function()
     vim.cmd([[setlocal filetype=pseint]])
+  end,
+})
+
+local statuslineNop = {
+  "netrw",
+  "alpha",
+  "lazy",
+}
+vim.api.nvim_create_autocmd({ "WinEnter", "WinNew", "BufEnter" }, {
+  callback = function()
+    if vim.bo.filetype ~= statuslineNop then
+      vim.cmd([[setlocal laststatus=3]])
+    end
+  end,
+})
+
+vim.api.nvim_create_autocmd("Filetype", {
+  pattern = statuslineNop,
+  callback = function()
+    vim.cmd([[setlocal laststatus=0]])
+  end,
+})
+vim.api.nvim_create_autocmd({ "WinLeave", "WinClosed", "BufLeave" }, {
+  callback = function()
+    if vim.bo.filetype ~= statuslineNop then
+      vim.cmd([[setlocal laststatus=3]])
+    end
   end,
 })
 
@@ -67,7 +94,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     vim.highlight.on_yank({ timeout = 60 })
   end,
 })
-
 
 -- Create Registry cleaner
 local function ClearReg()

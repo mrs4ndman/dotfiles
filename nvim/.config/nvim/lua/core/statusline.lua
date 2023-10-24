@@ -35,7 +35,7 @@ function M.mode_component()
     ["nov"] = "OP-PENDING",
     ["noV"] = "OP-PENDING",
     ["no\22"] = "OP-PENDING",
-    ["niI"] = "NORMAL",
+    ["niI"] = "I-NORMAL",
     ["niR"] = "NORMAL",
     ["niV"] = "NORMAL",
     ["nt"] = "NORMAL",
@@ -82,6 +82,8 @@ function M.mode_component()
     hl = "V_LINE"
   elseif mode:find("V-BLOCK") then
     hl = "V_BLOCK"
+  elseif mode:find("I-NORMAL") then
+    hl = "I_Normal"
   elseif mode:find("INSERT") or mode:find("SELECT") then
     hl = "Insert"
   elseif mode:find("COMMAND") or mode:find("TERMINAL") or mode:find("EX") then
@@ -98,7 +100,7 @@ end
 --- Filename (if any)
 ---@return string
 function M.filename_component()
----@diagnostic disable-next-line: unused-local
+  ---@diagnostic disable-next-line: unused-local
   local default_options = {
     symbols = {
       modified = "[+]", -- Text to show when the file is modified.
@@ -111,8 +113,8 @@ function M.filename_component()
     path = 0,
     shorting_target = 40,
   }
-    local relpath = "%f%m%r"
-    return string.format('%%#StatuslineFilename# %s', relpath)
+  local relpath = "%f%m%r"
+  return string.format("%%#StatuslineFilename# %s", relpath)
 end
 
 --- Git status (if any)
@@ -125,7 +127,7 @@ function M.git_component()
     return gitdir and #gitdir > 0 and #gitdir < #filepath
   end
   local head = vim.b.gitsigns_head
-  if (not head) or (not check_git_workspace) then
+  if (not head) or not check_git_workspace then
     return ""
   end
   return string.format("%%#StatuslineGit# %s", head)
@@ -226,18 +228,18 @@ function M.filetype_component()
   local devicons = require("nvim-web-devicons")
 
   local special_icons = {
-    DressingInput = { "󰍩", "Comment" },
-    DressingSelect = { "", "Comment" },
-    dapui_breakpoints = { icons.misc.bug, "DapUIRestart" },
-    dapui_scopes = { icons.misc.bug, "DapUIRestart" },
-    dapui_stacks = { icons.misc.bug, "DapUIRestart" },
-    gitcommit = { "", "Conditional" },
-    gitrebase = { "", "Conditional" },
-    lazy = { icons.symbol_kinds.Method, "Special" },
-    TelescopePrompt = { "󰭎", "Comment" },
-    lazyterm = { "", "Special" },
-    qf = { icons.misc.search, "Conditional" },
-    alpha = { icons.misc.alpha, "Conditional" }
+    DressingInput = { "󰍩 ", "Comment" },
+    DressingSelect = { " ", "Comment" },
+    dapui_breakpoints = { icons.misc.bug, "Comment" },
+    dapui_scopes = { icons.misc.bug, "Comment" },
+    dapui_stacks = { icons.misc.bug, "Comment" },
+    gitcommit = { " ", "Comment" },
+    gitrebase = { " ", "Comment" },
+    lazy = { icons.symbol_kinds.Method, "Comment" },
+    TelescopePrompt = { icons.misc.telescope, "Comment" },
+    lazyterm = { " ", "Comment" },
+    qf = { icons.misc.search, "Comment" },
+    alpha = { icons.misc.alpha, "Comment" },
     -- OverseerForm = { "󰦬", "Special" },
     -- OverseerList = { "󰦬", "Special" },
     -- fzf = { "", "Special" },
@@ -296,7 +298,7 @@ function M.position_component()
     "%#StatuslinePosSeparator#l: ",
     string.format("%%#StatuslineCurrentLine#%d", line),
     string.format("%%#StatuslinePosSeparator#/%d ", line_count),
-    string.format("| c → %%#StatuslineColumnIndicator#%d", col)
+    string.format("| c → %%#StatuslineColumnIndicator#%d", col),
     -- StatuslineCurrentLine = {},
     -- StatuslineTotalLines = {},
   })
@@ -332,7 +334,7 @@ function M.render()
     }),
     concat_components({
       "%#Statusline#%=",
-      M.dap_component() or M.lsp_progress_component(),
+      -- M.dap_component() or M.lsp_progress_component(),
       M.diagnostics_component(),
       M.filetype_component(),
       M.lsp_component(),

@@ -45,11 +45,12 @@ for mode, color in pairs {
   Normal = 'radioactive',
   Pending = 'white',
   Visual = 'yellow',
-  Insert = 'red',
-  Command = 'cyan',
-  Replace = 'blue',
   V_Block = 'ultraviolet',
   V_Line = 'orange',
+  Insert = 'red',
+  I_Normal = 'radioactive',
+  Command = 'cyan',
+  Replace = 'blue',
   Other = 'orange',
 } do
   statusline_groups['StatuslineMode' .. mode] = { fg = colors.bg, bg = colors[color] }
