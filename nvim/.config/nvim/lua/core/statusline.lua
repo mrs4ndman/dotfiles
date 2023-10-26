@@ -43,9 +43,9 @@ function M.mode_component()
     ["v"] = "VISUAL",
     ["vs"] = "VISUAL",
     ["V"] = "V-LINE",
-    ["Vs"] = "VISUAL",
+    ["Vs"] = "V-LINE",
     ["\22"] = "V-BLOCK",
-    ["\22s"] = "VISUAL",
+    ["\22s"] = "V-BLOCK",
     ["s"] = "SELECT",
     ["S"] = "SELECT",
     ["\19"] = "SELECT",
@@ -133,13 +133,36 @@ function M.git_component()
   return string.format("%%#StatuslineGit# %s", head)
 end
 
+--- Noice key status
+---@return string
+function M.noice_macro()
+  if not package.loaded["noice"] then
+    return ""
+  end
+  local callStatement = require("noice").api.status.mode.get()
+  if callStatement == nil then
+    return ""
+  end
+  return string.format("%%#StatuslineNoiceMacro#󱐋%%#StatuslineWhite# %s", callStatement)
+end
+
+--- Noice key status
+---@return string
+function M.noice_keys()
+  local noiceCommand = require("noice").api.statusline.command.get()
+  if not package.loaded["noice"] then
+    return ""
+  end
+  return string.format("%%#StatuslineNoiceKeys#󰌓 %s", noiceCommand)
+end
+
 --- The current debugging status (if any)
 ---@return string?
 function M.dap_component()
   if not package.loaded["dap"] or require("dap").status() == "" then
-    return nil
+    return ""
   end
-  return string.format("%%#%s#%s  %s", M.get_or_create_hl("DapUIRestart"), icons.misc.bug, require("dap").status())
+  return string.format("%%#%s#%s%%#StatuslineWhite# %s", M.get_or_create_hl("DapUIRestart"), icons.misc.bug, require("dap").status())
 end
 
 --- Keep track of LSP progress
@@ -230,21 +253,18 @@ function M.filetype_component()
   local special_icons = {
     DressingInput = { "󰍩 ", "Comment" },
     DressingSelect = { " ", "Comment" },
-    dapui_breakpoints = { icons.misc.bug, "Comment" },
-    dapui_scopes = { icons.misc.bug, "Comment" },
-    dapui_stacks = { icons.misc.bug, "Comment" },
-    gitcommit = { " ", "Comment" },
-    gitrebase = { " ", "Comment" },
-    lazy = { icons.symbol_kinds.Method, "Comment" },
+    dapui_breakpoints = { icons.misc.bug, "StatuslineDapIcon" },
+    dapui_scopes = { icons.misc.bug, "StatuslineDapIcon" },
+    dapui_stacks = { icons.misc.bug, "StatuslineDapIcon" },
+    gitcommit = { " ", "StatuslineGitIcon" },
+    gitrebase = { " ", "StatuslineGitIcon" },
+    lazy = { icons.misc.lazy, "StatuslineLazyIcon" },
     TelescopePrompt = { icons.misc.telescope, "Comment" },
     lazyterm = { " ", "Comment" },
     qf = { icons.misc.search, "Comment" },
     alpha = { icons.misc.alpha, "Comment" },
-    -- OverseerForm = { "󰦬", "Special" },
+    oil = { icons.misc.oil, "StatuslineColumnIndicator" },
     -- OverseerList = { "󰦬", "Special" },
-    -- fzf = { "", "Special" },
-    -- kitty_scrollback = { "󰄛", "Conditional" },
-    -- minifiles = { icons.symbol_kinds.Folder, "Directory" },
     -- spectre_panel = { icons.misc.search, "String" },
   }
 
@@ -275,15 +295,14 @@ end
 function M.lsp_component()
   -- local encoding = vim.opt.fileencoding:get()
   -- return encoding ~= "" and string.format("%%#StatuslineModeSeparatorOther# %s", encoding) or ""
-  local msg = " None"
   local clients = vim.lsp.get_clients({ bufnr = 0 })
   local icon = " "
 
   if next(clients) == nil then
-    return icon .. " " .. msg
+    return string.format("%%#StatuslineLSPIconNone#%s %%#StatuslineWhite# None ", icon)
   end
   for _, client in ipairs(clients) do
-    return clients ~= "" and string.format("%%#StatuslineLSPIcon# %s %%#StatuslineLSP#%s", icon, client.name) or ""
+    return clients ~= "" and string.format("%%#StatuslineLSPIconOk#%s %%#StatuslineWhite#%s", icon, client.name) or ""
   end
 end
 
@@ -303,13 +322,38 @@ function M.position_component()
     -- StatuslineTotalLines = {},
   })
 end
+--- Lazy package updates for the session
+---@return string
+function M.lazy_updates()
+  if not package.loaded["lazy"] or not require("lazy.status").has_updates() then
+    return ""
+  end
+  return table.concat({
+    string.format("%%#StatuslineLazyIcon# %s", string.sub((require("lazy.status").updates()), 1, 3)),
+    string.format("%%#StatuslineWhite#%s", string.sub((require("lazy.status").updates()), 4, 5)),
+  })
+end
+
+--- Current formatter for the buffer
+---@return string
+function M.formatter_component()
+  local formatterIcon = " 󰺬 "
+  if not package.loaded["conform"] then
+    return string.format("%%#StatuslineLSPIconNone#%s%%#StatuslineWhite#None", formatterIcon)
+  end
+  local formatterSource = require("conform").list_formatters_for_buffer(0)
+  local formatterName = string.format("%s", table.concat(formatterSource))
+  if package.loaded["conform"] and (formatterName == (nil or "")) then
+    return string.format("%%#StatuslineLSPIconNone#%s None", formatterIcon)
+  end
+  return table.concat({
+    string.format(" %%#StatuslineLSPIconOk#󰺦  %%#StatuslineWhite#%s", formatterName),
+  })
+end
 
 --- Side marks, a la Doom-Emacs
 ---@return string
 function M.side_marks_component()
-  --   -- local bar = "▊"
-  --   -- hl = M.get_or_create_hl(hl)
-  --   -- string.format("%%#StatuslineModeSeparator%s#", hl),
   return string.format("%%#StatuslineSidemark#▊")
 end
 
@@ -330,14 +374,18 @@ function M.render()
       M.mode_component(),
       M.filename_component(),
       M.git_component(),
+      M.noice_keys(),
+      M.noice_macro(),
+      M.lazy_updates(),
       "%#Statusline#%=",
     }),
     concat_components({
       "%#Statusline#%=",
-      -- M.dap_component() or M.lsp_progress_component(),
+      M.dap_component(), --[[ or M.lsp_progress_component() ]]
       M.diagnostics_component(),
-      M.filetype_component(),
+      M.formatter_component(),
       M.lsp_component(),
+      M.filetype_component(),
       M.position_component(),
       M.side_marks_component(),
     }),
@@ -345,7 +393,7 @@ function M.render()
   })
 end
 
-vim.api.nvim_set_hl(0, "Statusline", { fg = "#C0C5CE", bg = "" })
+-- vim.api.nvim_set_hl(0, "Statusline", { fg = "#C0C5CE", bg = "" })
 
 vim.o.statusline = "%!v:lua.require'core.statusline'.render()"
 return M

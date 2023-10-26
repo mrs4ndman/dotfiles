@@ -211,7 +211,10 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz", { silent = true })
 
 -- Invoke sessionizer
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>", { desc = "tmux sessionizer" })
---
+
+-- Lazy terminal
+vim.keymap.set("n", "<M-C-J>", function() require("lazy.util").float_term() end, {})
+
 -- Export current state to HTML:
 vim.keymap.set("n", "<leader>xth", "<cmd>TOhtml<CR>", { desc = "Export to HTML" })
 
@@ -242,6 +245,7 @@ vim.keymap.set("v", ">", ">gv", { silent = true })
 
 -- TERMINAL mode keybinds
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
+vim.keymap.set("t", "<M-C-J>", "<C-\\><C-n>bd!<CR>")
 vim.keymap.set("n", "<leader>te>", ":bd!", { desc = "Exit terminal" })
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 vim.keymap.set("n", "<leader>te>", ":bd!", { desc = "Exit terminal" })

@@ -20,6 +20,7 @@ return {
     { "<leader>8", desc = "Harpoon file 8" },
     { "<leader>9", desc = "Harpoon file 9" },
     { "<leader>0", desc = "Harpoon file 10" },
+    { "<localleader><localleader>", desc = "Harpoon menu" },
     { "<localleader>a", desc = "Harpoon file 1" },
     { "<localleader>s", desc = "Harpoon file 2" },
     { "<localleader>d", desc = "Harpoon file 3" },

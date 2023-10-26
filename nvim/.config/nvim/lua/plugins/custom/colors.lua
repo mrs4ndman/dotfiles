@@ -20,7 +20,7 @@ return {
       variant = "main",
       dark_variant = "main",
       bold_vert_split = true,
-      disable_background = false,
+      disable_background = true,
       disable_float_background = false,
       disable_italics = true,
       highlight_groups = { NotifyBackground = { bg = "base" } },
@@ -32,28 +32,22 @@ return {
     enabled = Is_Enabled("tokyonight.nvim"),
     -- lazy = false,
     -- priority = 1000,
-    opts = function(_, opts)
-      if Use_Defaults("tokyonight.nvim") then
-        opts = opts
-      else
-        opts = {
-          style = "night",
-          light_style = "day",
-          transparent = false,
-          styles = {
-            comments = { italic = true },
-            keywords = { italic = true },
-            functions = {},
-            variables = {},
-            sidebars = "dark",
-            floats = "dark",
-          },
-          hide_inactive_statusline = false,
-          dim_inactive = true,
-          -- lualine_bold = true,
-        }
-      end
-    end,
+    opts = {
+      style = "night",
+      light_style = "day",
+      transparent = true,
+      styles = {
+        comments = { italic = true },
+        keywords = { italic = true },
+        functions = {},
+        variables = {},
+        sidebars = "dark",
+        floats = "dark",
+      },
+      hide_inactive_statusline = false,
+      dim_inactive = true,
+      -- lualine_bold = true,
+    },
   },
   {
     "marko-cerovac/material.nvim",
@@ -87,13 +81,18 @@ return {
   },
   {
     "tiagovla/tokyodark.nvim",
-    -- lazy = false,
-    -- priority = 1000,
     enabled = Is_Enabled("tokyodark.nvim"),
-    config = function()
-      vim.g.tokyodark_enable_italic = false
-      vim.g.tokyodark_enable_italic_comment = true
-    end,
+    opts = {
+      transparent_background = true,
+      styles = {
+        comments = { italic = true },
+        keywords = { italic = false },
+        identifiers = { italic = false },
+        functions = { italic = true },
+        variables = { italic = false },
+      },
+      terminal_colors = true,
+    },
   },
   {
     "projekt0n/github-nvim-theme",
@@ -120,11 +119,14 @@ return {
     -- priority = 1000,
     enabled = Is_Enabled("oxocarbon.nvim"),
     config = function()
+      vim.cmd("colorscheme oxocarbon")
       vim.opt.guicursor = ""
+      vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+      vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
     end,
   },
   {
-   "wuelnerdotexe/vim-enfocado",
+    "wuelnerdotexe/vim-enfocado",
     -- lazy = false,
     -- priority = 1000,
     enabled = Is_Enabled("vim-enfocado"),
@@ -147,35 +149,35 @@ return {
   {
     "catppuccin/nvim",
     name = "catppuccin",
-    opts = {
-      flavour = "mocha",
-      background = { light = "latte", dark = "mocha" },
-      transparent_background = false,
-      show_end_of_buffer = false,
-      dim_inactive = { enabled = false, shade = "dark", percentage = 0.2 },
-      integrations = {
-        alpha = true,
-        cmp = true,
-        flash = true,
-        gitsigns = true,
-        harpoon = true,
-        lsp_trouble = true,
-        leap = true,
-        mason = true,
-        mini = true,
-        navic = { enabled = true },
-        noice = true,
-        notify = true,
-        nvimtree = true,
-        rainbow_delimiters = true,
-        telescope = true,
-        treesitter_context = true,
-        treesitter = true,
-        which_key = true,
-      },
-    },
     config = function()
+      require("catppuccin").setup({
+        flavour = "mocha",
+        background = { light = "latte", dark = "mocha" },
+        transparent_background = false,
+        integrations = {
+          cmp = true,
+          gitsigns = true,
+          harpoon = true,
+          lsp_trouble = true,
+          leap = true,
+          mason = true,
+          mini = true,
+          noice = true,
+          notify = true,
+          -- nvimtree = true,
+          rainbow_delimiters = true,
+          telescope = true,
+          treesitter_context = true,
+          treesitter = true,
+          which_key = true,
+        },
+      })
       vim.opt.guicursor = ""
+      vim.cmd([[augroup enfocado_customization
+      autocmd!
+      autocmd ColorScheme enfocado highlight Normal ctermbg=NONE guibg=NONE
+      augroup END
+      ]])
     end,
   },
   -- {

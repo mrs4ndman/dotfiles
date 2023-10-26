@@ -3,32 +3,61 @@ local functions = require("mrsandman.functions")
 Is_Enabled = functions.is_enabled
 Use_Defaults = functions.use_plugin_defaults
 
-local plugin = "formatter.nvim"
+-- local plugin = "formatter.nvim"
 
 return {
+  -- {
+  --   "mhartington/" .. plugin,
+  --   enabled = Is_Enabled(plugin),
+  --   cmd = "Format",
+  --   keys = {
+  --     { "<leader>ff", "<cmd>Format<CR>", desc = "Formatter" },
+  --   },
+  --   config = function()
+  --     require("formatter").setup({
+  --       logging = false,
+  --       filetype = {
+  --         lua = {
+  --           require("formatter.filetypes.lua").stylua,
+  --         },
+  --         html = {
+  --           require("formatter.filetypes.html").prettierd,
+  --         },
+  --         javascript = { vim.lsp.buf.format({ async = true }) },
+  --         astro = require("formatter.defaults.prettierd"),
+  --         java = { vim.lsp.buf.format({ async = true }) },
+  --       },
+  --     })
+  --   end,
+  -- },
   {
-    "mhartington/" .. plugin,
-    enabled = Is_Enabled(plugin),
-    cmd = "Format",
+    "stevearc/conform.nvim",
+    event = { "BufWritePre" },
+    cmd = { "ConformInfo" },
     keys = {
-      { "<leader>ff", "<cmd>Format<CR>", desc = "Formatter" },
+      {
+        -- Customize or remove this keymap to your liking
+        "<leader>ff",
+        function()
+          require("conform").format({ async = true, lsp_fallback = true })
+        end,
+        mode = { "n", "v" },
+        desc = "Format buffer",
+      },
     },
-    config = function()
-      require("formatter").setup({
-        logging = false,
-        filetype = {
-          lua = {
-            require("formatter.filetypes.lua").stylua,
-          },
-          html = {
-            require("formatter.filetypes.html").prettierd,
-          },
-          javascript = { vim.lsp.buf.format({ async = true }) },
-          astro = require("formatter.defaults.prettierd"),
-          java = { vim.lsp.buf.format({ async = true }) },
-        },
-      })
-    end,
+    opts = {
+      -- Define your formatters
+      formatters_by_ft = {
+        lua = { "stylua" },
+        javascript = { "prettierd" },
+        astro = { "prettierd" },
+        html = { "prettierd" },
+      },
+    },
+    -- init = function()
+    --   -- If you want the formatexpr, here is the place to set it
+    --   vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
+    -- end,
   },
   {
     "WhoIsSethDaniel/mason-tool-installer.nvim",

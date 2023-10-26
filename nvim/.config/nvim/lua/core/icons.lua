@@ -53,6 +53,8 @@ M.misc = {
   vertical_bar = "│",
   telescope = "󰭎 ",
   alpha = "",
+  lazy = "󰒲",
+  oil = "󱐋",
 }
 
 return M

@@ -55,9 +55,6 @@ vim.opt.incsearch = true
 vim.opt.showmatch = true
 vim.opt.matchtime = 10
 
--- bars
-vim.opt.showmode = false
-
 -- Terminal colors
 vim.opt.termguicolors = true
 

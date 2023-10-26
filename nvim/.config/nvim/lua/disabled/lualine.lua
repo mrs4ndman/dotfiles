@@ -9,7 +9,7 @@ local plugin = "lualine.nvim"
 return {
   "nvim-lualine/" .. plugin,
   -- enabled = Is_Enabled(plugin),
-  enabled = false,
+  -- enabled = false,
   event = "UIEnter",
   config = function()
     require("custom.lualine")

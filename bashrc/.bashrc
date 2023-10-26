@@ -111,7 +111,7 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden -g "!.git" '
 export FZF_DEFAULT_OPTS='-m --height 40% --border'
 export GPG_TTY=$(tty)
 export ALTED="vim"
-export PATH="$HOME/.config/emacs/bin:$HOME/.console-ninja/.bin:/usr/local/go/bin:$HOME/.cargo/bin:$HOME/.fzf/bin:$HOME/.local/bin:$HOME/.local/scripts:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+export PATH="$HOME/.config/emacs/bin:$HOME/.console-ninja/.bin:/usr/local/go/bin:$HOME/go/bin/:$HOME/.cargo/bin:$HOME/.fzf/bin:$HOME/.local/bin:$HOME/.local/scripts:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 export VIMRC="$HOME/.vimrc"
 export NVIMRC="$HOME/dotfiles/nvim/.config/nvim"
 export VISUAL="nvim"
@@ -394,6 +394,7 @@ alias nv='nvim'
 alias nvdiff='nvim -d'
 alias v='nvim'
 alias SmallNvim='NVIM_APPNAME=SmallNvim nvim'
+alias NvimTest='NVIM_APPNAME=NvimTest nvim'
 alias nik-test='NVIM_APPNAME=nik-test nvim'
 alias PrimeagenNvim='NVIM_APPNAME=Primeagen nvim'
 alias MonstahNvim='NVIM_APPNAME=MonstahNvim nvim'
@@ -401,7 +402,6 @@ alias LazyVim='NVIM_APPNAME=LazyVim nvim'
 alias kickstart-nvim='NVIM_APPNAME=kickstart-nvim nvim'
 alias DoomNvim='NVIM_APPNAME=DoomNvim nvim'
 alias NvChad='NVIM_APPNAME=NvChad nvim'
-alias JavaNvim='NVIM_APPNAME=DuskNvim nvim'
 alias NormalNvim='NVIM_APPNAME=NormalNVim nvim'
 alias AstroNvim='NVIM_APPNAME=AstroNvim nvim'
 alias CosmicNvim='NVIM_APPNAME=CosmicNvim nvim'
@@ -412,6 +412,7 @@ alias CosmicNvim='NVIM_APPNAME=CosmicNvim nvim'
 function nvims() {
     items=(
         "mrsandman"
+        "NvimTest"
         "SmallNvim"
         "Caixeta"
         "Primeagen"
@@ -419,7 +420,6 @@ function nvims() {
         "LazyVim"
         "DoomNvim"
         "NvChad"
-        "DuskNvim"
         "NormalNVim"
         "AstroNvim"
         "kickstart-nvim"
