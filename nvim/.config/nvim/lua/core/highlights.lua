@@ -39,6 +39,7 @@ for mode, color in pairs({
   statusline_groups["StatuslineModeSeparator" .. mode] = { fg = colors.bg, bg = colors[color] }
 end
 statusline_groups = vim.tbl_extend("error", statusline_groups, {
+  Statusline = { bg = "#000000" },
   StatuslineColumnIndicator = { fg = colors.yellow, bg = colors.bg },
   StatuslineCurrentLine = { fg = colors.lime, bg = colors.bg, bold = true },
   StatuslineDapIcon = { fg = colors.lime, bg = colors.bg, bold = true },
@@ -57,6 +58,7 @@ statusline_groups = vim.tbl_extend("error", statusline_groups, {
   StatuslineTitle = { fg = colors.white, bg = colors.bg, bold = true },
   StatuslineTotalLines = { fg = colors.red, italic = true },
   StatuslineWhite = { fg = colors.white, bg = colors.bg, bold = true },
+  CmpGhostText = { fg = colors.violet, italic = true },
 })
 
 for group, opts in pairs(statusline_groups) do

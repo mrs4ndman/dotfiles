@@ -3,132 +3,34 @@ local functions = require("mrsandman.functions")
 Is_Enabled = functions.is_enabled
 Use_Defaults = functions.use_plugin_defaults
 
--- local plugin = "formatter.nvim"
-
 return {
-  -- {
-  --   "mhartington/" .. plugin,
-  --   enabled = Is_Enabled(plugin),
-  --   cmd = "Format",
-  --   keys = {
-  --     { "<leader>ff", "<cmd>Format<CR>", desc = "Formatter" },
-  --   },
-  --   config = function()
-  --     require("formatter").setup({
-  --       logging = false,
-  --       filetype = {
-  --         lua = {
-  --           require("formatter.filetypes.lua").stylua,
-  --         },
-  --         html = {
-  --           require("formatter.filetypes.html").prettierd,
-  --         },
-  --         javascript = { vim.lsp.buf.format({ async = true }) },
-  --         astro = require("formatter.defaults.prettierd"),
-  --         java = { vim.lsp.buf.format({ async = true }) },
-  --       },
-  --     })
-  --   end,
-  -- },
-  {
-    "stevearc/conform.nvim",
-    event = { "BufWritePre" },
-    cmd = { "ConformInfo" },
-    keys = {
-      {
-        -- Customize or remove this keymap to your liking
-        "<leader>ff",
-        function()
-          require("conform").format({ async = true, lsp_fallback = true })
-        end,
-        mode = { "n", "v" },
-        desc = "Format buffer",
-      },
+  "stevearc/conform.nvim",
+  event = { "BufWritePre" },
+  cmd = { "ConformInfo" },
+  keys = {
+    {
+      -- Customize or remove this keymap to your liking
+      "<leader>ff",
+      function()
+        require("conform").format({ async = true, lsp_fallback = true })
+      end,
+      mode = { "n", "v" },
+      desc = "Format buffer",
     },
-    opts = {
-      -- Define your formatters
-      formatters_by_ft = {
-        lua = { "stylua" },
-        javascript = { "prettierd" },
-        astro = { "prettierd" },
-        html = { "prettierd" },
-      },
-    },
-    -- init = function()
-    --   -- If you want the formatexpr, here is the place to set it
-    --   vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
-    -- end,
   },
-  {
-    "WhoIsSethDaniel/mason-tool-installer.nvim",
-    enabled = Is_Enabled("mason-tool-installer.nvim"),
-    cmd = { "MasonToolsInstall", "MasonToolsUpdate" },
-    event = { "BufReadPre", "BufNewFile" },
-    dependencies = {
-      {
-        "williamboman/mason.nvim",
-        enabled = Is_Enabled("mason.nvim"),
-        cmd = "Mason",
-        opts = {
-          ui = {
-            icons = {
-              package_installed = "✓",
-              package_pending = "➜",
-              package_uninstalled = "✗",
-            },
-          },
-        },
-      },
+  opts = {
+    -- Define your formatters
+    formatters_by_ft = {
+      lua = { "stylua" },
+      javascript = { "prettierd" },
+      astro = { "prettierd" },
+      html = { "prettierd" },
+      markdown = { "injected" },
+      java = { "clang_format" },
     },
-    config = function()
-      require("mason").setup()
-      require("mason-tool-installer").setup({
-        ensure_installed = {
-          -- Formatters
-          "cbfmt",
-          "shfmt",
-          "stylua",
-          "prettierd",
-          "commitlint",
-          -- DAP
-          -- 'codelldb',
-          "bash-debug-adapter",
-          "debugpy",
-          "delve",
-          "go-debug-adapter",
-          "java-debug-adapter",
-          "js-debug-adapter",
-          "php-debug-adapter",
-          "debugpy",
-          -- LSPs
-          "lua-language-server",
-          "vim-language-server",
-          "html-lsp",
-          "astro-language-server",
-          "typescript-language-server",
-          "css-lsp",
-          "eslint-lsp",
-          "intelephense",
-          "ltex-ls",
-          "marksman",
-          "clangd",
-          "neocmakelsp",
-          "json-lsp",
-          "python-lsp-server",
-          "ruby-lsp",
-          "bash-language-server",
-          -- 'hls',
-          "ansible-language-server",
-          "dockerfile-language-server",
-          "yaml-language-server",
-          "ruff-lsp",
-          "rust-analyzer",
-          "gopls",
-          "jdtls",
-        },
-        auto_update = true,
-        debounce_hours = 2,
-      })
-    end,
   },
+  -- init = function()
+  --   -- If you want the formatexpr, here is the place to set it
+  --   vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
+  -- end,
 }

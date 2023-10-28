@@ -84,9 +84,9 @@ local on_attach = function(client, bufnr)
   })
 
   -- TODO: Need to configure this for the ones that need it:
-  -- if client.server_capabilities.inlayHintProvider then
-  --   vim.lsp.inlay_hint(bufnr, true)
-  -- end
+  if client.server_capabilities.inlayHintProvider then
+    vim.lsp.inlay_hint(bufnr, false)
+  end
 
   -- Plugin attachments
   -- navbuddy.attach(client, bufnr)

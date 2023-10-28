@@ -71,7 +71,7 @@ return function(_, opts)
           Tabnine = "T",
           codeium = "󱍋",
           cmp_tabnine = "󱍋",
-          omni = "[Ø]"
+          omni = "[Ø]",
         },
       }),
       -- Tailwind CSS cmp icons
@@ -194,6 +194,7 @@ return function(_, opts)
       },
     }
 
+    -- vim.api.nvim_set_hl(0, "Cursorline", { bg = "#0037AA" })
     vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
     local cmp_autopairs = require("nvim-autopairs.completion.cmp")
     cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())

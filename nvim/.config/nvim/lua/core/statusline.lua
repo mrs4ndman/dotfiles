@@ -103,8 +103,8 @@ function M.filename_component()
   ---@diagnostic disable-next-line: unused-local
   local default_options = {
     symbols = {
-      modified = "[+]", -- Text to show when the file is modified.
-      readonly = "[]", -- Text to show when the file is non-modifiable or readonly.
+      modified = " [+]", -- Text to show when the file is modified.
+      readonly = " [  ]", -- Text to show when the file is non-modifiable or readonly.
       unnamed = "[No Name]", -- Text to show for unnamed buffers.
       newfile = "[New]", -- Text to show for newly created file before first write
     },
@@ -113,8 +113,26 @@ function M.filename_component()
     path = 0,
     shorting_target = 40,
   }
-  local relpath = "%f%m%r"
-  return string.format("%%#StatuslineFilename# %s", relpath)
+
+  local filename = vim.fn.expand("%:t")
+
+  if filename == "" then
+    filename = "[No Name]"
+  end
+  if vim.fn.mode() == "t" then
+    local terminalName = "%t"
+    return string.format("%%#StatuslineWhite# %s", terminalName)
+  end
+
+  if vim.bo.modified and vim.bo.modifiable then
+    filename = filename .. default_options.symbols.modified
+  end
+  if (not vim.bo.modifiable) or vim.bo.readonly then
+    filename = filename .. default_options.symbols.readonly
+  end
+
+  -- local relpath = "%f%m%r"
+  return string.format("%%#StatuslineFilename# %s", filename)
 end
 
 --- Git status (if any)
@@ -314,12 +332,10 @@ function M.position_component()
   local col = vim.fn.virtcol(".")
 
   return table.concat({
-    "%#StatuslinePosSeparator#l: ",
+    -- "%#StatuslinePosSeparator#l: ",
     string.format("%%#StatuslineCurrentLine#%d", line),
-    string.format("%%#StatuslinePosSeparator#/%d ", line_count),
-    string.format("| c → %%#StatuslineColumnIndicator#%d", col),
-    -- StatuslineCurrentLine = {},
-    -- StatuslineTotalLines = {},
+    string.format("%%#StatuslinePosSeparator#/%d", line_count),
+    string.format(":%%#StatuslineColumnIndicator#%d", col),
   })
 end
 --- Lazy package updates for the session
@@ -332,6 +348,11 @@ function M.lazy_updates()
     string.format("%%#StatuslineLazyIcon# %s", string.sub((require("lazy.status").updates()), 1, 3)),
     string.format("%%#StatuslineWhite#%s", string.sub((require("lazy.status").updates()), 4, 5)),
   })
+end
+---@return string
+function M.current_time()
+  local time = string.sub(tostring(os.date()), 13)
+  return string.format("%%#StatuslineTime# %s", time)
 end
 
 --- Current formatter for the buffer
@@ -380,20 +401,22 @@ function M.render()
       "%#Statusline#%=",
     }),
     concat_components({
-      "%#Statusline#%=",
-      M.dap_component(), --[[ or M.lsp_progress_component() ]]
+      M.dap_component(),
+      --[[ M.lsp_progress_component() ]]
       M.diagnostics_component(),
+    }),
+    concat_components({
+      "%#Statusline#%=",
       M.formatter_component(),
       M.lsp_component(),
       M.filetype_component(),
       M.position_component(),
+      -- M.current_time(),
       M.side_marks_component(),
     }),
     "",
   })
 end
-
--- vim.api.nvim_set_hl(0, "Statusline", { fg = "#C0C5CE", bg = "" })
 
 vim.o.statusline = "%!v:lua.require'core.statusline'.render()"
 return M

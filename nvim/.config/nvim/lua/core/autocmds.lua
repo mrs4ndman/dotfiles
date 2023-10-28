@@ -46,10 +46,14 @@ local statuslineNop = {
   "alpha",
   "lazy",
 }
-vim.api.nvim_create_autocmd({ "WinEnter", "WinNew", "BufEnter" }, {
+vim.api.nvim_create_autocmd({ "BufAdd", "BufEnter", "BufRead", "BufLeave", "WinLeave", "WinNew", "WinClosed", "WinNew" }, {
   callback = function()
     if vim.bo.filetype ~= statuslineNop then
       vim.cmd([[setlocal laststatus=3]])
+      -- vim.api.nvim_get_option_value("filetype", { 0 })
+    end
+    if vim.bo.filetype == statuslineNop then
+      vim.cmd([[setlocal laststatus=0]])
     end
   end,
 })
@@ -58,13 +62,6 @@ vim.api.nvim_create_autocmd("Filetype", {
   pattern = statuslineNop,
   callback = function()
     vim.cmd([[setlocal laststatus=0]])
-  end,
-})
-vim.api.nvim_create_autocmd({ "WinLeave", "WinClosed", "BufLeave" }, {
-  callback = function()
-    if vim.bo.filetype ~= statuslineNop then
-      vim.cmd([[setlocal laststatus=3]])
-    end
   end,
 })
 
