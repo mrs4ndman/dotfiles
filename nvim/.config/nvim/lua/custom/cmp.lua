@@ -115,10 +115,10 @@ return function(_, opts)
       ["<C-d>"] = cmp.mapping.scroll_docs(2),
       ["<C-y>"] = cmp.mapping.confirm({ select = true }),
       ["<C-f>"] = cmp.mapping(function(fallback)
-        if cmp.visible() then
-          cmp.select_next_item()
-        elseif luasnip.expand_or_locally_jumpable() then
+        if luasnip.expand_or_locally_jumpable() then
           luasnip.expand_or_jump()
+        elseif cmp.visible() then
+          cmp.select_next_item()
         elseif has_words_before() then
           cmp.complete()
         else
@@ -126,10 +126,10 @@ return function(_, opts)
         end
       end, { "i", "s" }),
       ["<C-b>"] = cmp.mapping(function(fallback)
-        if cmp.visible() then
-          cmp.select_prev_item()
-        elseif luasnip.jumpable(-1) then
+        if luasnip.jumpable(-1) then
           luasnip.jump(-1)
+        elseif cmp.visible() then
+          cmp.select_prev_item()
         else
           fallback()
         end
@@ -188,14 +188,13 @@ return function(_, opts)
       },
     }
 
-    local experimental = {
-      ghost_text = {
-        hl_group = "CmpGhostText",
-      },
-    }
+    -- local experimental = {
+    --   ghost_text = {
+    --     hl_group = "CmpGhostText",
+    --   },
+    -- }
 
     -- vim.api.nvim_set_hl(0, "Cursorline", { bg = "#0037AA" })
-    vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
     local cmp_autopairs = require("nvim-autopairs.completion.cmp")
     cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
     -- CMDLINE SETUP
@@ -228,6 +227,136 @@ return function(_, opts)
         }),
       } -- If you want insert `(` after select function or method item
     )
+    cmp.setup.filetype({ "gitcommit", "NeogitCommitMessage" }, {
+      sources = cmp.config.sources({
+        { name = "git" },
+      }, {
+        { name = "buffer" },
+      }),
+    })
+    require("cmp_git").setup({
+      remotes = { "upstream", "origin", "b0o" },
+      github = {
+        issues = {
+          filter = "all",
+          limit = 250,
+          state = "all",
+          format = {
+            label = function(_, issue)
+              local icon = ({
+                open = "",
+                closed = "x",
+              })[string.lower(issue.state)]
+              return string.format("%s #%d: %s", icon, issue.number, issue.title)
+            end,
+          },
+          sort_by = function(issue)
+            local kind_rank = issue.pull_request and 1 or 0
+            local state_rank = issue.state == "open" and 0 or 1
+            local age = os.difftime(os.time(), require("cmp_git.utils").parse_github_date(issue.updatedAt))
+            return string.format("%d%d%010d", kind_rank, state_rank, age)
+          end,
+          filter_fn = function(trigger_char, issue)
+            return string.format("%s %s %s", trigger_char, issue.number, issue.title)
+          end,
+        },
+        mentions = {
+          limit = 250,
+          sort_by = nil,
+          filter_fn = function(trigger_char, mention)
+            return string.format("%s %s %s", trigger_char, mention.username)
+          end,
+        },
+        pull_requests = {
+          limit = 250,
+          state = "all",
+          format = {
+            label = function(_, pr)
+              local icon = ({
+                open = "",
+                closed = "",
+              })[string.lower(pr.state)]
+              return string.format("%s #%d: %s", icon, pr.number, pr.title)
+            end,
+          },
+          sort_by = function(pr)
+            local state_rank = pr.state == "open" and 0 or 1
+            local age = os.difftime(os.time(), require("cmp_git.utils").parse_github_date(pr.updatedAt))
+            return string.format("%d%010d", state_rank, age)
+          end,
+          filter_fn = function(trigger_char, pr)
+            return string.format("%s %s %s", trigger_char, pr.number, pr.title)
+          end,
+        },
+      },
+      trigger_actions = {
+        {
+          debug_name = "git_commits",
+          trigger_character = ":",
+          ---@diagnostic disable-next-line: unused-local
+          action = function(sources, trigger_char, callback, params, git_info)
+            return sources.git:get_commits(callback, params, trigger_char)
+          end,
+        },
+        {
+          debug_name = "github_issues",
+          trigger_character = "#",
+          ---@diagnostic disable-next-line: unused-local
+          action = function(sources, trigger_char, callback, params, git_info)
+            return sources.github:get_issues(callback, git_info, trigger_char)
+          end,
+        },
+        {
+          debug_name = "github_pulls",
+          trigger_character = "!",
+          ---@diagnostic disable-next-line: unused-local
+          action = function(sources, trigger_char, callback, params, git_info)
+            return sources.github:get_pull_requests(callback, git_info, trigger_char)
+          end,
+        },
+        {
+          debug_name = "github_mentions",
+          trigger_character = "@",
+          ---@diagnostic disable-next-line: unused-local
+          action = function(sources, trigger_char, callback, params, git_info)
+            return sources.github:get_mentions(callback, git_info, trigger_char)
+          end,
+        },
+        {
+          debug_name = "gitlab_issues",
+          trigger_character = "#",
+          -- selene: allow(unused_variable)
+          ---@diagnostic disable-next-line: unused-local
+          action = function(sources, trigger_char, callback, params, git_info)
+            return sources.gitlab:get_issues(callback, git_info, trigger_char)
+          end,
+        },
+        {
+          debug_name = "gitlab_mentions",
+          trigger_character = "@",
+          ---@diagnostic disable-next-line: unused-local
+          action = function(sources, trigger_char, callback, params, git_info)
+            return sources.gitlab:get_mentions(callback, git_info, trigger_char)
+          end,
+        },
+        {
+          debug_name = "gitlab_mrs",
+          trigger_character = "!",
+          ---@diagnostic disable-next-line: unused-local
+          action = function(sources, trigger_char, callback, params, git_info)
+            return sources.gitlab:get_merge_requests(callback, git_info, trigger_char)
+          end,
+        },
+      },
+    })
+
+    cmp.setup({
+      experimental = {
+        ghost_text = {
+          enabled = true,
+        },
+      },
+    })
 
     -- PASSING VALUES TO THE ORIGINAL OPTS TABLE
     opts.formatting = formatting
@@ -241,6 +370,6 @@ return function(_, opts)
     opts.completion = completion
     opts.config = config
     opts.window = window
-    opts.experimental = experimental
+    -- opts.experimental = experimental
   end
 end

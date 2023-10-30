@@ -12,7 +12,7 @@ return {
   event = { "BufReadPre ~/Documents/Obsidian Vaults/**.md" },
   dependencies = {
     "nvim-lua/plenary.nvim",
-    "hrsh7th/nvim-cmp",
+    "mrs4ndman/nvim-cmp",
     "nvim-telescope/telescope.nvim",
   },
   opts = {

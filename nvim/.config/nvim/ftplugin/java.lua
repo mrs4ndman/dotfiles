@@ -68,6 +68,7 @@ local config = {
 }
 config["init_options"] = {
   bundles = {
+    ---@diagnostic disable-next-line: param-type-mismatch
     vim.fn.glob("/home/mrsandman/.local/share/nvim/mason/packages/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar", 0)
   },
 }

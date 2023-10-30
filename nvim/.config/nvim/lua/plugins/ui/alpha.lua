@@ -50,11 +50,9 @@ return {
           -- "",
           -- "",
           "",
-          "             " .. time,
+          "   " .. time .. "      Neovim " .. v.major .. "." .. v.minor .. "." .. v.patch,
           "",
-          "                 Neovim " .. v.major .. "." .. v.minor .. "." .. v.patch,
-          "",
-          "    " .. stats.loaded .. " / " .. stats.count .. " plugins | " .. ms .. "ms |  mrs4ndman",
+          "   " .. stats.loaded .. " / " .. stats.count .. " plugins | " .. ms .. "ms |  mrs4ndman",
           "",
           "󰽰 The phone is ringing, the world is spinning 󰽰",
           "               󰎈 Just let me out 󰎈",
@@ -98,8 +96,6 @@ return {
       dashboard.button("c", "󰏘    Colorschemes", ":Themer<CR>"),
       dashboard.button("l", "󰒲    Plugins", ":Lazy<CR>"),
       dashboard.button("q", "󰿅    Get me out :D", ":qa<CR>"),
-      -- dashboard.button("h", "󱂵    Home dir find", ":cd $HOME | Telescope find_files<CR>"),
-      -- dashboard.button("s", "    Settings", ":e $NVIMRC<CR>"),
     }
 
     alpha.setup(dashboard.opts)

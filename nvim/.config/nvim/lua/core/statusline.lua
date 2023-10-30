@@ -167,10 +167,10 @@ end
 --- Noice key status
 ---@return string
 function M.noice_keys()
-  local noiceCommand = require("noice").api.statusline.command.get()
   if not package.loaded["noice"] then
     return ""
   end
+  local noiceCommand = require("noice").api.statusline.command.get()
   return string.format("%%#StatuslineNoiceKeys#󰌓 %s", noiceCommand)
 end
 

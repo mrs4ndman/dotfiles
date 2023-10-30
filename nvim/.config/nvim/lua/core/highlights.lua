@@ -1,23 +1,4 @@
-local colors = {
-  bg = "#202328",
-  fg = "#bbc2cf",
-  violet = "#a9a1e1",
-  radioactive = "#FAE500",
-  yellow = "#ECBE7B",
-  cyan = "#008080",
-  pink = "#FF00FF",
-  darkblue = "#0037AA",
-  turquoise = "#00CCCC",
-  green = "#98be65",
-  lime = "#00CC00",
-  orange = "#FF8800",
-  sorange = "#FF6600",
-  magenta = "#c678dd",
-  blue = "#51afef",
-  red = "#FF0000",
-  white = "#FFFFFF",
-  ultraviolet = "#CC0099",
-}
+local colors = require("core.colors")
 
 -- Groups used for my statusline.
 ---@type table<string, vim.api.keyset.highlight>
@@ -58,7 +39,7 @@ statusline_groups = vim.tbl_extend("error", statusline_groups, {
   StatuslineTitle = { fg = colors.white, bg = colors.bg, bold = true },
   StatuslineTotalLines = { fg = colors.red, italic = true },
   StatuslineWhite = { fg = colors.white, bg = colors.bg, bold = true },
-  CmpGhostText = { fg = colors.violet, italic = true },
+  CmpGhostText = { fg = colors.deep_lavender, bg = colors.deep_velvet, force = true },
 })
 
 for group, opts in pairs(statusline_groups) do

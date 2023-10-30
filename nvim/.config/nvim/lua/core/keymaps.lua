@@ -6,21 +6,8 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = "ñ"
 
-local function put_at_end(char)
-  local pos = vim.api.nvim_win_get_cursor(0)
-  local row = pos[1] - 1
-  local current_line = vim.api.nvim_get_current_line()
-  local col = #current_line
+local func = require("core.functions")
 
-  vim.api.nvim_buf_set_text(0, row, col, row, col, { char })
-end
-
-local function put_at_beginning(char)
-  local pos = vim.api.nvim_win_get_cursor(0)
-  local row = pos[1] - 1
-  local col = 0
-  vim.api.nvim_buf_set_text(0, row, col, row, col, { char })
-end
 -- Lazy and Mason shortcuts
 vim.keymap.set("n", "<leader>lz", "<cmd>Lazy<CR>", { desc = "Lazy", silent = true })
 vim.keymap.set("n", "<leader>mp", "<cmd>Mason<CR>", { desc = "Mason", silent = true })
@@ -70,6 +57,9 @@ vim.keymap.set("n", "<A-Down>", ":resize +2<CR>", {
   desc = "Make horizontal split larger",
   silent = true,
 })
+for i = 1, 10 do
+  vim.keymap.set({ "n", "v" }, "<M-" .. i .. ">", func.tabnm(i), { desc = "Go to tab " .. i})
+end
 
 -- Get me out of here (:D)
 vim.keymap.set("n", "<leader><Esc>", "<cmd>quitall<CR>", { desc = "Quit all", silent = true })
@@ -192,15 +182,15 @@ local end_strings = {
 }
 for _, char in ipairs(end_strings) do
   vim.keymap.set("n", "<leader>" .. char, function()
-    put_at_end(char)
+    func.put_at_end(char)
   end, { desc = "Put " .. char .. " at the end of the line" })
 end
 
 vim.keymap.set("n", "<leader>-", function()
-  put_at_beginning("- ")
+  func.put_at_beginning("- ")
 end, { desc = "Put - at the beginning of the line" })
 vim.keymap.set("n", "<leader>*", function()
-  put_at_beginning("* ")
+  func.put_at_beginning("* ")
 end, { desc = "Put * at the beginning of the line" })
 
 -- Normal mode CTRL Keybinds
@@ -213,7 +203,9 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz", { silent = true })
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>", { desc = "tmux sessionizer" })
 
 -- Lazy terminal
-vim.keymap.set("n", "<M-C-J>", function() require("lazy.util").float_term() end, {})
+vim.keymap.set("n", "<M-C-J>", function()
+  require("lazy.util").float_term()
+end, {})
 
 -- Export current state to HTML:
 vim.keymap.set("n", "<leader>xth", "<cmd>TOhtml<CR>", { desc = "Export to HTML" })
@@ -244,8 +236,6 @@ vim.keymap.set("v", "<", "<gv", { silent = true })
 vim.keymap.set("v", ">", ">gv", { silent = true })
 
 -- TERMINAL mode keybinds
-vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 vim.keymap.set("t", "<M-C-J>", "<C-\\><C-n>bd!<CR>")
-vim.keymap.set("n", "<leader>te>", ":bd!", { desc = "Exit terminal" })
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 vim.keymap.set("n", "<leader>te>", ":bd!", { desc = "Exit terminal" })

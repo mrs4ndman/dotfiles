@@ -106,7 +106,7 @@ require("lspconfig").lua_ls.setup({
       },
       workspace = {
         library = {
-          vim.fn.expand("$VIMRUNTIME/lua"),
+          vim.env.VIMRUNTIME,
           vim.fn.stdpath("config") .. "/lua",
           vim.api.nvim_get_runtime_file("", true),
         },
