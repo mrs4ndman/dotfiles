@@ -153,7 +153,7 @@ return {
       require("catppuccin").setup({
         flavour = "mocha",
         background = { light = "latte", dark = "mocha" },
-        transparent_background = false,
+        transparent_background = true,
         integrations = {
           cmp = true,
           gitsigns = true,

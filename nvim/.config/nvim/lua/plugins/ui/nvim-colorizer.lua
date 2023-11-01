@@ -26,6 +26,9 @@ return {
         "markdown",
         "yaml",
         "tmux",
+        lua = {
+          names = false,
+        },
       },
       user_default_options = {
         RRGGBBAA = true,

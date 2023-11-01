@@ -193,6 +193,13 @@ vim.keymap.set("n", "<leader>*", function()
   func.put_at_beginning("* ")
 end, { desc = "Put * at the beginning of the line" })
 
+-- Start recording macro for a given word / selection
+vim.keymap.set({ "n", "v"}, "<M-C-q>", func.record_macro, { desc = "Ranged macro"})
+-- Replay said macro
+vim.keymap.set("n", "<M-C-r>", "n@i", { desc = "Replay ranged macro"})
+-- Stop recording said macro
+vim.keymap.set({ "i", "v", "n"}, "<M-C-c>", func.confirm_macro, { desc = "Confirm ranged macro"})
+
 -- Normal mode CTRL Keybinds
 
 -- Half-page jumping

@@ -1,7 +1,7 @@
 return {
   -- Java?
   "mfussenegger/nvim-jdtls",
-  depedencies = {
+  dependencies = {
     "neovim/nvim-lspconfig",
     "mfussenegger/nvim-dap",
   },
