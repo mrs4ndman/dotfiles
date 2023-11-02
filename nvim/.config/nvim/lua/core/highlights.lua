@@ -20,6 +20,7 @@ for mode, color in pairs({
   statusline_groups["StatuslineModeSeparator" .. mode] = { fg = colors.bg, bg = colors[color] }
 end
 statusline_groups = vim.tbl_extend("error", statusline_groups, {
+  CmpGhostText = { fg = colors.deep_lavender, bg = colors.deep_velvet, force = true },
   Statusline = { bg = "#000000" },
   StatuslineColumnIndicator = { fg = colors.yellow, bg = colors.bg },
   StatuslineCurrentLine = { fg = colors.lime, bg = colors.bg, bold = true },
@@ -29,8 +30,8 @@ statusline_groups = vim.tbl_extend("error", statusline_groups, {
   StatuslineGitIcon = { fg = colors.orange, bg = colors.bg, bold = true },
   StatuslineItalic = { fg = colors.magenta, bg = colors.bg, italic = true },
   StatuslineLazyIcon = { fg = colors.turquoise, bg = colors.bg, italic = true },
-  StatuslineLSPIconOk = { fg = colors.lime, bg = colors.bg, bold = true },
   StatuslineLSPIconNone = { fg = colors.red, bg = colors.bg, bold = true },
+  StatuslineLSPIconOk = { fg = colors.lime, bg = colors.bg, bold = true },
   StatuslineNoiceKeys = { fg = colors.magenta, bg = colors.bg },
   StatuslineNoiceMacro = { fg = colors.radioactive, bg = colors.bg },
   StatuslinePosSeparator = { fg = colors.white, bg = colors.bg },
@@ -39,7 +40,7 @@ statusline_groups = vim.tbl_extend("error", statusline_groups, {
   StatuslineTitle = { fg = colors.white, bg = colors.bg, bold = true },
   StatuslineTotalLines = { fg = colors.red, italic = true },
   StatuslineWhite = { fg = colors.white, bg = colors.bg, bold = true },
-  CmpGhostText = { fg = colors.deep_lavender, bg = colors.deep_velvet, force = true },
+  WinbarTitle = { link = "StatuslineTitle" },
 })
 
 for group, opts in pairs(statusline_groups) do
