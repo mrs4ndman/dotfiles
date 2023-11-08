@@ -2,12 +2,8 @@
 ### The dotfiles for my setup | Los dotfiles para mi setup
 #### The tools I use the most are Neovim and tmux inside Alacritty. All of these live inside a PopOS! setup, recreated through the [scripts](https://github.com)
 
-- **[Neovim](https://github.com/mrs4ndman/dotfiles/tree/main/nvim/.config/nvim)** : Directorio con las configuraciones (y backups / defaults correspondientes) de Neovim | Folder with the configs (and backups / defaults) for Neovim.
-   ![Start screen](https://github.com/mrs4ndman/dotfiles/assets/121260905/3bab3fa8-253f-43e8-9965-e5b73b7b1f6c)
-   ![Fully custom statusline](https://github.com/mrs4ndman/dotfiles/assets/121260905/8e836ef3-e675-4f8a-9c38-676644647f2d)
-
-   - Full-featured and cool startup and custom colorscheme switcher. Which-key reveals the keybinds, and the completion and UI have been optimised for fast startup. Currently working on the debugging setup.
-<br>
+   - **[Neovim (separate repo)](https://github.com/mrs4ndman/nvim-conf)** 
+   <br>
 
    - **[tmux](https://github.com/mrs4ndman/dotfiles/tree/main/tmux)** : Archivos de configuración y temas para mis sesiones de tmux | Config files for my tmux sessions. Includes my own [Rosé Pine theme](https://github.com/rose-pine/tmux) & the [scripts](https://github.com/mrs4ndman/dotfiles/tree/main/scripts/.local/scripts) from ThePrimeagen's [tmux](https://github.com/ThePrimeagen/.dotfiles/tree/master/tmux) setup + a few custom ones
    <!-- ![image](https://github.com/mrs4ndman/dotfiles/assets/121260905/25d1197d-3e98-4f6d-8f58-cba06b3f9497) -->
@@ -49,7 +45,6 @@
    - **[Ranger](https://github.com/mrs4ndman/dotfiles/tree/main/ranger/.config/ranger)** : Archivo de configuración para Ranger, mi gestor de archivos de terminal | Ranger (terminal file manager) config file
    ![image](https://github.com/mrs4ndman/dotfiles/assets/121260905/aa3aea69-18a8-461c-9aa3-831770f7ccb4)
 <br>
-
 
 
 ### Abierto a sugerencias | Open to suggestions

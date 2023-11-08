@@ -14,3 +14,4 @@ map p print
 map w recolor
 # map k 5k
 # map j 5j
+map <C-i> recolor

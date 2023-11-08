@@ -19,7 +19,6 @@ $haskell\
 $fill\
 
 $cmd_duration\
-$jobs\
 $username\
 $hostname\
 $shell\
@@ -27,6 +26,7 @@ $shell\
 $line_break\
 
 $character"""
+# $jobs\
 
 
 add_newline = false
