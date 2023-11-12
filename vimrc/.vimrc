@@ -32,7 +32,6 @@ Plug 'mhinz/vim-startify'
 
 " UX
 Plug 'farmergreg/vim-lastplace'
-Plug 'christoomey/vim-tmux-navigator'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'airblade/vim-matchquote'
 
@@ -148,10 +147,18 @@ silent nmap <leader>q :close<CR>
 silent nmap <leader>wv :vsplit<CR>
 silent nmap <leader>wh :split<CR>
 
-silent nmap <A-Left> :vertical resize -2<CR>
-silent nmap <A-Right> :vertical resize +2<CR>
-silent nmap <A-Up> :resize -2<CR>
-silent nmap <A-Down> :resize +2<CR>
+silent nmap <C-A-Left> :vertical resize -2<CR>
+silent nmap <C-A-Right> :vertical resize +2<CR>
+silent nmap <C-A-Up> :resize -2<CR>
+silent nmap <C-A-Down> :resize +2<CR>
+
+let g:tmux_navigator_no_mappings = 1
+
+noremap <silent> {Left-Mapping} :<C-U>TmuxNavigateLeft<cr>
+noremap <silent> {Down-Mapping} :<C-U>TmuxNavigateDown<cr>
+noremap <silent> {Up-Mapping} :<C-U>TmuxNavigateUp<cr>
+noremap <silent> {Right-Mapping} :<C-U>TmuxNavigateRight<cr>
+noremap <silent> {Previous-Mapping} :<C-U>TmuxNavigatePrevious<cr>
 
 " Set files to executable inside Neovim
 silent map <leader>cx :!chmod +x %<CR>
@@ -196,8 +203,8 @@ silent nmap <C-u> <C-u>zz
 " Invoke tmux-sessionizer from within neovim
 silent nmap <C-f> :silent !tmux neww tmux-sessionizer<CR>
 
-silent nmap <M-H>, 2<ScrollWheelLeft>
-silent nmap <M-L>, 2<ScrollWheelRight>
+silent nmap <C-M-H>, 2<ScrollWheelLeft>
+silent nmap <C-M-L>, 2<ScrollWheelRight>
 
 " Moving around text on visual
 vnoremap <silent> <expr> J ":m '>+1<CR>gv-gv"

@@ -21,4 +21,4 @@ $endif
 "\C-b":"fv \n"
 "\C-f":"tmux neww tmux-sessionizer \n"
 # "\en":"nvim \n"
-"\e ":"fv \n"
+# "\e ":"fv \n"

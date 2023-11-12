@@ -27,12 +27,15 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -i /home/mrsandman
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
-exec --no-startup-id blueman-applet
+# exec --no-startup-id blueman-applet
 
-# Wallpaper manager (feh)
+# Wallpaper manager (feh) + some predefined ones
 exec --no-startup-id feh --bg-fill --recursive --randomize /home/mrsandman/Pictures/Backgrounds/*
-bindsym $mod+Shift+w exec feh --bg-fill /home/mrsandman/Pictures/Backgrounds/blacklotus-pop.png
 exec --no-startup-id compton
+bindsym $mod+mod1+1 exec --no-startup-id feh --bg-fill /home/mrsandman/Pictures/Backgrounds/blacklotus-pop.png
+bindsym $mod+mod1+2 exec --no-startup-id feh --bg-fill /home/mrsandman/Pictures/Backgrounds/gatito-wallpaper.png
+bindsym $mod+mod1+3 exec --no-startup-id feh --bg-fill /home/mrsandman/Pictures/Backgrounds/dark-red-space.jpg
+bindsym $mod+mod1+4 exec --no-startup-id feh --bg-fill /home/mrsandman/Pictures/Backgrounds/cool-wallpaper-100.png
 
 # TEMP
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
@@ -57,7 +60,6 @@ bindsym XF86MonBrightnessDown exec --no-startup-id light -U 1
 bindsym XF86KbdBrightnessUp     exec --no-startup-id brightnessctl --device='asus::kbd_backlight' set 1+
 bindsym XF86KbdBrightnessDown   exec --no-startup-id brightnessctl --device='asus::kbd_backlight' set 1-
 
-
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -66,7 +68,6 @@ bindsym $mod+F2 exec --no-startup-id notify-send "Power profile" "Switching to b
 bindsym $mod+F3 exec --no-startup-id notify-send "Power profile" "Switching to balanced mode" && system76-power profile balanced
 bindsym $mod+F4 exec --no-startup-id notify-send "Power profile" "It's turbo time" && system76-power profile performance
 bindsym $mod+Shift+F4 exec --no-startup-id notify-send "Shutting down" && sleep 5 && systemctl poweroff
-
 
 # start tmux / simple terminal
 bindsym $mod+t exec kitty tmux
@@ -80,12 +81,13 @@ bindsym $mod+Shift+d exec discord
 # Start obsidian, cava, firefox, flameshot
 bindsym $mod+Shift+m exec kitty cava
 bindsym $mod+b exec firefox
-bindsym $mod+n exec flatpak run md.obsidian.Obsidian 
+bindsym $mod+Shift+n exec flatpak run md.obsidian.Obsidian 
 bindcode 107 exec flameshot
 
-# Start file explorers
-bindsym $mod+r exec kitty tmux new-session -sRanger ranger || tmux attach-session -t Ranger
+# Start file explorers and bluetooth manager
+# bindsym $mod+r exec kitty tmux new-session -sRanger ranger || tmux attach-session -t Ranger
 bindsym $mod+f exec nautilus
+bindsym $mod+Shift+b exec kitty bluetuith
 
 # Screenkey stuff
 bindsym $mod+Ctrl+s exec screenkey -s large --scr 2 -p bottom --font-size large --geometry 1000x600+1520+820
@@ -137,8 +139,8 @@ bindsym $mod+g floating toggle
 bindsym $mod+y focus mode_toggle
 
 # focus the parent and child containers
-bindsym $mod+p focus parent
-bindsym $mod+c focus child
+bindsym $mod+Control+p focus parent
+bindsym $mod+Control+c focus child
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.

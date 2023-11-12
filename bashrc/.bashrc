@@ -393,6 +393,7 @@ function tbg () {
 alias nv='nvim'
 alias nvdiff='nvim -d'
 alias v='nvim'
+alias oil='nvim "+Oil"'
 alias SmallNvim='NVIM_APPNAME=SmallNvim nvim'
 alias NvimTest='NVIM_APPNAME=NvimTest nvim'
 alias nik-test='NVIM_APPNAME=nik-test nvim'
