@@ -116,6 +116,7 @@ export VIMRC="$HOME/.vimrc"
 export NVIMRC="$HOME/dotfiles/nvim/.config/nvim"
 export VISUAL="nvim"
 export OBSIDIAN_VAULT="$HOME/Documents/Obsidian Vaults/Dashboard/Current TO-DO.md"
+export MANPAGER="nvim +Man!"
 # Moved vi-mode to .inputrc
 
 #-------------------------------------------------------------#
@@ -158,7 +159,7 @@ alias nyan='nyancat -n'
 alias onefetch='onefetch --include-hidden'
 alias powershell='pwsh'
 alias powsh='pwsh'
-alias rge='alacritty -e ranger'
+alias rust-time='zathura ~/Documents/NSL\ Stuff/The\ Rust\ Programming\ Language.pdf'
 alias sk='screenkey &'
 alias slay='toilet --gay'
 alias srg='sudo ranger'
@@ -487,3 +488,7 @@ if USER="mrsandman"; then
 fi
 
 PATH=~/.console-ninja/.bin:$PATH
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"

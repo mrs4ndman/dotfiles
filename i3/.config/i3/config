@@ -10,7 +10,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Jetbrains Mono Nerdfont 10
+font pango:Jetbrains Mono NF 10
 #font pango:DejaVu Sans Mono 8
 
 # Start XDG autostart .desktop files using dex. See also
@@ -36,6 +36,8 @@ bindsym $mod+mod1+1 exec --no-startup-id feh --bg-fill /home/mrsandman/Pictures/
 bindsym $mod+mod1+2 exec --no-startup-id feh --bg-fill /home/mrsandman/Pictures/Backgrounds/gatito-wallpaper.png
 bindsym $mod+mod1+3 exec --no-startup-id feh --bg-fill /home/mrsandman/Pictures/Backgrounds/dark-red-space.jpg
 bindsym $mod+mod1+4 exec --no-startup-id feh --bg-fill /home/mrsandman/Pictures/Backgrounds/cool-wallpaper-100.png
+bindsym $mod+mod1+r exec --no-startup-id feh --bg-fill --recursive --randomize /home/mrsandman/Pictures/Backgrounds/*
+
 
 # TEMP
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
@@ -89,9 +91,10 @@ bindcode 107 exec flameshot
 bindsym $mod+f exec nautilus
 bindsym $mod+Shift+b exec kitty bluetuith
 
-# Screenkey stuff
+# Screenkey + recording stuff
 bindsym $mod+Ctrl+s exec screenkey -s large --scr 2 -p bottom --font-size large --geometry 1000x600+1520+820
 bindsym $mod+Ctrl+w exec pkill screenkey
+bindsym $mod+Shift+p exec peek
 
 # kill focused window
 bindsym $mod+q kill
