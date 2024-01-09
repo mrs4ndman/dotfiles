@@ -111,7 +111,7 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden -g "!.git" '
 export FZF_DEFAULT_OPTS='-m --height 40% --border'
 export GPG_TTY=$(tty)
 export ALTED="vim"
-export PATH="$HOME/.config/emacs/bin:$HOME/.console-ninja/.bin:/usr/local/go/bin:$HOME/go/bin/:$HOME/.cargo/bin:$HOME/.fzf/bin:$HOME/.local/bin:$HOME/.local/scripts:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+export PATH="$HOME/.config/emacs/bin:/usr/local/go/bin:$HOME/go/bin/:$HOME/.local/scripts:$PATH"
 export VIMRC="$HOME/.vimrc"
 export NVIMRC="$HOME/dotfiles/nvim/.config/nvim"
 export VISUAL="nvim"
@@ -261,6 +261,7 @@ alias sysinfo='sudo fdisk -l; blkid; lshw; lscpu; lscpi; diskusage; df -hl -x sq
 #------------------------ GIT ALIAS ZONE ----------------------#
 
 alias yeet='git push'
+alias YEET='git push --force'
 alias yoink='git pull'
 alias lg='lazygit'
 
@@ -363,6 +364,10 @@ function mkcd() {
 
 function javaclean() {
     mv "$1.java" "$1.class" ../  
+}
+
+function barman() {
+    BAT_PAGER='nvim "+Man!"' batman
 }
 
 #--------------------------------------------------------------#

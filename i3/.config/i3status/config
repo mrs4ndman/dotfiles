@@ -32,7 +32,7 @@ volume master {
 }
 
 battery 0 {
-        format = "%status %percentage %remaining %emptytime"
+        format = "%status %percentage Quedan %remaining - %emptytime"
         format_down = "No battery"
         status_chr = "⚡ CHR"
         status_bat = "🔋 BAT"
@@ -49,6 +49,6 @@ memory {
 }
 
 tztime local {
-        format = "%H:%M:%S %d-%m"
+        format = "%H:%M:%S %a %d-%m"
         hide_if_equals_localtime = false
 }
