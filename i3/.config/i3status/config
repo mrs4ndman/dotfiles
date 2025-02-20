@@ -14,13 +14,13 @@ order += "wireless wlo1"
 order += "ethernet eth0"
 
 wireless wlo1 {
-        format_up = "W:%quality, %bitrate-> %ip"
-        format_down = "W: off"
+        format_up = "WiFi:%quality, %bitrate -> %ip"
+        format_down = "WiFi: nope"
 }
 
 ethernet eth0 {
-        format_up = "Eth: %ip (%speed)"
-        format_down = "Eth: nope"
+        format_up = "Eth: %ip (%speed) |"
+        format_down = "Eth: nope |"
 }
 
 volume master {
@@ -37,13 +37,13 @@ battery 0 {
         status_chr = "⚡ CHR"
         status_bat = "🔋 BAT"
         status_unk = "? UNK"
-        status_full = ":) FULL"
+        status_full = ":) MAX"
         path = "/sys/class/power_supply/BAT%d/uevent"
         low_threshold = 20
 }
 
 memory {
-        format = "Using %used"
+        format = "In use: %used"
         threshold_degraded = "20%"
         format_degraded = "Left: %free"
 }
