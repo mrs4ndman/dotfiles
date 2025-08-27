@@ -36,6 +36,7 @@ bindsym $mod+mod1+1 exec --no-startup-id feh --bg-fill /home/mrsandman/Pictures/
 bindsym $mod+mod1+2 exec --no-startup-id feh --bg-fill /home/mrsandman/Pictures/Backgrounds/gatito-wallpaper.png
 bindsym $mod+mod1+3 exec --no-startup-id feh --bg-fill /home/mrsandman/Pictures/Backgrounds/dark-red-space.jpg
 bindsym $mod+mod1+4 exec --no-startup-id feh --bg-fill /home/mrsandman/Pictures/Backgrounds/cool-wallpaper-100.png
+bindsym $mod+mod1+5 exec --no-startup-id feh --bg-fill /home/mrsandman/Pictures/Backgrounds/kirby.png
 bindsym $mod+mod1+r exec --no-startup-id feh --bg-fill --recursive --randomize /home/mrsandman/Pictures/Backgrounds/*
 
 
@@ -80,11 +81,12 @@ bindsym $mod+F1 exec kitty tmux attach
 bindsym $mod+Shift+s exec spotify
 bindsym $mod+Shift+d exec discord
 
-# Start obsidian, cava, firefox, flameshot, virtualbox
+# Start obsidian, cava, firefox, flameshot, virtualbox, settings menu
 bindsym $mod+Shift+m exec kitty cava
 bindsym $mod+b exec firefox
 bindsym $mod+Shift+n exec flatpak run md.obsidian.Obsidian 
 bindsym $mod+Shift+v exec virtualbox
+bindsym $mod+i exec gnome-control-center
 bindcode 107 exec flameshot
 
 # Start file explorers and bluetooth manager
@@ -109,7 +111,7 @@ bindsym $mod+d exec --no-startup-id dmenu_run
 bindsym $mod+a exec --no-startup-id i3-dmenu-desktop
 
 # Screenlock and suspend
-bindsym $mod+Escape exec i3lock -e -i /home/mrsandman/Pictures/Backgrounds/wallhaven-pink-floyd.png --nofork
+bindsym $mod+Escape exec i3lock -e -i /home/mrsandman/Pictures/Backgrounds/wallhaven-thinkpad.png --nofork
 bindsym $mod+Shift+Escape exec systemctl suspend
 
 
@@ -201,16 +203,16 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 5 px or 5 ppt
+        bindsym j resize grow height 5 px or 5 ppt
+        bindsym k resize shrink height 5 px or 5 ppt
+        bindsym l resize grow width 5 px or 5 ppt
 
         # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Left resize shrink width 5 px or 5 ppt
+        bindsym Down resize grow height 5 px or 5 ppt
+        bindsym Up resize shrink height 5 px or 5 ppt
+        bindsym Right resize grow width 5 px or 5 ppt
 
         # back to normal: Enter or Escape or $mod+Enter
         bindsym Return mode "default"

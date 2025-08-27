@@ -8,6 +8,6 @@ do
     if [[ -z "$spot_title" || -z "$spot_artist" ]]; then
         echo "🎵 No music playing | 💡$brightness% | $line" || exit 1
     else
-        echo "🎵 $spot_title < $spot_artist | 💡$brightness% | $line" || exit 1
+        echo ">:3 | 🎵 $spot_title < $spot_artist | 💡$brightness% | $line" || exit 1
     fi
 done
