@@ -2,7 +2,7 @@
 i3status --config /home/mrsandman/.config/i3status/config | while :
 do
     read -r line
-    brightness=$(cat /sys/class/backlight/amdgpu_bl1/actual_brightness)
+    brightness=$(brightnessctl i | grep -oP '\(\K[0-9]+(?=%\))')    
     spot_title=$(playerctl --player=spotify metadata title)
     spot_artist=$(playerctl --player=spotify metadata artist)
     if [[ -z "$spot_title" || -z "$spot_artist" ]]; then

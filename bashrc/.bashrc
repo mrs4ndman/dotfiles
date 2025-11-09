@@ -414,6 +414,7 @@ alias NvChad='NVIM_APPNAME=NvChad nvim'
 alias NormalNvim='NVIM_APPNAME=NormalNVim nvim'
 alias AstroNvim='NVIM_APPNAME=AstroNvim nvim'
 alias CosmicNvim='NVIM_APPNAME=CosmicNvim nvim'
+alias SimpleNvim='NVIM_APPNAME=simple-nvim nvim'
 #
 #--------------------------------------------------------------#
 
