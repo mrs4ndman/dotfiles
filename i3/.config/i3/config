@@ -37,6 +37,7 @@ bindsym $mod+mod1+2 exec --no-startup-id feh --bg-fill /home/mrsandman/Pictures/
 bindsym $mod+mod1+3 exec --no-startup-id feh --bg-fill /home/mrsandman/Pictures/Backgrounds/dark-red-space.jpg
 bindsym $mod+mod1+4 exec --no-startup-id feh --bg-fill /home/mrsandman/Pictures/Backgrounds/cool-wallpaper-100.png
 bindsym $mod+mod1+5 exec --no-startup-id feh --bg-fill /home/mrsandman/Pictures/Backgrounds/kirby.png
+bindsym $mod+mod1+6 exec --no-startup-id feh --bg-fill /home/mrsandman/Pictures/Backgrounds/wallhaven-thinkpad.png
 bindsym $mod+mod1+r exec --no-startup-id feh --bg-fill --recursive --randomize /home/mrsandman/Pictures/Backgrounds/*
 
 
