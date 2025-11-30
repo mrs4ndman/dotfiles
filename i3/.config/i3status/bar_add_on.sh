@@ -6,8 +6,8 @@ do
     spot_title=$(playerctl --player=spotify metadata title)
     spot_artist=$(playerctl --player=spotify metadata artist)
     if [[ -z "$spot_title" || -z "$spot_artist" ]]; then
-        echo "🎵 No music playing | 💡$brightness% | $line" || exit 1
+        echo "No music playing | 💡$brightness% | $line" || exit 1
     else
-        echo ">_< | 🎵 $spot_title < $spot_artist | 💡$brightness% | $line" || exit 1
+        echo ">_< | 🎹 $spot_title < $spot_artist | 💡$brightness% | $line" || exit 1
     fi
 done

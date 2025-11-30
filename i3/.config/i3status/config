@@ -4,6 +4,7 @@ general {
     color_bad = "#bf616a"
     color_degraded = "#ebcb8b"
     interval = 1
+    separator = " "
 }
 
 order += "volume master"
@@ -14,41 +15,41 @@ order += "wireless wlo1"
 order += "ethernet eth0"
 
 wireless wlo1 {
-        format_up = "WiFi:%quality, %bitrate -> %ip"
-        format_down = "WiFi: nope"
+        format_up = "W:%quality, %bitrate -> %ip"
+        format_down = ""
 }
 
 ethernet eth0 {
-        format_up = "Eth: %ip (%speed) |"
-        format_down = "Eth: nope |"
+        format_up = "| 🔗 → %ip (%speed)"
+        format_down = ""
 }
 
 volume master {
-        format = "🔊 %volume"
-        format_muted = "🔇 (%volume)"
+        format = "🔊 %volume |"
+        format_muted = "🔇 (%volume) |"
         device = "default"
         mixer = "Master"
         mixer_idx = 0
 }
 
 battery 0 {
-        format = "%status %percentage Left: %remaining - %emptytime"
-        format_down = "No battery"
+        format = "%status %percentage Left: %remaining - %emptytime |"
+        format_down = ""
         status_chr = "⚡ CHR"
         status_bat = "🔋 BAT"
         status_unk = "? UNK"
         status_full = ":) MAX"
         path = "/sys/class/power_supply/BAT%d/uevent"
-        low_threshold = 20
+        low_threshold = 33
 }
 
 memory {
-        format = "In use: %used"
+        format = "In use: %used |"
         threshold_degraded = "20%"
-        format_degraded = "Left: %free"
+        format_degraded = "Left: %free |"
 }
 
 tztime local {
-        format = "%H:%M:%S %a %d-%m"
+        format = "%H:%M:%S %a %d-%m |"
         hide_if_equals_localtime = false
 }

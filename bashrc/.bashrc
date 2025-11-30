@@ -415,6 +415,7 @@ alias NormalNvim='NVIM_APPNAME=NormalNVim nvim'
 alias AstroNvim='NVIM_APPNAME=AstroNvim nvim'
 alias CosmicNvim='NVIM_APPNAME=CosmicNvim nvim'
 alias SimpleNvim='NVIM_APPNAME=simple-nvim nvim'
+alias ShovelNvim='NVIM_APPNAME=ShovelNvim nvim'
 #
 #--------------------------------------------------------------#
 
@@ -434,6 +435,7 @@ function nvims() {
         "AstroNvim"
         "kickstart-nvim"
         "CosmicNvim"
+        "ShovelNvim"
     )
     config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Choose your character » " --height=~50% --layout=reverse --border --exit-0)
     if [[ -z $config ]]; then
@@ -456,9 +458,9 @@ source "$HOME"/.local/scripts/fzf-git.sh
 
 #------------- PLUGIN AND ALIAS LOADING SCRIPTS ---------------#
 
-if command -v thefuck >/dev/null 2>&1; then
-    eval "$(thefuck --alias)"
-fi
+# if command -v thefuck >/dev/null 2>&1; then
+#     eval "$(thefuck --alias)"
+# fi
 
 if command -v starship >/dev/null 2>&1; then
     eval "$(starship init bash)"
