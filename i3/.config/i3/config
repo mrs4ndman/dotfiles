@@ -13,6 +13,7 @@ set $mod Mod4
 font pango:Jetbrains Mono NF 10
 #font pango:DejaVu Sans Mono 8
 
+exec_always --no-startup-id xrdb -merge $HOME/.Xresources
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
@@ -41,7 +42,7 @@ bindsym $mod+mod1+6 exec --no-startup-id feh --bg-fill /home/mrsandman/Pictures/
 bindsym $mod+mod1+r exec --no-startup-id feh --bg-fill --recursive --randomize /home/mrsandman/Pictures/Backgrounds/*
 
 
-# TEMP
+# Authorizer for commands that need elevation
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
  
 # Use pactl and pulsemixer to adjust volume in PulseAudio.
@@ -83,7 +84,7 @@ bindsym $mod+Shift+s exec spotify
 bindsym $mod+Shift+d exec discord
 
 # Start obsidian, cava, firefox, flameshot, virtualbox, settings menu
-bindsym $mod+Shift+m exec kitty cava
+# bindsym $mod+Shift+m exec kitty cava
 bindsym $mod+b exec firefox
 bindsym $mod+Shift+n exec flatpak run md.obsidian.Obsidian 
 bindsym $mod+Shift+v exec virtualbox
@@ -262,3 +263,4 @@ for_window [title="Spotify"] move to workspace $ws4
 # Some color accents
 client.focused #0037AA #0037AA #ffffff #2e9ef4 #285577
 # client.focused_inactive #0037AA #0037AA #ffffff #2e9ef4 #285577
+

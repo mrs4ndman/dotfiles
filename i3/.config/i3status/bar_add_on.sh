@@ -3,11 +3,11 @@ i3status --config /home/mrsandman/.config/i3status/config | while :
 do
     read -r line
     brightness=$(brightnessctl i | grep -oP '\(\K[0-9]+(?=%\))')    
-    spot_title=$(playerctl --player=spotify metadata title)
-    spot_artist=$(playerctl --player=spotify metadata artist)
-    if [[ -z "$spot_title" || -z "$spot_artist" ]]; then
-        echo "No music playing | 💡$brightness% | $line" || exit 1
+    playing_title=$(playerctl --player=spotify metadata title)
+    playing_subtitle=$(playerctl --player=spotify metadata artist)
+    if [[ -z "$playing_title" || -z "$playing_subtitle" ]]; then
+        echo "Nothing playing | 💡$brightness% | $line" || exit 1
     else
-        echo ">_< | 🎹 $spot_title < $spot_artist | 💡$brightness% | $line" || exit 1
+        echo ">_< | 🎹 $playing_title < $playing_subtitle | 💡$brightness% | $line" || exit 1
     fi
 done

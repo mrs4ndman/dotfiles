@@ -147,7 +147,7 @@ alias gotty="~/go/bin/gotty"
 alias htmlup='~/go/bin/simplehttp'
 alias lebron-james='trash-put'
 alias i3keys='screenkey -s large --scr 2 -p bottom --font-size large --geometry 1000x600+1520+820'
-alias javatime='cd $HOME/hs/1º/programming/practicas/Java'
+# alias javatime='cd $HOME/hs/1º/programming/practicas/Java'
 alias list-can='trash-list'
 alias lol='toilet --gay lol'
 alias matrix='cmatrix -a -C red'
@@ -203,7 +203,6 @@ alias sshrepub='echo "Path to private >> path to recovered public"; sleep 1; ssh
 alias sstate='sudo systemctl status'
 alias sstop='sudo systemctl stop'
 alias syncerr='find -name *.sync-*'
-alias untar='tar xvf'
 alias vls='watch -n 0.1 ls -la'
 alias vm-list='sudo find / -name *.qcow2 -a -name *.vdi 2>/dev/null'
 alias whack='sudo systemctl restart'
@@ -242,7 +241,6 @@ alias gensecpass="head -c 32 /dev/random | base64 | sed "s:[+=/]::g" | head -c 3
 # This is a bashism, gensecpass ONLY WORKS ON BASH - gensecpass SOLO FUNCIONA EN BASH;
 # Will find a way to make it cross-shell compatible
 
-alias mygit-clone='cd /home/mrsandman/git-clone-zone && git clone https://github.com/mrs4ndman/base.git && git clone https://github.com/mrs4ndman/setup.git'
 alias myip='curl ipinfo.io/ip'
 
 alias missile='sudo find / -name 2>/dev/null' 
@@ -286,8 +284,8 @@ alias glu='git log --graph --oneline --pretty="%h %an %ar - %s"'
 alias gpo='git push origin'
 alias grv='git revert'
 alias grc='git rm --cached'
-alias gst='git status'
 alias gs='git status -s'
+alias gst='git status'
 alias gsh='git stash'
 alias gsa='git stash apply'
 alias gsl='git stash list'
@@ -304,8 +302,6 @@ alias tls='tmux ls'
 alias tks='tmux kill-session -t'
 alias trs='tmux rename-session'
 alias twin='$HOME/.local/scripts/tmux-windowizer'
-# Tmux obsidian session
-alias tobs='tmux new-session -ds obsidian -c ~/Documents/Obsidian\ Vaults'
 function tns () {
     tmux new-session -s "$1" -d
 }
@@ -315,8 +311,7 @@ function tns () {
 #--- Requires the following packages - Requiere los siguiente paquetes:
 # bzip2 tar rar unrar gzip zip unzip ncompress p7zip-full ar zstd xz-utils #
 
-ex ()
-{
+ex () {
     if [ -f "$1" ] ; then
         case $1 in
             *.tar.bz2)  tar xjf "$1"   ;;
@@ -363,14 +358,6 @@ function mkcd() {
     mkdir "$1" && cd "$1" || return
 }
 
-function javaclean() {
-    mv "$1.java" "$1.class" ../  
-}
-
-function barman() {
-    BAT_PAGER='nvim "+Man!"' batman
-}
-
 #--------------------------------------------------------------#
 
 #------------------TMUX SENDER FOR OUTPUTS --------------------#
@@ -397,9 +384,9 @@ function tbg () {
 #------------------------ NEOVIM SETUP -----------------------#
 #
 # Multiple neovim configs and aliases
+alias v='nvim'
 alias nv='nvim'
 alias nvdiff='nvim -d'
-alias v='nvim'
 alias oil='nvim "+Oil"'
 alias nvim-rebuild='pushd ~/git-clone-zone/neovim && git pull && make CMAKE_BUILD_TYPE=RelWithDebInfo && pushd build && cpack -G DEB && sudo dpkg -i nvim-linux-x86_64.deb && nvim --version && popd && popd'
 alias SmallNvim='NVIM_APPNAME=SmallNvim nvim'
