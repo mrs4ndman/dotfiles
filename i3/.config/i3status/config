@@ -16,12 +16,12 @@ order += "ethernet eth0"
 
 wireless wlo1 {
         format_up = "W:%quality, %bitrate -> %ip"
-        format_down = ""
+        format_down = "W (↓)"
 }
 
 ethernet eth0 {
         format_up = "| 🔗 → %ip (%speed)"
-        format_down = ""
+        format_down = "| E (↓)"
 }
 
 volume master {
@@ -33,7 +33,7 @@ volume master {
 }
 
 battery 0 {
-        format = "%status %percentage Left: %remaining - %emptytime |"
+        format = "%status %percentage Percentage → %remaining - %consumption |"
         format_down = ""
         status_chr = "⚡ CHR"
         status_bat = "🔋 BAT"

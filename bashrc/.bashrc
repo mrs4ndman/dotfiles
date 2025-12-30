@@ -274,6 +274,7 @@ alias gcl='git clean'
 alias gco='git checkout'
 alias gcp='git checkout -'
 alias gd='git diff'
+alias gds='git diff --staged'
 alias grg='git remote get-url origin'
 alias gib='git init -b'
 alias gin='git init'
@@ -389,19 +390,8 @@ alias nv='nvim'
 alias nvdiff='nvim -d'
 alias oil='nvim "+Oil"'
 alias nvim-rebuild='pushd ~/git-clone-zone/neovim && git pull && make CMAKE_BUILD_TYPE=RelWithDebInfo && pushd build && cpack -G DEB && sudo dpkg -i nvim-linux-x86_64.deb && nvim --version && popd && popd'
-alias SmallNvim='NVIM_APPNAME=SmallNvim nvim'
-alias NvimTest='NVIM_APPNAME=NvimTest nvim'
-alias nik-test='NVIM_APPNAME=nik-test nvim'
-alias PrimeagenNvim='NVIM_APPNAME=Primeagen nvim'
-alias MonstahNvim='NVIM_APPNAME=MonstahNvim nvim'
-alias LazyVim='NVIM_APPNAME=LazyVim nvim'
-alias kickstart-nvim='NVIM_APPNAME=kickstart-nvim nvim'
-alias DoomNvim='NVIM_APPNAME=DoomNvim nvim'
-alias NvChad='NVIM_APPNAME=NvChad nvim'
-alias NormalNvim='NVIM_APPNAME=NormalNVim nvim'
-alias AstroNvim='NVIM_APPNAME=AstroNvim nvim'
-alias CosmicNvim='NVIM_APPNAME=CosmicNvim nvim'
 alias SimpleNvim='NVIM_APPNAME=simple-nvim nvim'
+alias MonstahNvim='NVIM_APPNAME=MonstahNvim nvim'
 alias ShovelNvim='NVIM_APPNAME=ShovelNvim nvim'
 #
 #--------------------------------------------------------------#
@@ -410,18 +400,8 @@ alias ShovelNvim='NVIM_APPNAME=ShovelNvim nvim'
 function nvims() {
     items=(
         "mrsandman"
-        "NvimTest"
-        "SmallNvim"
-        "Caixeta"
-        "Primeagen"
+        "SimpleNvim"
         "MonstahNvim"
-        "LazyVim"
-        "DoomNvim"
-        "NvChad"
-        "NormalNVim"
-        "AstroNvim"
-        "kickstart-nvim"
-        "CosmicNvim"
         "ShovelNvim"
     )
     config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Choose your character » " --height=~50% --layout=reverse --border --exit-0)
