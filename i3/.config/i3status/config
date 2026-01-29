@@ -33,7 +33,7 @@ volume master {
 }
 
 battery 0 {
-        format = "%status %percentage Percentage → %remaining - %consumption |"
+        format = "%status %percentage → %remaining - %consumption |"
         format_down = ""
         status_chr = "⚡ CHR"
         status_bat = "🔋 BAT"
