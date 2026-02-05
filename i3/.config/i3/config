@@ -6,6 +6,8 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 # Basic -> Win as modifier for i3, Alt for tmux and Ctrl is used mostly inside nvim
+set $main_mon DP-2
+set $second_mon DVI-D-0
 set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -23,7 +25,7 @@ exec --no-startup-id dex --autostart --environment i3
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -i /home/mrsandman/Pictures/Backgrounds/wallhaven-thinkpad.png --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -i /home/mrsandman/Pictures/Backgrounds/blacklotus-pop.png --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -113,7 +115,7 @@ bindsym $mod+d exec --no-startup-id dmenu_run
 bindsym $mod+a exec --no-startup-id i3-dmenu-desktop
 
 # Screenlock and suspend
-bindsym $mod+Escape exec i3lock -e -i /home/mrsandman/Pictures/Backgrounds/wallhaven-thinkpad.png --nofork
+bindsym $mod+Escape exec i3lock -e -i /home/mrsandman/Pictures/Backgrounds/blacklotus-pop.png --nofork
 bindsym $mod+Shift+Escape exec systemctl suspend
 
 
@@ -264,3 +266,14 @@ for_window [title="Spotify"] move to workspace $ws4
 client.focused #0037AA #0037AA #ffffff #2e9ef4 #285577
 # client.focused_inactive #0037AA #0037AA #ffffff #2e9ef4 #285577
 
+# MULTI-MONITOR CONFIG
+workspace 1 output $main_mon
+workspace 2 output $main_mon
+workspace 3 output $main_mon
+workspace 4 output $second_mon
+workspace 5 output $second_mon
+workspace 6 output $main_mon
+workspace 7 output $main_mon
+workspace 8 output $main_mon
+workspace 9 output $main_mon
+workspace 10 output $main_mon

@@ -12,14 +12,14 @@ order += "battery 0"
 order += "tztime local"
 order += "memory"
 order += "wireless wlo1"
-order += "ethernet eth0"
+order += "ethernet enp7s0"
 
 wireless wlo1 {
         format_up = "W:%quality, %bitrate -> %ip"
         format_down = "W (↓)"
 }
 
-ethernet eth0 {
+ethernet enp7s0 {
         format_up = "| 🔗 → %ip (%speed)"
         format_down = "| E (↓)"
 }
