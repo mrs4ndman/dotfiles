@@ -1,0 +1,52 @@
+# Example Presto configuration
+# Location (Linux/XDG): ~/.config/presto/config.toml
+
+[playback]
+# Start with shuffle enabled
+shuffle = true
+# One of: "no-loop", "loop-around"/"loop-all", "repeat-one"/"loop-one"
+loop_mode = "loop-around"
+
+[audio]
+# Crossfade duration when switching tracks. Set to 0 to disable.
+crossfade_ms = 250
+# Fade resolution. Higher = smoother, but more tiny sleeps/volume updates.
+crossfade_steps = 10
+# Quit fade-out duration. Set to 0 to stop immediately.
+quit_fade_out_ms = 500
+
+[controls]
+# `H` / `L` seek step
+scrub_seconds = 10
+
+[ui]
+# Start with selection following the currently playing track
+follow_playback = true
+
+# Header text (top box)
+header_text = " <( And presto! It's music )> "
+
+# Status line "Song:" label fields (order is respected)
+now_playing_track_fields = ["display"]
+now_playing_track_separator = " - "
+
+# Status line time fields (order is respected)
+# Examples:
+#   ["elapsed"]
+#   ["elapsed", "total"]
+#   ["elapsed", "remaining"]
+#   ["remaining", "elapsed"]
+now_playing_time_fields = ["elapsed", "total", "remaining"]
+now_playing_time_separator = " | "
+
+[library]
+# Extensions treated as audio (case-insensitive)
+extensions = ["mp3", "flac", "wav", "ogg"]
+follow_links = true
+include_hidden = true
+recursive = true
+# max_depth = 8
+
+# Track list label (this becomes Track.display, used for sorting + filtering + list rendering)
+display_fields = ["artist", "title"]
+display_separator = " - "
