@@ -14,21 +14,32 @@ crossfade_ms = 250
 crossfade_steps = 10
 # Quit fade-out duration. Set to 0 to stop immediately.
 quit_fade_out_ms = 500
+# Starting volume (0-100%)
+initial_volume_percent = 50
 
 [controls]
 # `H` / `L` seek step
 scrub_seconds = 10
+# Volume step per keypress (percentage points)
+volume_step_percent = 5
 
 [ui]
 # Start with selection following the currently playing track
 follow_playback = true
 
+# Line numbers in the track list
+# show_relative_numbers: show distance from the selected row
+# show_current_line_number: show absolute number for the selected row
+show_relative_numbers = false
+show_current_line_number = false
+
 # Header text (top box)
 header_text = " <( And presto! It's music )> "
 
 # Status line "Song:" label fields (order is respected)
+# Options: "display", "title", "artist", "album", "filename", "path"
 now_playing_track_fields = ["display"]
-now_playing_track_separator = " - "
+now_playing_track_separator = " | "
 
 # Status line time fields (order is respected)
 # Examples:
@@ -48,5 +59,10 @@ recursive = true
 # max_depth = 8
 
 # Track list label (this becomes Track.display, used for sorting + filtering + list rendering)
-display_fields = ["artist", "title"]
+# Options: "display", "title", "artist", "album", "filename", "path"
+display_fields = ["title", "artist"]
 display_separator = " - "
+
+[state]
+# Enable per-directory state load/persist (defaults to false)
+enabled = false
